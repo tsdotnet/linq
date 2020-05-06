@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 
-import IterableTransform from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform';
 import ArgumentOutOfRangeException from '@tsdotnet/exceptions/dist/ArgumentOutOfRangeException';
 import integer from '@tsdotnet/integer';
 

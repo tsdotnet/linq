@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 
-import IterableTransform from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform';
 import integer from '@tsdotnet/integer';
 
 /**

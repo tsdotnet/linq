@@ -3,39 +3,51 @@
  * Licensing: MIT
  */
 
-import {IterableTransform} from './pipe';
+import {IterableFilter, IterableTransform} from './IterableTransform';
 
-export type LinqTransform<TIn, TOut> = (source: Iterable<TIn>) => TOut;
-
-export interface Linqable<T>
-	extends Iterable<T>
-{
-	linq<TResult> (filter: LinqTransform<T, TResult>): TResult;
-}
-
-class Linq<TIn, TOut>
-	implements Linqable<TOut>
+export class Linq<T>
+	implements Iterable<T>
 {
 	constructor (
-		private readonly _source: Iterable<TIn>,
-		private readonly _transform?: IterableTransform<TIn, TOut>)
+		private readonly _source: Iterable<T>)
 	{
 	}
 
-	[Symbol.iterator] (): Iterator<TOut>
+	[Symbol.iterator] (): Iterator<T>
 	{
-		return this._transform(this._source)[Symbol.iterator]();
+		return this._source[Symbol.iterator]();
 	}
 
-
-	pipe<TResult> (filter: IterableTransform<TOut, TResult>): TResult
+	filter (): this
+	filter (...filters: IterableFilter<T>[]): Linq<T>
+	filter (...filters: IterableFilter<T>[]): Linq<T> | this
 	{
-		return new Linq<TOut, TResult>(this, filter);
+		if(!filters?.length) return this;
+		let iterable = this._source;
+		for(const filter of filters)
+		{
+			iterable = filter(iterable);
+		}
+		return new Linq<T>(iterable);
 	}
 
+	toArray (): T[]
+	{
+		const a: T[] = [];
+		for(const e of this._source)
+		{
+			a.push(e);
+		}
+		return a;
+	}
+
+	resolve<TResolution> (resolution: IterableTransform<T, TResolution>): TResolution
+	{
+		return resolution(this._source);
+	}
 }
 
-export default function linq<T, TResult> (
-	source: Iterable<T>): Pipe<TResult> {
-	return new PipeSource(source, filter);
-}
+// export default function linq<T, TResult> (
+// 	source: Iterable<T>): Pipe<TResult> {
+// 	return new PipeSource(source, filter);
+// }
