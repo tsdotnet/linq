@@ -46,5 +46,9 @@
     "ts-node": "^8.10.1",
     "typedoc": "^0.17.6",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@tsdotnet/exceptions": "^1.0.12",
+    "@tsdotnet/integer": "^1.0.6"
   }
 }
