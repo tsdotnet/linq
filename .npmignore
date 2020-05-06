@@ -1,0 +1,10 @@
+node_modules
+.*
+bin
+obj
+*.user
+/spec
+/src
+/docs
+typedoc.json
+tsconfig.*

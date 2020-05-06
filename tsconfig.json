@@ -1,0 +1,18 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "strict": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

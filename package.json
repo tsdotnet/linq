@@ -1,0 +1,50 @@
+{
+  "name": "@tsdotnet/linq",
+  "version": "1.0.0",
+  "description": "",
+  "author": "electricessence",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist-esm/index.js",
+  "keywords": [],
+  "scripts": {
+    "build:dist": "rimraf dist/* && copyfiles -u 1 src/**/*.d.ts dist && tsc",
+    "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
+    "build": "npm install && run-p build:*",
+    "bump": "npm run precommit && npm version patch",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none --theme minimal && node ./.build/create-nojekyll.js",
+    "lint": "eslint src/**/*.ts",
+    "precommit": "npm prune && npm install && run-p lint test && run-p build:* && npm run validate",
+    "prepublishOnly": "npm run build && run-p validate test",
+    "preversion": "run-p lint test",
+    "postversion": "git push && git push --tags && npm run docs && git commit -m \"Updated docs.\" docs && git push",
+    "test": "ts-node -P ./tsconfig.json ./node_modules/jasmine/bin/jasmine --config=spec/jasmine.json",
+    "validate": "node ./.build/validate-package.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsdotnet/linq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsdotnet/linq/issues"
+  },
+  "homepage": "https://github.com/tsdotnet/linq#readme",
+  "devDependencies": {
+    "@types/jasmine": "^3.5.10",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "copyfiles": "^2.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "jasmine": "^3.5.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "typedoc": "^0.17.6",
+    "typescript": "^3.8.3"
+  }
+}
