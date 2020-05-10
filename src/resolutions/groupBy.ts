@@ -6,31 +6,58 @@
 import {IterableValueTransform} from '../IterableTransform';
 import Selector from '../Selector';
 
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 /**
- * A iterable filter that groups the elements of a sequence according to a specified key selector function and creates a result value from each group and its key.
+ * A iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
  */
 export default function groupBy<TKey, TElement> (
 	keySelector: Selector<TElement, TKey>): IterableValueTransform<TElement, Grouping<TKey, TElement>> {
 	return function* (sequence: Iterable<TElement>): Iterable<Grouping<TKey, TElement>> {
 		const
-			keys: TKey[] = [],
-			map          = new Map<TKey, TElement[]>();
+			map      = new Map<TKey, TElement[]>(),
+			iterator = sequence[Symbol.iterator]();
 
 		let i = 0;
-		for(const e of sequence)
+
+		function mapNext ()
 		{
+			const next = iterator.next();
+			if(next.done) return null;
+			const e = next.value;
 			const key = keySelector(e, i++);
-			getOrAdd(keys, map, key).push(e);
+			let elements = map.get(key);
+			const isFirstOf = !elements;
+			if(!elements)
+				map.set(key, elements = []);
+			elements.push(e);
+			return {key, elements, isFirstOf};
 		}
 
-		for(const k of keys)
+		let next = mapNext();
+		while(next)
 		{
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const r = map.get(k)!;
-			map.delete(k);
-			yield new GroupingResult(k, r);
+			const {key, elements} = next;
+			yield new GroupingResult(key, {
+				* [Symbol.iterator] (): Iterator<TElement>
+				{
+					let n = 0;
+					while(n<elements.length || next)
+					{
+						if(n<elements.length) yield elements[n++];
+						else if(next) next = mapNext();
+					}
+				}
+			});
+
+			// Keep mapping next until a new key is discovered.
+			do
+			{ next = mapNext(); }
+			while(next && !next.isFirstOf);
 		}
-		keys.length = 0;
+
+		// If we made it all the way here, then all the results have been distributed.
+		map.clear();
 	};
 }
 
@@ -38,7 +65,6 @@ export interface Grouping<TKey, TElement>
 	extends Iterable<TElement>
 {
 	readonly key: TKey;
-	readonly elements: TElement[];
 }
 
 class GroupingResult<TKey, TElement>
@@ -46,7 +72,7 @@ class GroupingResult<TKey, TElement>
 {
 	constructor (
 		public readonly key: TKey,
-		public readonly elements: TElement[])
+		public readonly elements: Iterable<TElement>)
 	{
 		Object.freeze(this);
 	}
@@ -55,15 +81,4 @@ class GroupingResult<TKey, TElement>
 	{
 		return this.elements[Symbol.iterator]();
 	}
-}
-
-function getOrAdd<TKey, TElement> (keys: TKey[], map: Map<TKey, TElement[]>, key: TKey): TElement[]
-{
-	let elements = map.get(key);
-	if(!elements)
-	{
-		keys.push(key);
-		map.set(key, elements = []);
-	}
-	return elements;
 }
