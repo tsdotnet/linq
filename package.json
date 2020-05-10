@@ -13,7 +13,7 @@
     "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
     "build": "npm install && run-p build:*",
     "bump": "npm run precommit && npm version patch",
-    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none --theme minimal && node ./.build/create-nojekyll.js",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none && node ./.build/create-nojekyll.js",
     "lint": "eslint src/**/*.ts",
     "precommit": "npm prune && npm install && run-p lint test && run-p build:* && npm run validate",
     "prepublishOnly": "npm run build && run-p validate test",
@@ -35,7 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
     "copyfiles": "^2.2.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@tsdotnet/exceptions": "^1.0.12",
-    "@tsdotnet/integer": "^1.0.6"
+    "@tsdotnet/integer": "^1.0.6",
+    "@tsdotnet/memoize": "^1.0.3"
   }
 }

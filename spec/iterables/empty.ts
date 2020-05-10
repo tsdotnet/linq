@@ -1,4 +1,4 @@
-import empty from '../../src/filters/empty';
+import empty from '../../src/iterables/empty';
 
 describe('empty', () => {
 	it('should have no results', () => {

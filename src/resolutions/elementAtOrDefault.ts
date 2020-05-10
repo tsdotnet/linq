@@ -5,6 +5,7 @@
 
 import {IterableTransform} from '../IterableTransform';
 import integer from '@tsdotnet/integer';
+import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 
 /**
  * Produces a function that returns the element at a specified index in a sequence.
@@ -13,9 +14,10 @@ import integer from '@tsdotnet/integer';
  */
 export default function elementAt<T> (index: number): IterableTransform<T, T | undefined> {
 	integer.assertZeroOrGreater(index);
-	return function(elements: Iterable<T>): T | undefined {
+	return function(sequence: Iterable<T>): T | undefined {
+		if(!sequence) throw new ArgumentNullException('sequence');
 		let count = 0;
-		for(const e of elements)
+		for(const e of sequence)
 		{
 			if(index===count++) return e;
 		}

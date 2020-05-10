@@ -4,7 +4,7 @@
  */
 
 import {IterableFilter} from '../IterableTransform';
-import empty from './empty';
+import empty from '../iterables/empty';
 import same from './same';
 
 /**
