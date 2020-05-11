@@ -10,7 +10,7 @@ import where from '../../src/filters/where';
 describe('where', () => {
 	const max = 10;
 	const total = 100;
-	it(`should filter results`, () => {
+	it('should filter results', () => {
 		const value = 'y';
 		let count = 0;
 		for(const e of where(v => v==value)(take(max)(repeatSequence(['x', 'y', 'z'], total))))

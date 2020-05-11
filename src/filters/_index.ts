@@ -13,6 +13,9 @@ import ofType from './ofType';
 import skip from './skip';
 import take from './take';
 import where from './where';
+import orderBy from './orderBy';
+import orderUsing from './orderUsing';
+import reverse from './reverse';
 
 export {
 	defaultIfEmpty,
@@ -22,6 +25,9 @@ export {
 	notNullOrUndefined,
 	notUndefined,
 	ofType,
+	orderBy,
+	orderUsing,
+	reverse,
 	skip,
 	take,
 	where
