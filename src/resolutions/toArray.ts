@@ -6,19 +6,11 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 
 /**
- * Returns a single, specific element of a sequence.
+ * Returns an array (copy) of all the elements in a sequence.
  */
-export default function single<T> (sequence: Iterable<T>): T {
+export default function toArray<T> (sequence: Iterable<T>): T[] {
 	if(!sequence) throw new ArgumentNullException('sequence');
-	// noinspection LoopStatementThatDoesntLoopJS
-	let i = 0;
-	let value: T;
-	for(const e of sequence)
-	{
-		if(i++) throw new Error('Sequence contains more than one element.');
-		value = e;
-	}
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	if(i) return value!;
-	throw new Error('The sequence is empty.');
+	const result: T[] = [];
+	for(const e of sequence) result.push(e);
+	return result;
 }

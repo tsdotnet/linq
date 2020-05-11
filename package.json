@@ -48,9 +48,10 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@tsdotnet/compare": "^1.0.12",
+    "@tsdotnet/common-interfaces": "^1.0.2",
+    "@tsdotnet/compare": "^1.1.2",
     "@tsdotnet/exceptions": "^1.0.12",
     "@tsdotnet/integer": "^1.0.6",
-    "@tsdotnet/memoize": "^1.0.4"
+    "@tsdotnet/memoize": "^1.0.5"
   }
 }

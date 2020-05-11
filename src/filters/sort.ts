@@ -1,0 +1,28 @@
+/*!
+ * @author electricessence / https://github.com/electricessence/
+ * Licensing: MIT
+ */
+
+import {Primitive} from '@tsdotnet/common-interfaces';
+import {comparePrimitives, comparePrimitivesInverted} from '@tsdotnet/compare';
+import toArray from '../resolutions/toArray';
+
+/**
+ * Default ascending sort delegate for primitive only iterables.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
+ */
+export function* ascending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
+{
+	for(const e of toArray(sequence).sort(comparePrimitives)) yield e;
+}
+
+/**
+ * Default descending sort delegate for primitive only iterables.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
+ */
+export function* descending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
+{
+	for(const e of toArray(sequence).sort(comparePrimitivesInverted)) yield e;
+}

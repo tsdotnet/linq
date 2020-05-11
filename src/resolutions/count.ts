@@ -5,11 +5,13 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import isEmpty from './isEmpty';
+import aggregate from './aggregate';
+
+const a = aggregate((p, c) => p + 1, 0);
 
 /**
  * Returns true if sequence is not empty.
  */
-export default function any<T> (sequence: Iterable<T>): boolean {
-	return !isEmpty(sequence);
+export default function count<T> (sequence: Iterable<T>): number {
+	return sequence ? a(sequence) : 0;
 }

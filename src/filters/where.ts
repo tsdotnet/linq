@@ -3,13 +3,13 @@
  * Licensing: MIT
  */
 
-import Predicate from '../Predicate';
 import {IterableFilter} from '../IterableTransform';
+import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
 
 /**
  * An iterable filter that only returns elements that match the provided predicate.
  */
-export default function where<T> (predicate: Predicate<T>): IterableFilter<T> {
+export default function where<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
 	return function* (sequence: Iterable<T>): Iterable<T> {
 		let i = 0;
 		for(const e of sequence)

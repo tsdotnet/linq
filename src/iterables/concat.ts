@@ -3,11 +3,11 @@
  * Licensing: MIT
  */
 
-import concatThese from './concatThese';
+import merge from './merge';
 
 /**
  * Concatenates the provided sequences.
  */
 export default function concat<T> (...sequences: Iterable<T>[]): Iterable<T> {
-	return concatThese(sequences);
+	return merge(sequences);
 }

@@ -3,11 +3,11 @@
  * Licensing: MIT
  */
 
-import any from './any';
-
 /**
  * Returns true if the sequence is empty.
  */
 export default function isEmpty<T> (sequence: Iterable<T>): boolean {
-	return !any(sequence);
+	// noinspection PointlessBooleanExpressionJS
+	return !sequence
+		|| sequence[Symbol.iterator]().next().done===true;
 }

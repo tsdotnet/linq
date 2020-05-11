@@ -6,7 +6,7 @@
 /**
  * Concatenates the sequences.
  */
-export default function* concatThese<T> (sequences: Iterable<Iterable<T>>): Iterable<T> {
+export default function* merge<T> (sequences: Iterable<Iterable<T>>): Iterable<T> {
 	for(const s of sequences)
 	{
 		for(const e of s)

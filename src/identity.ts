@@ -3,7 +3,4 @@
  * Licensing: MIT
  */
 
-export default interface Selector<T, TResult>
-{
-	(e: T, i: number): TResult;
-}
+export default function identity (e: any): any { return e; }

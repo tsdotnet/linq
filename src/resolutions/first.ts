@@ -11,10 +11,8 @@ import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperatio
  */
 export default function first<T> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
-	// noinspection LoopStatementThatDoesntLoopJS
-	for(const e of sequence)
-	{
-		return e;
-	}
-	throw new InvalidOperationException('The sequence is empty.');
+	const iterator = sequence[Symbol.iterator]();
+	const first = iterator.next();
+	if(first.done) throw new InvalidOperationException('The sequence is empty.');
+	return first.value;
 }

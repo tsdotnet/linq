@@ -4,9 +4,9 @@
  */
 
 import {IterableTransform} from '../IterableTransform';
-import ArgumentOutOfRangeException from '@tsdotnet/exceptions/dist/ArgumentOutOfRangeException';
 import integer from '@tsdotnet/integer';
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import ArgumentOutOfRangeException from '@tsdotnet/exceptions/dist/ArgumentOutOfRangeException';
 
 /**
  * Produces a function that returns the element at a specified index in a sequence.
