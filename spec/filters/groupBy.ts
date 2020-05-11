@@ -3,37 +3,30 @@
  * Licensing: MIT
  */
 
-import testItems from './_testItems';
+import testItems, {TestItem} from './_testItems';
+import select from '../../src/transforms/select';
+import distinct from '../../src/filters/distinct';
+import groupBy, {Grouping} from '../../src/transforms/groupBy';
+import count from '../../src/resolutions/count';
+import toArray from '../../src/resolutions/toArray';
+import contains from '../../src/resolutions/contains';
+import where from '../../src/filters/where';
+import single from '../../src/resolutions/single';
 
-describe('.groupBy(selector)', () => {
+/* eslint-disable @typescript-eslint/camelcase */
+
+describe('groupBy(selector)', () => {
 	it('should group by key provided by the selector', () => {
 
+		const A_distinct = distinct(select((o: TestItem) => o.a)(testItems));
+		const A = groupBy((o: TestItem) => o.a)(testItems);
 
-		const A_distinct = testItems
-			.select(o => o.a).distinct();
-		const A = testItems
-			.groupBy(o => o.a);
+		expect(count(A)).withContext('Number of groups should match distinct values.').toBe(count(A_distinct));
 
-		assert.equal(A_distinct.count(), A.count(), 'Number of groups should match distinct values.');
+		const B = groupBy((o: TestItem) => o.b)(testItems);
+		const B_distinct = distinct(select((o: TestItem) => o.b)(testItems));
 
-		const B = testItems
-			.groupBy(o => o.b);
-
-		const C = testItems
-			.groupBy(o => o.b, <any>null, <any>Functions.Identity);
-
-		const D = testItems
-			.groupBy(o => o.b, Functions.Identity, <any>Functions.Identity);
-
-
-		assert.ok(B.first().sequenceEqual(C.first()));
-		assert.ok(C.first().sequenceEqual(D.first()));
-
-		const B_distinct = testItems
-			.select(o => o.b).distinct();
-
-		assert.equal(B_distinct.count(), B.count(), 'Number of groups should match distinct values.');
-
+		expect(count(B)).withContext('Number of groups should match distinct values.').toBe(count(B_distinct));
 
 		const COMPANY_A = 'Microsoft', COMPANY_B = 'Hell Corp.';
 		const objArray = [
@@ -42,17 +35,17 @@ describe('.groupBy(selector)', () => {
 			{Name: 'Sandra', Id: 2, Salary: 999.99, Company: COMPANY_A},
 			{Name: 'Me', Id: 3, Salary: 1000000000.00, Company: COMPANY_B}
 		];
-		const groups = Enumerable(objArray).groupBy(x => x.Company);
-		const companies = groups.select(x => x.key).toArray();
+		const groups = toArray(groupBy<string, any>(x => x.Company)(objArray));
+		const companies = toArray(select((x: Grouping<string, any>) => x.key)(groups));
 
-		assert.equal(companies.length, 2, '2 groups expected.');
-		assert.ok(contains(companies, COMPANY_A), 'Expect ' + COMPANY_A);
-		assert.ok(contains(companies, COMPANY_B), 'Expect ' + COMPANY_B);
-		const group_A = groups.where(g => g.key==COMPANY_A).single();
-		const group_B = groups.where(g => g.key==COMPANY_B).single();
-		assert.equal(group_A.count(), 3, 'Expected count of 3.');
-		assert.equal(group_A.sum(x => x.Salary), 7100.49, 'Expected sum to be correct.');
-		assert.equal(group_B.count(), 1, 'Expected count of 1.');
-		assert.equal(group_B.sum(x => x.Salary), 1000000000.00, 'Expected sum to be correct.');
+		expect(companies.length).withContext('Groups expected.').toBe(2);
+		expect(contains(COMPANY_A)(companies)).toBeTrue();
+		expect(contains(COMPANY_B)(companies)).toBeTrue();
+		const group_A = single(where((g: any) => g.key==COMPANY_A)(groups));
+		const group_B = single(where((g: any) => g.key==COMPANY_B)(groups));
+		expect(count(group_A)).toBe(3);
+		// assert.equal(group_A.sum(x => x.Salary), 7100.49, 'Expected sum to be correct.');
+		expect(count(group_B)).toBe(1);
+		// assert.equal(group_B.sum(x => x.Salary), 1000000000.00, 'Expected sum to be correct.');
 	});
 });

@@ -9,7 +9,7 @@ import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 /**
- * A iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
+ * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
  */
 export default function groupBy<TKey, TElement> (
 	keySelector: SelectorWithIndex<TElement, TKey>): IterableValueTransform<TElement, Grouping<TKey, TElement>> {

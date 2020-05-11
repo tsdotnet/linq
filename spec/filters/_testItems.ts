@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 
-interface TestItem
+export interface TestItem
 {
 	a: number;
 	b: number;
