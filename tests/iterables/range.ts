@@ -1,3 +1,4 @@
+import {expect} from 'chai';
 import range from '../../src/iterables/range';
 
 describe('range', () => {
@@ -6,8 +7,8 @@ describe('range', () => {
 		let count = 0;
 		for(const i of range(1, max))
 		{
-			expect(i).toBe(++count);
+			expect(i).equal(++count);
 		}
-		expect(count).toBe(max);
+		expect(count).equal(max);
 	});
 });

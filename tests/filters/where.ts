@@ -3,6 +3,7 @@
  * Licensing: MIT
  */
 
+import {expect} from 'chai';
 import take from '../../src/filters/take';
 import repeatSequence from '../../src/iterables/repeatSequence';
 import where from '../../src/filters/where';
@@ -16,8 +17,8 @@ describe('where', () => {
 		for(const e of where(v => v==value)(take(max)(repeatSequence(['x', 'y', 'z'], total))))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(3);
+		expect(count).equal(3);
 	});
 });

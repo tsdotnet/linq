@@ -3,6 +3,7 @@
  * Licensing: MIT
  */
 
+import {expect} from 'chai';
 import repeat from '../../src/iterables/repeat';
 import skip from '../../src/filters/skip';
 
@@ -16,9 +17,9 @@ describe('skip', () => {
 		for(const e of skip(max)(repeat(value, 100)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(expected);
+		expect(count).equal(expected);
 	});
 
 	it('should be empty if skip is infinite', () => {
@@ -27,9 +28,9 @@ describe('skip', () => {
 		for(const e of skip(Infinity)(repeat(value, 100)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(0);
+		expect(count).equal(0);
 	});
 
 	it(`should repeat the total ${total} times if skip is zero`, () => {
@@ -38,8 +39,8 @@ describe('skip', () => {
 		for(const e of skip(0)(repeat(value, total)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(total);
+		expect(count).equal(total);
 	});
 });

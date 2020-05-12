@@ -3,6 +3,7 @@
  * Licensing: MIT
  */
 
+import {expect} from 'chai';
 import testItems, {TestItem} from './_testItems';
 import select from '../../src/transforms/select';
 import distinct from '../../src/filters/distinct';
@@ -21,12 +22,12 @@ describe('groupBy(selector)', () => {
 		const A_distinct = distinct(select((o: TestItem) => o.a)(testItems));
 		const A = groupBy((o: TestItem) => o.a)(testItems);
 
-		expect(count(A)).withContext('Number of groups should match distinct values.').toBe(count(A_distinct));
+		expect(count(A)).equal(count(A_distinct), 'Number of groups should match distinct values.');
 
 		const B = groupBy((o: TestItem) => o.b)(testItems);
 		const B_distinct = distinct(select((o: TestItem) => o.b)(testItems));
 
-		expect(count(B)).withContext('Number of groups should match distinct values.').toBe(count(B_distinct));
+		expect(count(B)).equal(count(B_distinct), 'Number of groups should match distinct values.');
 
 		const COMPANY_A = 'Microsoft', COMPANY_B = 'Hell Corp.';
 		const objArray = [
@@ -38,14 +39,14 @@ describe('groupBy(selector)', () => {
 		const groups = toArray(groupBy<string, any>(x => x.Company)(objArray));
 		const companies = toArray(select((x: Grouping<string, any>) => x.key)(groups));
 
-		expect(companies.length).withContext('Groups expected.').toBe(2);
-		expect(contains(COMPANY_A)(companies)).toBeTrue();
-		expect(contains(COMPANY_B)(companies)).toBeTrue();
+		expect(companies.length).equal(2, 'Groups expected.');
+		expect(contains(COMPANY_A)(companies)).to.be.true;
+		expect(contains(COMPANY_B)(companies)).to.be.true;
 		const group_A = single(where((g: any) => g.key==COMPANY_A)(groups));
 		const group_B = single(where((g: any) => g.key==COMPANY_B)(groups));
-		expect(count(group_A)).toBe(3);
+		expect(count(group_A)).equal(3);
 		// assert.equal(group_A.sum(x => x.Salary), 7100.49, 'Expected sum to be correct.');
-		expect(count(group_B)).toBe(1);
+		expect(count(group_B)).equal(1);
 		// assert.equal(group_B.sum(x => x.Salary), 1000000000.00, 'Expected sum to be correct.');
 	});
 });

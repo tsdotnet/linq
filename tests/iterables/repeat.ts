@@ -1,3 +1,4 @@
+import {expect} from 'chai';
 import repeat from '../../src/iterables/repeat';
 
 describe('repeat', () => {
@@ -8,8 +9,8 @@ describe('repeat', () => {
 		for(const e of repeat(value, max))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(max);
+		expect(count).equal(max);
 	});
 });

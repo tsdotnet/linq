@@ -3,6 +3,7 @@
  * Licensing: MIT
  */
 
+import {expect} from 'chai';
 import repeat from '../../src/iterables/repeat';
 import take from '../../src/filters/take';
 
@@ -15,9 +16,9 @@ describe('take', () => {
 		for(const e of take(max)(repeat(value, total)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(max);
+		expect(count).equal(max);
 	});
 
 	it('should be empty if take is zero', () => {
@@ -26,9 +27,9 @@ describe('take', () => {
 		for(const e of take(0)(repeat(value, total)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(0);
+		expect(count).equal(0);
 	});
 
 	it(`should repeat the total ${total} times if take is infinite`, () => {
@@ -37,8 +38,8 @@ describe('take', () => {
 		for(const e of take(Infinity)(repeat(value, total)))
 		{
 			count++;
-			expect(e).toBe(value);
+			expect(e).equal(value);
 		}
-		expect(count).toBe(total);
+		expect(count).equal(total);
 	});
 });

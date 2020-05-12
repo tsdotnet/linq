@@ -3,3 +3,4 @@ node_modules
 .idea/dictionaries/*
 !.idea/dictionaries/shared.xml
 !.idea/dictionaries/local.xml
+.nyc_output

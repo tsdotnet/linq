@@ -1,3 +1,4 @@
+import {expect} from 'chai';
 import empty from '../../src/iterables/empty';
 
 describe('empty', () => {
@@ -8,6 +9,6 @@ describe('empty', () => {
 		{
 			count++;
 		}
-		expect(count).toBe(0);
+		expect(count).equal(0);
 	});
 });
