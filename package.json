@@ -1,21 +1,23 @@
 {
   "name": "@tsdotnet/linq",
-  "version": "1.0.0",
+  "version": "1.0.0-preview",
   "description": "A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET's LINQ does with enumerables.",
   "author": "electricessence",
   "license": "MIT",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist-esm/index.js",
-  "keywords": [],
+  "keywords": [
+    "linq"
+  ],
   "scripts": {
     "build:dist": "rimraf dist/* && copyfiles -u 1 src/**/*.d.ts dist && tsc",
     "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
-    "build": "npm install && run-p build:*",
+    "build": "npm i && run-p build:*",
     "bump": "npm run precommit && npm version patch",
     "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none && node ./.build/create-nojekyll.js",
     "lint": "eslint src/**/*.ts",
-    "precommit": "npm prune && npm install && run-p lint test && run-p build:* && npm run validate",
+    "precommit": "npm i && run-p lint test && run-p build:* && npm run validate",
     "prepublishOnly": "npm run build && run-p validate test",
     "preversion": "run-p lint test",
     "postversion": "git push && git push --tags && npm run docs && git commit -m \"Updated docs.\" docs && git push",
@@ -33,8 +35,8 @@
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "2.31.0",
-    "@typescript-eslint/parser": "2.31.0",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "chai": "^4.2.0",
     "copyfiles": "^2.2.0",
     "eslint": "^7.0.0",
@@ -48,13 +50,15 @@
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.1",
     "typedoc": "^0.17.6",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2"
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.3",
     "@tsdotnet/compare": "^1.3.1",
     "@tsdotnet/exceptions": "^1.0.12",
     "@tsdotnet/integer": "^1.0.6",
-    "@tsdotnet/memoize": "^1.0.5"
+    "@tsdotnet/linked-node-list": "^1.2.6",
+    "@tsdotnet/memoize": "^1.0.6",
+    "@tsdotnet/queue": "^1.0.14"
   }
 }
