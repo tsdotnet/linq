@@ -5,10 +5,10 @@
 
 import {expect} from 'chai';
 import take from '../../src/filters/take';
-import repeatSequence from '../../src/iterables/repeatSequence';
 import where from '../../src/filters/where';
+import repeatSequence from '../../src/iterables/repeatSequence';
 
-describe('where', () => {
+describe('where(predicate)', () => {
 	const max = 10;
 	const total = 100;
 	it('should filter results', () => {

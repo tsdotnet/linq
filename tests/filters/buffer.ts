@@ -8,7 +8,7 @@ import buffer from '../../src/filters/buffer';
 import range from '../../src/iterables/range';
 
 
-describe('buffer', () => {
+describe('buffer(count)', () => {
 	const bounds = 10;
 	const total = 100;
 	it(`should repeat ${total} times`, () => {

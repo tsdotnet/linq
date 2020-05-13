@@ -3,16 +3,21 @@
  * Licensing: MIT
  */
 
-import {IterableTransform} from '../IterableTransform';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import areEqual from '@tsdotnet/compare/dist/areEqual';
+import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {IterableTransform} from '../IterableTransform';
 
-export default function contains<T> (value: T): IterableTransform<T, boolean> {
+/**
+ * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.
+ * @param item The item to look for.
+ * @return {IterableTransform} The transform that will look for the provided item.
+ */
+export default function contains<T> (item: T): IterableTransform<T, boolean> {
 	return function(sequence: Iterable<T>): boolean {
 		if(!sequence) throw new ArgumentNullException('sequence');
 		for(const e of sequence)
 		{
-			if(areEqual(e, value)) return true;
+			if(areEqual(e, item)) return true;
 		}
 		return false;
 	};

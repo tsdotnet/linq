@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
 import empty from '../iterables/empty';
+import {IterableFilter} from '../IterableTransform';
 import same from './same';
 
 /**

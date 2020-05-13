@@ -4,28 +4,29 @@
  */
 
 
-import {IterableTransform} from '../IterableTransform';
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {IterableTransform} from '../IterableTransform';
 
-export default function aggregate<T> (
+function aggregate<T> (
 	reduction: (
 		previous: T | undefined,
 		current: T,
 		index: number) => T): IterableTransform<T, T | undefined>;
 
-export default function aggregate<T, U> (
+function aggregate<T, U> (
 	reduction: (
 		previous: U,
 		current: T,
 		index: number) => U,
 	initialValue: U): IterableTransform<T, U>;
 
-export default function aggregate<T, U> (
+function aggregate<T, U> (
 	reduction: (
 		previous: U | undefined,
 		current: T,
 		index: number) => U,
-	initialValue?: U): IterableTransform<T, U | undefined> {
+	initialValue?: U): IterableTransform<T, U | undefined>
+{
 
 	return function(sequence: Iterable<T>): U | undefined {
 		if(!sequence) throw new ArgumentNullException('sequence');
@@ -34,3 +35,5 @@ export default function aggregate<T, U> (
 		return previous;
 	};
 }
+
+export default aggregate;

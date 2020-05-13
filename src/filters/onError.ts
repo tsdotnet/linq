@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {IterableFilter} from '../IterableTransform';
 
 /**
  * An iterable filter that invokes the provided handler if there was an error while iterating.

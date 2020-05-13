@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import repeat from '../../src/iterables/repeat';
 
-describe('repeat', () => {
+describe('repeat(item, max)', () => {
 	const max = 10;
 	it(`should repeat ${max} times`, () => {
 		const value = 'x';

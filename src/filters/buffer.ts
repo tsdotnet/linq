@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
 import Queue from '@tsdotnet/queue';
+import {IterableFilter} from '../IterableTransform';
 import same from './same';
 
 /**

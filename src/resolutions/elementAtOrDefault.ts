@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableTransform} from '../IterableTransform';
 import integer from '@tsdotnet/integer';
+import {IterableTransform} from '../IterableTransform';
 
 /*
  * Produces a function that returns the element at a specified index in a sequence.

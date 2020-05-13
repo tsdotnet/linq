@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableValueTransform} from '../IterableTransform';
 import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
+import {IterableValueTransform} from '../IterableTransform';
 
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 

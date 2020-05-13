@@ -1,0 +1,1 @@
+{"version":3,"file":"sequenceEqual.js","sourceRoot":"","sources":["../../src/resolutions/sequenceEqual.ts"],"names":[],"mappings":";AAAA;;;GAGG;;;AAEH,+CAA+D;AAC/D,yGAAyE;AAGzE,SAAwB,aAAa,CACpC,KAAkB,EAClB,mBAA0C,kBAAQ;IAClD,OAAO,UAAS,QAAqB;QACpC,OAAO,2BAAiB,CAAC,QAAQ,EAAE,KAAK,EAAE,gBAAgB,CAAC,CAAC;IAC7D,CAAC,CAAC;AACH,CAAC;AAND,gCAMC"}

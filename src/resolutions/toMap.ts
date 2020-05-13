@@ -3,10 +3,10 @@
  * Licensing: MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-import {IterableTransform} from '../IterableTransform';
 import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
+import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import identity from '../identity';
+import {IterableTransform} from '../IterableTransform';
 
 export const enum MappingMode
 {
@@ -15,12 +15,12 @@ export const enum MappingMode
 	Overwrite = 1
 }
 
-export default function toMap<T, TKey> (
+function toMap<T, TKey> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	mappingBehavior?: MappingMode
 ): IterableTransform<T, Map<TKey, T>>;
 
-export default function toMap<T, TKey, TValue> (
+function toMap<T, TKey, TValue> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	valueSelector: SelectorWithIndex<T, TValue>,
 	mappingBehavior?: MappingMode
@@ -29,11 +29,12 @@ export default function toMap<T, TKey, TValue> (
 /**
  * Returns a map of all elements .
  */
-export default function toMap<T, TKey, TValue> (
+function toMap<T, TKey, TValue> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	valueSelector: any           = identity,
 	mappingBehavior: MappingMode = MappingMode.Throw
-): IterableTransform<T, Map<TKey, TValue>> {
+): IterableTransform<T, Map<TKey, TValue>>
+{
 	if(!keySelector) throw new ArgumentNullException('keySelector');
 	if(typeof valueSelector=='number')
 	{
@@ -59,3 +60,5 @@ export default function toMap<T, TKey, TValue> (
 		return result;
 	};
 }
+
+export default toMap;

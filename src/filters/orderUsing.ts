@@ -3,11 +3,11 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
-import {Comparison} from '@tsdotnet/compare/dist/Comparison';
+import {Comparison} from '@tsdotnet/compare/dist/Comparable';
 import Order from '@tsdotnet/compare/dist/Order';
-import toArray from '../resolutions/toArray';
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {IterableFilter} from '../IterableTransform';
+import toArray from '../resolutions/toArray';
 
 /**
  * Orders elements by use of a comparison function.

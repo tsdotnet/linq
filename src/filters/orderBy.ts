@@ -3,10 +3,10 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
 import {Primitive, Selector} from '@tsdotnet/common-interfaces';
-import {comparePrimitives} from '@tsdotnet/compare/dist/comparePrimitives';
+import comparePrimitives from '@tsdotnet/compare/dist/comparePrimitives';
 import Order from '@tsdotnet/compare/dist/Order';
+import {IterableFilter} from '../IterableTransform';
 import toArray from '../resolutions/toArray';
 
 export default function orderBy<T, TKey extends Primitive> (

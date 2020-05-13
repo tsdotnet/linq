@@ -3,8 +3,8 @@
  * Licensing: MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
+import {IterableFilter} from '../IterableTransform';
 import takeWhile from './takeWhile';
 
 /**

@@ -3,9 +3,9 @@
  * Licensing: MIT
  */
 
-import {IterableTransform} from '../IterableTransform';
 import {areEqual, EqualityComparison} from '@tsdotnet/compare';
 import areSequencesEqual from '@tsdotnet/compare/dist/areSequencesEqual';
+import {IterableTransform} from '../IterableTransform';
 
 export default function sequenceEqual<T> (
 	other: Iterable<T>,

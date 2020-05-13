@@ -4,7 +4,7 @@
  */
 
 /**
- * A iterable filter that returns distinct elements from a sequence.
+ * An iterable filter that returns distinct elements from a sequence.
  */
 export default function* distinct<T> (sequence: Iterable<T>): Iterable<T> {
 	const s = new Set<T>();

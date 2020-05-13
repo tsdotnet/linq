@@ -1,0 +1,1 @@
+{"version":3,"file":"range.js","sourceRoot":"","sources":["../../src/iterables/range.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH;;;;;;GAMG;AACH,MAAM,CAAC,OAAO,SAAS,CAAC,CAAC,KAAK,CAC7B,QAAuB,CAAC,EACxB,eAAuB,QAAQ,EAC/B,OAAuB,CAAC;IACxB,KAAI,IAAI,CAAC,GAAG,KAAK,EAAE,CAAC,IAAE,YAAY,EAAE,CAAC,IAAI,IAAI,EAC7C;QACC,MAAM,CAAC,CAAC;KACR;AACF,CAAC"}
