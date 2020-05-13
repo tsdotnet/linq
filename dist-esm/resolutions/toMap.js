@@ -7,7 +7,7 @@ import identity from '../identity';
 /**
  * Returns a map of all elements .
  */
-export default function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Throw */) {
+function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Throw */) {
     if (!keySelector)
         throw new ArgumentNullException('keySelector');
     if (typeof valueSelector == 'number') {
@@ -33,4 +33,5 @@ export default function toMap(keySelector, valueSelector = identity, mappingBeha
         return result;
     };
 }
+export default toMap;
 //# sourceMappingURL=toMap.js.map

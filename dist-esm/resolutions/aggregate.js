@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-export default function aggregate(reduction, initialValue) {
+function aggregate(reduction, initialValue) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException('sequence');
@@ -13,4 +13,5 @@ export default function aggregate(reduction, initialValue) {
         return previous;
     };
 }
+export default aggregate;
 //# sourceMappingURL=aggregate.js.map
