@@ -6,10 +6,14 @@
 import {expect} from 'chai';
 import repeat from '../../src/iterables/repeat';
 import take from '../../src/filters/take';
+import takeWhile from '../../src/filters/takeWhile';
+import takeUntil from '../../src/filters/takeUntil';
 
-describe('take', () => {
-	const max = 10;
-	const total = 100;
+const max = 10;
+const total = 100;
+
+describe('take(count)', () => {
+
 	it(`should repeat the specified ${max} times`, () => {
 		const value = 'x';
 		let count = 0;
@@ -41,5 +45,31 @@ describe('take', () => {
 			expect(e).equal(value);
 		}
 		expect(count).equal(total);
+	});
+});
+
+describe('takeWhile(predicate)', () => {
+	it(`should repeat the specified ${max} times`, () => {
+		const value = 'x';
+		let count = 0;
+		for(const e of takeWhile((x, i) => i<max)(repeat(value, total)))
+		{
+			count++;
+			expect(e).equal(value);
+		}
+		expect(count).equal(max);
+	});
+});
+
+describe('takeUntil(predicate)', () => {
+	it(`should repeat the specified ${max} times`, () => {
+		const value = 'x';
+		let count = 0;
+		for(const e of takeUntil((x, i) => i>=max)(repeat(value, total)))
+		{
+			count++;
+			expect(e).equal(value);
+		}
+		expect(count).equal(max);
 	});
 });

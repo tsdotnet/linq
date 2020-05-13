@@ -4,7 +4,7 @@
  */
 
 import {expect} from 'chai';
-import testItems, {TestItem} from './_testItems';
+import testItems, {TestItem} from '../filters/_testItems';
 import select from '../../src/transforms/select';
 import distinct from '../../src/filters/distinct';
 import groupBy, {Grouping} from '../../src/transforms/groupBy';

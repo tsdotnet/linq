@@ -7,18 +7,15 @@ import {IterableFilter} from '../IterableTransform';
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
 
 /**
- * An iterable filter that will skip results while the condition is true and if false will iterate the rest.
+ * An iterable filter that will return results while the predicate condition is true and stops when false.
  */
-export default function skipWhile<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
+export default function takeWhile<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
 	return function* (sequence: Iterable<T>): Iterable<T> {
-		let i = 0, skipped = false;
+		let i = 0;
 		for(const e of sequence)
 		{
-			if(skipped || !predicate(e, i)) {
-				skipped = true;
-				yield e;
-			}
-			i++;
+			if(!predicate(e, i++)) break;
+			yield e;
 		}
 	};
 }

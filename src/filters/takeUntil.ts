@@ -5,17 +5,11 @@
 
 import {IterableFilter} from '../IterableTransform';
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
+import takeWhile from './takeWhile';
 
 /**
- * An iterable filter that will return results while the predicate condition is true and stops when false.
+ * An iterable filter that will return results until the predicate condition is true.
  */
-export default function takeWhile<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let i = 0;
-		for(const e of sequence)
-		{
-			if(!predicate(e, i++)) break;
-			yield e;
-		}
-	};
+export default function takeUntil<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
+	return takeWhile((e, i) => !predicate(e, i));
 }

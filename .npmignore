@@ -6,6 +6,7 @@ obj
 /tests
 /spec
 /src
+/planned
 /docs
 typedoc.json
 tsconfig.*

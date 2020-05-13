@@ -15,7 +15,7 @@ export default function weave<T> (sequences: Iterable<Iterable<T>>): Iterable<T>
 		* [Symbol.iterator] (): Iterator<T>
 		{
 			const iterators = new LinkedValueNodeList<Iterator<T>>();
-			
+
 			// first pass.
 			for(const s of sequences)
 			{
