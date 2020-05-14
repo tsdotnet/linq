@@ -4,6 +4,6 @@ import { IterableFilter } from '../IterableTransform';
  * Any error while iterating assumes no more results and the iteration will be complete after the error.
  * The handler can decide if it wants to rethrow the error or not.
  * @param {(ex: any, index: number) => void} handler
- * @return {IterableFilter}
+ * @return {IterableFilter<T>}
  */
-export default function onComplete<T>(handler: (ex: any, index: number) => void): IterableFilter<T>;
+export default function onError<T>(handler: (ex: any, index: number) => void): IterableFilter<T>;

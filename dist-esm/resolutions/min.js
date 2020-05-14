@@ -9,7 +9,7 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
  * @param {Iterable<T>} sequence
  * @return {T}
  */
-export function min(sequence) {
+export default function min(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     const i = sequence[Symbol.iterator]();

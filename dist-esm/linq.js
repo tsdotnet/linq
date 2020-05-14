@@ -9,28 +9,51 @@ export class Linq {
     [Symbol.iterator]() {
         return this._source[Symbol.iterator]();
     }
+    /**
+     * Returns a filtered sequence.
+     * @param {IterableFilter} filters The filters to use.
+     * @return {Linq}
+     */
     filter(...filters) {
-        if (!(filters === null || filters === void 0 ? void 0 : filters.length))
-            return this;
+        return filters.length ? this.filters(filters) : this;
+    }
+    /**
+     * Returns a filtered sequence.
+     * @param {IterableFilter} filters The filters to use.
+     * @return {Linq}
+     */
+    filters(filters) {
         let iterable = this._source;
         for (const filter of filters) {
             iterable = filter(iterable);
         }
         return new Linq(iterable);
     }
-    toArray() {
-        const a = [];
-        for (const e of this._source) {
-            a.push(e);
-        }
-        return a;
+    /**
+     * Returns a transformed sequence.
+     * @param {IterableValueTransform} transform The transform to use.
+     * @return {Linq<TResult>}
+     */
+    transform(transform) {
+        return new Linq(transform(this._source));
     }
+    /**
+     * Applies a resolution to this sequence.
+     * @param {IterableTransform} resolution
+     * @return {TResolution}
+     */
     resolve(resolution) {
         return resolution(this._source);
     }
 }
-// export default function linq<T, TResult> (
-// 	source: Iterable<T>): Pipe<TResult> {
-// 	return new PipeSource(source, filter);
-// }
+/**
+ * Converts any iterable into a LINQ style iterable.
+ * Import filters and transforms to create a query.
+ * Use a resolution to get a result.
+ * @param {Iterable<T>} source
+ * @return {Linq<T>}
+ */
+export default function linq(source) {
+    return new Linq(source);
+}
 //# sourceMappingURL=linq.js.map

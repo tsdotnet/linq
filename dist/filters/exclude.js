@@ -8,8 +8,8 @@ const tslib_1 = require("tslib");
 const same_1 = tslib_1.__importDefault(require("./same"));
 /**
  * An iterable filter that returns all elements except for any in the exclusion sequence.
- * @param {Iterable} exclusions
- * @return {IterableFilter}
+ * @param {Iterable<T>} exclusions
+ * @return {IterableFilter<T>}
  */
 function exclude(exclusions) {
     if (!exclusions)

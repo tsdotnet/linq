@@ -8,9 +8,9 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
  * Any error while iterating assumes no more results and the iteration will be complete after the error.
  * The handler can decide if it wants to rethrow the error or not.
  * @param {(ex: any, index: number) => void} handler
- * @return {IterableFilter}
+ * @return {IterableFilter<T>}
  */
-export default function onComplete(handler) {
+export default function onError(handler) {
     if (!handler)
         throw new ArgumentNullException('action');
     return function* (sequence) {

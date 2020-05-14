@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 
-import {IterableFilter, IterableTransform} from './IterableTransform';
+import {IterableFilter, IterableTransform, IterableValueTransform} from './IterableTransform';
 
 export class Linq<T>
 	implements Iterable<T>
@@ -18,11 +18,23 @@ export class Linq<T>
 		return this._source[Symbol.iterator]();
 	}
 
-	filter (): this
+	/**
+	 * Returns a filtered sequence.
+	 * @param {IterableFilter} filters The filters to use.
+	 * @return {Linq}
+	 */
 	filter (...filters: IterableFilter<T>[]): Linq<T>
-	filter (...filters: IterableFilter<T>[]): Linq<T> | this
 	{
-		if(!filters?.length) return this;
+		return filters.length ? this.filters(filters) : this;
+	}
+
+	/**
+	 * Returns a filtered sequence.
+	 * @param {IterableFilter} filters The filters to use.
+	 * @return {Linq}
+	 */
+	filters (filters: Iterable<IterableFilter<T>>): Linq<T>
+	{
 		let iterable = this._source;
 		for(const filter of filters)
 		{
@@ -31,23 +43,34 @@ export class Linq<T>
 		return new Linq<T>(iterable);
 	}
 
-	toArray (): T[]
+	/**
+	 * Returns a transformed sequence.
+	 * @param {IterableValueTransform} transform The transform to use.
+	 * @return {Linq<TResult>}
+	 */
+	transform<TResult> (transform: IterableValueTransform<T, TResult>): Linq<TResult>
 	{
-		const a: T[] = [];
-		for(const e of this._source)
-		{
-			a.push(e);
-		}
-		return a;
+		return new Linq(transform(this._source));
 	}
 
+	/**
+	 * Applies a resolution to this sequence.
+	 * @param {IterableTransform} resolution
+	 * @return {TResolution}
+	 */
 	resolve<TResolution> (resolution: IterableTransform<T, TResolution>): TResolution
 	{
 		return resolution(this._source);
 	}
 }
 
-// export default function linq<T, TResult> (
-// 	source: Iterable<T>): Pipe<TResult> {
-// 	return new PipeSource(source, filter);
-// }
+/**
+ * Converts any iterable into a LINQ style iterable.
+ * Import filters and transforms to create a query.
+ * Use a resolution to get a result.
+ * @param {Iterable<T>} source
+ * @return {Linq<T>}
+ */
+export default function linq<T> (source: Iterable<T>): Linq<T> {
+	return new Linq(source);
+}

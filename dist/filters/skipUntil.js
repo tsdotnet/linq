@@ -9,6 +9,8 @@ const skipWhile_1 = tslib_1.__importDefault(require("./skipWhile"));
 /**
  * An iterable filter that bypasses elements in sequence until the predicate condition returns is true.
  * Inverse of skipWhile.
+ * @param {PredicateWithIndex<T>} predicate
+ * @return {IterableFilter<T>}
  */
 function skipUntil(predicate) {
     return skipWhile_1.default((e, i) => !predicate(e, i));

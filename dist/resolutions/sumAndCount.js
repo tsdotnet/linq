@@ -4,13 +4,12 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sumAndCount = void 0;
 const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * Returns the sum (.value) of a sequence and the number of entries (.count).
- * @param {Iterable} sequence The sequence of numbers to sum and count.
- * @return The result.
+ * @param {Iterable<number>} sequence The sequence of numbers to sum and count.
+ * @return {{value: number; count: number}} The result.
  */
 function sumAndCount(sequence) {
     if (!sequence)
@@ -27,5 +26,5 @@ function sumAndCount(sequence) {
         count: count
     };
 }
-exports.sumAndCount = sumAndCount;
+exports.default = sumAndCount;
 //# sourceMappingURL=sumAndCount.js.map

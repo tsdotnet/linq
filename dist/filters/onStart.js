@@ -8,6 +8,8 @@ const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * An iterable filter that invokes the provided action before iterating results.
+ * @param {() => void} action
+ * @return {IterableFilter<T>}
  */
 function onStart(action) {
     if (!action)

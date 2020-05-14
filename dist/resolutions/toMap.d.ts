@@ -9,6 +9,18 @@ export declare const enum MappingMode {
     Keep = 0,
     Overwrite = 1
 }
-declare function toMap<T, TKey>(keySelector: SelectorWithIndex<T, TKey>, mappingBehavior?: MappingMode): IterableTransform<T, Map<TKey, T>>;
-declare function toMap<T, TKey, TValue>(keySelector: SelectorWithIndex<T, TKey>, valueSelector: SelectorWithIndex<T, TValue>, mappingBehavior?: MappingMode): IterableTransform<T, Map<TKey, TValue>>;
-export default toMap;
+/**
+ * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, T>>}
+ */
+export default function toMap<T, TKey>(keySelector: SelectorWithIndex<T, TKey>, mappingBehavior?: MappingMode): IterableTransform<T, Map<TKey, T>>;
+/**
+ * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param {SelectorWithIndex<T, TValue>} valueSelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, TValue>>}
+ */
+export default function toMap<T, TKey, TValue>(keySelector: SelectorWithIndex<T, TKey>, valueSelector: SelectorWithIndex<T, TValue>, mappingBehavior?: MappingMode): IterableTransform<T, Map<TKey, TValue>>;

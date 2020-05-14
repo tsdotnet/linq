@@ -4,15 +4,15 @@
  */
 
 import {expect} from 'chai';
-import testItems, {TestItem} from '../filters/_testItems';
-import select from '../../src/transforms/select';
 import distinct from '../../src/filters/distinct';
-import groupBy, {Grouping} from '../../src/transforms/groupBy';
-import count from '../../src/resolutions/count';
-import toArray from '../../src/resolutions/toArray';
-import contains from '../../src/resolutions/contains';
 import where from '../../src/filters/where';
+import contains from '../../src/resolutions/contains';
+import count from '../../src/resolutions/count';
 import single from '../../src/resolutions/single';
+import toArray from '../../src/resolutions/toArray';
+import groupBy, {Grouping} from '../../src/transforms/groupBy';
+import select from '../../src/transforms/select';
+import testItems, {TestItem} from '../testItems';
 
 /* eslint-disable @typescript-eslint/camelcase */
 

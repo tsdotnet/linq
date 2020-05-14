@@ -5,9 +5,12 @@
 
 /**
  * Generates a sequence that contains one repeated value.
+ * @param {T} entry
+ * @param {number} count The number of times to repeat.
+ * @return {Iterable<T>}
  */
 export default function* repeat<T> (
-	item: T,
-	count: number = Infinity): Iterable<T> {
-	for(let i = 0; i<count; i++) yield item;
+	entry: T,
+	count: number): Iterable<T> {
+	for(let i = 0; i<count; i++) yield entry;
 }

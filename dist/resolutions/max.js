@@ -4,7 +4,6 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.max = void 0;
 const tslib_1 = require("tslib");
 const ArgumentException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentException"));
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
@@ -27,5 +26,5 @@ function max(sequence) {
     }
     return max;
 }
-exports.max = max;
+exports.default = max;
 //# sourceMappingURL=max.js.map

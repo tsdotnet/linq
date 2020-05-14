@@ -8,10 +8,10 @@ const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
 /**
- * Orders elements by use of a comparison function.
- * @param {Comparison} comparison The function to decide if elements are greater, lesser or equal.
+ * An iterable filter that orders elements by use of a comparison function.
+ * @param {Comparison<T>} comparison The function to decide if elements are greater, lesser or equal.
  * @param {Order} order Default is ascending.
- * @return {IterableFilter}
+ * @return {IterableFilter<T>}
  */
 function orderUsing(comparison, order = 1 /* Ascending */) {
     if (!comparison)

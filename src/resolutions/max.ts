@@ -12,8 +12,7 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
  * @param {Iterable<T>} sequence
  * @return {T}
  */
-export function max<T extends Primitive> (sequence: Iterable<T>): T
-{
+export default function max<T extends Primitive> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
 	const i = sequence[Symbol.iterator]();
 	let n = i.next();

@@ -12,7 +12,7 @@ export interface TestItem
 }
 
 
-const source: TestItem[] = [
+const testItems: TestItem[] = [
 	{
 		a: 1,
 		b: 2,
@@ -79,4 +79,4 @@ const source: TestItem[] = [
 		c: 'f'
 	}
 ];
-export default Object.freeze(source);
+export default Object.freeze(testItems);

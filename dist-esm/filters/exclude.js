@@ -5,8 +5,8 @@
 import same from './same';
 /**
  * An iterable filter that returns all elements except for any in the exclusion sequence.
- * @param {Iterable} exclusions
- * @return {IterableFilter}
+ * @param {Iterable<T>} exclusions
+ * @return {IterableFilter<T>}
  */
 export default function exclude(exclusions) {
     if (!exclusions)

@@ -9,12 +9,14 @@ import {IterableTransform} from '../IterableTransform';
 
 /**
  * An iterable transform that resolves false if the predicate ever returns false. Otherwise true.
- * @param predicate The predicate to evaluate with.
- * @return {IterableTransform} The transform that will invoke the predicate.
+ * @param {PredicateWithIndex<T>} predicate
+ * @return {IterableTransform<T, boolean>}
  */
 export default function all<T> (predicate: PredicateWithIndex<T>): IterableTransform<T, boolean> {
 	if(!predicate) throw new ArgumentNullException('predicate');
 	return function(sequence: Iterable<T>): boolean {
+		if(!sequence) throw new ArgumentNullException('sequence');
+		if(sequence instanceof Array) return sequence.every(predicate);
 		let i = 0;
 		for(const e of sequence)
 		{

@@ -6,6 +6,8 @@ import empty from '../iterables/empty';
 import same from './same';
 /**
  * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.
+ * @param {number} count
+ * @return {IterableFilter<T>}
  */
 export default function skip(count) {
     if (isNaN(count) || count <= 0)

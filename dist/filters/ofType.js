@@ -4,6 +4,12 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * An iterable filter that only returns elements of the type (constructor) provided.
+ * Example: Calling ofType(Number)(sequence) will filter all numbers.
+ * @param type
+ * @return {IterableValueTransform<any, TType>}
+ */
 function ofType(type) {
     let typeName;
     switch (type) {

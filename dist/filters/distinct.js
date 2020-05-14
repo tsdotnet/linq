@@ -6,6 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * An iterable filter that returns distinct elements from a sequence.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 function* distinct(sequence) {
     const s = new Set();

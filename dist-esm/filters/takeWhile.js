@@ -4,6 +4,8 @@
  */
 /**
  * An iterable filter that will return results while the predicate condition is true and stops when false.
+ * @param {PredicateWithIndex<T>} predicate
+ * @return {IterableFilter<T>}
  */
 export default function takeWhile(predicate) {
     return function* (sequence) {

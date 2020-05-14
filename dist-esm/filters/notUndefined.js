@@ -4,6 +4,8 @@
  */
 /**
  * Filters out null values.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 export default function* notUndefined(sequence) {
     for (const e of sequence) {

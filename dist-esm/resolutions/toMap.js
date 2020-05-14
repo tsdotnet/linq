@@ -6,8 +6,12 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 import identity from '../identity';
 /**
  * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param valueSelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, TValue>>}
  */
-function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Throw */) {
+export default function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Throw */) {
     if (!keySelector)
         throw new ArgumentNullException('keySelector');
     if (typeof valueSelector == 'number') {
@@ -33,5 +37,4 @@ function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Th
         return result;
     };
 }
-export default toMap;
 //# sourceMappingURL=toMap.js.map

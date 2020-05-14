@@ -6,6 +6,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+/**
+ * An iterable transform that applies an accumulator function over a sequence.
+ * The specified seed value is used as the initial accumulator value, and the specified function is used to select the result value.
+ * @param {(previous: (U | undefined), current: T, index: number) => U} reduction
+ * @param {U} initialValue
+ * @return {IterableTransform<T, U | undefined>}
+ */
 function aggregate(reduction, initialValue) {
     return function (sequence) {
         if (!sequence)

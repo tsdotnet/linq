@@ -5,6 +5,8 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * An iterable filter that invokes the provided action if there are no more entries to iterate.
+ * @param {() => void} action
+ * @return {IterableFilter<T>}
  */
 export default function onComplete(action) {
     if (!action)

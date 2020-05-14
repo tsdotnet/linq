@@ -9,6 +9,8 @@ import same from './same';
 
 /**
  * An iterable filter that (once started) pre-fetches entries from the source up to the size.
+ * @param {number} size
+ * @return {IterableFilter<T>}
  */
 export default function buffer<T> (size: number): IterableFilter<T> {
 	if(size<=0) return same;

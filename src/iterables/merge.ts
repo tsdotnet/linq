@@ -7,6 +7,8 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 
 /**
  * Concatenates the sequences.
+ * @param {Iterable<Iterable<T>>} sequences
+ * @return {Iterable<T>}
  */
 export default function* merge<T> (sequences: Iterable<Iterable<T>>): Iterable<T> {
 	if(!sequences) throw new ArgumentNullException('sequences');

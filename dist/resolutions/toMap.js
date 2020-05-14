@@ -9,6 +9,10 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
 const identity_1 = tslib_1.__importDefault(require("../identity"));
 /**
  * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param valueSelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, TValue>>}
  */
 function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior = -1 /* Throw */) {
     if (!keySelector)

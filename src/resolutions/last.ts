@@ -8,19 +8,31 @@ import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperatio
 
 /**
  * Returns the first element of a sequence.
+ * @param {Iterable<T>} sequence
+ * @return {T}
  */
 export default function last<T> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
-	const iterator = sequence[Symbol.iterator]();
-	let next = iterator.next();
-	if(next.done) throw new InvalidOperationException('The sequence is empty.');
-	let last: T;
-	do
+	if(sequence instanceof Array)
 	{
-		last = next.value;
-		next = iterator.next();
+		if(sequence.length) return sequence[0];
 	}
-	while(!next.done);
-	return last;
+	else
+	{
+		const iterator = sequence[Symbol.iterator]();
+		let next = iterator.next();
+		if(!next.done)
+		{
+			let last: T;
+			do
+			{
+				last = next.value;
+				next = iterator.next();
+			}
+			while(!next.done);
+			return last;
+		}
+	}
+	throw new InvalidOperationException('The sequence is empty.');
 }
 

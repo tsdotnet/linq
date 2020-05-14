@@ -2,7 +2,13 @@
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
-export default function ofType(type) {
+/**
+ * An iterable filter that only returns elements of the type (constructor) provided.
+ * Example: Calling ofType(Number)(sequence) will filter all numbers.
+ * @param type
+ * @return {IterableValueTransform<any, TType>}
+ */
+function ofType(type) {
     let typeName;
     switch (type) {
         case Number:
@@ -32,4 +38,5 @@ export default function ofType(type) {
         }
     };
 }
+export default ofType;
 //# sourceMappingURL=ofType.js.map

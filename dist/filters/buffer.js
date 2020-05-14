@@ -9,6 +9,8 @@ const queue_1 = tslib_1.__importDefault(require("@tsdotnet/queue"));
 const same_1 = tslib_1.__importDefault(require("./same"));
 /**
  * An iterable filter that (once started) pre-fetches entries from the source up to the size.
+ * @param {number} size
+ * @return {IterableFilter<T>}
  */
 function buffer(size) {
     if (size <= 0)

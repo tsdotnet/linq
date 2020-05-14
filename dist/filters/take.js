@@ -9,6 +9,8 @@ const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
 const same_1 = tslib_1.__importDefault(require("./same"));
 /**
  * An iterable filter that returns a specified number of contiguous elements from the start of a sequence.
+ * @param {number} count
+ * @return {IterableFilter<T>}
  */
 function take(count) {
     if (count <= 0)

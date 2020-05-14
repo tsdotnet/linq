@@ -10,10 +10,10 @@ import {IterableFilter} from '../IterableTransform';
 import toArray from '../resolutions/toArray';
 
 /**
- * Orders elements by use of a comparison function.
- * @param {Comparison} comparison The function to decide if elements are greater, lesser or equal.
+ * An iterable filter that orders elements by use of a comparison function.
+ * @param {Comparison<T>} comparison The function to decide if elements are greater, lesser or equal.
  * @param {Order} order Default is ascending.
- * @return {IterableFilter}
+ * @return {IterableFilter<T>}
  */
 export default function orderUsing<T> (
 	comparison: Comparison<T>,

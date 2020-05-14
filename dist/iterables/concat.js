@@ -8,6 +8,8 @@ const tslib_1 = require("tslib");
 const merge_1 = tslib_1.__importDefault(require("./merge"));
 /**
  * Concatenates the provided sequences.
+ * @param {Iterable<T>} sequences
+ * @return {Iterable<T>}
  */
 function concat(...sequences) {
     return merge_1.default(sequences);

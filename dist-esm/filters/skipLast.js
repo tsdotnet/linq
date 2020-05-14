@@ -7,6 +7,8 @@ import empty from '../iterables/empty';
 import same from './same';
 /**
  * An iterable filter that returns everything from the sequence except the last count of items.
+ * @param {number} count
+ * @return {IterableFilter<T>}
  */
 export default function skipLast(count) {
     if (isNaN(count) || count <= 0)

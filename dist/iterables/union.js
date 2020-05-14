@@ -9,6 +9,8 @@ const distinct_1 = tslib_1.__importDefault(require("../filters/distinct"));
 const merge_1 = tslib_1.__importDefault(require("./merge"));
 /**
  * Produces the set union of all sequences provided..
+ * @param {Iterable<T>} sequences
+ * @return {Iterable<T>}
  */
 function union(...sequences) {
     return distinct_1.default(merge_1.default(sequences));

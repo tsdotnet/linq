@@ -4,14 +4,13 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.average = void 0;
 const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 const InvalidOperationException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/InvalidOperationException"));
 /**
  * Returns the average of a sequence of numbers.
- * @param {Iterable} sequence The sequence of numbers to average.
- * @return The average of the sequence.
+ * @param {Iterable<number>} sequence
+ * @return {number}
  */
 function average(sequence) {
     if (!sequence)
@@ -27,5 +26,5 @@ function average(sequence) {
         throw new InvalidOperationException_1.default('Sequence is empty.');
     return sum / count;
 }
-exports.average = average;
+exports.default = average;
 //# sourceMappingURL=average.js.map

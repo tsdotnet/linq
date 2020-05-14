@@ -5,10 +5,10 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * Returns the sum (.value) of a sequence and the number of entries (.count).
- * @param {Iterable} sequence The sequence of numbers to sum and count.
- * @return The result.
+ * @param {Iterable<number>} sequence The sequence of numbers to sum and count.
+ * @return {{value: number; count: number}} The result.
  */
-export function sumAndCount(sequence) {
+export default function sumAndCount(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let sum = 0, count = 0;

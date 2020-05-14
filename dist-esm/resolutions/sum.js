@@ -5,10 +5,10 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * Returns the sum (+) of a sequence of numbers.
- * @param {Iterable} sequence The sequence of numbers to sum (add+ together).
- * @return The sum of the sequence.
+ * @param {Iterable<number>} sequence The sequence of numbers to sum (add+ together).
+ * @return {number} The sum of the sequence.
  */
-export function sum(sequence) {
+export default function sum(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let sum = 0;

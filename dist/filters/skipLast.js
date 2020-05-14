@@ -10,6 +10,8 @@ const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
 const same_1 = tslib_1.__importDefault(require("./same"));
 /**
  * An iterable filter that returns everything from the sequence except the last count of items.
+ * @param {number} count
+ * @return {IterableFilter<T>}
  */
 function skipLast(count) {
     if (isNaN(count) || count <= 0)

@@ -6,19 +6,28 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
 /**
  * Returns the first element of a sequence.
+ * @param {Iterable<T>} sequence
+ * @return {T}
  */
 export default function last(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
-    const iterator = sequence[Symbol.iterator]();
-    let next = iterator.next();
-    if (next.done)
-        throw new InvalidOperationException('The sequence is empty.');
-    let last;
-    do {
-        last = next.value;
-        next = iterator.next();
-    } while (!next.done);
-    return last;
+    if (sequence instanceof Array) {
+        if (sequence.length)
+            return sequence[0];
+    }
+    else {
+        const iterator = sequence[Symbol.iterator]();
+        let next = iterator.next();
+        if (!next.done) {
+            let last;
+            do {
+                last = next.value;
+                next = iterator.next();
+            } while (!next.done);
+            return last;
+        }
+    }
+    throw new InvalidOperationException('The sequence is empty.');
 }
 //# sourceMappingURL=last.js.map

@@ -4,13 +4,12 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sum = void 0;
 const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * Returns the sum (+) of a sequence of numbers.
- * @param {Iterable} sequence The sequence of numbers to sum (add+ together).
- * @return The sum of the sequence.
+ * @param {Iterable<number>} sequence The sequence of numbers to sum (add+ together).
+ * @return {number} The sum of the sequence.
  */
 function sum(sequence) {
     if (!sequence)
@@ -23,5 +22,5 @@ function sum(sequence) {
     }
     return sum;
 }
-exports.sum = sum;
+exports.default = sum;
 //# sourceMappingURL=sum.js.map

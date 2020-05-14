@@ -3,7 +3,14 @@
  * Licensing: MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-function aggregate(reduction, initialValue) {
+/**
+ * An iterable transform that applies an accumulator function over a sequence.
+ * The specified seed value is used as the initial accumulator value, and the specified function is used to select the result value.
+ * @param {(previous: (U | undefined), current: T, index: number) => U} reduction
+ * @param {U} initialValue
+ * @return {IterableTransform<T, U | undefined>}
+ */
+export default function aggregate(reduction, initialValue) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException('sequence');
@@ -13,5 +20,4 @@ function aggregate(reduction, initialValue) {
         return previous;
     };
 }
-export default aggregate;
 //# sourceMappingURL=aggregate.js.map

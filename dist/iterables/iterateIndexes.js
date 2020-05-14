@@ -6,8 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Returns an iterator that iterates the provided ArrayLike using length and index.
- * @param {ArrayLike} source
- * @returns {Iterable}
+ * @param {ArrayLike<T>} source
+ * @return {Iterable<T>}
  */
 function* iterateIndexes(source) {
     const len = source === null || source === void 0 ? void 0 : source.length;

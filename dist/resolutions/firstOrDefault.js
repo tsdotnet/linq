@@ -5,14 +5,20 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Returns the first element of a sequence, or a the default value if no element is found.
+ * An iterable transform that returns the first element of a sequence, or a default value if no element is found.
+ * @param {T} defaultValue
+ * @return {IterableTransform<T, T | undefined>}
  */
-function firstOrDefault(sequence, defaultValue) {
-    if (!sequence)
-        return defaultValue;
-    const iterator = sequence[Symbol.iterator]();
-    const first = iterator.next();
-    return first.done ? defaultValue : first.value;
+function firstOrDefault(defaultValue) {
+    return function (sequence) {
+        if (!sequence)
+            return defaultValue;
+        if (sequence instanceof Array)
+            return sequence.length ? sequence[0] : defaultValue;
+        const iterator = sequence[Symbol.iterator]();
+        const first = iterator.next();
+        return first.done ? defaultValue : first.value;
+    };
 }
 exports.default = firstOrDefault;
 //# sourceMappingURL=firstOrDefault.js.map

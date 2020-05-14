@@ -7,13 +7,29 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
 
 /**
- * Returns a single, specific element of a sequence.
+ * Returns an entry from a singular sequence.
+ * Will throw if no elements or more than one.
+ * @param {Iterable<T>} sequence
+ * @return {T}
  */
 export default function single<T> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
-	const iterator = sequence[Symbol.iterator]();
-	const first = iterator.next();
-	if(first.done) throw new InvalidOperationException('The sequence is empty.');
-	if(iterator.next().done) return first.value;
-	throw new Error('Sequence contains more than one element.');
+	let hasElements;
+	if(sequence instanceof Array)
+	{
+		const len = sequence.length;
+		hasElements = len!==0;
+		if(len===1) return sequence[0];
+	}
+	else
+	{
+		const iterator = sequence[Symbol.iterator]();
+		const first = iterator.next();
+		hasElements = !first.done;
+		if(hasElements && iterator.next().done) return first.value;
+	}
+	throw new InvalidOperationException(hasElements
+		? 'Sequence contains more than one element.'
+		: 'The sequence is empty.');
+
 }

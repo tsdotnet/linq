@@ -6,6 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Filters out null values.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 function* notNullOrUndefined(sequence) {
     for (const e of sequence) {

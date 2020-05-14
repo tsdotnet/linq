@@ -15,12 +15,25 @@ export const enum MappingMode
 	Overwrite = 1
 }
 
-function toMap<T, TKey> (
+/**
+ * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, T>>}
+ */
+export default function toMap<T, TKey> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	mappingBehavior?: MappingMode
 ): IterableTransform<T, Map<TKey, T>>;
 
-function toMap<T, TKey, TValue> (
+/**
+ * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param {SelectorWithIndex<T, TValue>} valueSelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, TValue>>}
+ */
+export default function toMap<T, TKey, TValue> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	valueSelector: SelectorWithIndex<T, TValue>,
 	mappingBehavior?: MappingMode
@@ -28,13 +41,16 @@ function toMap<T, TKey, TValue> (
 
 /**
  * Returns a map of all elements .
+ * @param {SelectorWithIndex<T, TKey>} keySelector
+ * @param valueSelector
+ * @param {MappingMode} mappingBehavior
+ * @return {IterableTransform<T, Map<TKey, TValue>>}
  */
-function toMap<T, TKey, TValue> (
+export default function toMap<T, TKey, TValue> (
 	keySelector: SelectorWithIndex<T, TKey>,
 	valueSelector: any           = identity,
 	mappingBehavior: MappingMode = MappingMode.Throw
-): IterableTransform<T, Map<TKey, TValue>>
-{
+): IterableTransform<T, Map<TKey, TValue>> {
 	if(!keySelector) throw new ArgumentNullException('keySelector');
 	if(typeof valueSelector=='number')
 	{
@@ -60,5 +76,3 @@ function toMap<T, TKey, TValue> (
 		return result;
 	};
 }
-
-export default toMap;

@@ -4,4 +4,4 @@ import { Primitive } from '@tsdotnet/common-interfaces';
  * @param {Iterable<T>} sequence
  * @return {T}
  */
-export declare function max<T extends Primitive>(sequence: Iterable<T>): T;
+export default function max<T extends Primitive>(sequence: Iterable<T>): T;

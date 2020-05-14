@@ -5,6 +5,8 @@
 import merge from './merge';
 /**
  * Concatenates the provided sequences.
+ * @param {Iterable<T>} sequences
+ * @return {Iterable<T>}
  */
 export default function concat(...sequences) {
     return merge(sequences);

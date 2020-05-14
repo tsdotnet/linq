@@ -8,6 +8,8 @@ const tslib_1 = require("tslib");
 const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
 /**
  * Returns an array (copy) of all the elements of a sequence in reverse order.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 function* reverse(sequence) {
     // Placing this inside a generator allows it to be lazy.

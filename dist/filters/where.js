@@ -6,6 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * An iterable filter that only returns elements that match the provided predicate.
+ * @param {PredicateWithIndex<T>} predicate
+ * @return {IterableFilter<T>}
  */
 function where(predicate) {
     return function* (sequence) {

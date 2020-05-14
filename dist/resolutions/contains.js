@@ -5,22 +5,15 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const areEqual_1 = tslib_1.__importDefault(require("@tsdotnet/compare/dist/areEqual"));
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const indexOf_1 = tslib_1.__importDefault(require("./indexOf"));
 /**
- * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.
- * @param item The item to look for.
- * @return {IterableTransform} The transform that will look for the provided item.
+ * An iterable transform that resolves true if the provided sequence contains the entry. Otherwise false.
+ * @param {T} entry
+ * @return {IterableTransform<T, boolean>}
  */
-function contains(item) {
+function contains(entry) {
     return function (sequence) {
-        if (!sequence)
-            throw new ArgumentNullException_1.default('sequence');
-        for (const e of sequence) {
-            if (areEqual_1.default(e, item))
-                return true;
-        }
-        return false;
+        return indexOf_1.default(entry)(sequence) !== -1;
     };
 }
 exports.default = contains;

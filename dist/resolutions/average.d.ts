@@ -1,6 +1,6 @@
 /**
  * Returns the average of a sequence of numbers.
- * @param {Iterable} sequence The sequence of numbers to average.
- * @return The average of the sequence.
+ * @param {Iterable<number>} sequence
+ * @return {number}
  */
-export declare function average(sequence: Iterable<number>): number;
+export default function average(sequence: Iterable<number>): number;

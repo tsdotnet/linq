@@ -6,6 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Returns the sequence provided.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 function same(sequence) {
     return sequence;

@@ -1,1 +1,1 @@
-{"version":3,"file":"union.js","sourceRoot":"","sources":["../../src/iterables/union.ts"],"names":[],"mappings":";AAAA;;;GAGG;;;AAEH,2EAA2C;AAC3C,4DAA4B;AAE5B;;GAEG;AACH,SAAwB,KAAK,CAAK,GAAG,SAAwB;IAC5D,OAAO,kBAAQ,CAAC,eAAK,CAAC,SAAS,CAAC,CAAC,CAAC;AACnC,CAAC;AAFD,wBAEC"}
+{"version":3,"file":"union.js","sourceRoot":"","sources":["../../src/iterables/union.ts"],"names":[],"mappings":";AAAA;;;GAGG;;;AAEH,2EAA2C;AAC3C,4DAA4B;AAE5B;;;;GAIG;AACH,SAAwB,KAAK,CAAK,GAAG,SAAwB;IAC5D,OAAO,kBAAQ,CAAC,eAAK,CAAC,SAAS,CAAC,CAAC,CAAC;AACnC,CAAC;AAFD,wBAEC"}

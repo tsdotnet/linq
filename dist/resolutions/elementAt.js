@@ -11,13 +11,15 @@ const integer_1 = tslib_1.__importDefault(require("@tsdotnet/integer"));
 /**
  * Produces a function that returns the element at a specified index in a sequence.
  * @param {number} index
- * @returns A function that when passed a sequence of elements selects the specific element.
+ * @return {IterableTransform<T, T>} A function that when passed a sequence of elements selects the specific element.
  */
 function elementAt(index) {
     integer_1.default.assertZeroOrGreater(index);
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException_1.default('sequence');
+        if (sequence instanceof Array)
+            return sequence[index];
         let count = 0;
         for (const e of sequence) {
             if (index === count++)

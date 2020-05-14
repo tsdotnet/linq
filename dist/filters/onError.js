@@ -11,9 +11,9 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
  * Any error while iterating assumes no more results and the iteration will be complete after the error.
  * The handler can decide if it wants to rethrow the error or not.
  * @param {(ex: any, index: number) => void} handler
- * @return {IterableFilter}
+ * @return {IterableFilter<T>}
  */
-function onComplete(handler) {
+function onError(handler) {
     if (!handler)
         throw new ArgumentNullException_1.default('action');
     return function* (sequence) {
@@ -34,5 +34,5 @@ function onComplete(handler) {
         }
     };
 }
-exports.default = onComplete;
+exports.default = onError;
 //# sourceMappingURL=onError.js.map

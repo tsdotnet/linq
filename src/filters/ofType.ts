@@ -8,9 +8,19 @@ import {IterableValueTransform} from '../IterableTransform';
 /**
  * An iterable filter that only returns elements of the type (constructor) provided.
  * Example: Calling ofType(Number)(sequence) will filter all numbers.
+ * @param {{new(...params: any[]): TType}} type
+ * @return {IterableValueTransform<any, TType>}
  */
-export default function ofType<TType> (type: { new (...params: any[]): TType }): IterableValueTransform<any, TType>;
-export default function ofType<TType> (type: any): IterableValueTransform<any, TType> {
+function ofType<TType> (type: { new (...params: any[]): TType }): IterableValueTransform<any, TType>;
+
+/**
+ * An iterable filter that only returns elements of the type (constructor) provided.
+ * Example: Calling ofType(Number)(sequence) will filter all numbers.
+ * @param type
+ * @return {IterableValueTransform<any, TType>}
+ */
+function ofType<TType> (type: any): IterableValueTransform<any, TType>
+{
 	let typeName: string;
 	switch(type)
 	{
@@ -41,3 +51,5 @@ export default function ofType<TType> (type: any): IterableValueTransform<any, T
 		}
 	};
 }
+
+export default ofType;

@@ -5,9 +5,12 @@
 
 /**
  * Returns true if the sequence is empty.
+ * @param {Iterable<any>} sequence
+ * @return {boolean}
  */
-export default function isEmpty<T> (sequence: Iterable<T>): boolean {
+export default function isEmpty (sequence: Iterable<any>): boolean {
 	// noinspection PointlessBooleanExpressionJS
 	return !sequence
+		|| sequence instanceof Array && !sequence.length
 		|| sequence[Symbol.iterator]().next().done===true;
 }

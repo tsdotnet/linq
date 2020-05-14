@@ -4,7 +4,6 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.min = void 0;
 const tslib_1 = require("tslib");
 const ArgumentException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentException"));
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
@@ -27,5 +26,5 @@ function min(sequence) {
     }
     return min;
 }
-exports.min = min;
+exports.default = min;
 //# sourceMappingURL=min.js.map

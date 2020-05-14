@@ -5,6 +5,8 @@
 import toArray from '../resolutions/toArray';
 /**
  * Returns an array (copy) of all the elements of a sequence in reverse order.
+ * @param {Iterable<T>} sequence
+ * @return {Iterable<T>}
  */
 export default function* reverse(sequence) {
     // Placing this inside a generator allows it to be lazy.

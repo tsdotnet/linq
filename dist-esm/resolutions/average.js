@@ -6,10 +6,10 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
 /**
  * Returns the average of a sequence of numbers.
- * @param {Iterable} sequence The sequence of numbers to average.
- * @return The average of the sequence.
+ * @param {Iterable<number>} sequence
+ * @return {number}
  */
-export function average(sequence) {
+export default function average(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let sum = 0, count = 0;

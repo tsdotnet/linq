@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const concat_1 = tslib_1.__importDefault(require("../iterables/concat"));
 const same_1 = tslib_1.__importDefault(require("./same"));
-/**
+/*
  * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.
  */
 function append(...elements) {
