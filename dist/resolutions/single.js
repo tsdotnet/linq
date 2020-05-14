@@ -16,7 +16,7 @@ const InvalidOperationException_1 = tslib_1.__importDefault(require("@tsdotnet/e
 function single(sequence) {
     if (!sequence)
         throw new ArgumentNullException_1.default('sequence');
-    let hasElements = false;
+    let hasElements;
     if (sequence instanceof Array) {
         const len = sequence.length;
         hasElements = len !== 0;
