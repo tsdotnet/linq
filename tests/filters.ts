@@ -14,6 +14,7 @@ import onComplete from '../src/filters/onComplete';
 import onError from '../src/filters/onError';
 import onStart from '../src/filters/onStart';
 import prepend from '../src/filters/prepend';
+import reverse from '../src/filters/reverse';
 import skip from '../src/filters/skip';
 import skipUntil from '../src/filters/skipUntil';
 import skipWhile from '../src/filters/skipWhile';
@@ -34,11 +35,13 @@ import last from '../src/resolutions/last';
 import single from '../src/resolutions/single';
 import toArray from '../src/resolutions/toArray';
 import {testRepeatableResolution} from './testRepeatableResolution';
+import testItems from './testItems';
+import orderBy from '../src/filters/orderBy';
+import select from '../src/transforms/select';
 
 /* eslint-disable no-empty, @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars */
 
 describe('filters/', () => {
-
 
 	describe('append(e)', () => {
 		it('last entry in sequence should be the appended', () => {
@@ -49,7 +52,6 @@ describe('filters/', () => {
 				.equal('d');
 		});
 	});
-
 
 	describe('buffer(count)', () => {
 		const bounds = 10;
@@ -63,7 +65,6 @@ describe('filters/', () => {
 			expect(count).equal(total);
 		});
 	});
-
 
 	describe('defaultIfEmpty(e)', () => {
 
@@ -211,8 +212,7 @@ describe('filters/', () => {
 				{
 					yield 'ok';
 					throw error;
-				}
-			})
+				}})
 				.filter(onError(ex => {
 					expect(ex).equal(error);
 					errored = true;
@@ -249,6 +249,18 @@ describe('filters/', () => {
 		});
 	});
 
+	describe('orderBy(keySelector)', () => {
+		it('last entry in sequence should be the appended', () => {
+			expect(
+				linq(testItems)
+					.filter(orderBy(e=>e.b))
+					.transform(select(e=>e.b))
+					.filter(distinct)
+					.resolve(toArray))
+				.to.have.ordered.members([1,2,3]);
+		});
+	});
+
 	describe('prepend(e)', () => {
 		it('last entry in sequence should be the appended', () => {
 			expect(
@@ -259,6 +271,15 @@ describe('filters/', () => {
 		});
 	});
 
+	describe('reverse',()=>{
+		it('sequence should be reversed', () => {
+			expect(
+				linqExtended(['a', 'b', 'c'])
+					.filter(reverse)
+					.toArray())
+				.to.have.ordered.members(['c', 'b', 'a']);
+		});
+	});
 
 	describe('skip', () => {
 		const max = 10;
