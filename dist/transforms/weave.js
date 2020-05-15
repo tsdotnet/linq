@@ -9,6 +9,8 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
 const linked_node_list_1 = require("@tsdotnet/linked-node-list");
 /**
  * Returns an item from each iterable before calling next on each.
+ * @param {Iterable<Iterable<T>>} sequences
+ * @return {Iterable<T>}
  */
 function weave(sequences) {
     if (!sequences)

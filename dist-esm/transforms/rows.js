@@ -5,6 +5,8 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * Returns the rows from a given set of iterables representing columns.
+ * @param {Iterable<Iterable<any>>} columns
+ * @return {Iterable<Row>}
  */
 export default function rows(columns) {
     if (!columns)

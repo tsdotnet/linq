@@ -11,14 +11,18 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
  * @param {Iterable<Iterable<T>>} sequences
  * @return {Iterable<T>}
  */
-function* merge(sequences) {
+function merge(sequences) {
     if (!sequences)
         throw new ArgumentNullException_1.default('sequences');
-    for (const s of sequences) {
-        for (const e of s) {
-            yield e;
+    return {
+        *[Symbol.iterator]() {
+            for (const s of sequences) {
+                for (const e of s) {
+                    yield e;
+                }
+            }
         }
-    }
+    };
 }
 exports.default = merge;
 //# sourceMappingURL=merge.js.map

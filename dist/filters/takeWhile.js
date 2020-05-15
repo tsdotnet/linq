@@ -10,13 +10,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {IterableFilter<T>}
  */
 function takeWhile(predicate) {
-    return function* (sequence) {
-        let i = 0;
-        for (const e of sequence) {
-            if (!predicate(e, i++))
-                break;
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0;
+                for (const e of sequence) {
+                    if (!predicate(e, i++))
+                        break;
+                    yield e;
+                }
+            }
+        };
     };
 }
 exports.default = takeWhile;

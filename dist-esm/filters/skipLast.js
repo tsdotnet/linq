@@ -15,14 +15,18 @@ export default function skipLast(count) {
         return same;
     if (!isFinite(count))
         return empty;
-    return function* (sequence) {
-        const q = new Queue();
-        for (const e of sequence) {
-            q.enqueue(e);
-            if (q.count > count)
-                yield q.dequeue(true);
-        }
-        q.clear();
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const q = new Queue();
+                for (const e of sequence) {
+                    q.enqueue(e);
+                    if (q.count > count)
+                        yield q.dequeue(true);
+                }
+                q.clear();
+            }
+        };
     };
 }
 //# sourceMappingURL=skipLast.js.map

@@ -8,12 +8,16 @@
  * @return {(sequence: Iterable<T>) => Iterable<TSelect>}
  */
 export default function selectMany(selector) {
-    return function* (sequence) {
-        let i = 0;
-        for (const outer of sequence) {
-            for (const inner of selector(outer, i++))
-                yield inner;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0;
+                for (const outer of sequence) {
+                    for (const inner of selector(outer, i++))
+                        yield inner;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=selectMany.js.map

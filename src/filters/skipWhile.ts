@@ -13,16 +13,21 @@ import {IterableFilter} from '../IterableTransform';
  * @return {IterableFilter<T>}
  */
 export default function skipWhile<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let i = 0, skipped = false;
-		for(const e of sequence)
-		{
-			if(skipped || !predicate(e, i))
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
 			{
-				skipped = true;
-				yield e;
+				let i = 0, skipped = false;
+				for(const e of sequence)
+				{
+					if(skipped || !predicate(e, i))
+					{
+						skipped = true;
+						yield e;
+					}
+					i++;
+				}
 			}
-			i++;
-		}
+		};
 	};
 }

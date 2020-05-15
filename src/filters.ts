@@ -9,9 +9,6 @@ import buffer from './filters/buffer';
 import defaultIfEmpty from './filters/defaultIfEmpty';
 import distinct from './filters/distinct';
 import exclude from './filters/exclude';
-import notNull from './filters/notNull';
-import notNullOrUndefined from './filters/notNullOrUndefined';
-import notUndefined from './filters/notUndefined';
 import ofType from './filters/ofType';
 import onComplete from './filters/onComplete';
 import onError from './filters/onError';
@@ -38,9 +35,6 @@ export {
 	distinct,
 	exclude,
 	memoize,
-	notNull,
-	notNullOrUndefined,
-	notUndefined,
 	ofType,
 	onComplete,
 	onError,

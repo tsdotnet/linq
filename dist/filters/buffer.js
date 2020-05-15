@@ -15,15 +15,19 @@ const same_1 = tslib_1.__importDefault(require("./same"));
 function buffer(size) {
     if (size <= 0)
         return same_1.default;
-    return function* (sequence) {
-        const q = new queue_1.default();
-        for (const e of sequence) {
-            q.enqueue(e);
-            if (q.count > size)
-                yield q.dequeue(true);
-        }
-        while (!q.isEmpty)
-            yield q.dequeue(true);
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const q = new queue_1.default();
+                for (const e of sequence) {
+                    q.enqueue(e);
+                    if (q.count > size)
+                        yield q.dequeue(true);
+                }
+                while (!q.isEmpty)
+                    yield q.dequeue(true);
+            }
+        };
     };
 }
 exports.default = buffer;

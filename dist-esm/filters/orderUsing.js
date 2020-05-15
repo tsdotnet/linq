@@ -13,12 +13,16 @@ import toArray from '../resolutions/toArray';
 export default function orderUsing(comparison, order = 1 /* Ascending */) {
     if (!comparison)
         throw new ArgumentNullException('comparison');
-    return function* (sequence) {
-        for (const e of toArray(sequence).sort(order == -1 /* Descending */
-            ? ((a, b) => comparison(a, b) * -1)
-            : comparison)) {
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                for (const e of toArray(sequence).sort(order == -1 /* Descending */
+                    ? ((a, b) => comparison(a, b) * -1)
+                    : comparison)) {
+                    yield e;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=orderUsing.js.map

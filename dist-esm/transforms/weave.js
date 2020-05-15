@@ -6,6 +6,8 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 import { LinkedValueNodeList } from '@tsdotnet/linked-node-list';
 /**
  * Returns an item from each iterable before calling next on each.
+ * @param {Iterable<Iterable<T>>} sequences
+ * @return {Iterable<T>}
  */
 export default function weave(sequences) {
     if (!sequences)

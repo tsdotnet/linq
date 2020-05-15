@@ -10,54 +10,62 @@ import {IterableValueTransform} from '../IterableTransform';
 
 /**
  * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
+ * @param {SelectorWithIndex<TElement, TKey>} keySelector
+ * @return {IterableValueTransform<TElement, Grouping<TKey, TElement>>}
  */
 export default function groupBy<TKey, TElement> (
-	keySelector: SelectorWithIndex<TElement, TKey>): IterableValueTransform<TElement, Grouping<TKey, TElement>> {
-	return function* (sequence: Iterable<TElement>): Iterable<Grouping<TKey, TElement>> {
-		const
-			map      = new Map<TKey, TElement[]>(),
-			iterator = sequence[Symbol.iterator]();
+	keySelector: SelectorWithIndex<TElement, TKey>
+): IterableValueTransform<TElement, Grouping<TKey, TElement>> {
+	return function(sequence: Iterable<TElement>): Iterable<Grouping<TKey, TElement>> {
+		return {
+			* [Symbol.iterator] (): Iterator<Grouping<TKey, TElement>>
+			{
+				const
+					map      = new Map<TKey, TElement[]>(),
+					iterator = sequence[Symbol.iterator]();
 
-		let i = 0;
+				let i = 0;
 
-		function mapNext ()
-		{
-			const next = iterator.next();
-			if(next.done) return null;
-			const e = next.value;
-			const key = keySelector(e, i++);
-			let elements = map.get(key);
-			const isFirstOf = !elements;
-			if(!elements)
-				map.set(key, elements = []);
-			elements.push(e);
-			return {key, elements, isFirstOf};
-		}
-
-		let next = mapNext();
-		while(next)
-		{
-			const {key, elements} = next;
-			yield new GroupingResult(key, {
-				* [Symbol.iterator] (): Iterator<TElement>
+				function mapNext ()
 				{
-					let n = 0;
-					while(n<elements.length || next)
-					{
-						if(n<elements.length) yield elements[n++];
-						else if(next) next = mapNext();
-					}
+					const next = iterator.next();
+					if(next.done) return null;
+					const e = next.value;
+					const key = keySelector(e, i++);
+					let elements = map.get(key);
+					const isFirstOf = !elements;
+					if(!elements)
+						map.set(key, elements = []);
+					elements.push(e);
+					return {key, elements, isFirstOf};
 				}
-			});
 
-			// Keep mapping next until a new key is discovered.
-			do
-			{ next = mapNext(); }
-			while(next && !next.isFirstOf);
-		}
+				let next = mapNext();
+				while(next)
+				{
+					const {key, elements} = next;
+					yield new GroupingResult(key, {
+						* [Symbol.iterator] (): Iterator<TElement>
+						{
+							let n = 0;
+							while(n<elements.length || next)
+							{
+								if(n<elements.length) yield elements[n++];
+								else if(next) next = mapNext();
+							}
+						}
+					});
 
-		// If we made it all the way here, then all the results have been distributed.
-		map.clear();
+					// Keep mapping next until a new key is discovered.
+					do
+					{ next = mapNext(); }
+					while(next && !next.isFirstOf);
+				}
+
+				// If we made it all the way here, then all the results have been distributed.
+				map.clear();
+			}
+		};
 	};
 }
 

@@ -17,13 +17,17 @@ function skip(count) {
         return same_1.default;
     if (!isFinite(count))
         return empty_1.default;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            if (0 < remain--)
-                continue;
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let remain = count;
+                for (const e of sequence) {
+                    if (0 < remain--)
+                        continue;
+                    yield e;
+                }
+            }
+        };
     };
 }
 exports.default = skip;

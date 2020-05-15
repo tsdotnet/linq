@@ -9,9 +9,13 @@
  * @param {number} step
  * @returns {Iterable<number>}
  */
-export default function* range(start = 0, maxInclusive = Infinity, step = 1) {
-    for (let i = start; i <= maxInclusive; i += step) {
-        yield i;
-    }
+export default function range(start = 0, maxInclusive = Infinity, step = 1) {
+    return {
+        *[Symbol.iterator]() {
+            for (let i = start; i <= maxInclusive; i += step) {
+                yield i;
+            }
+        }
+    };
 }
 //# sourceMappingURL=range.js.map

@@ -11,13 +11,18 @@ import {IterableFilter} from '../IterableTransform';
  * @return {IterableFilter<T>}
  */
 export default function defaultIfEmpty<T> (defaultValue: T): IterableFilter<T> {
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let hasElements = false;
-		for(const e of sequence)
-		{
-			hasElements = true;
-			yield e;
-		}
-		if(!hasElements) yield defaultValue;
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				let hasElements = false;
+				for(const e of sequence)
+				{
+					hasElements = true;
+					yield e;
+				}
+				if(!hasElements) yield defaultValue;
+			}
+		};
 	};
 }

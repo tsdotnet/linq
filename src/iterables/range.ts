@@ -10,12 +10,17 @@
  * @param {number} step
  * @returns {Iterable<number>}
  */
-export default function* range (
+export default function range (
 	start: number        = 0,
 	maxInclusive: number = Infinity,
 	step: number         = 1): Iterable<number> {
-	for(let i = start; i<=maxInclusive; i += step)
-	{
-		yield i;
-	}
+	return {
+		* [Symbol.iterator] (): Iterator<number>
+		{
+			for(let i = start; i<=maxInclusive; i += step)
+			{
+				yield i;
+			}
+		}
+	};
 }

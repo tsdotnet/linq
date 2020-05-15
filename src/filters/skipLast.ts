@@ -16,13 +16,18 @@ import same from './same';
 export default function skipLast<T> (count: number): IterableFilter<T> {
 	if(isNaN(count) || count<=0) return same;
 	if(!isFinite(count)) return empty;
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		const q = new Queue<T>();
-		for(const e of sequence)
-		{
-			q.enqueue(e);
-			if(q.count>count) yield q.dequeue(true);
-		}
-		q.clear();
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				const q = new Queue<T>();
+				for(const e of sequence)
+				{
+					q.enqueue(e);
+					if(q.count>count) yield q.dequeue(true);
+				}
+				q.clear();
+			}
+		};
 	};
 }

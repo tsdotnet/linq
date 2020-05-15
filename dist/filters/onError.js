@@ -16,22 +16,26 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
 function onError(handler) {
     if (!handler)
         throw new ArgumentNullException_1.default('action');
-    return function* (sequence) {
-        const iterator = sequence[Symbol.iterator]();
-        let i = 0;
-        while (true) {
-            try {
-                const next = iterator.next();
-                if (next.done)
-                    break;
-                yield next.value;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const iterator = sequence[Symbol.iterator]();
+                let i = 0;
+                while (true) {
+                    try {
+                        const next = iterator.next();
+                        if (next.done)
+                            break;
+                        yield next.value;
+                    }
+                    catch (ex) {
+                        handler(ex, i);
+                        break;
+                    }
+                    i++;
+                }
             }
-            catch (ex) {
-                handler(ex, i);
-                break;
-            }
-            i++;
-        }
+        };
     };
 }
 exports.default = onError;

@@ -15,6 +15,7 @@ import firstOrDefault from './resolutions/firstOrDefault';
 import hasAny from './resolutions/hasAny';
 import indexOf from './resolutions/indexOf';
 import isEmpty from './resolutions/isEmpty';
+import { joinStrings } from './resolutions/joinStrings';
 import last from './resolutions/last';
 import lastIndexOf from './resolutions/lastIndexOf';
 import lastOrDefault from './resolutions/lastOrDefault';
@@ -25,5 +26,5 @@ import sum from './resolutions/sum';
 import sumAndCount from './resolutions/sumAndCount';
 import toArray from './resolutions/toArray';
 import toMap from './resolutions/toMap';
-export { aggregate, all, any, average, contains, count, elementAt, elementAtOrDefault, first, firstOrDefault, hasAny, indexOf, isEmpty, last, lastIndexOf, lastOrDefault, min, max, sequenceEqual, sum, sumAndCount, toArray, toMap };
+export { aggregate, all, any, average, contains, count, elementAt, elementAtOrDefault, first, firstOrDefault, hasAny, indexOf, isEmpty, joinStrings, last, lastIndexOf, lastOrDefault, min, max, sequenceEqual, sum, sumAndCount, toArray, toMap };
 //# sourceMappingURL=resolutions.js.map

@@ -13,11 +13,16 @@ import {IterableValueTransform} from '../IterableTransform';
  */
 export default function selectMany<T, TSelect> (
 	selector: SelectorWithIndex<T, Iterable<TSelect>>): IterableValueTransform<T, TSelect> {
-	return function* (sequence: Iterable<T>): Iterable<TSelect> {
-		let i = 0;
-		for(const outer of sequence)
-		{
-			for(const inner of selector(outer, i++)) yield inner;
-		}
+	return function(sequence: Iterable<T>): Iterable<TSelect> {
+		return {
+			* [Symbol.iterator] (): Iterator<TSelect>
+			{
+				let i = 0;
+				for(const outer of sequence)
+				{
+					for(const inner of selector(outer, i++)) yield inner;
+				}
+			}
+		};
 	};
 }

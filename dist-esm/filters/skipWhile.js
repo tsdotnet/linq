@@ -9,15 +9,19 @@
  * @return {IterableFilter<T>}
  */
 export default function skipWhile(predicate) {
-    return function* (sequence) {
-        let i = 0, skipped = false;
-        for (const e of sequence) {
-            if (skipped || !predicate(e, i)) {
-                skipped = true;
-                yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0, skipped = false;
+                for (const e of sequence) {
+                    if (skipped || !predicate(e, i)) {
+                        skipped = true;
+                        yield e;
+                    }
+                    i++;
+                }
             }
-            i++;
-        }
+        };
     };
 }
 //# sourceMappingURL=skipWhile.js.map

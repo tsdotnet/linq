@@ -9,3 +9,10 @@ A familiar set of functions that operate on JavaScript iterables (ES2015+) in a 
 ## Docs
 
 [tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/)
+
+## Iterables
+
+ES2015 enables full support for the [iteration protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols).
+
+Iterables are a significant leap forward in operating with data sequences.
+Instead of loading entire sets into arrays or other collections, iterables allow for progressive iteration or synchronous streaming of data.

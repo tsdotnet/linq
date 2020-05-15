@@ -18,15 +18,19 @@ function takeLast(count) {
         return empty_1.default;
     if (!isFinite(count))
         return same_1.default;
-    return function* (sequence) {
-        const q = new queue_1.default();
-        for (const e of sequence) {
-            q.enqueue(e);
-            if (q.count > count)
-                q.dequeue(true);
-        }
-        for (const e of q.consumer())
-            yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const q = new queue_1.default();
+                for (const e of sequence) {
+                    q.enqueue(e);
+                    if (q.count > count)
+                        q.dequeue(true);
+                }
+                for (const e of q.consumer())
+                    yield e;
+            }
+        };
     };
 }
 exports.default = takeLast;

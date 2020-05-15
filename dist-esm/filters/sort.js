@@ -9,17 +9,25 @@ import toArray from '../resolutions/toArray';
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-export function* ascending(sequence) {
-    for (const e of toArray(sequence).sort(comparePrimitives))
-        yield e;
+export function ascending(sequence) {
+    return {
+        *[Symbol.iterator]() {
+            for (const e of toArray(sequence).sort(comparePrimitives))
+                yield e;
+        }
+    };
 }
 /**
  * Default descending sort delegate for primitive only iterables.
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-export function* descending(sequence) {
-    for (const e of toArray(sequence).sort(comparePrimitives.inverted))
-        yield e;
+export function descending(sequence) {
+    return {
+        *[Symbol.iterator]() {
+            for (const e of toArray(sequence).sort(comparePrimitives.inverted))
+                yield e;
+        }
+    };
 }
 //# sourceMappingURL=sort.js.map

@@ -15,12 +15,17 @@ import same from './same';
 export default function take<T> (count: number): IterableFilter<T> {
 	if(count<=0) return empty;
 	if(!isFinite(count)) return same;
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let remain = count;
-		for(const e of sequence)
-		{
-			yield e;
-			if(--remain<=0) break;
-		}
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				let remain = count;
+				for(const e of sequence)
+				{
+					yield e;
+					if(--remain<=0) break;
+				}
+			}
+		};
 	};
 }

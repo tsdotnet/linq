@@ -16,12 +16,16 @@ const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
 function orderUsing(comparison, order = 1 /* Ascending */) {
     if (!comparison)
         throw new ArgumentNullException_1.default('comparison');
-    return function* (sequence) {
-        for (const e of toArray_1.default(sequence).sort(order == -1 /* Descending */
-            ? ((a, b) => comparison(a, b) * -1)
-            : comparison)) {
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                for (const e of toArray_1.default(sequence).sort(order == -1 /* Descending */
+                    ? ((a, b) => comparison(a, b) * -1)
+                    : comparison)) {
+                    yield e;
+                }
+            }
+        };
     };
 }
 exports.default = orderUsing;

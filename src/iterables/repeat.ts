@@ -9,8 +9,13 @@
  * @param {number} count The number of times to repeat.
  * @return {Iterable<T>}
  */
-export default function* repeat<T> (
+export default function repeat<T> (
 	entry: T,
 	count: number): Iterable<T> {
-	for(let i = 0; i<count; i++) yield entry;
+	return {
+		* [Symbol.iterator] (): Iterator<T>
+		{
+			for(let i = 0; i<count; i++) yield entry;
+		}
+	};
 }

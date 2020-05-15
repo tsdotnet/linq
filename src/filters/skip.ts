@@ -15,12 +15,17 @@ import same from './same';
 export default function skip<T> (count: number): IterableFilter<T> {
 	if(isNaN(count) || count<=0) return same;
 	if(!isFinite(count)) return empty;
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let remain = count;
-		for(const e of sequence)
-		{
-			if(0<remain--) continue;
-			yield e;
-		}
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				let remain = count;
+				for(const e of sequence)
+				{
+					if(0<remain--) continue;
+					yield e;
+				}
+			}
+		};
 	};
 }

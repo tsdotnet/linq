@@ -1,0 +1,11 @@
+"use strict";
+/*
+ * @author electricessence / https://github.com/electricessence/
+ * Licensing: MIT
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+function isNotNullOrUndefined(e) {
+    return e != null;
+}
+exports.default = isNotNullOrUndefined;
+//# sourceMappingURL=isNotNullOrUndefined.js.map

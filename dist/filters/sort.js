@@ -13,9 +13,13 @@ const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-function* ascending(sequence) {
-    for (const e of toArray_1.default(sequence).sort(comparePrimitives_1.default))
-        yield e;
+function ascending(sequence) {
+    return {
+        *[Symbol.iterator]() {
+            for (const e of toArray_1.default(sequence).sort(comparePrimitives_1.default))
+                yield e;
+        }
+    };
 }
 exports.ascending = ascending;
 /**
@@ -23,9 +27,13 @@ exports.ascending = ascending;
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-function* descending(sequence) {
-    for (const e of toArray_1.default(sequence).sort(comparePrimitives_1.default.inverted))
-        yield e;
+function descending(sequence) {
+    return {
+        *[Symbol.iterator]() {
+            for (const e of toArray_1.default(sequence).sort(comparePrimitives_1.default.inverted))
+                yield e;
+        }
+    };
 }
 exports.descending = descending;
 //# sourceMappingURL=sort.js.map

@@ -5,28 +5,35 @@ export declare class Linq<T> implements Iterable<T> {
     [Symbol.iterator](): Iterator<T>;
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * Same effect as .transform(filter).
+     * @param {IterableValueTransform<T, TResult>} filter
+     * @return {Linq<TResult>}
+     */
+    filter<TResult>(filter: IterableValueTransform<T, TResult>): Linq<TResult>;
+    /**
+     * Returns a filtered sequence.
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filter(...filters: IterableFilter<T>[]): Linq<T>;
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filters(filters: Iterable<IterableFilter<T>>): Linq<T>;
     /**
      * Returns a transformed sequence.
-     * @param {IterableValueTransform} transform The transform to use.
+     * @param {IterableValueTransform<T, TResult>} transform The transform to use.
      * @return {Linq<TResult>}
      */
     transform<TResult>(transform: IterableValueTransform<T, TResult>): Linq<TResult>;
     /**
-     * Applies a resolution to this sequence.
-     * @param {IterableTransform} resolution
+     * Applies a resolver to this sequence.
+     * @param {IterableTransform<T, TResolution>} resolver
      * @return {TResolution}
      */
-    resolve<TResolution>(resolution: IterableTransform<T, TResolution>): TResolution;
+    resolve<TResolution>(resolver: IterableTransform<T, TResolution>): TResolution;
 }
 /**
  * Converts any iterable into a LINQ style iterable.

@@ -14,10 +14,14 @@ const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
  * @return {IterableFilter<T>}
  */
 function orderBy(keySelector, order = 1 /* Ascending */) {
-    return function* (sequence) {
-        for (const e of toArray_1.default(sequence).sort((a, b) => comparePrimitives_1.default(keySelector(a), keySelector(b)) * order)) {
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                for (const e of toArray_1.default(sequence).sort((a, b) => comparePrimitives_1.default(keySelector(a), keySelector(b)) * order)) {
+                    yield e;
+                }
+            }
+        };
     };
 }
 exports.default = orderBy;

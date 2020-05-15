@@ -13,8 +13,13 @@ import {IterableFilter} from '../IterableTransform';
  */
 export default function onComplete<T> (action: () => void): IterableFilter<T> {
 	if(!action) throw new ArgumentNullException('action');
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		for(const e of sequence) yield e;
-		action();
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				for(const e of sequence) yield e;
+				action();
+			}
+		};
 	};
 }

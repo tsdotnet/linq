@@ -4,7 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toMap = exports.toArray = exports.sumAndCount = exports.sum = exports.sequenceEqual = exports.max = exports.min = exports.lastOrDefault = exports.lastIndexOf = exports.last = exports.isEmpty = exports.indexOf = exports.hasAny = exports.firstOrDefault = exports.first = exports.elementAtOrDefault = exports.elementAt = exports.count = exports.contains = exports.average = exports.any = exports.all = exports.aggregate = void 0;
+exports.toMap = exports.toArray = exports.sumAndCount = exports.sum = exports.sequenceEqual = exports.max = exports.min = exports.lastOrDefault = exports.lastIndexOf = exports.last = exports.joinStrings = exports.isEmpty = exports.indexOf = exports.hasAny = exports.firstOrDefault = exports.first = exports.elementAtOrDefault = exports.elementAt = exports.count = exports.contains = exports.average = exports.any = exports.all = exports.aggregate = void 0;
 const tslib_1 = require("tslib");
 const aggregate_1 = tslib_1.__importDefault(require("./resolutions/aggregate"));
 exports.aggregate = aggregate_1.default;
@@ -32,6 +32,8 @@ const indexOf_1 = tslib_1.__importDefault(require("./resolutions/indexOf"));
 exports.indexOf = indexOf_1.default;
 const isEmpty_1 = tslib_1.__importDefault(require("./resolutions/isEmpty"));
 exports.isEmpty = isEmpty_1.default;
+const joinStrings_1 = require("./resolutions/joinStrings");
+Object.defineProperty(exports, "joinStrings", { enumerable: true, get: function () { return joinStrings_1.joinStrings; } });
 const last_1 = tslib_1.__importDefault(require("./resolutions/last"));
 exports.last = last_1.default;
 const lastIndexOf_1 = tslib_1.__importDefault(require("./resolutions/lastIndexOf"));

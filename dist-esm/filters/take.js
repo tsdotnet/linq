@@ -14,13 +14,17 @@ export default function take(count) {
         return empty;
     if (!isFinite(count))
         return same;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            yield e;
-            if (--remain <= 0)
-                break;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let remain = count;
+                for (const e of sequence) {
+                    yield e;
+                    if (--remain <= 0)
+                        break;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=take.js.map

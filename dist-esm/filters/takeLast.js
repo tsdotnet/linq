@@ -15,15 +15,19 @@ export default function takeLast(count) {
         return empty;
     if (!isFinite(count))
         return same;
-    return function* (sequence) {
-        const q = new Queue();
-        for (const e of sequence) {
-            q.enqueue(e);
-            if (q.count > count)
-                q.dequeue(true);
-        }
-        for (const e of q.consumer())
-            yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const q = new Queue();
+                for (const e of sequence) {
+                    q.enqueue(e);
+                    if (q.count > count)
+                        q.dequeue(true);
+                }
+                for (const e of q.consumer())
+                    yield e;
+            }
+        };
     };
 }
 //# sourceMappingURL=takeLast.js.map

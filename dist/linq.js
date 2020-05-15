@@ -5,6 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Linq = void 0;
+const tslib_1 = require("tslib");
+const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
 class Linq {
     constructor(_source) {
         this._source = _source;
@@ -14,39 +16,35 @@ class Linq {
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filter(...filters) {
         return filters.length ? this.filters(filters) : this;
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filters(filters) {
-        let iterable = this._source;
-        for (const filter of filters) {
-            iterable = filter(iterable);
-        }
-        return new Linq(iterable);
+        return new Linq(applyFilters_1.default(this, filters));
     }
     /**
      * Returns a transformed sequence.
-     * @param {IterableValueTransform} transform The transform to use.
+     * @param {IterableValueTransform<T, TResult>} transform The transform to use.
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this._source));
+        return new Linq(transform(this));
     }
     /**
-     * Applies a resolution to this sequence.
-     * @param {IterableTransform} resolution
+     * Applies a resolver to this sequence.
+     * @param {IterableTransform<T, TResolution>} resolver
      * @return {TResolution}
      */
-    resolve(resolution) {
-        return resolution(this._source);
+    resolve(resolver) {
+        return resolver(this);
     }
 }
 exports.Linq = Linq;
@@ -58,6 +56,8 @@ exports.Linq = Linq;
  * @return {Linq<T>}
  */
 function linq(source) {
+    if (source instanceof Linq)
+        return source;
     return new Linq(source);
 }
 exports.default = linq;

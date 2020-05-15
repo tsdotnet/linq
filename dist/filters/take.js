@@ -17,13 +17,17 @@ function take(count) {
         return empty_1.default;
     if (!isFinite(count))
         return same_1.default;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            yield e;
-            if (--remain <= 0)
-                break;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let remain = count;
+                for (const e of sequence) {
+                    yield e;
+                    if (--remain <= 0)
+                        break;
+                }
+            }
+        };
     };
 }
 exports.default = take;

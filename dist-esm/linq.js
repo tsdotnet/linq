@@ -2,6 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
+import applyFilters from './applyFilters';
 export class Linq {
     constructor(_source) {
         this._source = _source;
@@ -11,39 +12,35 @@ export class Linq {
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filter(...filters) {
         return filters.length ? this.filters(filters) : this;
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {Linq<T>}
      */
     filters(filters) {
-        let iterable = this._source;
-        for (const filter of filters) {
-            iterable = filter(iterable);
-        }
-        return new Linq(iterable);
+        return new Linq(applyFilters(this, filters));
     }
     /**
      * Returns a transformed sequence.
-     * @param {IterableValueTransform} transform The transform to use.
+     * @param {IterableValueTransform<T, TResult>} transform The transform to use.
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this._source));
+        return new Linq(transform(this));
     }
     /**
-     * Applies a resolution to this sequence.
-     * @param {IterableTransform} resolution
+     * Applies a resolver to this sequence.
+     * @param {IterableTransform<T, TResolution>} resolver
      * @return {TResolution}
      */
-    resolve(resolution) {
-        return resolution(this._source);
+    resolve(resolver) {
+        return resolver(this);
     }
 }
 /**
@@ -54,6 +51,8 @@ export class Linq {
  * @return {Linq<T>}
  */
 export default function linq(source) {
+    if (source instanceof Linq)
+        return source;
     return new Linq(source);
 }
 //# sourceMappingURL=linq.js.map

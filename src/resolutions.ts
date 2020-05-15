@@ -17,6 +17,7 @@ import hasAny from './resolutions/hasAny';
 import indexOf from './resolutions/indexOf';
 
 import isEmpty from './resolutions/isEmpty';
+import {joinStrings} from './resolutions/joinStrings';
 import last from './resolutions/last';
 import lastIndexOf from './resolutions/lastIndexOf';
 import lastOrDefault from './resolutions/lastOrDefault';
@@ -42,6 +43,7 @@ export {
 	hasAny,
 	indexOf,
 	isEmpty,
+	joinStrings,
 	last,
 	lastIndexOf,
 	lastOrDefault,

@@ -12,9 +12,14 @@ import toArray from '../resolutions/toArray';
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-export function* ascending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
+export function ascending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
 {
-	for(const e of toArray(sequence).sort(comparePrimitives)) yield e;
+	return {
+		* [Symbol.iterator] (): Iterator<T>
+		{
+			for(const e of toArray(sequence).sort(comparePrimitives)) yield e;
+		}
+	};
 }
 
 /**
@@ -22,7 +27,12 @@ export function* ascending<T extends Primitive> (sequence: Iterable<T>): Iterabl
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-export function* descending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
+export function descending<T extends Primitive> (sequence: Iterable<T>): Iterable<T>
 {
-	for(const e of toArray(sequence).sort(comparePrimitives.inverted)) yield e;
+	return {
+		* [Symbol.iterator] (): Iterator<T>
+		{
+			for(const e of toArray(sequence).sort(comparePrimitives.inverted)) yield e;
+		}
+	};
 }

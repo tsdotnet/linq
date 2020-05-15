@@ -14,13 +14,17 @@ export default function skip(count) {
         return same;
     if (!isFinite(count))
         return empty;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            if (0 < remain--)
-                continue;
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let remain = count;
+                for (const e of sequence) {
+                    if (0 < remain--)
+                        continue;
+                    yield e;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=skip.js.map

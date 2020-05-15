@@ -3,10 +3,12 @@
  * Licensing: MIT
  */
 import groupBy from './transforms/groupBy';
-import { joinStrings } from './transforms/joinStrings';
+import notNull from './transforms/notNull';
+import notNullOrUndefined from './transforms/notNullOrUndefined';
+import notUndefined from './transforms/notUndefined';
 import rows from './transforms/rows';
 import select from './transforms/select';
 import selectMany from './transforms/selectMany';
 import weave from './transforms/weave';
-export { groupBy, joinStrings, rows, select, selectMany, weave };
+export { groupBy, notNull, notNullOrUndefined, notUndefined, rows, select, selectMany, weave };
 //# sourceMappingURL=transforms.js.map

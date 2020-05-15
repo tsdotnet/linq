@@ -11,10 +11,14 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 export default function onStart(action) {
     if (!action)
         throw new ArgumentNullException('action');
-    return function* (sequence) {
-        action();
-        for (const e of sequence)
-            yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                action();
+                for (const e of sequence)
+                    yield e;
+            }
+        };
     };
 }
 //# sourceMappingURL=onStart.js.map

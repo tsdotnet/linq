@@ -14,10 +14,14 @@ const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/excep
 function onStart(action) {
     if (!action)
         throw new ArgumentNullException_1.default('action');
-    return function* (sequence) {
-        action();
-        for (const e of sequence)
-            yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                action();
+                for (const e of sequence)
+                    yield e;
+            }
+        };
     };
 }
 exports.default = onStart;

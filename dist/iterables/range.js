@@ -11,10 +11,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param {number} step
  * @returns {Iterable<number>}
  */
-function* range(start = 0, maxInclusive = Infinity, step = 1) {
-    for (let i = start; i <= maxInclusive; i += step) {
-        yield i;
-    }
+function range(start = 0, maxInclusive = Infinity, step = 1) {
+    return {
+        *[Symbol.iterator]() {
+            for (let i = start; i <= maxInclusive; i += step) {
+                yield i;
+            }
+        }
+    };
 }
 exports.default = range;
 //# sourceMappingURL=range.js.map

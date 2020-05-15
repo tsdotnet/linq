@@ -11,15 +11,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {IterableFilter<T>}
  */
 function skipWhile(predicate) {
-    return function* (sequence) {
-        let i = 0, skipped = false;
-        for (const e of sequence) {
-            if (skipped || !predicate(e, i)) {
-                skipped = true;
-                yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0, skipped = false;
+                for (const e of sequence) {
+                    if (skipped || !predicate(e, i)) {
+                        skipped = true;
+                        yield e;
+                    }
+                    i++;
+                }
             }
-            i++;
-        }
+        };
     };
 }
 exports.default = skipWhile;

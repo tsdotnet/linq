@@ -7,8 +7,8 @@ export const doneResult = Object.freeze({
     value: undefined
 });
 export const emptyIterator = Object.freeze({ next() { return doneResult; } });
-export const empty = Object.freeze({ [Symbol.iterator]() { return emptyIterator; } });
+export const emptyIterable = Object.freeze({ [Symbol.iterator]() { return emptyIterator; } });
 export default function () {
-    return empty;
+    return emptyIterable;
 }
 //# sourceMappingURL=empty.js.map

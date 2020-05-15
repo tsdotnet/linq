@@ -8,6 +8,8 @@ const tslib_1 = require("tslib");
 const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * Returns the rows from a given set of iterables representing columns.
+ * @param {Iterable<Iterable<any>>} columns
+ * @return {Iterable<Row>}
  */
 function rows(columns) {
     if (!columns)

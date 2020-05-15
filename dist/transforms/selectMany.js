@@ -10,12 +10,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {(sequence: Iterable<T>) => Iterable<TSelect>}
  */
 function selectMany(selector) {
-    return function* (sequence) {
-        let i = 0;
-        for (const outer of sequence) {
-            for (const inner of selector(outer, i++))
-                yield inner;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0;
+                for (const outer of sequence) {
+                    for (const inner of selector(outer, i++))
+                        yield inner;
+                }
+            }
+        };
     };
 }
 exports.default = selectMany;

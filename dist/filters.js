@@ -4,7 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.where = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.sort = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.reverse = exports.prepend = exports.orderUsing = exports.orderBy = exports.onStart = exports.onError = exports.onComplete = exports.ofType = exports.notUndefined = exports.notNullOrUndefined = exports.notNull = exports.memoize = exports.exclude = exports.distinct = exports.defaultIfEmpty = exports.buffer = exports.append = void 0;
+exports.where = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.sort = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.reverse = exports.prepend = exports.orderUsing = exports.orderBy = exports.onStart = exports.onError = exports.onComplete = exports.ofType = exports.memoize = exports.exclude = exports.distinct = exports.defaultIfEmpty = exports.buffer = exports.append = void 0;
 const tslib_1 = require("tslib");
 const memoize_1 = tslib_1.__importDefault(require("@tsdotnet/memoize"));
 exports.memoize = memoize_1.default;
@@ -18,12 +18,6 @@ const distinct_1 = tslib_1.__importDefault(require("./filters/distinct"));
 exports.distinct = distinct_1.default;
 const exclude_1 = tslib_1.__importDefault(require("./filters/exclude"));
 exports.exclude = exclude_1.default;
-const notNull_1 = tslib_1.__importDefault(require("./filters/notNull"));
-exports.notNull = notNull_1.default;
-const notNullOrUndefined_1 = tslib_1.__importDefault(require("./filters/notNullOrUndefined"));
-exports.notNullOrUndefined = notNullOrUndefined_1.default;
-const notUndefined_1 = tslib_1.__importDefault(require("./filters/notUndefined"));
-exports.notUndefined = notUndefined_1.default;
 const ofType_1 = tslib_1.__importDefault(require("./filters/ofType"));
 exports.ofType = ofType_1.default;
 const onComplete_1 = tslib_1.__importDefault(require("./filters/onComplete"));

@@ -8,14 +8,18 @@
  * @return {IterableFilter<T>}
  */
 export default function defaultIfEmpty(defaultValue) {
-    return function* (sequence) {
-        let hasElements = false;
-        for (const e of sequence) {
-            hasElements = true;
-            yield e;
-        }
-        if (!hasElements)
-            yield defaultValue;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let hasElements = false;
+                for (const e of sequence) {
+                    hasElements = true;
+                    yield e;
+                }
+                if (!hasElements)
+                    yield defaultValue;
+            }
+        };
     };
 }
 //# sourceMappingURL=defaultIfEmpty.js.map
