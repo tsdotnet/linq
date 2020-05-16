@@ -18,12 +18,17 @@ function elementAt(index) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException_1.default('sequence');
-        if (sequence instanceof Array)
-            return sequence[index];
         let count = 0;
-        for (const e of sequence) {
-            if (index === count++)
-                return e;
+        if (sequence instanceof Array) {
+            count = sequence.length;
+            if (index < count)
+                return sequence[index];
+        }
+        else {
+            for (const e of sequence) {
+                if (index === count++)
+                    return e;
+            }
         }
         throw new ArgumentOutOfRangeException_1.default('index', index, 'Exceeds the total number of elements: ' + count);
     };

@@ -4,7 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toMap = exports.toArray = exports.sumAndCount = exports.sum = exports.sequenceEqual = exports.max = exports.min = exports.lastOrDefault = exports.lastIndexOf = exports.last = exports.joinStrings = exports.isEmpty = exports.indexOf = exports.hasAny = exports.firstOrDefault = exports.first = exports.elementAtOrDefault = exports.elementAt = exports.count = exports.contains = exports.average = exports.any = exports.all = exports.aggregate = void 0;
+exports.toMap = exports.toArray = exports.asArray = exports.sumAndCount = exports.sum = exports.singleOrDefault = exports.single = exports.sequenceEqual = exports.product = exports.max = exports.min = exports.lastOrDefault = exports.lastIndexOf = exports.last = exports.joinStrings = exports.isEmpty = exports.indexOf = exports.hasAny = exports.firstOrDefault = exports.first = exports.elementAtOrDefault = exports.elementAt = exports.count = exports.contains = exports.average = exports.any = exports.all = exports.aggregate = void 0;
 const tslib_1 = require("tslib");
 const aggregate_1 = tslib_1.__importDefault(require("./resolutions/aggregate"));
 exports.aggregate = aggregate_1.default;
@@ -54,4 +54,12 @@ const toArray_1 = tslib_1.__importDefault(require("./resolutions/toArray"));
 exports.toArray = toArray_1.default;
 const toMap_1 = tslib_1.__importDefault(require("./resolutions/toMap"));
 exports.toMap = toMap_1.default;
+const asArray_1 = tslib_1.__importDefault(require("./resolutions/asArray"));
+exports.asArray = asArray_1.default;
+const singleOrDefault_1 = tslib_1.__importDefault(require("./resolutions/singleOrDefault"));
+exports.singleOrDefault = singleOrDefault_1.default;
+const single_1 = tslib_1.__importDefault(require("./resolutions/single"));
+exports.single = single_1.default;
+const product_1 = tslib_1.__importDefault(require("./resolutions/product"));
+exports.product = product_1.default;
 //# sourceMappingURL=resolutions.js.map

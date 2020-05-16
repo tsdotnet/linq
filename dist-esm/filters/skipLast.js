@@ -18,6 +18,15 @@ export default function skipLast(count) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
+                if (sequence instanceof Array) {
+                    const len = sequence.length;
+                    for (let i = 0; i < len - count; i++) {
+                        if (len !== sequence.length)
+                            throw Error('Array length changed during iteration.');
+                        yield sequence[i];
+                    }
+                    return;
+                }
                 const q = new Queue();
                 for (const e of sequence) {
                     q.enqueue(e);

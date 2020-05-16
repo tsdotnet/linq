@@ -6,6 +6,7 @@
 import aggregate from './resolutions/aggregate';
 import all from './resolutions/all';
 import any from './resolutions/any';
+import asArray from './resolutions/asArray';
 import average from './resolutions/average';
 import contains from './resolutions/contains';
 import count from './resolutions/count';
@@ -23,7 +24,10 @@ import lastIndexOf from './resolutions/lastIndexOf';
 import lastOrDefault from './resolutions/lastOrDefault';
 import max from './resolutions/max';
 import min from './resolutions/min';
+import product from './resolutions/product';
 import sequenceEqual from './resolutions/sequenceEqual';
+import single from './resolutions/single';
+import singleOrDefault from './resolutions/singleOrDefault';
 import sum from './resolutions/sum';
 import sumAndCount from './resolutions/sumAndCount';
 import toArray from './resolutions/toArray';
@@ -49,9 +53,13 @@ export {
 	lastOrDefault,
 	min,
 	max,
+	product,
 	sequenceEqual,
+	single,
+	singleOrDefault,
 	sum,
 	sumAndCount,
+	asArray,
 	toArray,
 	toMap
 };

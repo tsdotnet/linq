@@ -24,6 +24,7 @@ function exclude(exclusions) {
                     // No exclusions, just return the sequence in entirety.
                     for (const s of sequence)
                         yield s;
+                    return;
                 }
                 x.add(n.value);
                 let done = false;

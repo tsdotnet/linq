@@ -17,11 +17,18 @@ export default function elementAt<T> (index: number): IterableTransform<T, T> {
 	integer.assertZeroOrGreater(index);
 	return function(sequence: Iterable<T>): T {
 		if(!sequence) throw new ArgumentNullException('sequence');
-		if(sequence instanceof Array) return sequence[index];
 		let count = 0;
-		for(const e of sequence)
+		if(sequence instanceof Array)
 		{
-			if(index===count++) return e;
+			count = sequence.length;
+			if(index<count) return sequence[index];
+		}
+		else
+		{
+			for(const e of sequence)
+			{
+				if(index===count++) return e;
+			}
 		}
 		throw new ArgumentOutOfRangeException('index', index, 'Exceeds the total number of elements: ' + count);
 	};

@@ -3,41 +3,43 @@
  * Licensing: MIT
  */
 
+import comparison from '@tsdotnet/compare/dist/comparison';
+import Order from '@tsdotnet/compare/dist/Order';
 import {expect} from 'chai';
-import append from '../src/filters/append';
-import buffer from '../src/filters/buffer';
-import defaultIfEmpty from '../src/filters/defaultIfEmpty';
-import distinct from '../src/filters/distinct';
-import exclude from '../src/filters/exclude';
-import ofType from '../src/filters/ofType';
-import onComplete from '../src/filters/onComplete';
-import onError from '../src/filters/onError';
-import onStart from '../src/filters/onStart';
-import prepend from '../src/filters/prepend';
-import reverse from '../src/filters/reverse';
-import skip from '../src/filters/skip';
-import skipUntil from '../src/filters/skipUntil';
-import skipWhile from '../src/filters/skipWhile';
-import take from '../src/filters/take';
-import takeUntil from '../src/filters/takeUntil';
-import takeWhile from '../src/filters/takeWhile';
+import linq from '../src';
+import {
+	append,
+	buffer,
+	defaultIfEmpty,
+	distinct,
+	exclude,
+	ofType,
+	onComplete,
+	onError,
+	onStart,
+	orderBy,
+	orderUsing,
+	prepend,
+	reverse,
+	skip,
+	skipLast,
+	skipUntil,
+	skipWhile,
+	sort,
+	take,
+	takeLast,
+	takeUntil,
+	takeWhile
+} from '../src/filters';
+import {iterateIndexes, range, repeat, repeatSequence} from '../src/iterables';
 import {emptyIterable} from '../src/iterables/empty';
-import range from '../src/iterables/range';
-import repeat from '../src/iterables/repeat';
-import repeatSequence from '../src/iterables/repeatSequence';
-import linq from '../src/linq';
 import linqExtended from '../src/linqExtended';
-import aggregate from '../src/resolutions/aggregate';
-import count from '../src/resolutions/count';
-import first from '../src/resolutions/first';
-import {joinStrings} from '../src/resolutions/joinStrings';
-import last from '../src/resolutions/last';
-import single from '../src/resolutions/single';
-import toArray from '../src/resolutions/toArray';
-import {testRepeatableResolution} from './testRepeatableResolution';
+import {aggregate, count, first, joinStrings, last, single, toArray} from '../src/resolutions';
+import {select} from '../src/transforms';
 import testItems from './testItems';
-import orderBy from '../src/filters/orderBy';
-import select from '../src/transforms/select';
+import {testRepeatableResolution} from './testRepeatableResolution';
+import ascending = sort.ascending;
+import descending = sort.descending;
 
 /* eslint-disable no-empty, @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars */
 
@@ -100,7 +102,7 @@ describe('filters/', () => {
 	describe('exclude(exclusions)', () => {
 		it('should not include exclusions', () => {
 			const sequence = [1, 2, 3, 4, 5, 6, 4];
-			expect(toArray(exclude([1, 4])(sequence))).members([2, 3, 5, 6]);
+			expect(toArray(exclude([1, 4])(sequence))).to.have.ordered.members([2, 3, 5, 6]);
 
 			// noinspection SpellCheckingInspection
 			testRepeatableResolution(
@@ -108,6 +110,11 @@ describe('filters/', () => {
 				exclude(['b', 'x'])(['b', 'b', 'c', 'd', 'x', 'd', 'x']),
 				joinStrings()
 			);
+		});
+
+		it('should not exclude if no exclusions', () => {
+			const sequence = [1, 2, 3, 4, 5, 6, 4];
+			expect(toArray(exclude([])(sequence as any))).to.have.ordered.members(sequence);
 		});
 	});
 
@@ -182,7 +189,7 @@ describe('filters/', () => {
 	});
 
 	describe('onComplete', () => {
-		it('should reliably be called even when empty.', () => {
+		it('should reliably be called even when empty', () => {
 			let complete = false;
 			// eslint-disable-next-line no-empty
 			for(const e of linq(emptyIterable).filter(onComplete(() => complete = true)))
@@ -190,7 +197,7 @@ describe('filters/', () => {
 			expect(complete).to.be.true;
 		});
 
-		it('should reliably be called when finished iterating.', () => {
+		it('should reliably be called when finished iterating', () => {
 			let complete = false;
 			const s = linq(['a', 'b', 'c']).filter(onComplete(() => complete = true));
 			expect(complete).to.be.false;
@@ -204,7 +211,7 @@ describe('filters/', () => {
 	});
 
 	describe('onError', () => {
-		it('should receive errors.', () => {
+		it('should receive errors', () => {
 			const error = 'error';
 			let errored = false;
 			const s = linq({
@@ -212,7 +219,8 @@ describe('filters/', () => {
 				{
 					yield 'ok';
 					throw error;
-				}})
+				}
+			})
 				.filter(onError(ex => {
 					expect(ex).equal(error);
 					errored = true;
@@ -228,7 +236,7 @@ describe('filters/', () => {
 	});
 
 	describe('onStart', () => {
-		it('should reliably be called even when empty.', () => {
+		it('should reliably be called even when empty', () => {
 			let complete = false;
 			// eslint-disable-next-line no-empty
 			for(const e of linq(emptyIterable).filter(onStart(() => complete = true)))
@@ -249,15 +257,53 @@ describe('filters/', () => {
 		});
 	});
 
-	describe('orderBy(keySelector)', () => {
-		it('last entry in sequence should be the appended', () => {
-			expect(
-				linq(testItems)
-					.filter(orderBy(e=>e.b))
-					.transform(select(e=>e.b))
-					.filter(distinct)
-					.resolve(toArray))
-				.to.have.ordered.members([1,2,3]);
+	describe('orderBy/', () => {
+		describe('orderBy(keySelector, Order.Ascending)', () => {
+			it('should order elements by selected key', () => {
+				expect(
+					linq(testItems)
+						.filter(orderBy(e => e.b))
+						.transform(select(e => e.b))
+						.filter(distinct)
+						.resolve(toArray))
+					.to.have.ordered.members([1, 2, 3]);
+			});
+		});
+		describe('orderBy(keySelector, Order.Descending)', () => {
+			it('should order elements by selected key', () => {
+				expect(
+					linq(testItems)
+						.filter(orderBy(e => e.b, Order.Descending))
+						.transform(select(e => e.b))
+						.filter(distinct)
+						.resolve(toArray))
+					.to.have.ordered.members([3, 2, 1]);
+			});
+		});
+	});
+
+	describe('orderUsing/', () => {
+		describe('orderUsing(comparer, Order.Ascending)', () => {
+			it('should order elements by selected key', () => {
+				expect(
+					linq(testItems)
+						.filter(orderUsing(comparison.fromKey('b')))
+						.transform(select(e => e.b))
+						.filter(distinct)
+						.resolve(toArray))
+					.to.have.ordered.members([1, 2, 3]);
+			});
+		});
+		describe('orderUsing(comparer, Order.Descending)', () => {
+			it('should order elements by selected key', () => {
+				expect(
+					linq(testItems)
+						.filter(orderUsing(comparison.fromKey('b'), Order.Descending))
+						.transform(select(e => e.b))
+						.filter(distinct)
+						.resolve(toArray))
+					.to.have.ordered.members([3, 2, 1]);
+			});
 		});
 	});
 
@@ -271,10 +317,15 @@ describe('filters/', () => {
 		});
 	});
 
-	describe('reverse',()=>{
+	describe('reverse', () => {
 		it('sequence should be reversed', () => {
 			expect(
 				linqExtended(['a', 'b', 'c'])
+					.filter(reverse)
+					.toArray())
+				.to.have.ordered.members(['c', 'b', 'a']);
+			expect(
+				linqExtended(iterateIndexes(['a', 'b', 'c']))
 					.filter(reverse)
 					.toArray())
 				.to.have.ordered.members(['c', 'b', 'a']);
@@ -289,20 +340,24 @@ describe('filters/', () => {
 		describe('skip(count)', () => {
 			const expected = total - max;
 			it(`should repeat ${expected} times`, () => {
-				const value = 'x';
-				let count = 0;
-				for(const e of skip(max)(repeat(value, 100)))
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
 				{
-					count++;
-					expect(e).equal(value);
+					let count = 0;
+					for(const e of skip(max)(sequence))
+					{
+						expect(e).equal(++count + max);
+					}
+					expect(count).equal(expected);
 				}
-				expect(count).equal(expected);
 			});
 
 			it('should be empty if skip is infinite', () => {
 				const value = 'x';
 				let count = 0;
-				for(const e of skip(Infinity)(repeat(value, 100)))
+				for(const e of skip(Infinity)(repeat(value, total)))
 				{
 					count++;
 					expect(e).equal(value);
@@ -323,11 +378,71 @@ describe('filters/', () => {
 		});
 
 
+		describe('skipLast(count)', () => {
+
+			it(`should repeat the specified ${max} times`, () => {
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
+				{
+					let count = 0;
+					for(const e of skipLast(max)(sequence))
+					{
+						count++;
+						expect(e).equal(count);
+					}
+					expect(count).equal(total - max);
+				}
+			});
+
+			it('should be entire set if skip is zero', () => {
+				let count = 0;
+				for(const e of skipLast(0)(range(1, total)))
+				{
+					count++;
+				}
+				expect(count).equal(total);
+			});
+
+			it('should be throw if array pushed', () => {
+				const a = toArray(range(1, total));
+				expect(attempt).to.throw();
+
+				function attempt (): void
+				{
+					let count = 0;
+					for(const e of skipLast(max)(a))
+					{
+						count++;
+						a.push(1000);
+					}
+				}
+			});
+
+			it('should be empty if skip infinity', () => {
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
+				{
+					let count = 0;
+					for(const e of skipLast(Infinity)(sequence))
+					{
+						count++;
+						expect(e).equal(count);
+					}
+					expect(count).equal(0);
+				}
+			});
+		});
+
+
 		describe('skipWhile(predicate)', () => {
 			it(`should repeat ${expected} times`, () => {
 				const value = 'x';
 				let count = 0;
-				for(const e of skipWhile((x, i) => i<max)(repeat(value, 100)))
+				for(const e of skipWhile((x, i) => i<max)(repeat(value, total)))
 				{
 					count++;
 					expect(e).equal(value);
@@ -340,7 +455,7 @@ describe('filters/', () => {
 			it(`should repeat ${expected} times`, () => {
 				const value = 'x';
 				let count = 0;
-				for(const e of skipUntil((x, i) => i==max)(repeat(value, 100)))
+				for(const e of skipUntil((x, i) => i==max)(repeat(value, total)))
 				{
 					count++;
 					expect(e).equal(value);
@@ -356,14 +471,18 @@ describe('filters/', () => {
 		describe('take(count)', () => {
 
 			it(`should repeat the specified ${max} times`, () => {
-				const value = 'x';
-				let count = 0;
-				for(const e of take(max)(repeat(value, total)))
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
 				{
-					count++;
-					expect(e).equal(value);
+					let count = 0;
+					for(const e of take(max)(sequence))
+					{
+						expect(e).equal(++count);
+					}
+					expect(count).equal(max);
 				}
-				expect(count).equal(max);
 			});
 
 			it('should be empty if take is zero', () => {
@@ -386,6 +505,83 @@ describe('filters/', () => {
 					expect(e).equal(value);
 				}
 				expect(count).equal(total);
+			});
+		});
+
+
+		describe('takeLast(count)', () => {
+
+			it(`should repeat the specified ${max} times`, () => {
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
+				{
+					let count = 0;
+					for(const e of takeLast(max)(sequence))
+					{
+						count++;
+						expect(e).equal(count + total - max);
+					}
+					expect(count).equal(max);
+				}
+			});
+
+			it('should be empty if take is zero', () => {
+				let count = 0;
+				for(const e of takeLast(0)(range(1, total)))
+				{
+					count++;
+				}
+				expect(count).equal(0);
+			});
+
+			it('should be throw if array pushed', () => {
+				const a = toArray(range(1, total));
+				expect(attempt).to.throw();
+
+				function attempt (): void
+				{
+					let count = 0;
+					for(const e of takeLast(max)(a))
+					{
+						count++;
+						a.push(1000);
+					}
+				}
+			});
+
+			it('should be entire set if take is infinity', () => {
+				attempt(range(1, total));
+				attempt(toArray(range(1, total)));
+
+				function attempt (sequence: Iterable<number>): void
+				{
+					let count = 0;
+					for(const e of takeLast(Infinity)(sequence))
+					{
+						count++;
+						expect(e).equal(count);
+					}
+					expect(count).equal(total);
+				}
+			});
+
+			it(`should repeat the total ${total} times if take is infinite`, () => {
+				const value = 'x';
+				attempt(repeat(value, total));
+				attempt(toArray(repeat(value, total)));
+
+				function attempt (sequence: Iterable<string>): void
+				{
+					let count = 0;
+					for(const e of takeLast(Infinity)(sequence))
+					{
+						count++;
+						expect(e).equal(value);
+					}
+					expect(count).equal(total);
+				}
 			});
 		});
 
@@ -441,4 +637,26 @@ describe('filters/', () => {
 
 		});
 	});
+
+	describe('sort', () => {
+		const a = Object.freeze([4, 1, 3, 2, 5, 6]);
+		describe('ascending', () => {
+			it('should be in ascending order', () => {
+				let count = 0;
+				for(const e of ascending(a)) expect(e).equal(++count);
+				count = 0;
+				for(const e of ascending(iterateIndexes(a))) expect(e).equal(++count);
+			});
+		});
+
+		describe('descending', () => {
+			it('should be in descending order', () => {
+				let count = 6;
+				for(const e of descending(a)) expect(e).equal(count--);
+				count = 6;
+				for(const e of descending(iterateIndexes(a))) expect(e).equal(count--);
+			});
+		});
+	});
+
 });

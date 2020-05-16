@@ -17,7 +17,7 @@ function last(sequence) {
         throw new ArgumentNullException_1.default('sequence');
     if (sequence instanceof Array) {
         if (sequence.length)
-            return sequence[0];
+            return sequence[sequence.length - 1];
     }
     else {
         const iterator = sequence[Symbol.iterator]();

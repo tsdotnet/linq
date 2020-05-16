@@ -20,6 +20,17 @@ export default function takeLast<T> (count: number): IterableFilter<T> {
 		return {
 			* [Symbol.iterator] (): Iterator<T>
 			{
+				if(sequence instanceof Array)
+				{
+					const len = sequence.length;
+					for(let i = Math.max(0, len - count); i<len; i++)
+					{
+						if(len!==sequence.length) throw Error('Array length changed during iteration.');
+						yield sequence[i];
+					}
+					return;
+				}
+
 				const q = new Queue<T>();
 				for(const e of sequence)
 				{

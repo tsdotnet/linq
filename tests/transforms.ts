@@ -5,23 +5,16 @@
 
 import {expect} from 'chai';
 import linq from '../src';
-import distinct from '../src/filters/distinct';
-import where from '../src/filters/where';
 import repeatSequence from '../src/iterables/repeatSequence';
 import linqExtended from '../src/linqExtended';
-import contains from '../src/resolutions/contains';
 import count from '../src/resolutions/count';
 import {joinStrings} from '../src/resolutions/joinStrings';
-import single from '../src/resolutions/single';
-import toArray from '../src/resolutions/toArray';
-import groupBy, {Grouping} from '../src/transforms/groupBy';
 import notNull from '../src/transforms/notNull';
 import notNullOrUndefined from '../src/transforms/notNullOrUndefined';
 import notUndefined from '../src/transforms/notUndefined';
 import rows from '../src/transforms/rows';
-import select from '../src/transforms/select';
+import selectMany from '../src/transforms/selectMany';
 import weave from '../src/transforms/weave';
-import testItems, {TestItem} from './testItems';
 import {testRepeatableResolution} from './testRepeatableResolution';
 
 /* eslint-disable @typescript-eslint/camelcase */
@@ -118,47 +111,23 @@ describe('transforms/', () => {
 	});
 
 
-	describe('groupBy(selector)', () => {
-		it('should group by key provided by the selector', () => {
+	describe('selectMany(childSelector)', () => {
 
-			const A_distinct = toArray(distinct(select((o: TestItem) => o.a)(testItems)));
-			const A = groupBy((o: TestItem) => o.a)(testItems);
-			attempt();
-			attempt();
 
-			function attempt (): void
-			{
-				expect(count(A)).equal(A_distinct.length, 'Number of groups should match distinct values.');
-
-				const B = groupBy((o: TestItem) => o.b)(testItems);
-				const B_distinct = distinct(select((o: TestItem) => o.b)(testItems));
-
-				expect(count(B)).equal(count(B_distinct), 'Number of groups should match distinct values.');
-
-				const COMPANY_A = 'Microsoft', COMPANY_B = 'Hell Corp.';
-				const objArray = [
-					{Name: 'John', Id: 0, Salary: 1300.00, Company: COMPANY_A},
-					{Name: 'Peter', Id: 1, Salary: 4800.50, Company: COMPANY_A},
-					{Name: 'Sandra', Id: 2, Salary: 999.99, Company: COMPANY_A},
-					{Name: 'Me', Id: 3, Salary: 1000000000.00, Company: COMPANY_B}
-				];
-				const groups = toArray(groupBy<string, any>(x => x.Company)(objArray));
-				const companies = toArray(select((x: Grouping<string, any>) => x.key)(groups));
-
-				expect(companies.length).equal(2, 'Groups expected.');
-				expect(contains(COMPANY_A)(companies)).to.be.true;
-				expect(contains(COMPANY_B)(companies)).to.be.true;
-				const group_A = single(where((g: any) => g.key==COMPANY_A)(groups));
-				const group_B = single(where((g: any) => g.key==COMPANY_B)(groups));
-				expect(count(group_A)).equal(3);
-				// assert.equal(group_A.sum(x => x.Salary), 7100.49, 'Expected sum to be correct.');
-				expect(count(group_B)).equal(1);
-				// assert.equal(group_B.sum(x => x.Salary), 1000000000.00, 'Expected sum to be correct.');
-			}
-
+		it('should produce the expected sequence', () => {
+			testRepeatableResolution(
+				'abcdefghi',
+				linq([
+					{a: 1, b: ['a', 'b', 'c']},
+					{a: 2, b: ['d', 'e']},
+					{a: 3, b: ['f', 'g', 'h', 'i']}
+				]).transform(selectMany(o => o.b)),
+				joinStrings()
+			);
 		});
 	});
 
+	// groupBy handled by linqExtended.
 
 	describe('rows(columns)', () => {
 
@@ -168,6 +137,7 @@ describe('transforms/', () => {
 			const w = rows([
 				[1, 4, 7, 10, 13, 15, 17],
 				[2, 5, 8, 11],
+				[],
 				[3, 6, 9, 12, 14, 16]
 			]);
 
@@ -183,25 +153,25 @@ describe('transforms/', () => {
 					switch(i++)
 					{
 						case 0:
-							expected = [1, 2, 3];
+							expected = [1, 2, undefined, 3];
 							break;
 						case 1:
-							expected = [4, 5, 6];
+							expected = [4, 5, undefined, 6];
 							break;
 						case 2:
-							expected = [7, 8, 9];
+							expected = [7, 8, undefined, 9];
 							break;
 						case 3:
-							expected = [10, 11, 12];
+							expected = [10, 11, undefined, 12];
 							break;
 						case 4:
-							expected = [13, undefined, 14];
+							expected = [13, undefined, undefined, 14];
 							break;
 						case 5:
-							expected = [15, undefined, 16];
+							expected = [15, undefined, undefined, 16];
 							break;
 						case 6:
-							expected = [17, undefined, undefined];
+							expected = [17, undefined, undefined, undefined];
 							break;
 
 					}

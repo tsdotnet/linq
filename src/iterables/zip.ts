@@ -6,7 +6,7 @@
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 
 /**
- * Concatenates the provided sequences.
+ * Produces a sequence that is combination of the two sequences..
  * @param {Iterable<T1>} sequence1
  * @param {Iterable<T2>} sequence2
  * @param {(r1: IteratorResult<T1>, r2: IteratorResult<T2>, i: number) => TResult} selector
@@ -24,14 +24,13 @@ export default function zip<T1, T2, TResult> (
 		* [Symbol.iterator] (): Iterator<TResult>
 		{
 			const i1 = sequence1[Symbol.iterator](), i2 = sequence2[Symbol.iterator]();
-			let n1: IteratorResult<T1>, n2: IteratorResult<T2>, i = 0;
-			do
+			let n1 = i1.next(), n2 = i2.next(), i = 0;
+			while(!n1.done || !n2.done)
 			{
+				yield selector(n1, n2, i++);
 				n1 = i1.next();
 				n2 = i2.next();
-				yield selector(n1, n2, i++);
 			}
-			while(!n1.done || !n2.done);
 		}
 	};
 }

@@ -1,7 +1,7 @@
 import { PredicateWithIndex, SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import { Linq } from './linq';
-import { Grouping } from './transforms/groupBy';
+import { Grouping, GroupingResult } from './transforms/groupBy';
 export declare class LinqExtended<T> extends Linq<T> {
     /**
      * Returns a filtered sequence.
@@ -66,12 +66,16 @@ export declare class LinqExtended<T> extends Linq<T> {
      * @param {SelectorWithIndex<T, TKey>} keySelector
      * @return {LinqExtended<Grouping<TKey, T>>}
      */
-    groupBy<TKey>(keySelector: SelectorWithIndex<T, TKey>): LinqExtended<Grouping<TKey, T>>;
+    groupBy<TKey>(keySelector: SelectorWithIndex<T, TKey>): LinqExtended<LinqGrouping<TKey, T>>;
     /**
      * Returns all the entries in the sequence as an array.
      * @return {T[]}
      */
     toArray(): T[];
+}
+export declare class LinqGrouping<TKey, T> extends LinqExtended<T> implements Grouping<TKey, T> {
+    readonly key: TKey;
+    constructor(grouping: GroupingResult<TKey, T>);
 }
 /**
  * Returns a special extended version of Linq<T> which includes common operations like .where(predicate) .select(selector) and more with the consequence of a potentially larger footprint.

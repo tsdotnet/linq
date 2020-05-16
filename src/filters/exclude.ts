@@ -25,6 +25,7 @@ export default function exclude<T> (exclusions: Iterable<T>): IterableFilter<T> 
 				{
 					// No exclusions, just return the sequence in entirety.
 					for(const s of sequence) yield s;
+					return;
 				}
 				x.add(n.value);
 

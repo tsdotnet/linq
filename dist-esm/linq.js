@@ -4,11 +4,11 @@
  */
 import applyFilters from './applyFilters';
 export class Linq {
-    constructor(_source) {
-        this._source = _source;
+    constructor(source) {
+        this.source = source;
     }
     [Symbol.iterator]() {
-        return this._source[Symbol.iterator]();
+        return this.source[Symbol.iterator]();
     }
     /**
      * Returns a filtered sequence.
@@ -24,7 +24,7 @@ export class Linq {
      * @return {Linq<T>}
      */
     filters(filters) {
-        return new Linq(applyFilters(this, filters));
+        return new Linq(applyFilters(this.source, filters));
     }
     /**
      * Returns a transformed sequence.
@@ -32,7 +32,7 @@ export class Linq {
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this));
+        return new Linq(transform(this.source));
     }
     /**
      * Applies a resolver to this sequence.
@@ -40,7 +40,7 @@ export class Linq {
      * @return {TResolution}
      */
     resolve(resolver) {
-        return resolver(this);
+        return resolver(this.source);
     }
 }
 /**

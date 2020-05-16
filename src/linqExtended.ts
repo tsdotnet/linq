@@ -12,7 +12,7 @@ import all from './resolutions/all';
 import any from './resolutions/any';
 import count from './resolutions/count';
 import toArray from './resolutions/toArray';
-import groupBy, {Grouping} from './transforms/groupBy';
+import groupBy, {Grouping, GroupingResult} from './transforms/groupBy';
 import select from './transforms/select';
 
 export class LinqExtended<T>
@@ -51,7 +51,7 @@ export class LinqExtended<T>
 	 */
 	filters (filters: Iterable<IterableFilter<T>>): LinqExtended<T>
 	{
-		return new LinqExtended<T>(applyFilters(this, filters));
+		return new LinqExtended<T>(applyFilters(this.source, filters));
 	}
 
 	/**
@@ -61,7 +61,7 @@ export class LinqExtended<T>
 	 */
 	transform<TResult> (transform: IterableValueTransform<T, TResult>): LinqExtended<TResult>
 	{
-		return new LinqExtended(transform(this));
+		return new LinqExtended(transform(this.source));
 	}
 
 	////// EXTENDED METHODS //////
@@ -85,7 +85,9 @@ export class LinqExtended<T>
 	 */
 	count (predicate?: PredicateWithIndex<T>): number
 	{
-		return predicate ? count(where(predicate)(this)) : count(this);
+		return predicate
+			? count(where(predicate)(this.source))
+			: count(this.source);
 	}
 
 	/**
@@ -96,7 +98,7 @@ export class LinqExtended<T>
 	 */
 	any (predicate?: PredicateWithIndex<T>): boolean
 	{
-		return any(predicate)(this);
+		return any(predicate)(this.source);
 	}
 
 	/**
@@ -106,7 +108,7 @@ export class LinqExtended<T>
 	 */
 	all (predicate: PredicateWithIndex<T>): boolean
 	{
-		return all(predicate)(this);
+		return all(predicate)(this.source);
 	}
 
 	/**
@@ -124,9 +126,11 @@ export class LinqExtended<T>
 	 * @param {SelectorWithIndex<T, TKey>} keySelector
 	 * @return {LinqExtended<Grouping<TKey, T>>}
 	 */
-	groupBy<TKey> (keySelector: SelectorWithIndex<T, TKey>): LinqExtended<Grouping<TKey, T>>
+	groupBy<TKey> (keySelector: SelectorWithIndex<T, TKey>): LinqExtended<LinqGrouping<TKey, T>>
 	{
-		return this.transform(groupBy(keySelector));
+		return this
+			.transform(groupBy(keySelector))
+			.select(g => new LinqGrouping<TKey, T>(g));
 	}
 
 	/**
@@ -135,7 +139,20 @@ export class LinqExtended<T>
 	 */
 	toArray (): T[]
 	{
-		return toArray(this);
+		return toArray(this.source);
+	}
+}
+
+export class LinqGrouping<TKey, T>
+	extends LinqExtended<T>
+	implements Grouping<TKey, T>
+{
+	readonly key: TKey;
+
+	constructor (grouping: GroupingResult<TKey, T>)
+	{
+		super(grouping.elements);
+		this.key = grouping.key;
 	}
 }
 

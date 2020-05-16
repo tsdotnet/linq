@@ -15,10 +15,10 @@ import {IterableValueTransform} from '../IterableTransform';
  */
 export default function groupBy<TKey, TElement> (
 	keySelector: SelectorWithIndex<TElement, TKey>
-): IterableValueTransform<TElement, Grouping<TKey, TElement>> {
-	return function(sequence: Iterable<TElement>): Iterable<Grouping<TKey, TElement>> {
+): IterableValueTransform<TElement, GroupingResult<TKey, TElement>> {
+	return function(sequence: Iterable<TElement>): Iterable<GroupingResult<TKey, TElement>> {
 		return {
-			* [Symbol.iterator] (): Iterator<Grouping<TKey, TElement>>
+			* [Symbol.iterator] (): Iterator<GroupingResult<TKey, TElement>>
 			{
 				const
 					map      = new Map<TKey, TElement[]>(),
@@ -75,7 +75,7 @@ export interface Grouping<TKey, TElement>
 	readonly key: TKey;
 }
 
-class GroupingResult<TKey, TElement>
+export class GroupingResult<TKey, TElement>
 	implements Grouping<TKey, TElement>
 {
 	constructor (

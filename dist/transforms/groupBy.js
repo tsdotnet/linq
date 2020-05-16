@@ -4,6 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GroupingResult = void 0;
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /**
  * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
@@ -65,4 +66,5 @@ class GroupingResult {
         return this.elements[Symbol.iterator]();
     }
 }
+exports.GroupingResult = GroupingResult;
 //# sourceMappingURL=groupBy.js.map

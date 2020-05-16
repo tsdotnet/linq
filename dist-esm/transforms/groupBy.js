@@ -52,7 +52,7 @@ export default function groupBy(keySelector) {
         };
     };
 }
-class GroupingResult {
+export class GroupingResult {
     constructor(key, elements) {
         this.key = key;
         this.elements = elements;

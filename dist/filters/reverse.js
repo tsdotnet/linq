@@ -17,6 +17,15 @@ function reverse(sequence) {
         throw new ArgumentNullException_1.default('sequence');
     return {
         *[Symbol.iterator]() {
+            if (sequence instanceof Array) {
+                const len = sequence.length;
+                for (let i = len - 1; i >= 0; i--) {
+                    if (len !== sequence.length)
+                        throw Error('Array length changed during iteration.');
+                    yield sequence[i];
+                }
+                return;
+            }
             for (const e of toArray_1.default(sequence).reverse()) {
                 yield e;
             }

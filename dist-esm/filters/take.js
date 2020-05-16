@@ -17,6 +17,16 @@ export default function take(count) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
+                if (sequence instanceof Array) {
+                    const len = sequence.length;
+                    count = Math.min(count, len);
+                    for (let i = 0; i < count; i++) {
+                        if (len !== sequence.length)
+                            throw Error('Array length changed during iteration.');
+                        yield sequence[i];
+                    }
+                    return;
+                }
                 let remain = count;
                 for (const e of sequence) {
                     yield e;

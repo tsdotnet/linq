@@ -26,7 +26,7 @@ export class LinqExtended extends Linq {
      * @return {LinqExtended<T>}
      */
     filters(filters) {
-        return new LinqExtended(applyFilters(this, filters));
+        return new LinqExtended(applyFilters(this.source, filters));
     }
     /**
      * Returns a transformed sequence.
@@ -34,7 +34,7 @@ export class LinqExtended extends Linq {
      * @return {LinqExtended<TResult>}
      */
     transform(transform) {
-        return new LinqExtended(transform(this));
+        return new LinqExtended(transform(this.source));
     }
     ////// EXTENDED METHODS //////
     /**
@@ -53,7 +53,9 @@ export class LinqExtended extends Linq {
      * @return {boolean}
      */
     count(predicate) {
-        return predicate ? count(where(predicate)(this)) : count(this);
+        return predicate
+            ? count(where(predicate)(this.source))
+            : count(this.source);
     }
     /**
      * Returns true if the predicate ever returns true. Otherwise false.
@@ -62,7 +64,7 @@ export class LinqExtended extends Linq {
      * @return {boolean}
      */
     any(predicate) {
-        return any(predicate)(this);
+        return any(predicate)(this.source);
     }
     /**
      * Returns false if the predicate ever returns false. Otherwise true.
@@ -70,7 +72,7 @@ export class LinqExtended extends Linq {
      * @return {boolean}
      */
     all(predicate) {
-        return all(predicate)(this);
+        return all(predicate)(this.source);
     }
     /**
      * Projects each element of a sequence into a new form.
@@ -86,14 +88,22 @@ export class LinqExtended extends Linq {
      * @return {LinqExtended<Grouping<TKey, T>>}
      */
     groupBy(keySelector) {
-        return this.transform(groupBy(keySelector));
+        return this
+            .transform(groupBy(keySelector))
+            .select(g => new LinqGrouping(g));
     }
     /**
      * Returns all the entries in the sequence as an array.
      * @return {T[]}
      */
     toArray() {
-        return toArray(this);
+        return toArray(this.source);
+    }
+}
+export class LinqGrouping extends LinqExtended {
+    constructor(grouping) {
+        super(grouping.elements);
+        this.key = grouping.key;
     }
 }
 /**

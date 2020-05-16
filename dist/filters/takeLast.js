@@ -21,6 +21,15 @@ function takeLast(count) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
+                if (sequence instanceof Array) {
+                    const len = sequence.length;
+                    for (let i = Math.max(0, len - count); i < len; i++) {
+                        if (len !== sequence.length)
+                            throw Error('Array length changed during iteration.');
+                        yield sequence[i];
+                    }
+                    return;
+                }
                 const q = new queue_1.default();
                 for (const e of sequence) {
                     q.enqueue(e);

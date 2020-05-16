@@ -1,7 +1,7 @@
 import { IterableFilter, IterableTransform, IterableValueTransform } from './IterableTransform';
 export declare class Linq<T> implements Iterable<T> {
-    private readonly _source;
-    constructor(_source: Iterable<T>);
+    protected readonly source: Iterable<T>;
+    constructor(source: Iterable<T>);
     [Symbol.iterator](): Iterator<T>;
     /**
      * Returns a filtered sequence.

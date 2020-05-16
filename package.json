@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/linq",
-  "version": "1.0.1-preview",
+  "version": "1.0.0",
   "description": "A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET's LINQ does with enumerables.",
   "author": "electricessence",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
     "build": "npm i && run-p build:*",
     "bump": "npm run precommit && npm version patch",
-    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none && node ./.build/create-nojekyll.js",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json && node ./.build/create-nojekyll.js",
     "lint": "eslint src/**/*.ts",
     "precommit": "npm i && run-p lint test && run-p build:* && npm run validate",
     "prepublishOnly": "npm run build && run-p validate test",

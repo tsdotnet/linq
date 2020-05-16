@@ -4,7 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LinqExtended = void 0;
+exports.LinqGrouping = exports.LinqExtended = void 0;
 const tslib_1 = require("tslib");
 const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
 const where_1 = tslib_1.__importDefault(require("./filters/where"));
@@ -30,7 +30,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     filters(filters) {
-        return new LinqExtended(applyFilters_1.default(this, filters));
+        return new LinqExtended(applyFilters_1.default(this.source, filters));
     }
     /**
      * Returns a transformed sequence.
@@ -38,7 +38,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<TResult>}
      */
     transform(transform) {
-        return new LinqExtended(transform(this));
+        return new LinqExtended(transform(this.source));
     }
     ////// EXTENDED METHODS //////
     /**
@@ -57,7 +57,9 @@ class LinqExtended extends linq_1.Linq {
      * @return {boolean}
      */
     count(predicate) {
-        return predicate ? count_1.default(where_1.default(predicate)(this)) : count_1.default(this);
+        return predicate
+            ? count_1.default(where_1.default(predicate)(this.source))
+            : count_1.default(this.source);
     }
     /**
      * Returns true if the predicate ever returns true. Otherwise false.
@@ -66,7 +68,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {boolean}
      */
     any(predicate) {
-        return any_1.default(predicate)(this);
+        return any_1.default(predicate)(this.source);
     }
     /**
      * Returns false if the predicate ever returns false. Otherwise true.
@@ -74,7 +76,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {boolean}
      */
     all(predicate) {
-        return all_1.default(predicate)(this);
+        return all_1.default(predicate)(this.source);
     }
     /**
      * Projects each element of a sequence into a new form.
@@ -90,17 +92,26 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<Grouping<TKey, T>>}
      */
     groupBy(keySelector) {
-        return this.transform(groupBy_1.default(keySelector));
+        return this
+            .transform(groupBy_1.default(keySelector))
+            .select(g => new LinqGrouping(g));
     }
     /**
      * Returns all the entries in the sequence as an array.
      * @return {T[]}
      */
     toArray() {
-        return toArray_1.default(this);
+        return toArray_1.default(this.source);
     }
 }
 exports.LinqExtended = LinqExtended;
+class LinqGrouping extends LinqExtended {
+    constructor(grouping) {
+        super(grouping.elements);
+        this.key = grouping.key;
+    }
+}
+exports.LinqGrouping = LinqGrouping;
 /**
  * Returns a special extended version of Linq<T> which includes common operations like .where(predicate) .select(selector) and more with the consequence of a potentially larger footprint.
  * To minimize included modules use the standard version (linq) and import only the filters, transforms and resolutions needed.

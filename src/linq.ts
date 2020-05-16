@@ -10,13 +10,13 @@ export class Linq<T>
 	implements Iterable<T>
 {
 	constructor (
-		private readonly _source: Iterable<T>)
+		protected readonly source: Iterable<T>)
 	{
 	}
 
 	[Symbol.iterator] (): Iterator<T>
 	{
-		return this._source[Symbol.iterator]();
+		return this.source[Symbol.iterator]();
 	}
 
 	/**
@@ -51,7 +51,7 @@ export class Linq<T>
 	 */
 	filters (filters: Iterable<IterableFilter<T>>): Linq<T>
 	{
-		return new Linq<T>(applyFilters(this, filters));
+		return new Linq<T>(applyFilters(this.source, filters));
 	}
 
 	/**
@@ -61,7 +61,7 @@ export class Linq<T>
 	 */
 	transform<TResult> (transform: IterableValueTransform<T, TResult>): Linq<TResult>
 	{
-		return new Linq(transform(this));
+		return new Linq(transform(this.source));
 	}
 
 	/**
@@ -71,7 +71,7 @@ export class Linq<T>
 	 */
 	resolve<TResolution> (resolver: IterableTransform<T, TResolution>): TResolution
 	{
-		return resolver(this);
+		return resolver(this.source);
 	}
 }
 

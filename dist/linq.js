@@ -8,11 +8,11 @@ exports.Linq = void 0;
 const tslib_1 = require("tslib");
 const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
 class Linq {
-    constructor(_source) {
-        this._source = _source;
+    constructor(source) {
+        this.source = source;
     }
     [Symbol.iterator]() {
-        return this._source[Symbol.iterator]();
+        return this.source[Symbol.iterator]();
     }
     /**
      * Returns a filtered sequence.
@@ -28,7 +28,7 @@ class Linq {
      * @return {Linq<T>}
      */
     filters(filters) {
-        return new Linq(applyFilters_1.default(this, filters));
+        return new Linq(applyFilters_1.default(this.source, filters));
     }
     /**
      * Returns a transformed sequence.
@@ -36,7 +36,7 @@ class Linq {
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this));
+        return new Linq(transform(this.source));
     }
     /**
      * Applies a resolver to this sequence.
@@ -44,7 +44,7 @@ class Linq {
      * @return {TResolution}
      */
     resolve(resolver) {
-        return resolver(this);
+        return resolver(this.source);
     }
 }
 exports.Linq = Linq;

@@ -7,5 +7,6 @@ import * as iterables from './iterables';
 import linq from './linq';
 import * as resolutions from './resolutions';
 import * as transforms from './transforms';
-export { filters, iterables, resolutions, transforms };
+import linqExtended from './linqExtended';
+export { filters, iterables, resolutions, transforms, linqExtended };
 export default linq;
