@@ -9,7 +9,7 @@ A familiar set of functions that operate on JavaScript iterables (ES2015+) in a 
 
 ## Docs
 
-[tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/)
+[tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/globals.html)
 
 ## API
 
@@ -85,7 +85,7 @@ Instead of loading entire sets into arrays or other collections, iterables allow
 `Iterable<T>` helpers are provided as sources.  Calling for an `Iterator<T>` should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.
 
 `empty`, `range`, and `repeat` to name a few.
-See the [docs](https://tsdotnet.github.io/linq/) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
 
 ### Filters
 
@@ -98,7 +98,7 @@ Any function that receives an `Iterable<T>` and returns an `Iterable<T>` is cons
 `IterableFilter<T>`.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.
 
 There are an extensive set of filters.
-See the [docs](https://tsdotnet.github.io/linq/) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
 
 ### Transforms
 
@@ -112,7 +112,7 @@ Any function that receives an `Iterable<T>` and returns an `Iterable<TResult>` i
 
 Any filter can be used as a transform, but not every transform can be used as a filter.
 
-See the [docs](https://tsdotnet.github.io/linq/) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
 
 
 ### Resolutions
@@ -127,7 +127,7 @@ A resolution is a transform that takes an `Iterable<T>` and returns `TResult`.
 Unlike `.filter(a)` and `.transform(x)`, `.resolve(r)` does not wrap the result in another `Linq<T>`.
 
 There are an extensive set of resolutions.
-See the [docs](https://tsdotnet.github.io/linq/) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
 
 ## History
 

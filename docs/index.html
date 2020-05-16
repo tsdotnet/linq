@@ -71,7 +71,7 @@
 				<a href="#docs" id="docs" style="color: inherit; text-decoration: none;">
 					<h2>Docs</h2>
 				</a>
-				<p><a href="https://tsdotnet.github.io/linq/">tsdotnet.github.io/linq</a></p>
+				<p><a href="https://tsdotnet.github.io/linq/globals.html">tsdotnet.github.io/linq</a></p>
 				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
 					<h2>API</h2>
 				</a>
@@ -139,7 +139,7 @@
 				</a>
 				<p><code>Iterable&lt;T&gt;</code> helpers are provided as sources.  Calling for an <code>Iterator&lt;T&gt;</code> should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.</p>
 				<p><code>empty</code>, <code>range</code>, and <code>repeat</code> to name a few.
-				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
 				<a href="#filters" id="filters" style="color: inherit; text-decoration: none;">
 					<h3>Filters</h3>
 				</a>
@@ -148,7 +148,7 @@ linq(source).filter(a).filter(b);</code></pre>
 				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;T&gt;</code> is considered an
 				<code>IterableFilter&lt;T&gt;</code>.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.</p>
 				<p>There are an extensive set of filters.
-				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
 				<a href="#transforms" id="transforms" style="color: inherit; text-decoration: none;">
 					<h3>Transforms</h3>
 				</a>
@@ -157,7 +157,7 @@ linq(source).filter(a).transform(x);</code></pre>
 				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;TResult&gt;</code> is considered an
 				<code>IterableValueTransform&lt;T, TResult&gt;</code>.</p>
 				<p>Any filter can be used as a transform, but not every transform can be used as a filter.</p>
-				<p>See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				<p>See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
 				<a href="#resolutions" id="resolutions" style="color: inherit; text-decoration: none;">
 					<h3>Resolutions</h3>
 				</a>
@@ -167,7 +167,7 @@ linq(source).filter(a, b).transform(x).resolve(r);</code></pre>
 				<p>A resolution is a transform that takes an <code>Iterable&lt;T&gt;</code> and returns <code>TResult</code>.
 				Unlike <code>.filter(a)</code> and <code>.transform(x)</code>, <code>.resolve(r)</code> does not wrap the result in another <code>Linq&lt;T&gt;</code>.</p>
 				<p>There are an extensive set of resolutions.
-				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
 				<a href="#history" id="history" style="color: inherit; text-decoration: none;">
 					<h2>History</h2>
 				</a>
