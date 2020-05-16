@@ -112,6 +112,7 @@ Any function that receives an `Iterable<T>` and returns an `Iterable<TResult>` i
 
 Any filter can be used as a transform, but not every transform can be used as a filter.
 
+`notNull`, `rows`, `select`, `selectMany` and `groupBy` to name a few.
 See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
 
 
