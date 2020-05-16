@@ -107,7 +107,7 @@
 
 <span class="hljs-keyword">const</span> source:Iterable&lt;<span class="hljs-built_in">number</span>&gt; = range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>);
 <span class="hljs-keyword">const</span> filtered = linq(source).filters(
-     where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>),
+     where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>),
      descending);
 
 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> o of filtered) {
@@ -137,8 +137,9 @@
 				<a href="#generators" id="generators" style="color: inherit; text-decoration: none;">
 					<h4>Generators</h4>
 				</a>
-				<p><code>Iterable&lt;T&gt;</code> helpers are provided as sources.  Calling for an <code>Iterator&lt;T&gt;</code> should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.  </p>
-				<p><code>empty</code>, <code>range</code>, and <code>repeat</code> to name a few.<br>See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				<p><code>Iterable&lt;T&gt;</code> helpers are provided as sources.  Calling for an <code>Iterator&lt;T&gt;</code> should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.</p>
+				<p><code>empty</code>, <code>range</code>, and <code>repeat</code> to name a few.
+				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
 				<a href="#filters" id="filters" style="color: inherit; text-decoration: none;">
 					<h3>Filters</h3>
 				</a>
@@ -146,7 +147,8 @@
 linq(source).filter(a).filter(b);</code></pre>
 				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;T&gt;</code> is considered an
 				<code>IterableFilter&lt;T&gt;</code>.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.</p>
-				<p>There are an extensive set of filters.<br>See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				<p>There are an extensive set of filters.
+				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
 				<a href="#transforms" id="transforms" style="color: inherit; text-decoration: none;">
 					<h3>Transforms</h3>
 				</a>
@@ -164,12 +166,13 @@ linq(source).transform(x).resolve(r);
 linq(source).filter(a, b).transform(x).resolve(r);</code></pre>
 				<p>A resolution is a transform that takes an <code>Iterable&lt;T&gt;</code> and returns <code>TResult</code>.
 				Unlike <code>.filter(a)</code> and <code>.transform(x)</code>, <code>.resolve(r)</code> does not wrap the result in another <code>Linq&lt;T&gt;</code>.</p>
-				<p>There are an extensive set of resolutions.<br>See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
+				<p>There are an extensive set of resolutions.
+				See the <a href="https://tsdotnet.github.io/linq/">docs</a> for a full list.</p>
 				<a href="#history" id="history" style="color: inherit; text-decoration: none;">
 					<h2>History</h2>
 				</a>
 				<p>Originally this was a port of <code>linq.js</code> converted to full TypeScript under the name <code>TypeScript.NET Library</code> and then <code>TypeScript.NET-Core</code> with full module support but potentially more than a user might want for a simple task.  Instead of .NET style extensions, <code>Enumerables</code> incurred a heavy cost of all the extensions under one module.</p>
-				<p>Modern web standards and practices demanded more granular access to classes and functions.  Hence <code>tsdotnet</code> was born.  <code>tsdotnet/linq</code> functionally allows for all the features of its predecessor as well as providing type-safety, and most of the features of LINQ in .NET while not forcing the consumer to download unneeded/undesired modules (extensions).     </p>
+				<p>Modern web standards and practices demanded more granular access to classes and functions.  Hence <code>tsdotnet</code> was born.  <code>tsdotnet/linq</code> functionally allows for all the features of its predecessor as well as providing type-safety, and most of the features of LINQ in .NET while not forcing the consumer to download unneeded/undesired modules (extensions).</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

@@ -49,7 +49,7 @@ import {descending} from '@tsdotnet/linq/dist/filters/sort';
 
 const source:Iterable<number> = range(1,100);
 const filtered = linq(source).filters(
-     where(n => n%2),
+     where(n => n%2===1),
      descending);
 
 for(const o of filtered) {
@@ -82,9 +82,9 @@ Instead of loading entire sets into arrays or other collections, iterables allow
 
 #### Generators
 
-`Iterable<T>` helpers are provided as sources.  Calling for an `Iterator<T>` should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.  
+`Iterable<T>` helpers are provided as sources.  Calling for an `Iterator<T>` should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.
 
-`empty`, `range`, and `repeat` to name a few.  
+`empty`, `range`, and `repeat` to name a few.
 See the [docs](https://tsdotnet.github.io/linq/) for a full list.
 
 ### Filters
@@ -97,7 +97,7 @@ linq(source).filter(a).filter(b);
 Any function that receives an `Iterable<T>` and returns an `Iterable<T>` is considered an
 `IterableFilter<T>`.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.
 
-There are an extensive set of filters.  
+There are an extensive set of filters.
 See the [docs](https://tsdotnet.github.io/linq/) for a full list.
 
 ### Transforms
@@ -126,11 +126,11 @@ linq(source).filter(a, b).transform(x).resolve(r);
 A resolution is a transform that takes an `Iterable<T>` and returns `TResult`.
 Unlike `.filter(a)` and `.transform(x)`, `.resolve(r)` does not wrap the result in another `Linq<T>`.
 
-There are an extensive set of resolutions.  
+There are an extensive set of resolutions.
 See the [docs](https://tsdotnet.github.io/linq/) for a full list.
 
 ## History
 
 Originally this was a port of `linq.js` converted to full TypeScript under the name `TypeScript.NET Library` and then `TypeScript.NET-Core` with full module support but potentially more than a user might want for a simple task.  Instead of .NET style extensions, `Enumerables` incurred a heavy cost of all the extensions under one module.
 
-Modern web standards and practices demanded more granular access to classes and functions.  Hence `tsdotnet` was born.  `tsdotnet/linq` functionally allows for all the features of its predecessor as well as providing type-safety, and most of the features of LINQ in .NET while not forcing the consumer to download unneeded/undesired modules (extensions).     
+Modern web standards and practices demanded more granular access to classes and functions.  Hence `tsdotnet` was born.  `tsdotnet/linq` functionally allows for all the features of its predecessor as well as providing type-safety, and most of the features of LINQ in .NET while not forcing the consumer to download unneeded/undesired modules (extensions).
