@@ -105,7 +105,7 @@
 <span class="hljs-keyword">import</span> where <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/where'</span>;
 <span class="hljs-keyword">import</span> {descending} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/sort'</span>;
 
-<span class="hljs-keyword">const</span> source:Iterable&lt;<span class="hljs-built_in">number</span>&gt; = range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>);
+<span class="hljs-keyword">const</span> source = range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
 <span class="hljs-keyword">const</span> filtered = linq(source).filters(
      where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>),
      descending);
@@ -120,7 +120,7 @@
 				</a>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {linqExtended, iterables, resolutions} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq'</span>;
 
-<span class="hljs-keyword">const</span> source:Iterable&lt;<span class="hljs-built_in">number</span>&gt; = iterables.range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>);
+<span class="hljs-keyword">const</span> source = iterables.range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
 <span class="hljs-keyword">const</span> result = linqExtended(source)
     .where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>) <span class="hljs-comment">// odd numbers only</span>
     .resolve(resolutions.sum); <span class="hljs-comment">// 2500</span></code></pre>

@@ -47,7 +47,7 @@ import range from '@tsdotnet/linq/dist/iterables/range';
 import where from '@tsdotnet/linq/dist/filters/where';
 import {descending} from '@tsdotnet/linq/dist/filters/sort';
 
-const source:Iterable<number> = range(1,100);
+const source = range(1,100); // Iterable<number>
 const filtered = linq(source).filters(
      where(n => n%2===1),
      descending);
@@ -63,7 +63,7 @@ for(const o of filtered) {
 ```typescript
 import {linqExtended, iterables, resolutions} from '@tsdotnet/linq';
 
-const source:Iterable<number> = iterables.range(1,100);
+const source = iterables.range(1,100); // Iterable<number>
 const result = linqExtended(source)
     .where(n => n%2===1) // odd numbers only
     .resolve(resolutions.sum); // 2500
