@@ -1,6 +1,6 @@
-/*!
+/*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import memoize from '@tsdotnet/memoize';
