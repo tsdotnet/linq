@@ -11,9 +11,14 @@ A familiar set of functions that operate on JavaScript iterables (ES2015+) in a 
 
 [tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/globals.html)
 
+## Source
+
+[GitHub](https://github.com/tsdotnet/linq)
+
 ## API
 
 ### Iterating
+
 ```typescript
 for(const e of linq(source)
     .filter(a, b, c)) {
@@ -41,6 +46,7 @@ const result = linq(source)
 ## Examples
 
 ### `linq<T>` with imported filters
+
 ```typescript
 import linq from '@tsdotnet/linq/dist/linq';
 import range from '@tsdotnet/linq/dist/iterables/range';
@@ -60,6 +66,7 @@ for(const o of filtered) {
 ```
 
 ### `linqExtended<T>` with simplified imports
+
 ```typescript
 import {linqExtended, iterables, resolutions} from '@tsdotnet/linq';
 
@@ -81,7 +88,6 @@ const result = linqExtended(source)
     .where(n => n%2===1) // odd numbers only
     .resolve(resolutions.sum); // 2500
 ```
-
 
 ## Concepts
 
@@ -128,7 +134,6 @@ Any filter can be used as a transform, but not every transform can be used as a 
 
 `notNull`, `rows`, `select`, `selectMany` and `groupBy` to name a few.
 See the [docs](https://tsdotnet.github.io/linq/modules/transforms.html) for a full list.
-
 
 ### Resolutions
 
