@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module iterables
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * Generates a sequence that contains one repeated value.

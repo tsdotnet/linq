@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * Filters out null or undefined values.

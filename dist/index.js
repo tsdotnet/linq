@@ -1,7 +1,8 @@
 "use strict";
-/*!
+/**!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.linqExtended = exports.transforms = exports.resolutions = exports.iterables = exports.filters = void 0;

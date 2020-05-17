@@ -1,6 +1,7 @@
-/*!
+/**!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
+ * @ignore
  */
 
 import * as filters from './filters';

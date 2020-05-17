@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 declare type NotNull<T> = T extends null ? never : T;
 /**
  * Filters out null values.

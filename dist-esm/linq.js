@@ -1,8 +1,11 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import applyFilters from './applyFilters';
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
 export class Linq {
     constructor(source) {
         this.source = source;

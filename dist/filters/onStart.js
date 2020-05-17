@@ -1,7 +1,7 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module filters
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");

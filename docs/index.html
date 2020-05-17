@@ -103,7 +103,7 @@
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> linq <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/linq'</span>;
 <span class="hljs-keyword">import</span> range <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/iterables/range'</span>;
 <span class="hljs-keyword">import</span> where <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/where'</span>;
-<span class="hljs-keyword">import</span> {descending} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/sort'</span>;
+<span class="hljs-keyword">import</span> descending <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/descending'</span>;
 
 <span class="hljs-keyword">const</span> source = range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
 <span class="hljs-keyword">const</span> filtered = linq(source).filters(
@@ -124,6 +124,15 @@
 <span class="hljs-keyword">const</span> result = linqExtended(source)
     .where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>) <span class="hljs-comment">// odd numbers only</span>
     .resolve(resolutions.sum); <span class="hljs-comment">// 2500</span></code></pre>
+				<p>or</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {linqExtended} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq'</span>;
+<span class="hljs-keyword">import</span> {range} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/iterables'</span>;
+<span class="hljs-keyword">import</span> {sum} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/resolutions'</span>;
+
+<span class="hljs-keyword">const</span> source = iterables.range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
+<span class="hljs-keyword">const</span> result = linqExtended(source)
+    .where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>) <span class="hljs-comment">// odd numbers only</span>
+    .resolve(resolutions.sum); <span class="hljs-comment">// 2500</span></code></pre>
 				<a href="#concepts" id="concepts" style="color: inherit; text-decoration: none;">
 					<h2>Concepts</h2>
 				</a>
@@ -139,7 +148,7 @@
 				</a>
 				<p><code>Iterable&lt;T&gt;</code> helpers are provided as sources.  Calling for an <code>Iterator&lt;T&gt;</code> should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.</p>
 				<p><code>empty</code>, <code>range</code>, and <code>repeat</code> to name a few.
-				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/modules/iterables.html">docs</a> for a full list.</p>
 				<a href="#filters" id="filters" style="color: inherit; text-decoration: none;">
 					<h3>Filters</h3>
 				</a>
@@ -148,7 +157,7 @@ linq(source).filter(a).filter(b);</code></pre>
 				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;T&gt;</code> is considered an
 				<code>IterableFilter&lt;T&gt;</code>.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.</p>
 				<p>There are an extensive set of filters.
-				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/modules/filters.html">docs</a> for a full list.</p>
 				<a href="#transforms" id="transforms" style="color: inherit; text-decoration: none;">
 					<h3>Transforms</h3>
 				</a>
@@ -158,7 +167,7 @@ linq(source).filter(a).transform(x);</code></pre>
 				<code>IterableValueTransform&lt;T, TResult&gt;</code>.</p>
 				<p>Any filter can be used as a transform, but not every transform can be used as a filter.</p>
 				<p><code>notNull</code>, <code>rows</code>, <code>select</code>, <code>selectMany</code> and <code>groupBy</code> to name a few.
-				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/modules/transforms.html">docs</a> for a full list.</p>
 				<a href="#resolutions" id="resolutions" style="color: inherit; text-decoration: none;">
 					<h3>Resolutions</h3>
 				</a>
@@ -168,7 +177,7 @@ linq(source).filter(a, b).transform(x).resolve(r);</code></pre>
 				<p>A resolution is a transform that takes an <code>Iterable&lt;T&gt;</code> and returns <code>TResult</code>.
 				Unlike <code>.filter(a)</code> and <code>.transform(x)</code>, <code>.resolve(r)</code> does not wrap the result in another <code>Linq&lt;T&gt;</code>.</p>
 				<p>There are an extensive set of resolutions.
-				See the <a href="https://tsdotnet.github.io/linq/globals.html">docs</a> for a full list.</p>
+				See the <a href="https://tsdotnet.github.io/linq/modules/resolutions.html">docs</a> for a full list.</p>
 				<a href="#history" id="history" style="color: inherit; text-decoration: none;">
 					<h2>History</h2>
 				</a>
@@ -186,235 +195,25 @@ linq(source).filter(a, b).transform(x).resolve(r);</code></pre>
 						<a href="modules/_iterabletransform_d_.html">&quot;<wbr>Iterable<wbr>Transform.d&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_applyfilters_.html">&quot;apply<wbr>Filters&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_append_.html">&quot;filters/append&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_buffer_.html">&quot;filters/buffer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_defaultifempty_.html">&quot;filters/default<wbr>IfEmpty&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_distinct_.html">&quot;filters/distinct&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_exclude_.html">&quot;filters/exclude&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_memoize_.html">&quot;filters/memoize&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_oftype_.html">&quot;filters/of<wbr>Type&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_oncomplete_.html">&quot;filters/on<wbr>Complete&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_onerror_.html">&quot;filters/on<wbr>Error&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_onstart_.html">&quot;filters/on<wbr>Start&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_orderby_.html">&quot;filters/order<wbr>By&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_orderusing_.html">&quot;filters/order<wbr>Using&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_prepend_.html">&quot;filters/prepend&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_reverse_.html">&quot;filters/reverse&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_same_.html">&quot;filters/same&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_skip_.html">&quot;filters/skip&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_skiplast_.html">&quot;filters/skip<wbr>Last&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_skipuntil_.html">&quot;filters/skip<wbr>Until&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_skipwhile_.html">&quot;filters/skip<wbr>While&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_sort_.html">&quot;filters/sort&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_take_.html">&quot;filters/take&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_takelast_.html">&quot;filters/take<wbr>Last&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_takeuntil_.html">&quot;filters/take<wbr>Until&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_takewhile_.html">&quot;filters/take<wbr>While&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filters_where_.html">&quot;filters/where&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_concat_.html">&quot;iterables/concat&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_empty_.html">&quot;iterables/empty&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_iterateindexes_.html">&quot;iterables/iterate<wbr>Indexes&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_merge_.html">&quot;iterables/merge&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_range_.html">&quot;iterables/range&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_repeat_.html">&quot;iterables/repeat&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_repeatsequence_.html">&quot;iterables/repeat<wbr>Sequence&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_unfold_.html">&quot;iterables/unfold&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_union_.html">&quot;iterables/union&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_iterables_zip_.html">&quot;iterables/zip&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="modules/_linq_.html">&quot;linq&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_linqextended_.html">&quot;linq<wbr>Extended&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_predicates_isnotnull_.html">&quot;predicates/is<wbr>Not<wbr>Null&quot;</a>
+						<a href="modules/filters.html">filters</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_predicates_isnotnullorundefined_.html">&quot;predicates/is<wbr>Not<wbr>Null<wbr>OrUndefined&quot;</a>
+						<a href="modules/iterables.html">iterables</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_predicates_isnotundefined_.html">&quot;predicates/is<wbr>Not<wbr>Undefined&quot;</a>
+						<a href="modules/predicates.html">predicates</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_aggregate_.html">&quot;resolutions/aggregate&quot;</a>
+						<a href="modules/resolutions.html">resolutions</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_all_.html">&quot;resolutions/all&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_any_.html">&quot;resolutions/any&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_asarray_.html">&quot;resolutions/as<wbr>Array&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_average_.html">&quot;resolutions/average&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_contains_.html">&quot;resolutions/contains&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_count_.html">&quot;resolutions/count&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_elementat_.html">&quot;resolutions/element<wbr>At&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_elementatordefault_.html">&quot;resolutions/element<wbr>AtOr<wbr>Default&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_first_.html">&quot;resolutions/first&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_firstordefault_.html">&quot;resolutions/first<wbr>OrDefault&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_hasany_.html">&quot;resolutions/has<wbr>Any&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_indexof_.html">&quot;resolutions/index<wbr>Of&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_isempty_.html">&quot;resolutions/is<wbr>Empty&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_joinstrings_.html">&quot;resolutions/join<wbr>Strings&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_last_.html">&quot;resolutions/last&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_lastindexof_.html">&quot;resolutions/last<wbr>Index<wbr>Of&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_lastordefault_.html">&quot;resolutions/last<wbr>OrDefault&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_max_.html">&quot;resolutions/max&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_min_.html">&quot;resolutions/min&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_product_.html">&quot;resolutions/product&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_sequenceequal_.html">&quot;resolutions/sequence<wbr>Equal&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_single_.html">&quot;resolutions/single&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_singleordefault_.html">&quot;resolutions/single<wbr>OrDefault&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_sum_.html">&quot;resolutions/sum&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_sumandcount_.html">&quot;resolutions/sum<wbr>And<wbr>Count&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_toarray_.html">&quot;resolutions/to<wbr>Array&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_resolutions_tomap_.html">&quot;resolutions/to<wbr>Map&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_groupby_.html">&quot;transforms/group<wbr>By&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_notnull_.html">&quot;transforms/not<wbr>Null&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_notnullorundefined_.html">&quot;transforms/not<wbr>Null<wbr>OrUndefined&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_notundefined_.html">&quot;transforms/not<wbr>Undefined&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_rows_.html">&quot;transforms/rows&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_select_.html">&quot;transforms/select&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_selectmany_.html">&quot;transforms/select<wbr>Many&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_transforms_weave_.html">&quot;transforms/weave&quot;</a>
+						<a href="modules/transforms.html">transforms</a>
 					</li>
 				</ul>
 			</nav>

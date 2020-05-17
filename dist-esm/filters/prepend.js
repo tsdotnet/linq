@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import concat from '../iterables/concat';
 import same from './same';

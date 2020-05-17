@@ -1,4 +1,11 @@
+/**
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
 import { IterableFilter, IterableTransform, IterableValueTransform } from './IterableTransform';
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
 export declare class Linq<T> implements Iterable<T> {
     protected readonly source: Iterable<T>;
     constructor(source: Iterable<T>);

@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module filters
+ */
+/**
  * An iterable filter that returns distinct elements from a sequence.
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}

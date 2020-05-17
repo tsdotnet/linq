@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module iterables
+ */
+/**
  * Produces the set union of all sequences provided..
  * @param {Iterable<T>} sequences
  * @return {Iterable<T>}

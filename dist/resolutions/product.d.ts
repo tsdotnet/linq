@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module resolutions
+ */
+/**
  * Returns the product (*) of a sequence of numbers.
  * Returns NaN if sequence is empty or if any entries are NaN.
  * @param {Iterable<number>} sequence The sequence of numbers to multiply together.

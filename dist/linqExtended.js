@@ -1,7 +1,7 @@
 "use strict";
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinqGrouping = exports.LinqExtended = void 0;
@@ -15,6 +15,9 @@ const count_1 = tslib_1.__importDefault(require("./resolutions/count"));
 const toArray_1 = tslib_1.__importDefault(require("./resolutions/toArray"));
 const groupBy_1 = tslib_1.__importDefault(require("./transforms/groupBy"));
 const select_1 = tslib_1.__importDefault(require("./transforms/select"));
+/**
+ * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
+ */
 class LinqExtended extends linq_1.Linq {
     /**
      * Returns a filtered sequence.

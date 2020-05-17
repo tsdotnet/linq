@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import { LinkedValueNodeList } from '@tsdotnet/linked-node-list';

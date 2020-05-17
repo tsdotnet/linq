@@ -1,4 +1,12 @@
 "use strict";
+/**
+ * @packageDocumentation
+ * @module filters
+ */
+/*
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.memoize = void 0;
 const tslib_1 = require("tslib");

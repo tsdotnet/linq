@@ -1,6 +1,6 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module filters
  */
 /**
  * Returns an array (copy) of all the elements of a sequence in reverse order.

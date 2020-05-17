@@ -1,8 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-
 /**
  * Returns true if the sequence is empty.
  * @param {Iterable<any>} sequence

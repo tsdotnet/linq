@@ -1,8 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-
 
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import toArray from '../resolutions/toArray';

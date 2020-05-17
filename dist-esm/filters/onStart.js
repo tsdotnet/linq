@@ -1,6 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module filters
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**

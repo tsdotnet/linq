@@ -1,7 +1,11 @@
 "use strict";
+/**
+ * @packageDocumentation
+ * @module predicates
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 function isNotUndefined(e) {

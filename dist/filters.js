@@ -1,19 +1,26 @@
 "use strict";
-/*!
+/**!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ * @packageDocumentation
+ * @module filters
+ * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.where = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.sort = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.reverse = exports.prepend = exports.orderUsing = exports.orderBy = exports.onStart = exports.onError = exports.onComplete = exports.ofType = exports.memoize = exports.exclude = exports.distinct = exports.defaultIfEmpty = exports.buffer = exports.append = void 0;
+exports.where = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.reverse = exports.prepend = exports.orderUsing = exports.orderBy = exports.onStart = exports.onError = exports.onComplete = exports.ofType = exports.memoize = exports.exclude = exports.distinct = exports.descending = exports.defaultIfEmpty = exports.buffer = exports.ascending = exports.append = void 0;
 const tslib_1 = require("tslib");
 const memoize_1 = tslib_1.__importDefault(require("@tsdotnet/memoize"));
 exports.memoize = memoize_1.default;
 const append_1 = tslib_1.__importDefault(require("./filters/append"));
 exports.append = append_1.default;
+const ascending_1 = tslib_1.__importDefault(require("./filters/ascending"));
+exports.ascending = ascending_1.default;
 const buffer_1 = tslib_1.__importDefault(require("./filters/buffer"));
 exports.buffer = buffer_1.default;
 const defaultIfEmpty_1 = tslib_1.__importDefault(require("./filters/defaultIfEmpty"));
 exports.defaultIfEmpty = defaultIfEmpty_1.default;
+const descending_1 = tslib_1.__importDefault(require("./filters/descending"));
+exports.descending = descending_1.default;
 const distinct_1 = tslib_1.__importDefault(require("./filters/distinct"));
 exports.distinct = distinct_1.default;
 const exclude_1 = tslib_1.__importDefault(require("./filters/exclude"));
@@ -42,8 +49,6 @@ const skipUntil_1 = tslib_1.__importDefault(require("./filters/skipUntil"));
 exports.skipUntil = skipUntil_1.default;
 const skipWhile_1 = tslib_1.__importDefault(require("./filters/skipWhile"));
 exports.skipWhile = skipWhile_1.default;
-const sort = tslib_1.__importStar(require("./filters/sort"));
-exports.sort = sort;
 const take_1 = tslib_1.__importDefault(require("./filters/take"));
 exports.take = take_1.default;
 const takeLast_1 = tslib_1.__importDefault(require("./filters/takeLast"));

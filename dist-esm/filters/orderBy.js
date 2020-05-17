@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import comparePrimitives from '@tsdotnet/compare/dist/comparePrimitives';
 import toArray from '../resolutions/toArray';

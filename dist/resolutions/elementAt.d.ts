@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 import { IterableTransform } from '../IterableTransform';
 /**
  * Produces a function that returns the element at a specified index in a sequence.

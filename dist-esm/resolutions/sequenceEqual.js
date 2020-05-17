@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import { areEqual } from '@tsdotnet/compare';
 import areSequencesEqual from '@tsdotnet/compare/dist/areSequencesEqual';

@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 declare type NotUndefined<T> = T extends undefined ? never : T;
 /**
  * Filters out undefined values.

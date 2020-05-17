@@ -1,6 +1,9 @@
-/*
+/**!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ * @packageDocumentation
+ * @module resolutions
+ * @ignore
  */
 import aggregate from './resolutions/aggregate';
 import all from './resolutions/all';

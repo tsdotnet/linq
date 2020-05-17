@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 import { IterableFilter } from '../IterableTransform';
 /**
  * An iterable filter that invokes the provided action before iterating results.

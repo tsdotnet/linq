@@ -1,6 +1,9 @@
-/*
+/**!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ * @packageDocumentation
+ * @module transforms
+ * @ignore
  */
 import groupBy from './transforms/groupBy';
 import notNull from './transforms/notNull';

@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import Queue from '@tsdotnet/queue';
 import same from './same';

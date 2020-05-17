@@ -1,7 +1,18 @@
 "use strict";
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ */ /**
+* @packageDocumentation
+* @module resolutions
+*/
+/*
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**

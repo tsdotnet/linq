@@ -1,7 +1,14 @@
+/**
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
 import { PredicateWithIndex, SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import { Linq } from './linq';
 import { Grouping, GroupingResult } from './transforms/groupBy';
+/**
+ * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
+ */
 export declare class LinqExtended<T> extends Linq<T> {
     /**
      * Returns a filtered sequence.

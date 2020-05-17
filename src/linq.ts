@@ -1,4 +1,4 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
@@ -6,6 +6,9 @@
 import applyFilters from './applyFilters';
 import {IterableFilter, IterableTransform, IterableValueTransform} from './IterableTransform';
 
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
 export class Linq<T>
 	implements Iterable<T>
 {

@@ -1,3 +1,10 @@
+/**!
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ * @packageDocumentation
+ * @module iterables
+ * @ignore
+ */
 import concat from './iterables/concat';
 import empty from './iterables/empty';
 import iterateIndexes from './iterables/iterateIndexes';

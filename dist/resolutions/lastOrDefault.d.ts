@@ -1,3 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
+ /**
+* @packageDocumentation
+* @module resolutions
+*/
 import { IterableTransform } from '../IterableTransform';
 /**
  * An iterable transform that returns the last element of a sequence, or `undefined` if no element is found.

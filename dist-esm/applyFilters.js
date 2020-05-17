@@ -1,6 +1,6 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * Applies  a set of filters to a sequence.

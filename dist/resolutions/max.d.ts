@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 import { Primitive } from '@tsdotnet/common-interfaces';
 /**
  * Returns the entry in the sequence that has the highest/greatest value.

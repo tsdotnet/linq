@@ -1,3 +1,7 @@
+/**
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
 import { IterableFilter } from './IterableTransform';
 /**
  * Applies  a set of filters to a sequence.

@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * Returns an entry from a singular sequence or a default value if empty.

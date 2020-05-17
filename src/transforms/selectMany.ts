@@ -1,4 +1,8 @@
-/*!
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
+/*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */

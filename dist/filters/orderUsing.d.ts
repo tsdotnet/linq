@@ -1,6 +1,6 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module filters
  */
 import { Comparison } from '@tsdotnet/compare/dist/Comparable';
 import Order from '@tsdotnet/compare/dist/Order';

@@ -1,8 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ * @license MIT
+ */ /* eslint-disable @typescript-eslint/no-unused-vars */
 import aggregate from './aggregate';
 const a = aggregate((p) => p + 1, 0);
 /**

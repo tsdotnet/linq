@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 import { IterableTransform } from '../IterableTransform';
 /**
  * Joins a set of strings using the provided separator.

@@ -1,6 +1,10 @@
-/*!
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
+/*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  *  An iterable filter that merges the output of selected iterables.

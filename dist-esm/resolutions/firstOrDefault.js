@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * An iterable transform that returns the first element of a sequence, or a default value if no element is found.

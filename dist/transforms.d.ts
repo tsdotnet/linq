@@ -1,3 +1,10 @@
+/**!
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ * @packageDocumentation
+ * @module transforms
+ * @ignore
+ */
 import groupBy from './transforms/groupBy';
 import notNull from './transforms/notNull';
 import notNullOrUndefined from './transforms/notNullOrUndefined';

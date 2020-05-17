@@ -1,7 +1,10 @@
 "use strict";
-/*
+/**!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ * @packageDocumentation
+ * @module resolutions
+ * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toMap = exports.toArray = exports.asArray = exports.sumAndCount = exports.sum = exports.singleOrDefault = exports.single = exports.sequenceEqual = exports.product = exports.max = exports.min = exports.lastOrDefault = exports.lastIndexOf = exports.last = exports.joinStrings = exports.isEmpty = exports.indexOf = exports.hasAny = exports.firstOrDefault = exports.first = exports.elementAtOrDefault = exports.elementAt = exports.count = exports.contains = exports.average = exports.any = exports.all = exports.aggregate = void 0;

@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module iterables
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import distinct from '../filters/distinct';
 import merge from './merge';

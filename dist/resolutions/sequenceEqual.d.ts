@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 import { EqualityComparison } from '@tsdotnet/compare';
 import { IterableTransform } from '../IterableTransform';
 /**

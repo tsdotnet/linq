@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module filters
+ */
+/**
  * Returns the sequence provided.
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}

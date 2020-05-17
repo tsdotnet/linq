@@ -1,7 +1,11 @@
 "use strict";
+/**
+ * @packageDocumentation
+ * @module iterables
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.emptyIterable = exports.emptyIterator = exports.doneResult = void 0;

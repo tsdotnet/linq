@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import areEqual from '@tsdotnet/compare/dist/areEqual';
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';

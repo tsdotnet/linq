@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * An iterable filter that transforms (maps / projects) the output from the contained elements.

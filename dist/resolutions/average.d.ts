@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module resolutions
+ */
+/**
  * Returns the average of a sequence of numbers.
  * @param {Iterable<number>} sequence
  * @return {number}

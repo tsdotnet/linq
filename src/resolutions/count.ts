@@ -1,9 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ *//* eslint-disable @typescript-eslint/no-unused-vars */
 
 import aggregate from './aggregate';
 

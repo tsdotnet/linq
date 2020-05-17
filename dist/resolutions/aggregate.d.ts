@@ -1,6 +1,6 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module resolutions
  */
 import { IterableTransform } from '../IterableTransform';
 /**

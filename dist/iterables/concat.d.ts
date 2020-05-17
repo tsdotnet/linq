@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module iterables
+ */
+/**
  * Concatenates the provided sequences.
  * @param {Iterable<T>} sequences
  * @return {Iterable<T>}

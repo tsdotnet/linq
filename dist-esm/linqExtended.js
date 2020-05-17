@@ -1,6 +1,6 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import applyFilters from './applyFilters';
 import where from './filters/where';
@@ -11,6 +11,9 @@ import count from './resolutions/count';
 import toArray from './resolutions/toArray';
 import groupBy from './transforms/groupBy';
 import select from './transforms/select';
+/**
+ * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
+ */
 export class LinqExtended extends Linq {
     /**
      * Returns a filtered sequence.

@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module filters
+ */
 import { IterableValueTransform } from '../IterableTransform';
 /**
  * An iterable filter that only returns numbers.

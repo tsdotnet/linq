@@ -1,8 +1,11 @@
+/**
+ * @packageDocumentation
+ * @module transforms
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-
 
 type NotNull<T> = T extends null ? never : T;
 

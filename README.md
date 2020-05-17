@@ -45,7 +45,7 @@ const result = linq(source)
 import linq from '@tsdotnet/linq/dist/linq';
 import range from '@tsdotnet/linq/dist/iterables/range';
 import where from '@tsdotnet/linq/dist/filters/where';
-import {descending} from '@tsdotnet/linq/dist/filters/sort';
+import descending from '@tsdotnet/linq/dist/filters/descending';
 
 const source = range(1,100); // Iterable<number>
 const filtered = linq(source).filters(
@@ -69,6 +69,20 @@ const result = linqExtended(source)
     .resolve(resolutions.sum); // 2500
 ```
 
+or
+
+```typescript
+import {linqExtended} from '@tsdotnet/linq';
+import {range} from '@tsdotnet/linq/dist/iterables';
+import {sum} from '@tsdotnet/linq/dist/resolutions';
+
+const source = iterables.range(1,100); // Iterable<number>
+const result = linqExtended(source)
+    .where(n => n%2===1) // odd numbers only
+    .resolve(resolutions.sum); // 2500
+```
+
+
 ## Concepts
 
 ### Iterables
@@ -85,7 +99,7 @@ Instead of loading entire sets into arrays or other collections, iterables allow
 `Iterable<T>` helpers are provided as sources.  Calling for an `Iterator<T>` should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.
 
 `empty`, `range`, and `repeat` to name a few.
-See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/modules/iterables.html) for a full list.
 
 ### Filters
 
@@ -98,7 +112,7 @@ Any function that receives an `Iterable<T>` and returns an `Iterable<T>` is cons
 `IterableFilter<T>`.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.
 
 There are an extensive set of filters.
-See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/modules/filters.html) for a full list.
 
 ### Transforms
 
@@ -113,7 +127,7 @@ Any function that receives an `Iterable<T>` and returns an `Iterable<TResult>` i
 Any filter can be used as a transform, but not every transform can be used as a filter.
 
 `notNull`, `rows`, `select`, `selectMany` and `groupBy` to name a few.
-See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/modules/transforms.html) for a full list.
 
 
 ### Resolutions
@@ -128,7 +142,7 @@ A resolution is a transform that takes an `Iterable<T>` and returns `TResult`.
 Unlike `.filter(a)` and `.transform(x)`, `.resolve(r)` does not wrap the result in another `Linq<T>`.
 
 There are an extensive set of resolutions.
-See the [docs](https://tsdotnet.github.io/linq/globals.html) for a full list.
+See the [docs](https://tsdotnet.github.io/linq/modules/resolutions.html) for a full list.
 
 ## History
 

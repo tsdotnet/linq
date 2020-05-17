@@ -1,12 +1,15 @@
 "use strict";
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Linq = void 0;
 const tslib_1 = require("tslib");
 const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
 class Linq {
     constructor(source) {
         this.source = source;

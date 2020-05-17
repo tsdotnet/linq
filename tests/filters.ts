@@ -9,8 +9,10 @@ import {expect} from 'chai';
 import linq from '../src';
 import {
 	append,
+	ascending,
 	buffer,
 	defaultIfEmpty,
+	descending,
 	distinct,
 	exclude,
 	ofType,
@@ -25,7 +27,6 @@ import {
 	skipLast,
 	skipUntil,
 	skipWhile,
-	sort,
 	take,
 	takeLast,
 	takeUntil,
@@ -38,8 +39,6 @@ import {aggregate, count, first, joinStrings, last, single, toArray} from '../sr
 import {select} from '../src/transforms';
 import testItems from './testItems';
 import {testRepeatableResolution} from './testRepeatableResolution';
-import ascending = sort.ascending;
-import descending = sort.descending;
 
 /* eslint-disable no-empty, @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars */
 

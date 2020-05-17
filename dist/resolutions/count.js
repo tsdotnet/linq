@@ -1,11 +1,14 @@
 "use strict";
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
+ * @license MIT
+ */ /* eslint-disable @typescript-eslint/no-unused-vars */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-/* eslint-disable @typescript-eslint/no-unused-vars */
 const aggregate_1 = tslib_1.__importDefault(require("./aggregate"));
 const a = aggregate_1.default((p) => p + 1, 0);
 /**

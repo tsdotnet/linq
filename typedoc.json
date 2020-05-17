@@ -9,7 +9,8 @@
     "./src/predicates.ts",
     "./src/transforms.ts",
     "./src/resolutions.ts",
-    "./src/identity.ts"
+    "./src/identity.ts",
+    "./src/applyFilters.ts"
   ],
   "mode": "modules",
   "out": "docs",

@@ -1,6 +1,6 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+/**
+ * @packageDocumentation
+ * @module resolutions
  */
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';

@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module resolutions
+ */
 import { PredicateWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';
 /**

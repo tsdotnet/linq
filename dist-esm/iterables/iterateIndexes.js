@@ -1,6 +1,10 @@
+/**
+ * @packageDocumentation
+ * @module iterables
+ */
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**

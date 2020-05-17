@@ -1,4 +1,4 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
@@ -15,6 +15,9 @@ import toArray from './resolutions/toArray';
 import groupBy, {Grouping, GroupingResult} from './transforms/groupBy';
 import select from './transforms/select';
 
+/**
+ * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
+ */
 export class LinqExtended<T>
 	extends Linq<T>
 {
