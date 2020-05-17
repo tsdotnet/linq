@@ -5,11 +5,12 @@
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- */ /**
-* Returns true if the sequence is empty.
-* @param {Iterable<any>} sequence
-* @return {boolean}
-*/
+ */
+/**
+ * Returns true if the sequence is empty.
+ * @param {Iterable<any>} sequence
+ * @return {boolean}
+ */
 export default function isEmpty(sequence) {
     // noinspection PointlessBooleanExpressionJS
     return !sequence
