@@ -402,7 +402,7 @@ describe('resolutions/', () => {
 
 	});
 
-	describe('aggregate(reduction)', () => {
+	describe('aggregate(reducer)', () => {
 		const fn = (p: number, c: number, i: number): number => p + c + i;
 		it('should throw for empty collection', () => {
 			expect(() => aggregate(fn)([])).to.throw();
@@ -415,7 +415,7 @@ describe('resolutions/', () => {
 		});
 	});
 
-	describe('aggregate(reduction, initialValue)', () => {
+	describe('aggregate(reducer, initialValue)', () => {
 		const fn = (p: number, c: number, i: number): number => p + c + i;
 		it('should resolve initialValue if empty', () => {
 			expect(aggregate(fn, 10)([])).equal(10);

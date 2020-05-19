@@ -12,11 +12,11 @@ import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperatio
  * An iterable transform that applies an accumulator function over a sequence.
  * The specified `initialValue` is used as the initial accumulator value, and the specified function is used to select the result value.
  * If no `initialValue` is specified, the first entry in the sequence is used.
- * @param {(previous: (U | undefined), current: T, index: number) => U} reduction
+ * @param {(previous: (U | undefined), current: T, index: number) => U} reducer
  * @param {U} initialValue
  * @return {IterableTransform<T, U | undefined>}
  */
-export default function aggregate(reduction, initialValue) {
+export default function aggregate(reducer, initialValue) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException('sequence');
@@ -28,14 +28,14 @@ export default function aggregate(reduction, initialValue) {
                 throw new InvalidOperationException('Sequence is empty.  Specify an initial value allow for an empty iterable.');
             let previous = n.value;
             while (!(n = iterator.next()).done) {
-                previous = reduction(previous, n.value, ++i);
+                previous = reducer(previous, n.value, ++i);
             }
             return previous;
         }
         else {
             let previous = initialValue;
             for (const current of sequence)
-                previous = reduction(previous, current, i++);
+                previous = reducer(previous, current, i++);
             return previous;
         }
     };
