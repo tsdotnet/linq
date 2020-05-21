@@ -78,12 +78,12 @@
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.4",
-    "@tsdotnet/compare": "^1.3.6",
+    "@tsdotnet/compare": "^1.3.12",
     "@tsdotnet/exceptions": "^1.0.15",
     "@tsdotnet/integer": "^1.0.10",
-    "@tsdotnet/linked-node-list": "^1.3.9",
+    "@tsdotnet/linked-node-list": "^1.3.10",
     "@tsdotnet/memoize": "^1.0.9",
-    "@tsdotnet/queue": "^1.1.4",
+    "@tsdotnet/queue": "^1.1.5",
     "tslib": "^2.0.0"
   }
 }
