@@ -35,11 +35,11 @@
   "scripts": {
     "build:dist": "rimraf dist/* && copyfiles -u 1 src/**/*.d.ts dist && tsc",
     "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
-    "build": "npm i && run-p build:*",
+    "build": "pnpm i && run-p build:*",
     "bump": "npm run precommit && npm version patch",
-    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none",
     "lint": "eslint src/**/*.ts",
-    "precommit": "npm i && run-p lint test && run-p build:* && npm run validate",
+    "precommit": "pnpm i && run-p lint test && run-p build:* && npm run validate",
     "prepublishOnly": "npm run build && run-p validate test",
     "preversion": "run-p lint test",
     "postversion": "git push && git push --tags && npm run docs && git commit -m \"Updated docs.\" docs && git push",
@@ -57,11 +57,11 @@
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.34.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
     "chai": "^4.2.0",
     "copyfiles": "^2.2.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -78,12 +78,12 @@
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.4",
-    "@tsdotnet/compare": "^1.3.12",
-    "@tsdotnet/exceptions": "^1.0.15",
-    "@tsdotnet/integer": "^1.0.10",
-    "@tsdotnet/linked-node-list": "^1.3.10",
+    "@tsdotnet/compare": "^1.3.13",
+    "@tsdotnet/exceptions": "^1.0.16",
+    "@tsdotnet/integer": "^1.0.11",
+    "@tsdotnet/linked-node-list": "^1.3.11",
     "@tsdotnet/memoize": "^1.0.9",
-    "@tsdotnet/queue": "^1.1.5",
+    "@tsdotnet/queue": "^1.2.1",
     "tslib": "^2.0.0"
   }
 }

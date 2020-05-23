@@ -4,3 +4,6 @@ node_modules
 !.idea/dictionaries/shared.xml
 !.idea/dictionaries/local.xml
 .nyc_output
+
+#using pnpm instead of npm
+package-lock.json

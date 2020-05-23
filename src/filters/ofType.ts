@@ -52,7 +52,7 @@ export default function ofType<TType extends object> (type: { new (...params: an
  * @param type
  * @return {IterableValueTransform<any, TType>}
  */
-export default function ofType<TType> (type: any): IterableValueTransform<any, TType> {
+export default function ofType<TType> (type: unknown): IterableValueTransform<any, TType> {
 	let typeName: string;
 	switch(type)
 	{
@@ -69,7 +69,7 @@ export default function ofType<TType> (type: any): IterableValueTransform<any, T
 			typeName = 'function';
 			break;
 		default:
-			return where(e => e instanceof type);
+			return where(e => e instanceof (type as any));
 	}
 	return where(e => typeof e===typeName);
 }

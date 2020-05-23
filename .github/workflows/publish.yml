@@ -30,6 +30,6 @@ jobs:
 
       - name: Publish package to NPM
         if: steps.check.outputs.changed == 'true'
-        run: npm publish --access public
+        run: npm i --no-package-lock --no-save pnpm && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
