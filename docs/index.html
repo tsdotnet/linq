@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@tsdotnet/linq - v1.0.8</title>
-	<meta name="description" content="Documentation for @tsdotnet/linq - v1.0.8">
+	<title>@tsdotnet/linq - v1.0.9</title>
+	<meta name="description" content="Documentation for @tsdotnet/linq - v1.0.9">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@tsdotnet/linq - v1.0.8</a>
+					<a href="index.html" class="title">@tsdotnet/linq - v1.0.9</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -49,151 +49,42 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="index.html">Globals</a>
 				</li>
 			</ul>
-			<h1>@tsdotnet/linq - v1.0.8</h1>
+			<h1>@tsdotnet/linq - v1.0.9</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#-tsdotnet--linq" id="-tsdotnet--linq" style="color: inherit; text-decoration: none;">
-					<h1><img src="https://avatars1.githubusercontent.com/u/64487547?s=30" alt="alt text" title="tsdotnet"> tsdotnet / linq</h1>
-				</a>
-				<p><a href="https://github.com/tsdotnet/linq/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="GitHub license"></a>
-					<img src="https://img.shields.io/badge/coverage-100%25-green" alt="100% code coverage">
-					<img src="https://github.com/tsdotnet/linq/workflows/npm-publish/badge.svg" alt="npm-publish">
-				<a href="https://www.npmjs.com/package/@tsdotnet/linq"><img src="https://img.shields.io/npm/v/@tsdotnet/linq.svg?style=flat-square" alt="npm version"></a></p>
-				<p>A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET&#39;s LINQ does with enumerables.</p>
-				<a href="#docs" id="docs" style="color: inherit; text-decoration: none;">
-					<h2>Docs</h2>
-				</a>
-				<p><a href="https://tsdotnet.github.io/linq/globals.html">tsdotnet.github.io/linq</a></p>
-				<a href="#source" id="source" style="color: inherit; text-decoration: none;">
-					<h2>Source</h2>
-				</a>
-				<p><a href="https://github.com/tsdotnet/linq">GitHub</a></p>
-				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
-					<h2>API</h2>
-				</a>
-				<a href="#iterating" id="iterating" style="color: inherit; text-decoration: none;">
-					<h3>Iterating</h3>
-				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> e of linq(source)
-    .filter(a, b, c)) {
-    <span class="hljs-comment">// Iterate filtered results.</span>
-}</code></pre>
-				<pre><code class="language-typescript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> e of linq(source)
-    .filter(a, b, c)
-    .transform(x)) {
-    <span class="hljs-comment">// Iterate filtered and then transformed results.</span>
-}</code></pre>
-				<a href="#resolving" id="resolving" style="color: inherit; text-decoration: none;">
-					<h3>Resolving</h3>
-				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> result = linq(source)
-    .filter(a, b, c)
-    .transform(x)
-    .resolve(r);</code></pre>
-				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
-					<h2>Examples</h2>
-				</a>
-				<a href="#linqlttgt-with-imported-filters" id="linqlttgt-with-imported-filters" style="color: inherit; text-decoration: none;">
-					<h3><code>linq&lt;T&gt;</code> with imported filters</h3>
-				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> linq <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/linq'</span>;
-<span class="hljs-keyword">import</span> range <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/iterables/range'</span>;
-<span class="hljs-keyword">import</span> where <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/where'</span>;
-<span class="hljs-keyword">import</span> descending <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/filters/descending'</span>;
-
-<span class="hljs-keyword">const</span> source = range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
-<span class="hljs-keyword">const</span> filtered = linq(source).filters(
-     where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>),
-     descending);
-
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> o of filtered) {
-
-    <span class="hljs-comment">// Emit all odd numbers in descending order.</span>
-    <span class="hljs-built_in">console</span>.log(o);  <span class="hljs-comment">// 99, 97, 95 ...</span>
-}</code></pre>
-				<a href="#linqextendedlttgt-with-simplified-imports" id="linqextendedlttgt-with-simplified-imports" style="color: inherit; text-decoration: none;">
-					<h3><code>linqExtended&lt;T&gt;</code> with simplified imports</h3>
-				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {linqExtended, iterables, resolutions} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq'</span>;
-
-<span class="hljs-keyword">const</span> source = iterables.range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
-<span class="hljs-keyword">const</span> result = linqExtended(source)
-    .where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>) <span class="hljs-comment">// odd numbers only</span>
-    .resolve(resolutions.sum); <span class="hljs-comment">// 2500</span></code></pre>
-				<p>or</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {linqExtended} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq'</span>;
-<span class="hljs-keyword">import</span> {range} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/iterables'</span>;
-<span class="hljs-keyword">import</span> {sum} <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsdotnet/linq/dist/resolutions'</span>;
-
-<span class="hljs-keyword">const</span> source = iterables.range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>); <span class="hljs-comment">// Iterable&lt;number&gt;</span>
-<span class="hljs-keyword">const</span> result = linqExtended(source)
-    .where(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n%<span class="hljs-number">2</span>===<span class="hljs-number">1</span>) <span class="hljs-comment">// odd numbers only</span>
-    .resolve(resolutions.sum); <span class="hljs-comment">// 2500</span></code></pre>
-				<a href="#concepts" id="concepts" style="color: inherit; text-decoration: none;">
-					<h2>Concepts</h2>
-				</a>
-				<a href="#iterables" id="iterables" style="color: inherit; text-decoration: none;">
-					<h3>Iterables</h3>
-				</a>
-				<p>ES2015 enables full support for the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">iteration protocol</a>.</p>
-				<p>Iterables are a significant leap forward in operating with data sequences.
-				Instead of loading entire sets into arrays or other collections, iterables allow for progressive iteration or synchronous streaming of data.</p>
-				<p><code>tsdotnet/linq</code> is designed around iterables but also optimized for arrays.</p>
-				<a href="#generators" id="generators" style="color: inherit; text-decoration: none;">
-					<h4>Generators</h4>
-				</a>
-				<p><code>Iterable&lt;T&gt;</code> helpers are provided as sources.  Calling for an <code>Iterator&lt;T&gt;</code> should always start from the beginning and iterators are not shared.  Same behavior as LINQ in .NET.</p>
-				<p><code>empty</code>, <code>range</code>, and <code>repeat</code> to name a few.
-				See the <a href="https://tsdotnet.github.io/linq/modules/iterables.html">docs</a> for a full list.</p>
-				<a href="#filters" id="filters" style="color: inherit; text-decoration: none;">
-					<h3>Filters</h3>
-				</a>
-				<pre><code class="language-typescript">linq(source).filter(a, b);
-linq(source).filter(a).filter(b);</code></pre>
-				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;T&gt;</code> is considered an
-				<code>IterableFilter&lt;T&gt;</code>.  A filter may result in a different order or ultimately a completely different set than the input but must be of the same type.</p>
-				<p>There are an extensive set of filters.
-				See the <a href="https://tsdotnet.github.io/linq/modules/filters.html">docs</a> for a full list.</p>
-				<a href="#transforms" id="transforms" style="color: inherit; text-decoration: none;">
-					<h3>Transforms</h3>
-				</a>
-				<pre><code class="language-typescript">linq(source).transform(x);
-linq(source).filter(a).transform(x);</code></pre>
-				<p>Any function that receives an <code>Iterable&lt;T&gt;</code> and returns an <code>Iterable&lt;TResult&gt;</code> is considered an
-				<code>IterableValueTransform&lt;T, TResult&gt;</code>.</p>
-				<p>Any filter can be used as a transform, but not every transform can be used as a filter.</p>
-				<p><code>notNull</code>, <code>rows</code>, <code>select</code>, <code>selectMany</code> and <code>groupBy</code> to name a few.
-				See the <a href="https://tsdotnet.github.io/linq/modules/transforms.html">docs</a> for a full list.</p>
-				<a href="#resolutions" id="resolutions" style="color: inherit; text-decoration: none;">
-					<h3>Resolutions</h3>
-				</a>
-				<pre><code class="language-typescript">linq(source).resolve(r);
-linq(source).transform(x).resolve(r);
-linq(source).filter(a, b).transform(x).resolve(r);</code></pre>
-				<p>A resolution is a transform that takes an <code>Iterable&lt;T&gt;</code> and returns <code>TResult</code>.
-				Unlike <code>.filter(a)</code> and <code>.transform(x)</code>, <code>.resolve(r)</code> does not wrap the result in another <code>Linq&lt;T&gt;</code>.</p>
-				<p>There are an extensive set of resolutions.
-				See the <a href="https://tsdotnet.github.io/linq/modules/resolutions.html">docs</a> for a full list.</p>
-				<a href="#history" id="history" style="color: inherit; text-decoration: none;">
-					<h2>History</h2>
-				</a>
-				<p>Originally this was a port of <code>linq.js</code> converted to full TypeScript under the name <code>TypeScript.NET Library</code> and then <code>TypeScript.NET-Core</code> with full module support but potentially more than a user might want for a simple task.  Instead of .NET style extensions, <code>Enumerables</code> incurred a heavy cost of all the extensions under one module.</p>
-				<p>Modern web standards and practices demanded more granular access to classes and functions.  Hence <code>tsdotnet</code> was born.  <code>tsdotnet/linq</code> functionally allows for all the features of its predecessor as well as providing type-safety, and most of the features of LINQ in .NET while not forcing the consumer to download unneeded/undesired modules (extensions).</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Modules</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-module"><a href="modules/_iterabletransform_d_.html" class="tsd-kind-icon">&quot;<wbr>Iterable<wbr>Transform.d&quot;</a></li>
+								<li class="tsd-kind-module"><a href="modules/_linq_.html" class="tsd-kind-icon">&quot;linq&quot;</a></li>
+								<li class="tsd-kind-module"><a href="modules/_linqextended_.html" class="tsd-kind-icon">&quot;linq<wbr>Extended&quot;</a></li>
+								<li class="tsd-kind-module"><a href="modules/filters.html" class="tsd-kind-icon">filters</a></li>
+								<li class="tsd-kind-module"><a href="modules/iterables.html" class="tsd-kind-icon">iterables</a></li>
+								<li class="tsd-kind-module"><a href="modules/predicates.html" class="tsd-kind-icon">predicates</a></li>
+								<li class="tsd-kind-module"><a href="modules/resolutions.html" class="tsd-kind-icon">resolutions</a></li>
+								<li class="tsd-kind-module"><a href="modules/transforms.html" class="tsd-kind-icon">transforms</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class="globals current ">
+						<a href="index.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_iterabletransform_d_.html">&quot;<wbr>Iterable<wbr>Transform.d&quot;</a>
