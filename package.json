@@ -81,9 +81,9 @@
     "@tsdotnet/compare": "^1.3.13",
     "@tsdotnet/exceptions": "^1.0.16",
     "@tsdotnet/integer": "^1.0.11",
-    "@tsdotnet/linked-node-list": "^1.3.11",
+    "@tsdotnet/linked-node-list": "^1.3.13",
     "@tsdotnet/memoize": "^1.0.9",
-    "@tsdotnet/queue": "^1.2.1",
+    "@tsdotnet/queue": "^1.2.2",
     "tslib": "^2.0.0"
   }
 }
