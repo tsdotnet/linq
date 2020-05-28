@@ -10,12 +10,12 @@ dependencies:
 devDependencies:
   '@types/chai': 4.2.11
   '@types/mocha': 7.0.2
-  '@typescript-eslint/eslint-plugin': 3.0.1_9ab43492353d1d2184725d8d957a32a6
-  '@typescript-eslint/parser': 3.0.1_eslint@7.1.0+typescript@3.9.3
+  '@typescript-eslint/eslint-plugin': 3.0.2_6305112a4dd05588288c08258cda3068
+  '@typescript-eslint/parser': 3.0.2_eslint@7.1.0+typescript@3.9.3
   chai: 4.2.0
-  copyfiles: 2.2.0
+  copyfiles: 2.3.0
   eslint: 7.1.0
-  eslint-config-typescript: 3.0.0_e2e6a5d6fe39b24d5e89b9203c16a0d5
+  eslint-config-typescript: 3.0.0_8f904561d13afe4c0b0ef291bf65120d
   eslint-plugin-import: 2.20.2_eslint@7.1.0
   eslint-plugin-node: 11.1.0_eslint@7.1.0
   eslint-plugin-promise: 4.2.1
@@ -291,10 +291,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ZvO2tAcjmMi8V/5Z3JsyofMe3hasRcaw88cto5etSVMwVQfeivGAlEYmaQgceUSVYFofVjT+ioHsATjdWcFt1w==
-  /@typescript-eslint/eslint-plugin/3.0.1_9ab43492353d1d2184725d8d957a32a6:
+  /@typescript-eslint/eslint-plugin/3.0.2_6305112a4dd05588288c08258cda3068:
     dependencies:
-      '@typescript-eslint/experimental-utils': 3.0.1_eslint@7.1.0+typescript@3.9.3
-      '@typescript-eslint/parser': 3.0.1_eslint@7.1.0+typescript@3.9.3
+      '@typescript-eslint/experimental-utils': 3.0.2_eslint@7.1.0+typescript@3.9.3
+      '@typescript-eslint/parser': 3.0.2_eslint@7.1.0+typescript@3.9.3
       eslint: 7.1.0
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
@@ -312,11 +312,11 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-RxGldRQD3hgOK2xtBfNfA5MMV3rn5gVChe+MIf14hKm51jO2urqF64xOyVrGtzThkrd4rS1Kihqx2nkSxkXHvA==
-  /@typescript-eslint/experimental-utils/3.0.1_eslint@7.1.0+typescript@3.9.3:
+      integrity: sha512-ER3bSS/A/pKQT/hjMGCK8UQzlL0yLjuCZ/G8CDFJFVTfl3X65fvq2lNYqOG8JPTfrPa2RULCdwfOyFjZEMNExQ==
+  /@typescript-eslint/experimental-utils/3.0.2_eslint@7.1.0+typescript@3.9.3:
     dependencies:
       '@types/json-schema': 7.0.4
-      '@typescript-eslint/typescript-estree': 3.0.1_typescript@3.9.3
+      '@typescript-eslint/typescript-estree': 3.0.2_typescript@3.9.3
       eslint: 7.1.0
       eslint-scope: 5.0.0
       eslint-utils: 2.0.0
@@ -327,12 +327,12 @@ packages:
       eslint: '*'
       typescript: '*'
     resolution:
-      integrity: sha512-GdwOVz80MOWxbc/br1DC30eeqlxfpVzexHgHtf3L0hcbOu1xAs1wSCNcaBTLMOMZbh1gj/cKZt0eB207FxWfFA==
-  /@typescript-eslint/parser/3.0.1_eslint@7.1.0+typescript@3.9.3:
+      integrity: sha512-4Wc4EczvoY183SSEnKgqAfkj1eLtRgBQ04AAeG+m4RhTVyaazxc1uI8IHf0qLmu7xXe9j1nn+UoDJjbmGmuqXQ==
+  /@typescript-eslint/parser/3.0.2_eslint@7.1.0+typescript@3.9.3:
     dependencies:
       '@types/eslint-visitor-keys': 1.0.0
-      '@typescript-eslint/experimental-utils': 3.0.1_eslint@7.1.0+typescript@3.9.3
-      '@typescript-eslint/typescript-estree': 3.0.1_typescript@3.9.3
+      '@typescript-eslint/experimental-utils': 3.0.2_eslint@7.1.0+typescript@3.9.3
+      '@typescript-eslint/typescript-estree': 3.0.2_typescript@3.9.3
       eslint: 7.1.0
       eslint-visitor-keys: 1.1.0
       typescript: 3.9.3
@@ -346,8 +346,8 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-Pn2tDmOc4Ri93VQnT70W0pqQr6i/pEZqIPXfWXm4RuiIprL0t6SG13ViVXHgfScknL2Fm2G4IqXhUzxSRCWXCw==
-  /@typescript-eslint/typescript-estree/3.0.1_typescript@3.9.3:
+      integrity: sha512-80Z7s83e8QXHNUspqVlWwb4t5gdz/1bBBmafElbK1wwAwiD/yvJsFyHRxlEpNrt4rdK6eB3p+2WEFkEDHAKk9w==
+  /@typescript-eslint/typescript-estree/3.0.2_typescript@3.9.3:
     dependencies:
       debug: 4.1.1
       eslint-visitor-keys: 1.1.0
@@ -366,7 +366,7 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-FrbMdgVCeIGHKaP9OYTttFTlF8Ds7AkjMca2GzYCE7pVch10PAJc1mmAFt+DfQPgu/2TrLAprg2vI0PK/WTdcg==
+      integrity: sha512-cs84mxgC9zQ6viV8MEcigfIKQmKtBkZNDYf8Gru2M+MhnA6z9q0NFMZm2IEzKqAwN8lY5mFVd1Z8DiHj6zQ3Tw==
   /acorn-jsx/5.2.0_acorn@7.2.0:
     dependencies:
       acorn: 7.2.0
@@ -711,18 +711,18 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4FJkXzKXEDB1snCFZlLP4gpC3JILicCpGbzG9f9G7tGqGCzETQ2hWPrcinA9oU4wtf2biUaEH5065UnMeR33oA==
-  /copyfiles/2.2.0:
+  /copyfiles/2.3.0:
     dependencies:
       glob: 7.1.6
       minimatch: 3.0.4
-      mkdirp: 0.5.5
+      mkdirp: 1.0.4
       noms: 0.0.0
       through2: 2.0.5
-      yargs: 13.3.2
+      yargs: 15.3.1
     dev: true
     hasBin: true
     resolution:
-      integrity: sha512-iJbHJI+8OKqsq+4JF0rqgRkZzo++jqO6Wf4FUU1JM41cJF6JcY5968XyF4tm3Kkm7ZOMrqlljdm8N9oyY5raGw==
+      integrity: sha512-73v7KFuDFJ/ofkQjZBMjMBFWGgkS76DzXvBMUh7djsMOE5EELWtAO/hRB6Wr5Vj5Zg+YozvoHemv0vnXpqxmOQ==
   /core-util-is/1.0.2:
     dev: true
     resolution:
@@ -882,10 +882,10 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-  /eslint-config-typescript/3.0.0_e2e6a5d6fe39b24d5e89b9203c16a0d5:
+  /eslint-config-typescript/3.0.0_8f904561d13afe4c0b0ef291bf65120d:
     dependencies:
-      '@typescript-eslint/eslint-plugin': 3.0.1_9ab43492353d1d2184725d8d957a32a6
-      '@typescript-eslint/parser': 3.0.1_eslint@7.1.0+typescript@3.9.3
+      '@typescript-eslint/eslint-plugin': 3.0.2_6305112a4dd05588288c08258cda3068
+      '@typescript-eslint/parser': 3.0.2_eslint@7.1.0+typescript@3.9.3
       eslint: 7.1.0
       typescript: 3.9.3
     dev: true
@@ -1819,6 +1819,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+  /mkdirp/1.0.4:
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    resolution:
+      integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
   /mocha/7.2.0:
     dependencies:
       ansi-colors: 3.2.3
@@ -3089,10 +3096,10 @@ specifiers:
   '@tsdotnet/queue': ^1.2.2
   '@types/chai': ^4.2.11
   '@types/mocha': ^7.0.2
-  '@typescript-eslint/eslint-plugin': ^3.0.1
-  '@typescript-eslint/parser': ^3.0.1
+  '@typescript-eslint/eslint-plugin': ^3.0.2
+  '@typescript-eslint/parser': ^3.0.2
   chai: ^4.2.0
-  copyfiles: ^2.2.0
+  copyfiles: ^2.3.0
   eslint: ^7.1.0
   eslint-config-typescript: ^3.0.0
   eslint-plugin-import: ^2.20.2
