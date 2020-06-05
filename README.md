@@ -9,7 +9,7 @@ A familiar set of functions that operate on JavaScript iterables (ES2015+) in a 
 
 ## Docs
 
-[tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/globals.html)
+[tsdotnet.github.io/linq](https://tsdotnet.github.io/linq/)
 
 ## Source
 

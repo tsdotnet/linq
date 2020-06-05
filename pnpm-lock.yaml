@@ -25,7 +25,7 @@ devDependencies:
   rimraf: 3.0.2
   ts-node: 8.10.2_typescript@3.9.5
   typedoc: 0.17.7_typescript@3.9.5
-  typedoc-plugin-external-module-name: 4.0.0_typedoc@0.17.7
+  typedoc-plugin-external-module-name: 3.1.0_typedoc@0.17.7
   typedoc-plugin-nojekyll: 1.0.1_typedoc@0.17.7
   typescript: 3.9.5
 lockfileVersion: 5.1
@@ -2846,7 +2846,7 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-SuqAQI0CkwhqSJ2kaVTgl37cWs733uy9UGUqwtcds8pkFK8oRF4rZmCq+FXTGIb9hIUOu40rf5Kojg0Ha6akeg==
-  /typedoc-plugin-external-module-name/4.0.0_typedoc@0.17.7:
+  /typedoc-plugin-external-module-name/3.1.0_typedoc@0.17.7:
     dependencies:
       lodash: 4.17.15
       semver: 7.3.2
@@ -2855,7 +2855,7 @@ packages:
     peerDependencies:
       typedoc: '>=0.7.0 <0.18.0'
     resolution:
-      integrity: sha512-S/j6ctXxIsecxA0+NNCaD7C9Z3XrmuwEMW890pen6+zt4uyyYSokt7xB+NfOV48O+JzAgx9y7WwWadJ5vrzdew==
+      integrity: sha512-7Jym2cOkSbMtXRb2C9RytIihryB/a7UZZbCWeIZ+PoSxglOwiHqTAPWWVN2AbVKh3iKy8PpGRCYggfDnpb177g==
   /typedoc-plugin-nojekyll/1.0.1_typedoc@0.17.7:
     dependencies:
       fs-extra: 6.0.1
@@ -3113,6 +3113,6 @@ specifiers:
   ts-node: ^8.10.2
   tslib: ^2.0.0
   typedoc: ^0.17.7
-  typedoc-plugin-external-module-name: ^4.0.0
+  typedoc-plugin-external-module-name: 3.1.0
   typedoc-plugin-nojekyll: ^1.0.1
   typescript: ^3.9.5
