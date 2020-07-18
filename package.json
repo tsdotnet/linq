@@ -74,7 +74,7 @@
     "typedoc": "^0.17.8",
     "typedoc-plugin-external-module-name": "3.1.0",
     "typedoc-plugin-nojekyll": "^1.0.1",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.4",
