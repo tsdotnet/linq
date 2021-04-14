@@ -83,10 +83,10 @@ import {linqExtended} from '@tsdotnet/linq';
 import {range} from '@tsdotnet/linq/dist/iterables';
 import {sum} from '@tsdotnet/linq/dist/resolutions';
 
-const source = iterables.range(1,100); // Iterable<number>
+const source = range(1,100); // Iterable<number>
 const result = linqExtended(source)
     .where(n => n%2===1) // odd numbers only
-    .resolve(resolutions.sum); // 2500
+    .resolve(sum); // 2500
 ```
 
 ## Concepts
