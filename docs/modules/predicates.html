@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for @tsdotnet/linq - v1.0.11">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../index.html">Globals</a>
+					<a href="../index.html">@tsdotnet/linq - v1.0.11</a>
 				</li>
 				<li>
 					<a href="predicates.html">predicates</a>
@@ -69,9 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="predicates.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="predicates.html#isnotnullorundefined" class="tsd-kind-icon">is<wbr>Not<wbr>Null<wbr>OrUndefined</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="predicates.html#isnotundefined" class="tsd-kind-icon">is<wbr>Not<wbr>Undefined</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="predicates.html#default" class="tsd-kind-icon">default</a></li>
 							</ul>
 						</section>
 					</div>
@@ -80,80 +79,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="isnotnull" class="tsd-anchor"></a>
-					<h3>is<wbr>Not<wbr>Null</h3>
+					<a name="default" class="tsd-anchor"></a>
+					<h3>default</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Not<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NotNull</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">default&lt;T&gt;<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NotUndefined</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/1e20ce5/src/predicates/isNotNull.ts#L12">src/predicates/isNotNull.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/725bb6a/src/predicates/isNotUndefined.ts#L12">predicates/isNotUndefined.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">T</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NotNull</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="isnotnullorundefined" class="tsd-anchor"></a>
-					<h3>is<wbr>Not<wbr>Null<wbr>OrUndefined</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Not<wbr>Null<wbr>OrUndefined&lt;T&gt;<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NonNullable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/1e20ce5/src/predicates/isNotNullOrUndefined.ts#L10">src/predicates/isNotNullOrUndefined.ts:10</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">T</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NonNullable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="isnotundefined" class="tsd-anchor"></a>
-					<h3>is<wbr>Not<wbr>Undefined</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Not<wbr>Undefined&lt;T&gt;<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">e</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">NotUndefined</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/1e20ce5/src/predicates/isNotUndefined.ts#L12">src/predicates/isNotUndefined.ts:12</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,45 +112,24 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../index.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_iterabletransform_d_.html">&quot;<wbr>Iterable<wbr>Transform.d&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_linq_.html">&quot;linq&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_linqextended_.html">&quot;linq<wbr>Extended&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="filters.html">filters</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="iterables.html">iterables</a>
+					<li class=" ">
+						<a href="../index.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="predicates.html">predicates</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="resolutions.html">resolutions</a>
+					<li class="current tsd-kind-module">
+						<a href="predicates.html">predicates</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="transforms.html">transforms</a>
+					<li class="current tsd-kind-module">
+						<a href="predicates.html">predicates</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="predicates.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="predicates.html#isnotnullorundefined" class="tsd-kind-icon">is<wbr>Not<wbr>Null<wbr>OrUndefined</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="predicates.html#isnotundefined" class="tsd-kind-icon">is<wbr>Not<wbr>Undefined</a>
+						<a href="predicates.html#default" class="tsd-kind-icon">default</a>
 					</li>
 				</ul>
 			</nav>
@@ -244,6 +164,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;linq&quot; | @tsdotnet/linq - v1.0.11</title>
+	<title>linqExtended | @tsdotnet/linq - v1.0.11</title>
 	<meta name="description" content="Documentation for @tsdotnet/linq - v1.0.11">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,13 +50,13 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../index.html">Globals</a>
+					<a href="../index.html">@tsdotnet/linq - v1.0.11</a>
 				</li>
 				<li>
-					<a href="_linq_.html">&quot;linq&quot;</a>
+					<a href="linqextended.html">linqExtended</a>
 				</li>
 			</ul>
-			<h1>Module &quot;linq&quot;</h1>
+			<h1>Module linqExtended</h1>
 		</div>
 	</div>
 </header>
@@ -69,13 +70,14 @@
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/_linq_.linq.html" class="tsd-kind-icon">Linq</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/linqextended.linqextended-1.html" class="tsd-kind-icon">Linq<wbr>Extended</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/linqextended.linqgrouping.html" class="tsd-kind-icon">Linq<wbr>Grouping</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_linq_.html#linq-1" class="tsd-kind-icon">linq</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="linqextended.html#default" class="tsd-kind-icon">default</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,23 +86,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="linq-1" class="tsd-anchor"></a>
-					<h3>linq</h3>
+					<a name="default" class="tsd-anchor"></a>
+					<h3>default</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">linq&lt;T&gt;<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_linq_.linq.html" class="tsd-signature-type">Linq</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">default&lt;T&gt;<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/linqextended.linqextended-1.html" class="tsd-signature-type" data-tsd-kind="Class">LinqExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/1e20ce5/src/linq.ts#L88">src/linq.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/tsdotnet/linq/blob/725bb6a/src/linqExtended.ts#L168">linqExtended.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts any iterable into a LINQ style iterable.
-										Import filters and transforms to create a query.
-									Use a resolution to get a result.</p>
+									<p>Returns a special extended version of Linq<T> which includes common operations like .where(predicate) .select(selector) and more with the consequence of a potentially larger footprint.
+									To minimize included modules use the standard version (linq) and import only the filters, transforms and resolutions needed.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -115,7 +116,7 @@
 									<h5>source: <span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_linq_.linq.html" class="tsd-signature-type">Linq</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/linqextended.linqextended-1.html" class="tsd-signature-type" data-tsd-kind="Class">LinqExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -124,42 +125,24 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../index.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_iterabletransform_d_.html">&quot;<wbr>Iterable<wbr>Transform.d&quot;</a>
+					<li class=" ">
+						<a href="../index.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_linq_.html">&quot;linq&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_linqextended_.html">&quot;linq<wbr>Extended&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="filters.html">filters</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="iterables.html">iterables</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="predicates.html">predicates</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="resolutions.html">resolutions</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="transforms.html">transforms</a>
+						<a href="linqextended.html">linq<wbr>Extended</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/_linq_.linq.html" class="tsd-kind-icon">Linq</a>
+						<a href="../classes/linqextended.linqextended-1.html" class="tsd-kind-icon">Linq<wbr>Extended</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/linqextended.linqgrouping.html" class="tsd-kind-icon">Linq<wbr>Grouping</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_linq_.html#linq-1" class="tsd-kind-icon">linq</a>
+						<a href="linqextended.html#default" class="tsd-kind-icon">default</a>
 					</li>
 				</ul>
 			</nav>
@@ -194,6 +177,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
