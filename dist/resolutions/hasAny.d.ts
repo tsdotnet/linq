@@ -1,8 +1,4 @@
 /**
- * @packageDocumentation
- * @module resolutions
- */
-/**
  * Returns true if the sequence is not empty.
  * @param {Iterable<any>} sequence
  * @return {boolean}

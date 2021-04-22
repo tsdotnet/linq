@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
  
 /**
  * Returns the number of entries in a sequence.

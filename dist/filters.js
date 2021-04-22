@@ -1,10 +1,7 @@
 "use strict";
-/**!
+/*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- * @packageDocumentation
- * @module filters
- * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.where = exports.takeWhile = exports.takeUntil = exports.takeLast = exports.take = exports.skipWhile = exports.skipUntil = exports.skipLast = exports.skip = exports.reverse = exports.prepend = exports.orderUsing = exports.orderBy = exports.onStart = exports.onError = exports.onComplete = exports.ofType = exports.memoize = exports.exclude = exports.distinct = exports.descending = exports.defaultIfEmpty = exports.buffer = exports.ascending = exports.append = void 0;

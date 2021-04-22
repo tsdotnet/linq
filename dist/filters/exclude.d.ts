@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 import { IterableFilter } from '../IterableTransform';
 /**
  * An iterable filter that returns all elements except for any in the exclusion sequence.

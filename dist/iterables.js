@@ -1,10 +1,7 @@
 "use strict";
-/**!
+/*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- * @packageDocumentation
- * @module iterables
- * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zip = exports.union = exports.unfold = exports.repeatSequence = exports.repeat = exports.range = exports.merge = exports.iterateIndexes = exports.concat = exports.empty = void 0;

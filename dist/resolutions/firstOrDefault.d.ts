@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
 import { IterableTransform } from '../IterableTransform';
 /**
  * An iterable transform that returns the first element of a sequence, or `undefined` if no element is found.

@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 import { Primitive, Selector } from '@tsdotnet/common-interfaces';
 import Order from '@tsdotnet/compare/dist/Order';
 import { IterableFilter } from '../IterableTransform';

@@ -1,9 +1,6 @@
-/**!
+/*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- * @packageDocumentation
- * @module filters
- * @ignore
  */
 import memoize from '@tsdotnet/memoize';
 import append from './filters/append';

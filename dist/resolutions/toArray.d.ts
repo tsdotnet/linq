@@ -1,8 +1,4 @@
 /**
- * @packageDocumentation
- * @module resolutions
- */
-/**
  * Returns an array (copy) of all the elements in a sequence.
  * @param {Iterable<T>} sequence
  * @return {T[]}

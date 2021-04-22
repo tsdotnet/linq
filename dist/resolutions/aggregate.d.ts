@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
 import { IterableTransform } from '../IterableTransform';
 /**
  * An iterable transform that applies an accumulator function over a sequence.

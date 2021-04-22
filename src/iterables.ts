@@ -1,9 +1,6 @@
-/**!
+/*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- * @packageDocumentation
- * @module iterables
- * @ignore
  */
 
 import concat from './iterables/concat';

@@ -1,8 +1,4 @@
 /**
- * @packageDocumentation
- * @module iterables
- */
-/**
  * Generates a sequence of numbers within a specified range.
  * @param {number} start
  * @param {number} maxInclusive

@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';
 export declare const enum MappingMode {

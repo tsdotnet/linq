@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * An iterable filter that invokes the provided action before iterating results.

@@ -1,8 +1,4 @@
 "use strict";
-/**
- * @packageDocumentation
- * @module iterables
- */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT

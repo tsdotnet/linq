@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 import { Comparison } from '@tsdotnet/compare/dist/Comparable';
 import Order from '@tsdotnet/compare/dist/Order';
 import { IterableFilter } from '../IterableTransform';

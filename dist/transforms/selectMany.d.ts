@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module transforms
- */
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableValueTransform } from '../IterableTransform';
 /**

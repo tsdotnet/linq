@@ -1,10 +1,7 @@
 "use strict";
-/**!
+/*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- * @packageDocumentation
- * @module transforms
- * @ignore
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.weave = exports.selectMany = exports.select = exports.rows = exports.notUndefined = exports.notNullOrUndefined = exports.notNull = exports.groupBy = void 0;

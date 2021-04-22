@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module iterables
- */
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 /**
  * A generator function for creating entries based upon the previous entry.

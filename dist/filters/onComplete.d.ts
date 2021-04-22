@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 import { IterableFilter } from '../IterableTransform';
 /**
  * An iterable filter that invokes the provided action if there are no more entries to iterate.

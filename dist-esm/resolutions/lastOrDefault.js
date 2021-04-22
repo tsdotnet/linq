@@ -1,18 +1,10 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- */ /**
-* @packageDocumentation
-* @module resolutions
+ */ /*
+* @author electricessence / https://github.com/electricessence/
+* @license MIT
 */
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 /**
  * An iterable transform that returns the last element of a sequence, or a default value if no element is found.
  * @param {T} defaultValue

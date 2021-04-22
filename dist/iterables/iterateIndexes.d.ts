@@ -1,8 +1,4 @@
 /**
- * @packageDocumentation
- * @module iterables
- */
-/**
  * Returns an iterator that iterates the provided ArrayLike using length and index.
  * @param {ArrayLike<T>} source
  * @return {Iterable<T>}

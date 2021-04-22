@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module transforms
- */
 export declare type Cell = IteratorYieldResult<any> | null;
 export declare type Row = Cell[];
 /**

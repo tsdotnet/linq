@@ -1,8 +1,4 @@
 /**
- * @packageDocumentation
- * @module iterables
- */
-/**
  * Produces a sequence that is combination of the two sequences..
  * @param {Iterable<T1>} sequence1
  * @param {Iterable<T2>} sequence2

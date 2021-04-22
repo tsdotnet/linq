@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module filters
- */
 
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import {IterableFilter} from '../IterableTransform';

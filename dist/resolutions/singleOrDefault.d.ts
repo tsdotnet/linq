@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module resolutions
- */
 import { IterableTransform } from '../IterableTransform';
 /**
  * Returns an entry from a singular sequence or `undefined` if empty.
