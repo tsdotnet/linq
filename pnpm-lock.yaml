@@ -24,8 +24,8 @@ devDependencies:
   nyc: 15.1.0
   rimraf: 3.0.2
   ts-node: 9.1.1_typescript@4.2.4
-  typedoc: 0.20.35_typescript@4.2.4
-  typedoc-plugin-nojekyll: 1.0.1_typedoc@0.20.35
+  typedoc: 0.20.36_typescript@4.2.4
+  typedoc-plugin-nojekyll: 1.0.1_typedoc@0.20.36
   typescript: 4.2.4
 lockfileVersion: 5.1
 packages:
@@ -2992,16 +2992,16 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-fIS001cAYHkyQPidWXmHuhs8usjP5XVJjWB8oZGqkTowZaz3v7g3KDZeeqE82FBrmkAnIBOY3jgy7lnPnqATbA==
-  /typedoc-plugin-nojekyll/1.0.1_typedoc@0.20.35:
+  /typedoc-plugin-nojekyll/1.0.1_typedoc@0.20.36:
     dependencies:
       fs-extra: 6.0.1
-      typedoc: 0.20.35_typescript@4.2.4
+      typedoc: 0.20.36_typescript@4.2.4
     dev: true
     peerDependencies:
       typedoc: ^0.11.1
     resolution:
       integrity: sha512-hdFMhn0vAFCwepihSaVVs5yyImjo2FCX/OVQW89lrrqoARYHlAchOki4BQug23UqFSrYdykUu8yP4gD0M48qbw==
-  /typedoc/0.20.35_typescript@4.2.4:
+  /typedoc/0.20.36_typescript@4.2.4:
     dependencies:
       colors: 1.4.0
       fs-extra: 9.1.0
@@ -3022,7 +3022,7 @@ packages:
     peerDependencies:
       typescript: 3.9.x || 4.0.x || 4.1.x || 4.2.x
     resolution:
-      integrity: sha512-7sNca19LXg2hgyGHq3b33tQ1YFApmd8aBDEzWQ2ry4VDkw/NdFWkysGiGRY1QckDCB0gVH8+MlXA4K71IB3azg==
+      integrity: sha512-qFU+DWMV/hifQ9ZAlTjdFO9wbUIHuUBpNXzv68ZyURAP9pInjZiO4+jCPeAzHVcaBCHER9WL/+YzzTt6ZlN/Nw==
   /typescript/4.2.4:
     dev: true
     engines:
@@ -3276,6 +3276,6 @@ specifiers:
   rimraf: ^3.0.2
   ts-node: ^9.1.1
   tslib: ^2.2.0
-  typedoc: ^0.20.35
+  typedoc: ^0.20.36
   typedoc-plugin-nojekyll: ^1.0.1
   typescript: ^4.2.4
