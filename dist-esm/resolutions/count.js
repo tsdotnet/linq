@@ -1,7 +1,7 @@
 /*
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
- */ /* eslint-disable @typescript-eslint/no-unused-vars */
+ */
 import aggregate from './aggregate';
 const a = aggregate((p) => p + 1, 0);
 /**
