@@ -2,12 +2,8 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-/**
- *  An iterable filter that merges the output of selected iterables.
- * @param {SelectorWithIndex} selector
- * @return {(sequence: Iterable<T>) => Iterable<TSelect>}
- */
-export default function selectMany(selector) {
+import identity from '../identity';
+export default function selectMany(selector = identity) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

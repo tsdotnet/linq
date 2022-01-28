@@ -4,12 +4,9 @@
  * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- *  An iterable filter that merges the output of selected iterables.
- * @param {SelectorWithIndex} selector
- * @return {(sequence: Iterable<T>) => Iterable<TSelect>}
- */
-function selectMany(selector) {
+const tslib_1 = require("tslib");
+const identity_1 = tslib_1.__importDefault(require("../identity"));
+function selectMany(selector = identity_1.default) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

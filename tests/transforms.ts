@@ -111,9 +111,21 @@ describe('transforms/', () => {
 	});
 
 
+	describe('selectMany()', () => {
+		it('should produce the expected sequence', () => {
+			testRepeatableResolution(
+				'abcdefghi',
+				linq([
+					['a', 'b', 'c'],
+					['d', 'e'],
+					['f', 'g', 'h', 'i']
+				]).transform(selectMany<string>()),
+				joinStrings()
+			);
+		});
+	});
+
 	describe('selectMany(childSelector)', () => {
-
-
 		it('should produce the expected sequence', () => {
 			testRepeatableResolution(
 				'abcdefghi',
@@ -126,6 +138,7 @@ describe('transforms/', () => {
 			);
 		});
 	});
+
 
 	// groupBy handled by linqExtended.
 
