@@ -69,6 +69,12 @@ export declare class LinqExtended<T> extends Linq<T> {
      */
     select<TResult>(selector: SelectorWithIndex<T, TResult>): LinqExtended<TResult>;
     /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {LinqExtended<TResult>}
+     */
+    selectMany<TResult>(selector: SelectorWithIndex<T, Iterable<TResult>>): LinqExtended<TResult>;
+    /**
      * Groups entries together by selected key.
      * @param {SelectorWithIndex<T, TKey>} keySelector
      * @return {LinqExtended<Grouping<TKey, T>>}
@@ -79,6 +85,36 @@ export declare class LinqExtended<T> extends Linq<T> {
      * @return {T[]}
      */
     toArray(): T[];
+    /**
+     * Returns the first element of a sequence.
+     */
+    first(): T;
+    /**
+     * Returns the first element of a sequence or the default value if no element is found.
+     */
+    firstOrDefault(): T | undefined;
+    firstOrDefault(defaultValue: T): T;
+    /**
+     * Returns the last element of a sequence.
+     */
+    last(): T;
+    /**
+     * Returns the first element of a sequence or the default value if no element is found.
+     */
+    lastOrDefault(): T | undefined;
+    lastOrDefault(defaultValue: T): T;
+    /**
+     * When resolving, skips the number of elements by the count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    skip(count: number): LinqExtended<T>;
+    /**
+     * When resolving, takes no more than the number of elements by the provided count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    take(count: number): LinqExtended<T>;
 }
 export declare class LinqGrouping<TKey, T> extends LinqExtended<T> implements Grouping<TKey, T> {
     readonly key: TKey;

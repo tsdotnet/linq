@@ -9,8 +9,15 @@ import all from './resolutions/all';
 import any from './resolutions/any';
 import count from './resolutions/count';
 import toArray from './resolutions/toArray';
+import first from './resolutions/first';
+import firstOrDefault from './resolutions/firstOrDefault';
+import last from './resolutions/last';
+import lastOrDefault from './resolutions/lastOrDefault';
 import groupBy from './transforms/groupBy';
 import select from './transforms/select';
+import selectMany from './transforms/selectMany';
+import skip from './filters/skip';
+import take from './filters/take';
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
@@ -86,6 +93,14 @@ export class LinqExtended extends Linq {
         return this.transform(select(selector));
     }
     /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {LinqExtended<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform(selectMany(selector));
+    }
+    /**
      * Groups entries together by selected key.
      * @param {SelectorWithIndex<T, TKey>} keySelector
      * @return {LinqExtended<Grouping<TKey, T>>}
@@ -101,6 +116,40 @@ export class LinqExtended extends Linq {
      */
     toArray() {
         return toArray(this.source);
+    }
+    /**
+     * Returns the first element of a sequence.
+     */
+    first() {
+        return first(this.source);
+    }
+    firstOrDefault(defaultValue) {
+        return firstOrDefault(defaultValue)(this.source);
+    }
+    /**
+     * Returns the last element of a sequence.
+     */
+    last() {
+        return last(this.source);
+    }
+    lastOrDefault(defaultValue) {
+        return lastOrDefault(defaultValue)(this.source);
+    }
+    /**
+     * When resolving, skips the number of elements by the count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    skip(count) {
+        return this.filter(skip(count));
+    }
+    /**
+     * When resolving, takes no more than the number of elements by the provided count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    take(count) {
+        return this.filter(take(count));
     }
 }
 export class LinqGrouping extends LinqExtended {

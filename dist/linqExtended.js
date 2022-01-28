@@ -13,8 +13,15 @@ const all_1 = tslib_1.__importDefault(require("./resolutions/all"));
 const any_1 = tslib_1.__importDefault(require("./resolutions/any"));
 const count_1 = tslib_1.__importDefault(require("./resolutions/count"));
 const toArray_1 = tslib_1.__importDefault(require("./resolutions/toArray"));
+const first_1 = tslib_1.__importDefault(require("./resolutions/first"));
+const firstOrDefault_1 = tslib_1.__importDefault(require("./resolutions/firstOrDefault"));
+const last_1 = tslib_1.__importDefault(require("./resolutions/last"));
+const lastOrDefault_1 = tslib_1.__importDefault(require("./resolutions/lastOrDefault"));
 const groupBy_1 = tslib_1.__importDefault(require("./transforms/groupBy"));
 const select_1 = tslib_1.__importDefault(require("./transforms/select"));
+const selectMany_1 = tslib_1.__importDefault(require("./transforms/selectMany"));
+const skip_1 = tslib_1.__importDefault(require("./filters/skip"));
+const take_1 = tslib_1.__importDefault(require("./filters/take"));
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
@@ -90,6 +97,14 @@ class LinqExtended extends linq_1.Linq {
         return this.transform(select_1.default(selector));
     }
     /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {LinqExtended<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform(selectMany_1.default(selector));
+    }
+    /**
      * Groups entries together by selected key.
      * @param {SelectorWithIndex<T, TKey>} keySelector
      * @return {LinqExtended<Grouping<TKey, T>>}
@@ -105,6 +120,40 @@ class LinqExtended extends linq_1.Linq {
      */
     toArray() {
         return toArray_1.default(this.source);
+    }
+    /**
+     * Returns the first element of a sequence.
+     */
+    first() {
+        return first_1.default(this.source);
+    }
+    firstOrDefault(defaultValue) {
+        return firstOrDefault_1.default(defaultValue)(this.source);
+    }
+    /**
+     * Returns the last element of a sequence.
+     */
+    last() {
+        return last_1.default(this.source);
+    }
+    lastOrDefault(defaultValue) {
+        return lastOrDefault_1.default(defaultValue)(this.source);
+    }
+    /**
+     * When resolving, skips the number of elements by the count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    skip(count) {
+        return this.filter(skip_1.default(count));
+    }
+    /**
+     * When resolving, takes no more than the number of elements by the provided count.
+     * @param {number} count The number elements to skip.
+     * @return {LinqExtended<T>}
+     */
+    take(count) {
+        return this.filter(take_1.default(count));
     }
 }
 exports.LinqExtended = LinqExtended;
