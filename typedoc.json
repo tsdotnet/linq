@@ -1,16 +1,6 @@
 {
   "entryPoints": [
-    "./src"
-  ],
-  "exclude": [
-    "./src/index.ts",
-    "./src/filters.ts",
-    "./src/iterables.ts",
-    "./src/predicates.ts",
-    "./src/transforms.ts",
-    "./src/resolutions.ts",
-    "./src/identity.ts",
-    "./src/applyFilters.ts"
+    "./src/index.ts"
   ],
   "out": "docs",
   "includeVersion": true,

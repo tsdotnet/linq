@@ -26,7 +26,6 @@ devDependencies:
   rimraf: 3.0.2
   ts-node: 10.4.0_40146b36d18138e3202fbb722e5f65e4
   typedoc: 0.22.11_typescript@4.5.5
-  typedoc-plugin-nojekyll: 1.0.1_typedoc@0.22.11
   typescript: 4.5.5
 lockfileVersion: 5.1
 packages:
@@ -1431,14 +1430,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-33X7H/wdfO99GdRLLgkjUrD4geAFdq/Uv0kl3HD4da6HDixd2GUg8Mw7dahLCV9r/EARkmtYBB6Tch4EEokFTQ==
-  /fs-extra/6.0.1:
-    dependencies:
-      graceful-fs: 4.2.4
-      jsonfile: 4.0.0
-      universalify: 0.1.2
-    dev: true
-    resolution:
-      integrity: sha512-GnyIkKhhzXZUWFCaJzvyDLEEgDkPfb4/TPvJCJVuS8MWZgoSsErf++QpiAlDnKFcqhRlm+tIOcencCjyJE6ZCA==
   /fs.realpath/1.0.0:
     dev: true
     resolution:
@@ -1995,12 +1986,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==
-  /jsonfile/4.0.0:
-    dev: true
-    optionalDependencies:
-      graceful-fs: 4.2.4
-    resolution:
-      integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
   /levn/0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -3085,15 +3070,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
-  /typedoc-plugin-nojekyll/1.0.1_typedoc@0.22.11:
-    dependencies:
-      fs-extra: 6.0.1
-      typedoc: 0.22.11_typescript@4.5.5
-    dev: true
-    peerDependencies:
-      typedoc: ^0.11.1
-    resolution:
-      integrity: sha512-hdFMhn0vAFCwepihSaVVs5yyImjo2FCX/OVQW89lrrqoARYHlAchOki4BQug23UqFSrYdykUu8yP4gD0M48qbw==
   /typedoc/0.22.11_typescript@4.5.5:
     dependencies:
       glob: 7.2.0
@@ -3126,12 +3102,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==
-  /universalify/0.1.2:
-    dev: true
-    engines:
-      node: '>= 4.0.0'
-    resolution:
-      integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
   /untildify/4.0.0:
     dev: true
     engines:
@@ -3356,5 +3326,4 @@ specifiers:
   ts-node: ^10.4.0
   tslib: ^2.3.1
   typedoc: ^0.22.11
-  typedoc-plugin-nojekyll: ^1.0.1
   typescript: ^4.5.5
