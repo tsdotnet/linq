@@ -6,41 +6,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinqGrouping = exports.LinqExtended = void 0;
 const tslib_1 = require("tslib");
-const applyFilters_1 = (0, tslib_1.__importDefault)(require("./applyFilters"));
-const where_1 = (0, tslib_1.__importDefault)(require("./filters/where"));
-const linq_1 = require("./linq");
-const all_1 = (0, tslib_1.__importDefault)(require("./resolutions/all"));
-const any_1 = (0, tslib_1.__importDefault)(require("./resolutions/any"));
-const count_1 = (0, tslib_1.__importDefault)(require("./resolutions/count"));
-const toArray_1 = (0, tslib_1.__importDefault)(require("./resolutions/toArray"));
-const first_1 = (0, tslib_1.__importDefault)(require("./resolutions/first"));
-const firstOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/firstOrDefault"));
-const last_1 = (0, tslib_1.__importDefault)(require("./resolutions/last"));
-const lastOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/lastOrDefault"));
 const groupBy_1 = (0, tslib_1.__importDefault)(require("./transforms/groupBy"));
 const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
 const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
-const skip_1 = (0, tslib_1.__importDefault)(require("./filters/skip"));
-const take_1 = (0, tslib_1.__importDefault)(require("./filters/take"));
+const LinqResolverBase_1 = (0, tslib_1.__importDefault)(require("./LinqResolverBase"));
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
-class LinqExtended extends linq_1.Linq {
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter<T>} filters The filters to use.
-     * @return {LinqExtended<T>}
-     */
-    filter(...filters) {
-        return filters.length === 0 ? this : this.filters(filters);
+class LinqExtended extends LinqResolverBase_1.default {
+    constructor(source) {
+        super(source, source => new LinqExtended(source));
+        this.source = source;
     }
     /**
      * Returns a filtered sequence.
      * @param {IterableFilter<T>} filters The filters to use.
-     * @return {LinqExtended<T>}
+     * @return {TLinq<T>}
      */
-    filters(filters) {
-        return new LinqExtended((0, applyFilters_1.default)(this.source, filters));
+    filter(filter) {
+        return super.filter(filter);
     }
     /**
      * Returns a transformed sequence.
@@ -49,44 +33,6 @@ class LinqExtended extends linq_1.Linq {
      */
     transform(transform) {
         return new LinqExtended(transform(this.source));
-    }
-    ////// EXTENDED METHODS //////
-    /**
-     * Filters a sequence of values based on a predicate.
-     * @param {PredicateWithIndex<T>} predicate
-     * @return {LinqExtended<T>}
-     */
-    where(predicate) {
-        return this.filter((0, where_1.default)(predicate));
-    }
-    /**
-     * Returns the number of entries in a sequence.
-     * If a predicate is provided, filters the count based upon the predicate.
-     * Otherwise counts all the entries in the sequence.
-     * @param {PredicateWithIndex<T>} predicate
-     * @return {boolean}
-     */
-    count(predicate) {
-        return predicate
-            ? (0, count_1.default)((0, where_1.default)(predicate)(this.source))
-            : (0, count_1.default)(this.source);
-    }
-    /**
-     * Returns true if the predicate ever returns true. Otherwise false.
-     * If no predicate is provided, returns true if the sequence has any entries.
-     * @param {PredicateWithIndex<T>} predicate
-     * @return {boolean}
-     */
-    any(predicate) {
-        return (0, any_1.default)(predicate)(this.source);
-    }
-    /**
-     * Returns false if the predicate ever returns false. Otherwise true.
-     * @param {PredicateWithIndex<T>} predicate
-     * @return {boolean}
-     */
-    all(predicate) {
-        return (0, all_1.default)(predicate)(this.source);
     }
     /**
      * Projects each element of a sequence into a new form.
@@ -113,47 +59,6 @@ class LinqExtended extends linq_1.Linq {
         return this
             .transform((0, groupBy_1.default)(keySelector))
             .select(g => new LinqGrouping(g));
-    }
-    /**
-     * Returns all the entries in the sequence as an array.
-     * @return {T[]}
-     */
-    toArray() {
-        return (0, toArray_1.default)(this.source);
-    }
-    /**
-     * Returns the first element of a sequence.
-     */
-    first() {
-        return (0, first_1.default)(this.source);
-    }
-    firstOrDefault(defaultValue) {
-        return (0, firstOrDefault_1.default)(defaultValue)(this.source);
-    }
-    /**
-     * Returns the last element of a sequence.
-     */
-    last() {
-        return (0, last_1.default)(this.source);
-    }
-    lastOrDefault(defaultValue) {
-        return (0, lastOrDefault_1.default)(defaultValue)(this.source);
-    }
-    /**
-     * When resolving, skips the number of elements by the count.
-     * @param {number} count The number elements to skip.
-     * @return {LinqExtended<T>}
-     */
-    skip(count) {
-        return this.filter((0, skip_1.default)(count));
-    }
-    /**
-     * When resolving, takes no more than the number of elements by the provided count.
-     * @param {number} count The number elements to skip.
-     * @return {LinqExtended<T>}
-     */
-    take(count) {
-        return this.filter((0, take_1.default)(count));
     }
 }
 exports.LinqExtended = LinqExtended;

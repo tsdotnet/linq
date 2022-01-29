@@ -2,12 +2,15 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import applyFilters from './applyFilters';
+import LinqBase from './LinqBase';
+import select from './transforms/select';
+import selectMany from './transforms/selectMany';
 /**
  * Simplest abstraction for building an extensible iterable query.
  */
-export class Linq {
+export class Linq extends LinqBase {
     constructor(source) {
+        super(source, source => new Linq(source));
         this.source = source;
     }
     [Symbol.iterator]() {
@@ -16,18 +19,10 @@ export class Linq {
     /**
      * Returns a filtered sequence.
      * @param {IterableFilter<T>} filters The filters to use.
-     * @return {Linq<T>}
+     * @return {TLinq<T>}
      */
-    filter(...filters) {
-        return filters.length === 0 ? this : this.filters(filters);
-    }
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter<T>} filters The filters to use.
-     * @return {Linq<T>}
-     */
-    filters(filters) {
-        return new Linq(applyFilters(this.source, filters));
+    filter(filter) {
+        return super.filter(filter);
     }
     /**
      * Returns a transformed sequence.
@@ -38,12 +33,20 @@ export class Linq {
         return new Linq(transform(this.source));
     }
     /**
-     * Applies a resolver to this sequence.
-     * @param {IterableTransform<T, TResolution>} resolver
-     * @return {TResolution}
+     * Projects each element of a sequence into a new form.
+     * @param {SelectorWithIndex<T, TResult>} selector
+     * @return {Linq<TResult>}
      */
-    resolve(resolver) {
-        return resolver(this.source);
+    select(selector) {
+        return this.transform(select(selector));
+    }
+    /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {Linq<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform(selectMany(selector));
     }
 }
 /**

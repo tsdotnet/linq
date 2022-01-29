@@ -5,5 +5,5 @@
 
 import memoize from '@tsdotnet/memoize';
 
-// included for reindexing.
+// included for re-indexing.
 export {memoize};

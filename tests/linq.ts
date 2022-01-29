@@ -32,11 +32,21 @@ const expectedLength = repeatCount*source.length;
 describe('linq', () => {
 	const linqInstance = linq(sequence);
 
+	it('should yield repeatable results', () => {
+		// noinspection SpellCheckingInspection
+		testRepeatableResolution(
+			'xyzxyzxyz',
+			linqInstance.filter(notNull),
+			joinStrings());
+	});
+	
 	describe('.filter(...filters)', () => {
 		it('should filter results', () => {
 			testRepeatableResolution(
 				['y'],
-				linqInstance.filter(notNull).filter(where(e => e==='y'), distinct));
+				linqInstance
+					.filter(notNull)
+					.filterWith(where(e => e==='y'), distinct));
 		});
 	});
 
@@ -44,7 +54,9 @@ describe('linq', () => {
 		it('should filter results', () => {
 			testRepeatableResolution(
 				['ay', 'ay', 'ay'],
-				linqInstance.filter(notNull).filter(where(e => e==='y')).transform(select(e => 'a' + e)));
+				linqInstance
+					.filter(notNull)
+					.filter(where(e => e==='y')).transform(select(e => 'a' + e)));
 		});
 	});
 });
@@ -62,13 +74,17 @@ describe('linqExtended', () => {
 
 	describe('.count()', () => {
 		it('should count total items', () => {
-			testRepeatableDelegate(expectedLength, () => linqInstance.count());
+			testRepeatableDelegate(
+				expectedLength,
+				() => linqInstance.count());
 		});
 	});
 
 	describe('.count(predicate)', () => {
 		it('should count specific items', () => {
-			testRepeatableDelegate(repeatCount, () => linqInstance.count(e => e==='y'));
+			testRepeatableDelegate(
+				repeatCount,
+				() => linqInstance.count(e => e==='y'));
 		});
 	});
 
@@ -114,14 +130,18 @@ describe('linqExtended', () => {
 	describe('.toArray()', () => {
 		it('should filter results', () => {
 			// noinspection SpellCheckingInspection
-			testRepeatableDelegate('xyzxyzxyz', () => linqInstance.filter(notNull).toArray().join(''));
+			testRepeatableDelegate(
+				'xyzxyzxyz',
+				() => linqInstance.filter(notNull).toArray().join(''));
 		});
 	});
 
 	describe('.select()', () => {
 		it('should filter results', () => {
 			// noinspection SpellCheckingInspection
-			testRepeatableDelegate('abcdef', () => linqExtended(testItems).select(o => o.c).toArray().join(''));
+			testRepeatableDelegate(
+				'abcdef',
+				() => linqExtended(testItems).select(o => o.c).toArray().join(''));
 		});
 	});
 

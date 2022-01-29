@@ -1,17 +1,20 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Linq = void 0;
+const tslib_1 = require("tslib");
 /**
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Linq = void 0;
-const tslib_1 = require("tslib");
-const applyFilters_1 = (0, tslib_1.__importDefault)(require("./applyFilters"));
+const LinqBase_1 = (0, tslib_1.__importDefault)(require("./LinqBase"));
+const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
+const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
 /**
  * Simplest abstraction for building an extensible iterable query.
  */
-class Linq {
+class Linq extends LinqBase_1.default {
     constructor(source) {
+        super(source, source => new Linq(source));
         this.source = source;
     }
     [Symbol.iterator]() {
@@ -20,18 +23,10 @@ class Linq {
     /**
      * Returns a filtered sequence.
      * @param {IterableFilter<T>} filters The filters to use.
-     * @return {Linq<T>}
+     * @return {TLinq<T>}
      */
-    filter(...filters) {
-        return filters.length === 0 ? this : this.filters(filters);
-    }
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter<T>} filters The filters to use.
-     * @return {Linq<T>}
-     */
-    filters(filters) {
-        return new Linq((0, applyFilters_1.default)(this.source, filters));
+    filter(filter) {
+        return super.filter(filter);
     }
     /**
      * Returns a transformed sequence.
@@ -42,12 +37,20 @@ class Linq {
         return new Linq(transform(this.source));
     }
     /**
-     * Applies a resolver to this sequence.
-     * @param {IterableTransform<T, TResolution>} resolver
-     * @return {TResolution}
+     * Projects each element of a sequence into a new form.
+     * @param {SelectorWithIndex<T, TResult>} selector
+     * @return {Linq<TResult>}
      */
-    resolve(resolver) {
-        return resolver(this.source);
+    select(selector) {
+        return this.transform((0, select_1.default)(selector));
+    }
+    /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {Linq<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform((0, selectMany_1.default)(selector));
     }
 }
 exports.Linq = Linq;

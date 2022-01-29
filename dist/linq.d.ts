@@ -2,11 +2,13 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import { IterableFilter, IterableTransform, IterableValueTransform } from './IterableTransform';
+import LinqBase from './LinqBase';
+import { IterableFilter, IterableValueTransform } from './IterableTransform';
+import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 /**
  * Simplest abstraction for building an extensible iterable query.
  */
-export declare class Linq<T> implements Iterable<T> {
+export declare class Linq<T> extends LinqBase<T, Linq<T>> {
     protected readonly source: Iterable<T>;
     constructor(source: Iterable<T>);
     [Symbol.iterator](): Iterator<T>;
@@ -22,13 +24,7 @@ export declare class Linq<T> implements Iterable<T> {
      * @param {IterableFilter<T>} filters The filters to use.
      * @return {Linq<T>}
      */
-    filter(...filters: IterableFilter<T>[]): Linq<T>;
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter<T>} filters The filters to use.
-     * @return {Linq<T>}
-     */
-    filters(filters: Iterable<IterableFilter<T>>): Linq<T>;
+    filter(filter: IterableFilter<T>): Linq<T>;
     /**
      * Returns a transformed sequence.
      * @param {IterableValueTransform<T, TResult>} transform The transform to use.
@@ -36,11 +32,17 @@ export declare class Linq<T> implements Iterable<T> {
      */
     transform<TResult>(transform: IterableValueTransform<T, TResult>): Linq<TResult>;
     /**
-     * Applies a resolver to this sequence.
-     * @param {IterableTransform<T, TResolution>} resolver
-     * @return {TResolution}
+     * Projects each element of a sequence into a new form.
+     * @param {SelectorWithIndex<T, TResult>} selector
+     * @return {Linq<TResult>}
      */
-    resolve<TResolution>(resolver: IterableTransform<T, TResolution>): TResolution;
+    select<TResult>(selector: SelectorWithIndex<T, TResult>): Linq<TResult>;
+    /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {Linq<TResult>}
+     */
+    selectMany<TResult>(selector: SelectorWithIndex<T, Iterable<TResult>>): Linq<TResult>;
 }
 /**
  * Converts any iterable into a LINQ style iterable.
