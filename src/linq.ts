@@ -44,7 +44,7 @@ export class Linq<T>
 	 */
 	filter (...filters: IterableFilter<T>[]): Linq<T>
 	{
-		return filters.length ? this.filters(filters) : this;
+		return filters.length === 0 ? this : this.filters(filters);
 	}
 
 	/**

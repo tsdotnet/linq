@@ -5,6 +5,7 @@
 
 type NotUndefined<T> = T extends undefined ? never : T;
 
-export default function isNotUndefined<T extends any> (e: T): e is NotUndefined<T> {
+/* eslint-ignore */
+export default function isNotUndefined<T = any> (e: T): e is NotUndefined<T> {
 	return e!==undefined;
 }

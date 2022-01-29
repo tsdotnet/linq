@@ -11,7 +11,7 @@ import same from './same';
  * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.
  */
 export default function append<T> (...elements: T[]): IterableFilter<T> {
-	if(!elements.length) return same;
+	if(elements.length === 0) return same;
 	return function(sequence: Iterable<T>): Iterable<T> {
 		return concat(sequence, elements);
 	};

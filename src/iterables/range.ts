@@ -11,9 +11,9 @@
  * @returns {Iterable<number>}
  */
 export default function range (
-	start: number        = 0,
-	maxInclusive: number = Infinity,
-	step: number         = 1): Iterable<number> {
+	start        = 0,
+	maxInclusive = Infinity,
+	step         = 1): Iterable<number> {
 	return {
 		* [Symbol.iterator] (): Iterator<number>
 		{

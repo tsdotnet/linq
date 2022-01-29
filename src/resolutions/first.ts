@@ -15,7 +15,7 @@ export default function first<T> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
 	if(sequence instanceof Array)
 	{
-		if(sequence.length) return sequence[0];
+		if(sequence.length != 0) return sequence[0];
 	}
 	else
 	{

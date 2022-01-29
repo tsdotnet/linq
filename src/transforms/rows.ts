@@ -5,28 +5,28 @@
 
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 
-export type Cell = IteratorYieldResult<any> | null;
-export type Row = Cell[];
+export type Cell<T> = IteratorYieldResult<T> | null;
+export type Row<T> = Cell<T>[];
 
 /**
  * Returns the rows from a given set of iterables representing columns.
- * @param {Iterable<Iterable<any>>} columns
- * @return {Iterable<Row>}
+ * @param {Iterable<Iterable<T>>} columns
+ * @return {Iterable<Row<T>>}
  */
-export default function rows (columns: Iterable<Iterable<any>>): Iterable<Row> {
-	if(!columns) throw new ArgumentNullException('columns');
+export default function rows<T>(columns: Iterable<Iterable<T>>): Iterable<Row<T>> {
+	if(columns==null) throw new ArgumentNullException('columns');
 	return {
-		* [Symbol.iterator] (): Iterator<Row>
+		* [Symbol.iterator] (): Iterator<Row<T>>
 		{
-			const iterators: (Iterator<any> | null)[] = [];
+			const iterators: (Iterator<T> | null)[] = [];
 
 			// first pass.
-			let row: Row = [], count = 0;
+			let row: Row<T> = [], count = 0;
 			for(const c of columns)
 			{
 				const i = c[Symbol.iterator]();
 				const n = i.next();
-				if(n.done)
+				if(n.done==true)
 				{
 					row.push(null);
 					iterators.push(null);
@@ -38,7 +38,7 @@ export default function rows (columns: Iterable<Iterable<any>>): Iterable<Row> {
 					iterators.push(i);
 				}
 			}
-			if(!count) return; // no rows.
+			if(count==0) return; // no rows.
 			yield row;
 
 			const len = iterators.length;

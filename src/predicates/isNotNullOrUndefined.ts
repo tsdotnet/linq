@@ -3,6 +3,7 @@
  * @license MIT
  */
 
-export default function isNotNullOrUndefined<T extends any> (e: T): e is NonNullable<T> {
+/* eslint-ignore */
+export default function isNotNullOrUndefined<T = any> (e: T): e is NonNullable<T> {
 	return e!=null;
 }

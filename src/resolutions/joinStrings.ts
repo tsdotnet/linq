@@ -11,7 +11,7 @@ import {IterableTransform} from '../IterableTransform';
  * @param {string} separator
  * @return {IterableTransform<string, string>}
  */
-export function joinStrings (separator: string = ''): IterableTransform<string, string>
+export function joinStrings (separator = ''): IterableTransform<string, string>
 {
 	if(separator==null) separator = '';
 	return function(sequence: Iterable<string>): string {

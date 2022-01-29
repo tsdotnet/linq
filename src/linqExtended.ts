@@ -50,7 +50,7 @@ export class LinqExtended<T>
 	 */
 	filter (...filters: IterableFilter<T>[]): LinqExtended<T>
 	{
-		return filters.length ? this.filters(filters) : this;
+		return filters.length === 0 ? this : this.filters(filters);
 	}
 
 	/**

@@ -16,7 +16,7 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 export default function unfold<T> (
 	seed: T,
 	valueFactory: SelectorWithIndex<T, T>,
-	skipSeed: boolean = false
+	skipSeed = false
 ): Iterable<T> {
 	if(!valueFactory) throw new ArgumentNullException('valueFactory');
 	return {

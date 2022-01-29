@@ -26,6 +26,7 @@ export default function groupBy<TKey, TElement> (
 
 				let i = 0;
 
+				/* eslint-disable */
 				function mapNext ()
 				{
 					const next = iterator.next();
