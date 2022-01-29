@@ -6,7 +6,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Linq = void 0;
 const tslib_1 = require("tslib");
-const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
+const applyFilters_1 = (0, tslib_1.__importDefault)(require("./applyFilters"));
 /**
  * Simplest abstraction for building an extensible iterable query.
  */
@@ -23,7 +23,7 @@ class Linq {
      * @return {Linq<T>}
      */
     filter(...filters) {
-        return filters.length ? this.filters(filters) : this;
+        return filters.length === 0 ? this : this.filters(filters);
     }
     /**
      * Returns a filtered sequence.
@@ -31,7 +31,7 @@ class Linq {
      * @return {Linq<T>}
      */
     filters(filters) {
-        return new Linq(applyFilters_1.default(this.source, filters));
+        return new Linq((0, applyFilters_1.default)(this.source, filters));
     }
     /**
      * Returns a transformed sequence.

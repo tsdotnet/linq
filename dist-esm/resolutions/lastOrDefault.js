@@ -15,9 +15,9 @@ export default function lastOrDefault(defaultValue) {
         if (!sequence)
             return defaultValue;
         if (sequence instanceof Array) {
-            return sequence.length
-                ? sequence[sequence.length - 1]
-                : defaultValue;
+            return sequence.length == 0
+                ? defaultValue
+                : sequence[sequence.length - 1];
         }
         let last = defaultValue;
         for (const current of sequence)

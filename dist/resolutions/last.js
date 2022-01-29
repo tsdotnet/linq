@@ -5,8 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
-const InvalidOperationException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/InvalidOperationException"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const InvalidOperationException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/InvalidOperationException"));
 /**
  * Returns the first element of a sequence.
  * @param {Iterable<T>} sequence
@@ -16,7 +16,7 @@ function last(sequence) {
     if (!sequence)
         throw new ArgumentNullException_1.default('sequence');
     if (sequence instanceof Array) {
-        if (sequence.length)
+        if (sequence.length != 0)
             return sequence[sequence.length - 1];
     }
     else {

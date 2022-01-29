@@ -16,7 +16,7 @@ function singleOrDefault(defaultValue) {
             return defaultValue;
         if (sequence instanceof Array) {
             if (sequence.length < 2)
-                return sequence.length ? sequence[0] : defaultValue;
+                return sequence.length == 0 ? defaultValue : sequence[0];
         }
         else {
             const iterator = sequence[Symbol.iterator]();

@@ -1,1 +1,1 @@
-export default function isNotNullOrUndefined<T extends any>(e: T): e is NonNullable<T>;
+export default function isNotNullOrUndefined<T = any>(e: T): e is NonNullable<T>;

@@ -4,6 +4,7 @@
  * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-ignore */
 function isNotNull(e) {
     return e !== null;
 }

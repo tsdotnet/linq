@@ -13,7 +13,7 @@ export default function first(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     if (sequence instanceof Array) {
-        if (sequence.length)
+        if (sequence.length != 0)
             return sequence[0];
     }
     else {

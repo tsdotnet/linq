@@ -28,7 +28,7 @@ export class LinqExtended extends Linq {
      * @return {LinqExtended<T>}
      */
     filter(...filters) {
-        return filters.length ? this.filters(filters) : this;
+        return filters.length === 0 ? this : this.filters(filters);
     }
     /**
      * Returns a filtered sequence.

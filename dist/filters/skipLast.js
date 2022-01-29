@@ -5,9 +5,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const queue_1 = tslib_1.__importDefault(require("@tsdotnet/queue"));
-const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
-const same_1 = tslib_1.__importDefault(require("./same"));
+const queue_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/queue"));
+const empty_1 = (0, tslib_1.__importDefault)(require("../iterables/empty"));
+const same_1 = (0, tslib_1.__importDefault)(require("./same"));
 /**
  * An iterable filter that returns everything from the sequence except the last count of items.
  * @param {number} count

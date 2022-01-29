@@ -14,6 +14,7 @@ export default function groupBy(keySelector) {
             *[Symbol.iterator]() {
                 const map = new Map(), iterator = sequence[Symbol.iterator]();
                 let i = 0;
+                /* eslint-disable */
                 function mapNext() {
                     const next = iterator.next();
                     if (next.done)

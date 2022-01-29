@@ -10,7 +10,7 @@
 export default function isEmpty(sequence) {
     // noinspection PointlessBooleanExpressionJS
     return !sequence
-        || sequence instanceof Array && !sequence.length
+        || sequence instanceof Array && (sequence.length === 0)
         || sequence[Symbol.iterator]().next().done === true;
 }
 //# sourceMappingURL=isEmpty.js.map

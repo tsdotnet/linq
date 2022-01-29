@@ -6,22 +6,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinqGrouping = exports.LinqExtended = void 0;
 const tslib_1 = require("tslib");
-const applyFilters_1 = tslib_1.__importDefault(require("./applyFilters"));
-const where_1 = tslib_1.__importDefault(require("./filters/where"));
+const applyFilters_1 = (0, tslib_1.__importDefault)(require("./applyFilters"));
+const where_1 = (0, tslib_1.__importDefault)(require("./filters/where"));
 const linq_1 = require("./linq");
-const all_1 = tslib_1.__importDefault(require("./resolutions/all"));
-const any_1 = tslib_1.__importDefault(require("./resolutions/any"));
-const count_1 = tslib_1.__importDefault(require("./resolutions/count"));
-const toArray_1 = tslib_1.__importDefault(require("./resolutions/toArray"));
-const first_1 = tslib_1.__importDefault(require("./resolutions/first"));
-const firstOrDefault_1 = tslib_1.__importDefault(require("./resolutions/firstOrDefault"));
-const last_1 = tslib_1.__importDefault(require("./resolutions/last"));
-const lastOrDefault_1 = tslib_1.__importDefault(require("./resolutions/lastOrDefault"));
-const groupBy_1 = tslib_1.__importDefault(require("./transforms/groupBy"));
-const select_1 = tslib_1.__importDefault(require("./transforms/select"));
-const selectMany_1 = tslib_1.__importDefault(require("./transforms/selectMany"));
-const skip_1 = tslib_1.__importDefault(require("./filters/skip"));
-const take_1 = tslib_1.__importDefault(require("./filters/take"));
+const all_1 = (0, tslib_1.__importDefault)(require("./resolutions/all"));
+const any_1 = (0, tslib_1.__importDefault)(require("./resolutions/any"));
+const count_1 = (0, tslib_1.__importDefault)(require("./resolutions/count"));
+const toArray_1 = (0, tslib_1.__importDefault)(require("./resolutions/toArray"));
+const first_1 = (0, tslib_1.__importDefault)(require("./resolutions/first"));
+const firstOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/firstOrDefault"));
+const last_1 = (0, tslib_1.__importDefault)(require("./resolutions/last"));
+const lastOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/lastOrDefault"));
+const groupBy_1 = (0, tslib_1.__importDefault)(require("./transforms/groupBy"));
+const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
+const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
+const skip_1 = (0, tslib_1.__importDefault)(require("./filters/skip"));
+const take_1 = (0, tslib_1.__importDefault)(require("./filters/take"));
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
@@ -32,7 +32,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     filter(...filters) {
-        return filters.length ? this.filters(filters) : this;
+        return filters.length === 0 ? this : this.filters(filters);
     }
     /**
      * Returns a filtered sequence.
@@ -40,7 +40,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     filters(filters) {
-        return new LinqExtended(applyFilters_1.default(this.source, filters));
+        return new LinqExtended((0, applyFilters_1.default)(this.source, filters));
     }
     /**
      * Returns a transformed sequence.
@@ -57,7 +57,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     where(predicate) {
-        return this.filter(where_1.default(predicate));
+        return this.filter((0, where_1.default)(predicate));
     }
     /**
      * Returns the number of entries in a sequence.
@@ -68,8 +68,8 @@ class LinqExtended extends linq_1.Linq {
      */
     count(predicate) {
         return predicate
-            ? count_1.default(where_1.default(predicate)(this.source))
-            : count_1.default(this.source);
+            ? (0, count_1.default)((0, where_1.default)(predicate)(this.source))
+            : (0, count_1.default)(this.source);
     }
     /**
      * Returns true if the predicate ever returns true. Otherwise false.
@@ -78,7 +78,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {boolean}
      */
     any(predicate) {
-        return any_1.default(predicate)(this.source);
+        return (0, any_1.default)(predicate)(this.source);
     }
     /**
      * Returns false if the predicate ever returns false. Otherwise true.
@@ -86,7 +86,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {boolean}
      */
     all(predicate) {
-        return all_1.default(predicate)(this.source);
+        return (0, all_1.default)(predicate)(this.source);
     }
     /**
      * Projects each element of a sequence into a new form.
@@ -94,7 +94,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<TResult>}
      */
     select(selector) {
-        return this.transform(select_1.default(selector));
+        return this.transform((0, select_1.default)(selector));
     }
     /**
      * Projects each element of iterables as a flattened sequence of the selected.
@@ -102,7 +102,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<TResult>}
      */
     selectMany(selector) {
-        return this.transform(selectMany_1.default(selector));
+        return this.transform((0, selectMany_1.default)(selector));
     }
     /**
      * Groups entries together by selected key.
@@ -111,7 +111,7 @@ class LinqExtended extends linq_1.Linq {
      */
     groupBy(keySelector) {
         return this
-            .transform(groupBy_1.default(keySelector))
+            .transform((0, groupBy_1.default)(keySelector))
             .select(g => new LinqGrouping(g));
     }
     /**
@@ -119,25 +119,25 @@ class LinqExtended extends linq_1.Linq {
      * @return {T[]}
      */
     toArray() {
-        return toArray_1.default(this.source);
+        return (0, toArray_1.default)(this.source);
     }
     /**
      * Returns the first element of a sequence.
      */
     first() {
-        return first_1.default(this.source);
+        return (0, first_1.default)(this.source);
     }
     firstOrDefault(defaultValue) {
-        return firstOrDefault_1.default(defaultValue)(this.source);
+        return (0, firstOrDefault_1.default)(defaultValue)(this.source);
     }
     /**
      * Returns the last element of a sequence.
      */
     last() {
-        return last_1.default(this.source);
+        return (0, last_1.default)(this.source);
     }
     lastOrDefault(defaultValue) {
-        return lastOrDefault_1.default(defaultValue)(this.source);
+        return (0, lastOrDefault_1.default)(defaultValue)(this.source);
     }
     /**
      * When resolving, skips the number of elements by the count.
@@ -145,7 +145,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     skip(count) {
-        return this.filter(skip_1.default(count));
+        return this.filter((0, skip_1.default)(count));
     }
     /**
      * When resolving, takes no more than the number of elements by the provided count.
@@ -153,7 +153,7 @@ class LinqExtended extends linq_1.Linq {
      * @return {LinqExtended<T>}
      */
     take(count) {
-        return this.filter(take_1.default(count));
+        return this.filter((0, take_1.default)(count));
     }
 }
 exports.LinqExtended = LinqExtended;

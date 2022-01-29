@@ -5,8 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const areEqual_1 = tslib_1.__importDefault(require("@tsdotnet/compare/dist/areEqual"));
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const areEqual_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/compare/dist/areEqual"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.
  * @param {T} entry The item to look for.
@@ -20,7 +20,7 @@ function indexOf(entry) {
             return sequence.indexOf(entry);
         let i = 0;
         for (const e of sequence) {
-            if (areEqual_1.default(e, entry))
+            if ((0, areEqual_1.default)(e, entry))
                 return i;
             i++;
         }

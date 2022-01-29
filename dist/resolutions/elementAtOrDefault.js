@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const integer_1 = tslib_1.__importDefault(require("@tsdotnet/integer"));
+const integer_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/integer"));
 /**
  * Produces a function that returns the element at a specified index in a sequence or a default value if out of bounds.
  * @param {number} index

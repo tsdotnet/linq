@@ -5,8 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
-const same_1 = tslib_1.__importDefault(require("./same"));
+const empty_1 = (0, tslib_1.__importDefault)(require("../iterables/empty"));
+const same_1 = (0, tslib_1.__importDefault)(require("./same"));
 /**
  * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.
  * @param {number} count

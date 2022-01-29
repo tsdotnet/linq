@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const isEmpty_1 = tslib_1.__importDefault(require("./isEmpty"));
+const isEmpty_1 = (0, tslib_1.__importDefault)(require("./isEmpty"));
 /**
  * An iterable transform that resolves true if the predicate ever returns true. Otherwise false.
  * If no predicate is provided, will resolve true if the sequence is not empty.
@@ -18,7 +18,7 @@ function any(predicate) {
             return false;
         if (!predicate) {
             // noinspection PointlessBooleanExpressionJS
-            return !isEmpty_1.default(sequence);
+            return !(0, isEmpty_1.default)(sequence);
         }
         if (sequence instanceof Array)
             return sequence.some(predicate);
