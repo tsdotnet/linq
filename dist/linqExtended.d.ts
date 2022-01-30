@@ -5,11 +5,11 @@
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import { Grouping, GroupingResult } from './transforms/groupBy';
-import LinqResolverBase from './LinqResolverBase';
+import LinqExtendedBase from './LinqExtendedBase';
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
-export declare class LinqExtended<T> extends LinqResolverBase<T, LinqExtended<T>> {
+export declare class LinqExtended<T> extends LinqExtendedBase<T, LinqExtended<T>> {
     protected readonly source: Iterable<T>;
     constructor(source: Iterable<T>);
     /**

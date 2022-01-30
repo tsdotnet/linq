@@ -8,13 +8,13 @@ import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import groupBy, { Grouping, GroupingResult } from './transforms/groupBy';
 import select from './transforms/select';
 import selectMany from './transforms/selectMany';
-import LinqResolverBase from './LinqResolverBase';
+import LinqExtendedBase from './LinqExtendedBase';
 
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
 export class LinqExtended<T>
-	extends LinqResolverBase<T, LinqExtended<T>>
+	extends LinqExtendedBase<T, LinqExtended<T>>
 {
 	constructor(
 		protected readonly source: Iterable<T>) {

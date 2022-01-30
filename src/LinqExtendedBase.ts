@@ -11,12 +11,13 @@ import any from './resolutions/any';
 import count from './resolutions/count';
 import toArray from './resolutions/toArray';
 import single from './resolutions/single';
+import singleOrDefault from './resolutions/singleOrDefault';
 import first from './resolutions/first';
 import firstOrDefault from './resolutions/firstOrDefault';
 import last from './resolutions/last';
 import lastOrDefault from './resolutions/lastOrDefault';
 
-export default abstract class LinqResolverBase<T, TLinq extends LinqResolverBase<T, TLinq>>
+export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase<T, TLinq>>
 	extends LinqBase<T, TLinq>
 {
 	constructor(
@@ -78,7 +79,7 @@ export default abstract class LinqResolverBase<T, TLinq extends LinqResolverBase
 	singleOrDefault(): T | undefined
 	singleOrDefault(defaultValue: T): T
 	singleOrDefault(defaultValue?: T): T | undefined {
-		return firstOrDefault(defaultValue)(this.source);
+		return singleOrDefault(defaultValue)(this.source);
 	}
 
 	/**

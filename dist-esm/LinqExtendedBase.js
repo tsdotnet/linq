@@ -9,11 +9,12 @@ import any from './resolutions/any';
 import count from './resolutions/count';
 import toArray from './resolutions/toArray';
 import single from './resolutions/single';
+import singleOrDefault from './resolutions/singleOrDefault';
 import first from './resolutions/first';
 import firstOrDefault from './resolutions/firstOrDefault';
 import last from './resolutions/last';
 import lastOrDefault from './resolutions/lastOrDefault';
-export default class LinqResolverBase extends LinqBase {
+export default class LinqExtendedBase extends LinqBase {
     constructor(source, create) {
         super(source, create);
     }
@@ -60,7 +61,7 @@ export default class LinqResolverBase extends LinqBase {
         return single(this.source);
     }
     singleOrDefault(defaultValue) {
-        return firstOrDefault(defaultValue)(this.source);
+        return singleOrDefault(defaultValue)(this.source);
     }
     /**
      * Returns the first element of a sequence.
@@ -81,4 +82,4 @@ export default class LinqResolverBase extends LinqBase {
         return lastOrDefault(defaultValue)(this.source);
     }
 }
-//# sourceMappingURL=LinqResolverBase.js.map
+//# sourceMappingURL=LinqExtendedBase.js.map

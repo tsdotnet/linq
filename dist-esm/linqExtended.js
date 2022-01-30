@@ -5,11 +5,11 @@
 import groupBy from './transforms/groupBy';
 import select from './transforms/select';
 import selectMany from './transforms/selectMany';
-import LinqResolverBase from './LinqResolverBase';
+import LinqExtendedBase from './LinqExtendedBase';
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
-export class LinqExtended extends LinqResolverBase {
+export class LinqExtended extends LinqExtendedBase {
     constructor(source) {
         super(source, source => new LinqExtended(source));
         this.source = source;

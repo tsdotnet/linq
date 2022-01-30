@@ -4,7 +4,7 @@
  */
 import { PredicateWithIndex } from '@tsdotnet/common-interfaces';
 import LinqBase from "./LinqBase";
-export default abstract class LinqResolverBase<T, TLinq extends LinqResolverBase<T, TLinq>> extends LinqBase<T, TLinq> {
+export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase<T, TLinq>> extends LinqBase<T, TLinq> {
     constructor(source: Iterable<T>, create: (source: Iterable<T>) => TLinq);
     /**
      * Returns all the entries in the sequence as a new array.

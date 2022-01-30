@@ -9,11 +9,11 @@ const tslib_1 = require("tslib");
 const groupBy_1 = (0, tslib_1.__importDefault)(require("./transforms/groupBy"));
 const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
 const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
-const LinqResolverBase_1 = (0, tslib_1.__importDefault)(require("./LinqResolverBase"));
+const LinqExtendedBase_1 = (0, tslib_1.__importDefault)(require("./LinqExtendedBase"));
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */
-class LinqExtended extends LinqResolverBase_1.default {
+class LinqExtended extends LinqExtendedBase_1.default {
     constructor(source) {
         super(source, source => new LinqExtended(source));
         this.source = source;

@@ -12,11 +12,12 @@ const any_1 = (0, tslib_1.__importDefault)(require("./resolutions/any"));
 const count_1 = (0, tslib_1.__importDefault)(require("./resolutions/count"));
 const toArray_1 = (0, tslib_1.__importDefault)(require("./resolutions/toArray"));
 const single_1 = (0, tslib_1.__importDefault)(require("./resolutions/single"));
+const singleOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/singleOrDefault"));
 const first_1 = (0, tslib_1.__importDefault)(require("./resolutions/first"));
 const firstOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/firstOrDefault"));
 const last_1 = (0, tslib_1.__importDefault)(require("./resolutions/last"));
 const lastOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/lastOrDefault"));
-class LinqResolverBase extends LinqBase_1.default {
+class LinqExtendedBase extends LinqBase_1.default {
     constructor(source, create) {
         super(source, create);
     }
@@ -63,7 +64,7 @@ class LinqResolverBase extends LinqBase_1.default {
         return (0, single_1.default)(this.source);
     }
     singleOrDefault(defaultValue) {
-        return (0, firstOrDefault_1.default)(defaultValue)(this.source);
+        return (0, singleOrDefault_1.default)(defaultValue)(this.source);
     }
     /**
      * Returns the first element of a sequence.
@@ -84,5 +85,5 @@ class LinqResolverBase extends LinqBase_1.default {
         return (0, lastOrDefault_1.default)(defaultValue)(this.source);
     }
 }
-exports.default = LinqResolverBase;
-//# sourceMappingURL=LinqResolverBase.js.map
+exports.default = LinqExtendedBase;
+//# sourceMappingURL=LinqExtendedBase.js.map
