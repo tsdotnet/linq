@@ -20,6 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "indent": ["warn", "tab", { "SwitchCase": 1 }],
         "@typescript-eslint/ban-ts-ignore": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-inferrable-types": "off",
