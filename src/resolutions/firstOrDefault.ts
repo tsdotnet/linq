@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import {IterableTransform} from '../IterableTransform';
@@ -27,7 +27,7 @@ export default function firstOrDefault<T> (defaultValue?: T): IterableTransform<
 	return function(sequence: Iterable<T>): T | undefined {
 		if(!sequence) return defaultValue;
 		if(sequence instanceof Array)
-			return sequence.length ? sequence[0] : defaultValue;
+			return sequence.length == 0 ? defaultValue : sequence[0];
 
 		const iterator = sequence[Symbol.iterator]();
 		const first = iterator.next();

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
@@ -10,12 +10,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {IterableFilter<T>}
  */
 function where(predicate) {
-    return function* (sequence) {
-        let i = 0;
-        for (const e of sequence) {
-            if (predicate(e, i++))
-                yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0;
+                for (const e of sequence) {
+                    if (predicate(e, i++))
+                        yield e;
+                }
+            }
+        };
     };
 }
 exports.default = where;

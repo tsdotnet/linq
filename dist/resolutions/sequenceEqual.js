@@ -1,12 +1,12 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const compare_1 = require("@tsdotnet/compare");
-const areSequencesEqual_1 = tslib_1.__importDefault(require("@tsdotnet/compare/dist/areSequencesEqual"));
+const areSequencesEqual_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/compare/dist/areSequencesEqual"));
 /**
  * Resolves true if the sequences are equal.
  * @param {Iterable<T>} other
@@ -15,7 +15,7 @@ const areSequencesEqual_1 = tslib_1.__importDefault(require("@tsdotnet/compare/d
  */
 function sequenceEqual(other, equalityComparer = compare_1.areEqual) {
     return function (sequence) {
-        return areSequencesEqual_1.default(sequence, other, equalityComparer);
+        return (0, areSequencesEqual_1.default)(sequence, other, equalityComparer);
     };
 }
 exports.default = sequenceEqual;

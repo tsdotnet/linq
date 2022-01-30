@@ -1,11 +1,13 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import { LinkedValueNodeList } from '@tsdotnet/linked-node-list';
 /**
  * Returns an item from each iterable before calling next on each.
+ * @param {Iterable<Iterable<T>>} sequences
+ * @return {Iterable<T>}
  */
 export default function weave(sequences) {
     if (!sequences)

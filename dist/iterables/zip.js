@@ -1,13 +1,13 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
- * Concatenates the provided sequences.
+ * Produces a sequence that is combination of the two sequences..
  * @param {Iterable<T1>} sequence1
  * @param {Iterable<T2>} sequence2
  * @param {(r1: IteratorResult<T1>, r2: IteratorResult<T2>, i: number) => TResult} selector
@@ -23,12 +23,12 @@ function zip(sequence1, sequence2, selector) {
     return {
         *[Symbol.iterator]() {
             const i1 = sequence1[Symbol.iterator](), i2 = sequence2[Symbol.iterator]();
-            let n1, n2, i = 0;
-            do {
+            let n1 = i1.next(), n2 = i2.next(), i = 0;
+            while (!n1.done || !n2.done) {
+                yield selector(n1, n2, i++);
                 n1 = i1.next();
                 n2 = i2.next();
-                yield selector(n1, n2, i++);
-            } while (!n1.done || !n2.done);
+            }
         }
     };
 }

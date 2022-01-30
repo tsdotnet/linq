@@ -1,16 +1,18 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * Returns the rows from a given set of iterables representing columns.
+ * @param {Iterable<Iterable<T>>} columns
+ * @return {Iterable<Row<T>>}
  */
 function rows(columns) {
-    if (!columns)
+    if (columns == null)
         throw new ArgumentNullException_1.default('columns');
     return {
         *[Symbol.iterator]() {
@@ -21,7 +23,7 @@ function rows(columns) {
             for (const c of columns) {
                 const i = c[Symbol.iterator]();
                 const n = i.next();
-                if (n.done) {
+                if (n.done == true) {
                     row.push(null);
                     iterators.push(null);
                 }
@@ -31,7 +33,7 @@ function rows(columns) {
                     iterators.push(i);
                 }
             }
-            if (!count)
+            if (count == 0)
                 return; // no rows.
             yield row;
             const len = iterators.length;

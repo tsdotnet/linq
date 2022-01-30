@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
@@ -12,11 +12,16 @@ import {IterableFilter} from '../IterableTransform';
  * @return {IterableFilter<T>}
  */
 export default function where<T> (predicate: PredicateWithIndex<T>): IterableFilter<T> {
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		let i = 0;
-		for(const e of sequence)
-		{
-			if(predicate(e, i++)) yield e;
-		}
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				let i = 0;
+				for(const e of sequence)
+				{
+					if(predicate(e, i++)) yield e;
+				}
+			}
+		};
 	};
 }

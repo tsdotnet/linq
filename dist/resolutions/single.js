@@ -1,12 +1,12 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
-const InvalidOperationException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/InvalidOperationException"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const InvalidOperationException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/InvalidOperationException"));
 /**
  * Returns an entry from a singular sequence.
  * Will throw if no elements or more than one.
@@ -16,7 +16,7 @@ const InvalidOperationException_1 = tslib_1.__importDefault(require("@tsdotnet/e
 function single(sequence) {
     if (!sequence)
         throw new ArgumentNullException_1.default('sequence');
-    let hasElements = false;
+    let hasElements;
     if (sequence instanceof Array) {
         const len = sequence.length;
         hasElements = len !== 0;

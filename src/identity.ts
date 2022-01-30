@@ -1,6 +1,6 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
-export default function identity (e: any): any { return e; }
+export default function identity (e: unknown): any { return e; }

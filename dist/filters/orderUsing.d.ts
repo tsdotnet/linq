@@ -1,7 +1,3 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
 import { Comparison } from '@tsdotnet/compare/dist/Comparable';
 import Order from '@tsdotnet/compare/dist/Order';
 import { IterableFilter } from '../IterableTransform';

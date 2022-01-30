@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
@@ -13,7 +13,7 @@ export default function first(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     if (sequence instanceof Array) {
-        if (sequence.length)
+        if (sequence.length != 0)
             return sequence[0];
     }
     else {

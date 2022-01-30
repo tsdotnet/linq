@@ -1,5 +1,5 @@
 /**
- * Concatenates the provided sequences.
+ * Produces a sequence that is combination of the two sequences..
  * @param {Iterable<T1>} sequence1
  * @param {Iterable<T2>} sequence2
  * @param {(r1: IteratorResult<T1>, r2: IteratorResult<T2>, i: number) => TResult} selector

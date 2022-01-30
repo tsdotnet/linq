@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
@@ -11,10 +11,14 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
 export default function onComplete(action) {
     if (!action)
         throw new ArgumentNullException('action');
-    return function* (sequence) {
-        for (const e of sequence)
-            yield e;
-        action();
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                for (const e of sequence)
+                    yield e;
+                action();
+            }
+        };
     };
 }
 //# sourceMappingURL=onComplete.js.map

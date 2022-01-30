@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
@@ -13,7 +13,7 @@ import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperatio
 export default function single(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
-    let hasElements = false;
+    let hasElements;
     if (sequence instanceof Array) {
         const len = sequence.length;
         hasElements = len !== 0;

@@ -8,5 +8,9 @@ obj
 /src
 /planned
 /docs
+/archive
+/examples
 typedoc.json
 tsconfig.*
+pnpm-lock.yaml
+package-lock.json

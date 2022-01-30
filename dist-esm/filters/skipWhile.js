@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * An iterable filter that bypasses elements in sequence while the predicate condition is true and if false will iterate the rest.
@@ -9,15 +9,19 @@
  * @return {IterableFilter<T>}
  */
 export default function skipWhile(predicate) {
-    return function* (sequence) {
-        let i = 0, skipped = false;
-        for (const e of sequence) {
-            if (skipped || !predicate(e, i)) {
-                skipped = true;
-                yield e;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let i = 0, skipped = false;
+                for (const e of sequence) {
+                    if (skipped || !predicate(e, i)) {
+                        skipped = true;
+                        yield e;
+                    }
+                    i++;
+                }
             }
-            i++;
-        }
+        };
     };
 }
 //# sourceMappingURL=skipWhile.js.map

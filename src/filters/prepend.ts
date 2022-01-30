@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import concat from '../iterables/concat';
@@ -13,7 +13,7 @@ import same from './same';
  * @return {IterableFilter<T>}
  */
 export default function prepend<T> (...elements: T[]): IterableFilter<T> {
-	if(!elements.length) return same;
+	if(elements.length === 0) return same;
 	return function(sequence: Iterable<T>): Iterable<T> {
 		return concat(elements, sequence);
 	};

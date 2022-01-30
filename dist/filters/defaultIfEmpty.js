@@ -1,7 +1,7 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
@@ -10,14 +10,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {IterableFilter<T>}
  */
 function defaultIfEmpty(defaultValue) {
-    return function* (sequence) {
-        let hasElements = false;
-        for (const e of sequence) {
-            hasElements = true;
-            yield e;
-        }
-        if (!hasElements)
-            yield defaultValue;
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                let hasElements = false;
+                for (const e of sequence) {
+                    hasElements = true;
+                    yield e;
+                }
+                if (!hasElements)
+                    yield defaultValue;
+            }
+        };
     };
 }
 exports.default = defaultIfEmpty;

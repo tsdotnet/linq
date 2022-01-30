@@ -1,66 +1,76 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
+import LinqBase from './LinqBase';
+import { IterableFilter, IterableValueTransform } from './IterableTransform';
+import select from './transforms/select';
+import selectMany from './transforms/selectMany';
+import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 
-import {IterableFilter, IterableTransform, IterableValueTransform} from './IterableTransform';
-
-export class Linq<T>
-	implements Iterable<T>
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
+export class Linq<T> extends LinqBase<T, Linq<T>>
 {
-	constructor (
-		private readonly _source: Iterable<T>)
-	{
+	constructor(
+		protected readonly source: Iterable<T>) {
+		super(source, source => new Linq(source));
 	}
 
-	[Symbol.iterator] (): Iterator<T>
-	{
-		return this._source[Symbol.iterator]();
-	}
-
-	/**
-	 * Returns a filtered sequence.
-	 * @param {IterableFilter} filters The filters to use.
-	 * @return {Linq}
-	 */
-	filter (...filters: IterableFilter<T>[]): Linq<T>
-	{
-		return filters.length ? this.filters(filters) : this;
+	[Symbol.iterator](): Iterator<T> {
+		return this.source[Symbol.iterator]();
 	}
 
 	/**
 	 * Returns a filtered sequence.
-	 * @param {IterableFilter} filters The filters to use.
-	 * @return {Linq}
+	 * Same effect as .transform(filter).
+	 * @param {IterableValueTransform<T, TResult>} filter
+	 * @return {Linq<TResult>}
 	 */
-	filters (filters: Iterable<IterableFilter<T>>): Linq<T>
-	{
-		let iterable = this._source;
-		for(const filter of filters)
-		{
-			iterable = filter(iterable);
-		}
-		return new Linq<T>(iterable);
+	filter<TResult>(filter: IterableValueTransform<T, TResult>): Linq<TResult>;
+
+	/**
+	 * Returns a filtered sequence.
+	 * @param {IterableFilter<T>} filters The filters to use.
+	 * @return {Linq<T>}
+	 */
+	filter(filter: IterableFilter<T>): Linq<T>;
+
+	/**
+	 * Returns a filtered sequence.
+	 * @param {IterableFilter<T>} filters The filters to use.
+	 * @return {TLinq<T>}
+	 */
+	filter(filter: IterableFilter<T>): Linq<T> {
+		return super.filter(filter);
 	}
 
 	/**
 	 * Returns a transformed sequence.
-	 * @param {IterableValueTransform} transform The transform to use.
+	 * @param {IterableValueTransform<T, TResult>} transform The transform to use.
 	 * @return {Linq<TResult>}
 	 */
-	transform<TResult> (transform: IterableValueTransform<T, TResult>): Linq<TResult>
-	{
-		return new Linq(transform(this._source));
+	transform<TResult>(transform: IterableValueTransform<T, TResult>): Linq<TResult> {
+		return new Linq(transform(this.source));
 	}
 
 	/**
-	 * Applies a resolution to this sequence.
-	 * @param {IterableTransform} resolution
-	 * @return {TResolution}
+	 * Projects each element of a sequence into a new form.
+	 * @param {SelectorWithIndex<T, TResult>} selector
+	 * @return {Linq<TResult>}
 	 */
-	resolve<TResolution> (resolution: IterableTransform<T, TResolution>): TResolution
-	{
-		return resolution(this._source);
+	select<TResult>(selector: SelectorWithIndex<T, TResult>): Linq<TResult> {
+		return this.transform(select(selector));
+	}
+
+	/**
+	 * Projects each element of iterables as a flattened sequence of the selected.
+	 * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+	 * @return {Linq<TResult>}
+	 */
+	selectMany<TResult>(selector: SelectorWithIndex<T, Iterable<TResult>>): Linq<TResult> {
+		return this.transform(selectMany(selector));
 	}
 }
 
@@ -71,6 +81,7 @@ export class Linq<T>
  * @param {Iterable<T>} source
  * @return {Linq<T>}
  */
-export default function linq<T> (source: Iterable<T>): Linq<T> {
-	return new Linq(source);
+export default function linq<T>(source: Iterable<T>): Linq<T> {
+	if (source instanceof Linq) return source;
+	return new Linq<T>(source);
 }

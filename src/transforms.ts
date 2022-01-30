@@ -1,10 +1,12 @@
-/*
+/*!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import groupBy from './transforms/groupBy';
-import {joinStrings} from './transforms/joinStrings';
+import notNull from './transforms/notNull';
+import notNullOrUndefined from './transforms/notNullOrUndefined';
+import notUndefined from './transforms/notUndefined';
 import rows from './transforms/rows';
 import select from './transforms/select';
 import selectMany from './transforms/selectMany';
@@ -12,7 +14,9 @@ import weave from './transforms/weave';
 
 export {
 	groupBy,
-	joinStrings,
+	notNull,
+	notNullOrUndefined,
+	notUndefined,
 	rows,
 	select,
 	selectMany,

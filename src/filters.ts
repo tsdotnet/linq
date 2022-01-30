@@ -1,17 +1,16 @@
 /*!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import memoize from '@tsdotnet/memoize';
 import append from './filters/append';
+import ascending from './filters/ascending';
 import buffer from './filters/buffer';
 import defaultIfEmpty from './filters/defaultIfEmpty';
+import descending from './filters/descending';
 import distinct from './filters/distinct';
 import exclude from './filters/exclude';
-import notNull from './filters/notNull';
-import notNullOrUndefined from './filters/notNullOrUndefined';
-import notUndefined from './filters/notUndefined';
 import ofType from './filters/ofType';
 import onComplete from './filters/onComplete';
 import onError from './filters/onError';
@@ -24,7 +23,6 @@ import skip from './filters/skip';
 import skipLast from './filters/skipLast';
 import skipUntil from './filters/skipUntil';
 import skipWhile from './filters/skipWhile';
-import * as sort from './filters/sort';
 import take from './filters/take';
 import takeLast from './filters/takeLast';
 import takeUntil from './filters/takeUntil';
@@ -33,14 +31,13 @@ import where from './filters/where';
 
 export {
 	append,
+	ascending,
 	buffer,
 	defaultIfEmpty,
+	descending,
 	distinct,
 	exclude,
 	memoize,
-	notNull,
-	notNullOrUndefined,
-	notUndefined,
 	ofType,
 	onComplete,
 	onError,
@@ -53,7 +50,6 @@ export {
 	skipLast,
 	skipUntil,
 	skipWhile,
-	sort,
 	take,
 	takeLast,
 	takeUntil,

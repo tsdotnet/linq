@@ -1,43 +1,43 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
+ *//*
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
  */
 
-import aggregate from './aggregate';
-
-const a = aggregate<any>((p, c) => c);
+import {IterableTransform} from '../IterableTransform';
 
 /**
- * Returns the last element of a sequence, or `undefined` if no element is found.
- * @param {Iterable<T>} sequence
- * @return {T | undefined}
+ * An iterable transform that returns the last element of a sequence, or `undefined` if no element is found.
+ * @return {IterableTransform<T, T | undefined>}
  */
-export default function lastOrDefault<T> (sequence: Iterable<T>): T | undefined
+export default function lastOrDefault<T> (): IterableTransform<T, T | undefined>;
 
 /**
- * Returns the last element of a sequence, or the default value if no element is found.
- * @param {Iterable<T>} sequence
+ * An iterable transform that returns the last element of a sequence, or the default value if no element is found.
  * @param {T} defaultValue
- * @return {T}
+ * @return {IterableTransform<T, T>}
  */
-export default function lastOrDefault<T> (sequence: Iterable<T>, defaultValue: T): T
+export default function lastOrDefault<T> (defaultValue: T): IterableTransform<T, T>;
 
 /**
- * Returns the last element of a sequence, or a default value if no element is found.
- * @param {Iterable<T>} sequence
+ * An iterable transform that returns the last element of a sequence, or a default value if no element is found.
  * @param {T} defaultValue
- * @return {T | undefined}
+ * @return {IterableTransform<T, T | undefined>}
  */
-export default function lastOrDefault<T> (sequence: Iterable<T>, defaultValue?: T): T | undefined {
-	if(!sequence) return defaultValue;
-	if(sequence instanceof Array)
-	{
-		return sequence.length
-			? sequence[sequence.length - 1]
-			: defaultValue;
-	}
+export default function lastOrDefault<T> (defaultValue?: T): IterableTransform<T, T | undefined> {
+	return function(sequence: Iterable<T>): T | undefined {
+		if(!sequence) return defaultValue;
+		if(sequence instanceof Array)
+		{
+			return sequence.length == 0
+				? defaultValue
+				: sequence[sequence.length - 1];
+		}
 
-	return defaultValue===undefined
-		? a(sequence)
-		: aggregate<T, T | undefined>((p: T | undefined, c: T) => c, defaultValue)(sequence);
+		let last = defaultValue;
+		for(const current of sequence) last = current;
+		return last;
+	};
 }

@@ -1,52 +1,56 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Linq = void 0;
-class Linq {
-    constructor(_source) {
-        this._source = _source;
+const tslib_1 = require("tslib");
+/**
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
+const LinqBase_1 = (0, tslib_1.__importDefault)(require("./LinqBase"));
+const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
+const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
+class Linq extends LinqBase_1.default {
+    constructor(source) {
+        super(source, source => new Linq(source));
+        this.source = source;
     }
     [Symbol.iterator]() {
-        return this._source[Symbol.iterator]();
+        return this.source[Symbol.iterator]();
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {TLinq<T>}
      */
-    filter(...filters) {
-        return filters.length ? this.filters(filters) : this;
-    }
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
-     */
-    filters(filters) {
-        let iterable = this._source;
-        for (const filter of filters) {
-            iterable = filter(iterable);
-        }
-        return new Linq(iterable);
+    filter(filter) {
+        return super.filter(filter);
     }
     /**
      * Returns a transformed sequence.
-     * @param {IterableValueTransform} transform The transform to use.
+     * @param {IterableValueTransform<T, TResult>} transform The transform to use.
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this._source));
+        return new Linq(transform(this.source));
     }
     /**
-     * Applies a resolution to this sequence.
-     * @param {IterableTransform} resolution
-     * @return {TResolution}
+     * Projects each element of a sequence into a new form.
+     * @param {SelectorWithIndex<T, TResult>} selector
+     * @return {Linq<TResult>}
      */
-    resolve(resolution) {
-        return resolution(this._source);
+    select(selector) {
+        return this.transform((0, select_1.default)(selector));
+    }
+    /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {Linq<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform((0, selectMany_1.default)(selector));
     }
 }
 exports.Linq = Linq;
@@ -58,6 +62,8 @@ exports.Linq = Linq;
  * @return {Linq<T>}
  */
 function linq(source) {
+    if (source instanceof Linq)
+        return source;
     return new Linq(source);
 }
 exports.default = linq;

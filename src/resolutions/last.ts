@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
@@ -15,7 +15,8 @@ export default function last<T> (sequence: Iterable<T>): T {
 	if(!sequence) throw new ArgumentNullException('sequence');
 	if(sequence instanceof Array)
 	{
-		if(sequence.length) return sequence[0];
+		if(sequence.length != 0)
+			return sequence[sequence.length - 1];
 	}
 	else
 	{

@@ -1,49 +1,52 @@
-/*
+/**
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
-export class Linq {
-    constructor(_source) {
-        this._source = _source;
+import LinqBase from './LinqBase';
+import select from './transforms/select';
+import selectMany from './transforms/selectMany';
+/**
+ * Simplest abstraction for building an extensible iterable query.
+ */
+export class Linq extends LinqBase {
+    constructor(source) {
+        super(source, source => new Linq(source));
+        this.source = source;
     }
     [Symbol.iterator]() {
-        return this._source[Symbol.iterator]();
+        return this.source[Symbol.iterator]();
     }
     /**
      * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
+     * @param {IterableFilter<T>} filters The filters to use.
+     * @return {TLinq<T>}
      */
-    filter(...filters) {
-        return filters.length ? this.filters(filters) : this;
-    }
-    /**
-     * Returns a filtered sequence.
-     * @param {IterableFilter} filters The filters to use.
-     * @return {Linq}
-     */
-    filters(filters) {
-        let iterable = this._source;
-        for (const filter of filters) {
-            iterable = filter(iterable);
-        }
-        return new Linq(iterable);
+    filter(filter) {
+        return super.filter(filter);
     }
     /**
      * Returns a transformed sequence.
-     * @param {IterableValueTransform} transform The transform to use.
+     * @param {IterableValueTransform<T, TResult>} transform The transform to use.
      * @return {Linq<TResult>}
      */
     transform(transform) {
-        return new Linq(transform(this._source));
+        return new Linq(transform(this.source));
     }
     /**
-     * Applies a resolution to this sequence.
-     * @param {IterableTransform} resolution
-     * @return {TResolution}
+     * Projects each element of a sequence into a new form.
+     * @param {SelectorWithIndex<T, TResult>} selector
+     * @return {Linq<TResult>}
      */
-    resolve(resolution) {
-        return resolution(this._source);
+    select(selector) {
+        return this.transform(select(selector));
+    }
+    /**
+     * Projects each element of iterables as a flattened sequence of the selected.
+     * @param {SelectorWithIndex<T, Iterable<TResult>>} selector
+     * @return {Linq<TResult>}
+     */
+    selectMany(selector) {
+        return this.transform(selectMany(selector));
     }
 }
 /**
@@ -54,6 +57,8 @@ export class Linq {
  * @return {Linq<T>}
  */
 export default function linq(source) {
+    if (source instanceof Linq)
+        return source;
     return new Linq(source);
 }
 //# sourceMappingURL=linq.js.map

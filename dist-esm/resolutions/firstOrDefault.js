@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 /**
  * An iterable transform that returns the first element of a sequence, or a default value if no element is found.
@@ -12,7 +12,7 @@ export default function firstOrDefault(defaultValue) {
         if (!sequence)
             return defaultValue;
         if (sequence instanceof Array)
-            return sequence.length ? sequence[0] : defaultValue;
+            return sequence.length == 0 ? defaultValue : sequence[0];
         const iterator = sequence[Symbol.iterator]();
         const first = iterator.next();
         return first.done ? defaultValue : first.value;

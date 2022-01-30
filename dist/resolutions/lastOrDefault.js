@@ -1,29 +1,31 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
+ * @license MIT
+ */ /*
+* @author electricessence / https://github.com/electricessence/
+* @license MIT
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const aggregate_1 = tslib_1.__importDefault(require("./aggregate"));
-const a = aggregate_1.default((p, c) => c);
 /**
- * Returns the last element of a sequence, or a default value if no element is found.
- * @param {Iterable<T>} sequence
+ * An iterable transform that returns the last element of a sequence, or a default value if no element is found.
  * @param {T} defaultValue
- * @return {T | undefined}
+ * @return {IterableTransform<T, T | undefined>}
  */
-function lastOrDefault(sequence, defaultValue) {
-    if (!sequence)
-        return defaultValue;
-    if (sequence instanceof Array) {
-        return sequence.length
-            ? sequence[sequence.length - 1]
-            : defaultValue;
-    }
-    return defaultValue === undefined
-        ? a(sequence)
-        : aggregate_1.default((p, c) => c, defaultValue)(sequence);
+function lastOrDefault(defaultValue) {
+    return function (sequence) {
+        if (!sequence)
+            return defaultValue;
+        if (sequence instanceof Array) {
+            return sequence.length == 0
+                ? defaultValue
+                : sequence[sequence.length - 1];
+        }
+        let last = defaultValue;
+        for (const current of sequence)
+            last = current;
+        return last;
+    };
 }
 exports.default = lastOrDefault;
 //# sourceMappingURL=lastOrDefault.js.map

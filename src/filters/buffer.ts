@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import Queue from '@tsdotnet/queue';
@@ -14,13 +14,18 @@ import same from './same';
  */
 export default function buffer<T> (size: number): IterableFilter<T> {
 	if(size<=0) return same;
-	return function* (sequence: Iterable<T>): Iterable<T> {
-		const q = new Queue<T>();
-		for(const e of sequence)
-		{
-			q.enqueue(e);
-			if(q.count>size) yield q.dequeue(true);
-		}
-		while(!q.isEmpty) yield q.dequeue(true);
+	return function(sequence: Iterable<T>): Iterable<T> {
+		return {
+			* [Symbol.iterator] (): Iterator<T>
+			{
+				const q = new Queue<T>();
+				for(const e of sequence)
+				{
+					q.enqueue(e);
+					if(q.count>size) yield q.dequeue(true);
+				}
+				while(!q.isEmpty) yield q.dequeue(true);
+			}
+		};
 	};
 }

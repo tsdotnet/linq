@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import empty from '../iterables/empty';
 import same from './same';
@@ -14,13 +14,27 @@ export default function take(count) {
         return empty;
     if (!isFinite(count))
         return same;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            yield e;
-            if (--remain <= 0)
-                break;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                if (sequence instanceof Array) {
+                    const len = sequence.length;
+                    count = Math.min(count, len);
+                    for (let i = 0; i < count; i++) {
+                        if (len !== sequence.length)
+                            throw Error('Array length changed during iteration.');
+                        yield sequence[i];
+                    }
+                    return;
+                }
+                let remain = count;
+                for (const e of sequence) {
+                    yield e;
+                    if (--remain <= 0)
+                        break;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=take.js.map

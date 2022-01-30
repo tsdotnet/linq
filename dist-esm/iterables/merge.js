@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
@@ -8,13 +8,17 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
  * @param {Iterable<Iterable<T>>} sequences
  * @return {Iterable<T>}
  */
-export default function* merge(sequences) {
+export default function merge(sequences) {
     if (!sequences)
         throw new ArgumentNullException('sequences');
-    for (const s of sequences) {
-        for (const e of s) {
-            yield e;
+    return {
+        *[Symbol.iterator]() {
+            for (const s of sequences) {
+                for (const e of s) {
+                    yield e;
+                }
+            }
         }
-    }
+    };
 }
 //# sourceMappingURL=merge.js.map

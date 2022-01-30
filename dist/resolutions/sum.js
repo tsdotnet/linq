@@ -1,13 +1,14 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
 /**
  * Returns the sum (+) of a sequence of numbers.
+ * Returns 0 if sequence is empty.  Returns NaN if any entries are NaN.
  * @param {Iterable<number>} sequence The sequence of numbers to sum (add+ together).
  * @return {number} The sum of the sequence.
  */

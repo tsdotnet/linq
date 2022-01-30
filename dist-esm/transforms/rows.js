@@ -1,13 +1,15 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 /**
  * Returns the rows from a given set of iterables representing columns.
+ * @param {Iterable<Iterable<T>>} columns
+ * @return {Iterable<Row<T>>}
  */
 export default function rows(columns) {
-    if (!columns)
+    if (columns == null)
         throw new ArgumentNullException('columns');
     return {
         *[Symbol.iterator]() {
@@ -18,7 +20,7 @@ export default function rows(columns) {
             for (const c of columns) {
                 const i = c[Symbol.iterator]();
                 const n = i.next();
-                if (n.done) {
+                if (n.done == true) {
                     row.push(null);
                     iterators.push(null);
                 }
@@ -28,7 +30,7 @@ export default function rows(columns) {
                     iterators.push(i);
                 }
             }
-            if (!count)
+            if (count == 0)
                 return; // no rows.
             yield row;
             const len = iterators.length;

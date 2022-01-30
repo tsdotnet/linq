@@ -1,9 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Returns true if the sequence is empty.
  * @param {Iterable<any>} sequence
@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function isEmpty(sequence) {
     // noinspection PointlessBooleanExpressionJS
     return !sequence
-        || sequence instanceof Array && !sequence.length
+        || sequence instanceof Array && (sequence.length === 0)
         || sequence[Symbol.iterator]().next().done === true;
 }
 exports.default = isEmpty;

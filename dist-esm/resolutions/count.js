@@ -1,10 +1,9 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import aggregate from './aggregate';
-const a = aggregate((p, c) => p + 1, 0);
+const a = aggregate((p) => p + 1, 0);
 /**
  * Returns the number of entries in a sequence.
  * @param {Iterable<T>} sequence

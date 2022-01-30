@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
 import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
@@ -13,8 +13,8 @@ export default function last(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     if (sequence instanceof Array) {
-        if (sequence.length)
-            return sequence[0];
+        if (sequence.length != 0)
+            return sequence[sequence.length - 1];
     }
     else {
         const iterator = sequence[Symbol.iterator]();

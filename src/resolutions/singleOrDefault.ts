@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import {IterableTransform} from '../IterableTransform';
@@ -30,7 +30,7 @@ export default function singleOrDefault<T> (defaultValue?: T): IterableTransform
 		if(!sequence) return defaultValue;
 		if(sequence instanceof Array)
 		{
-			if(sequence.length<2) return sequence.length ? sequence[0] : defaultValue;
+			if(sequence.length<2) return sequence.length == 0 ? defaultValue : sequence[0];
 		}
 		else
 		{

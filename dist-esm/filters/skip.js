@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import empty from '../iterables/empty';
 import same from './same';
@@ -14,13 +14,26 @@ export default function skip(count) {
         return same;
     if (!isFinite(count))
         return empty;
-    return function* (sequence) {
-        let remain = count;
-        for (const e of sequence) {
-            if (0 < remain--)
-                continue;
-            yield e;
-        }
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                if (sequence instanceof Array) {
+                    const len = sequence.length;
+                    for (let i = count; i < len; i++) {
+                        if (len !== sequence.length)
+                            throw Error('Array length changed during iteration.');
+                        yield sequence[i];
+                    }
+                    return;
+                }
+                let remain = count;
+                for (const e of sequence) {
+                    if (0 < remain--)
+                        continue;
+                    yield e;
+                }
+            }
+        };
     };
 }
 //# sourceMappingURL=skip.js.map

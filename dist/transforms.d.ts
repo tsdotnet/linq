@@ -1,7 +1,13 @@
-import weave from './transforms/weave';
-import selectMany from './transforms/selectMany';
+/*!
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
+import groupBy from './transforms/groupBy';
+import notNull from './transforms/notNull';
+import notNullOrUndefined from './transforms/notNullOrUndefined';
+import notUndefined from './transforms/notUndefined';
 import rows from './transforms/rows';
 import select from './transforms/select';
-import { joinStrings } from './transforms/joinStrings';
-import groupBy from './transforms/groupBy';
-export { groupBy, joinStrings, rows, select, selectMany, weave };
+import selectMany from './transforms/selectMany';
+import weave from './transforms/weave';
+export { groupBy, notNull, notNullOrUndefined, notUndefined, rows, select, selectMany, weave };

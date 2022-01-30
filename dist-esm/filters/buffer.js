@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import Queue from '@tsdotnet/queue';
 import same from './same';
@@ -12,15 +12,19 @@ import same from './same';
 export default function buffer(size) {
     if (size <= 0)
         return same;
-    return function* (sequence) {
-        const q = new Queue();
-        for (const e of sequence) {
-            q.enqueue(e);
-            if (q.count > size)
-                yield q.dequeue(true);
-        }
-        while (!q.isEmpty)
-            yield q.dequeue(true);
+    return function (sequence) {
+        return {
+            *[Symbol.iterator]() {
+                const q = new Queue();
+                for (const e of sequence) {
+                    q.enqueue(e);
+                    if (q.count > size)
+                        yield q.dequeue(true);
+                }
+                while (!q.isEmpty)
+                    yield q.dequeue(true);
+            }
+        };
     };
 }
 //# sourceMappingURL=buffer.js.map

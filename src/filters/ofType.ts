@@ -1,9 +1,38 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import {IterableValueTransform} from '../IterableTransform';
+import where from './where';
+
+/**
+ * An iterable filter that only returns numbers.
+ * @param {NumberConstructor} type
+ * @return {IterableValueTransform<any, number>}
+ */
+export default function ofType (type: NumberConstructor): IterableValueTransform<any, number>;
+
+/**
+ * An iterable filter that only returns strings.
+ * @param {StringConstructor} type
+ * @return {IterableValueTransform<any, string>}
+ */
+export default function ofType (type: StringConstructor): IterableValueTransform<any, string>;
+
+/**
+ * An iterable filter that only returns booleans.
+ * @param {BooleanConstructor} type
+ * @return {IterableValueTransform<any, boolean>}
+ */
+export default function ofType (type: BooleanConstructor): IterableValueTransform<any, boolean>;
+
+/**
+ * An iterable filter that only returns functions.
+ * @param {FunctionConstructor} type
+ * @return {IterableValueTransform<any, Function>}
+ */
+export default function ofType (type: FunctionConstructor): IterableValueTransform<any, Function>;
 
 /**
  * An iterable filter that only returns elements of the type (constructor) provided.
@@ -11,7 +40,7 @@ import {IterableValueTransform} from '../IterableTransform';
  * @param {{new(...params: any[]): TType}} type
  * @return {IterableValueTransform<any, TType>}
  */
-function ofType<TType> (type: { new (...params: any[]): TType }): IterableValueTransform<any, TType>;
+export default function ofType<TType extends object> (type: { new (...params: any[]): TType }): IterableValueTransform<any, TType>;
 
 /**
  * An iterable filter that only returns elements of the type (constructor) provided.
@@ -19,8 +48,7 @@ function ofType<TType> (type: { new (...params: any[]): TType }): IterableValueT
  * @param type
  * @return {IterableValueTransform<any, TType>}
  */
-function ofType<TType> (type: any): IterableValueTransform<any, TType>
-{
+export default function ofType<TType> (type: unknown): IterableValueTransform<any, TType> {
 	let typeName: string;
 	switch(type)
 	{
@@ -37,19 +65,7 @@ function ofType<TType> (type: any): IterableValueTransform<any, TType>
 			typeName = 'function';
 			break;
 		default:
-			return function* (sequence: Iterable<any>): Iterable<TType> {
-				for(const e of sequence)
-				{
-					if(e instanceof type) yield e;
-				}
-			};
+			return where(e => e instanceof (type as any));
 	}
-	return function* (sequence: Iterable<any>): Iterable<TType> {
-		for(const e of sequence)
-		{
-			if(typeof e===typeName) yield e;
-		}
-	};
+	return where(e => typeof e===typeName);
 }
-
-export default ofType;

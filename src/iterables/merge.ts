@@ -1,6 +1,6 @@
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
@@ -10,13 +10,18 @@ import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullExcepti
  * @param {Iterable<Iterable<T>>} sequences
  * @return {Iterable<T>}
  */
-export default function* merge<T> (sequences: Iterable<Iterable<T>>): Iterable<T> {
+export default function merge<T> (sequences: Iterable<Iterable<T>>): Iterable<T> {
 	if(!sequences) throw new ArgumentNullException('sequences');
-	for(const s of sequences)
-	{
-		for(const e of s)
+	return {
+		* [Symbol.iterator] (): Iterator<T>
 		{
-			yield e;
+			for(const s of sequences)
+			{
+				for(const e of s)
+				{
+					yield e;
+				}
+			}
 		}
-	}
+	};
 }

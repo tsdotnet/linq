@@ -1,7 +1,7 @@
 "use strict";
 /*
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
@@ -9,15 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param {Iterable<T>} sequence
  * @return {Iterable<T>}
  */
-function* distinct(sequence) {
-    const s = new Set();
-    for (const e of sequence) {
-        if (s.has(e))
-            continue;
-        s.add(e);
-        yield e;
-    }
-    s.clear();
+function distinct(sequence) {
+    return {
+        *[Symbol.iterator]() {
+            const s = new Set();
+            for (const e of sequence) {
+                if (s.has(e))
+                    continue;
+                s.add(e);
+                yield e;
+            }
+            s.clear();
+        }
+    };
 }
 exports.default = distinct;
 //# sourceMappingURL=distinct.js.map

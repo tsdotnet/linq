@@ -1,7 +1,3 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
- */
 import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';
 export declare const enum MappingMode {
