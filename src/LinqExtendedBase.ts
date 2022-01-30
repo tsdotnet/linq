@@ -48,7 +48,7 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	}
 
 	/**
-	 * Returns true if the predicate ever returns true. Otherwise false.
+	 * Returns true if the predicate ever returns true; otherwise false.
 	 * If no predicate is provided, returns true if the sequence has any entries.
 	 * @param {PredicateWithIndex<T>} predicate
 	 * @return {boolean}
@@ -58,7 +58,7 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	}
 
 	/**
-	 * Returns false if the predicate ever returns false. Otherwise true.
+	 * Returns false if the predicate ever returns false; otherwise true.
 	 * @param {PredicateWithIndex<T>} predicate
 	 * @return {boolean}
 	 */
@@ -69,48 +69,63 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	/**
 	 * Returns the expected single element; otherwise throws an InvalidOperationException.
 	 */
-	single(): T {
-		return single(this.source);
+	single(predicate?: PredicateWithIndex<T>): T {
+		return single(predicate ? this.where(predicate) : this.source);
+	}
+
+	/**
+	 * Returns the expected single element; otherwise the provided default value.
+	 */
+	singleOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
+		return singleOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
 	 * Returns the expected single element; otherwise undefined.
 	 */
-	singleOrDefault(): T | undefined
-	singleOrDefault(defaultValue: T): T
-	singleOrDefault(defaultValue?: T): T | undefined {
-		return singleOrDefault(defaultValue)(this.source);
+	singleOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
+		return singleOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
-	 * Returns the first element of a sequence.
+	 * Returns the first element of the sequence.
 	 */
-	first(): T {
-		return first(this.source);
+	first(predicate?: PredicateWithIndex<T>): T {
+		return first(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
-	 * Returns the first element of a sequence or the default value if no element is found.
+	 * Returns the first element of the sequence or the default value if no element is found.
 	 */
-	firstOrDefault(): T | undefined
-	firstOrDefault(defaultValue: T): T
-	firstOrDefault(defaultValue?: T): T | undefined {
-		return firstOrDefault(defaultValue)(this.source);
+	firstOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
+		return firstOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
-	 * Returns the last element of a sequence.
+	 * Returns the first element of the sequence; otherwise undefined.
 	 */
-	last(): T {
-		return last(this.source);
+	firstOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
+		return firstOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
-	 * Returns the first element of a sequence or the default value if no element is found.
+	 * Returns the last element of the sequence.
 	 */
-	lastOrDefault(): T | undefined
-	lastOrDefault(defaultValue: T): T
-	lastOrDefault(defaultValue?: T): T | undefined {
-		return lastOrDefault(defaultValue)(this.source);
+	last(predicate?: PredicateWithIndex<T>): T {
+		return last(predicate ? this.where(predicate) : this.source);
+	}
+
+	/**
+	 * Returns the last element of the sequence or the default value if no element is found.
+	 */
+	lastOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
+		return lastOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
+	}
+
+	/**
+	 * Returns the last element of the sequence; otherwise undefined.
+	 */
+	lastOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
+		return lastOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 }
