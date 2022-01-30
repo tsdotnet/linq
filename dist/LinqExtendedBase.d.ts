@@ -15,48 +15,78 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
      * Returns the number of entries in a sequence.
      * If a predicate is provided, filters the count based upon the predicate.
      * Otherwise counts all the entries in the sequence.
-     * @param {PredicateWithIndex<T>} predicate
+     * @param {PredicateWithIndex<T>} [predicate]
      * @return {boolean}
      */
     count(predicate?: PredicateWithIndex<T>): number;
     /**
-     * Returns true if the predicate ever returns true. Otherwise false.
+     * Returns true if the predicate ever returns true; otherwise false.
      * If no predicate is provided, returns true if the sequence has any entries.
-     * @param {PredicateWithIndex<T>} predicate
+     * @param {PredicateWithIndex<T>} [predicate]
      * @return {boolean}
      */
     any(predicate?: PredicateWithIndex<T>): boolean;
     /**
-     * Returns false if the predicate ever returns false. Otherwise true.
-     * @param {PredicateWithIndex<T>} predicate
+     * Returns false if the predicate ever returns false; otherwise true.
+     * @param {PredicateWithIndex<T>} [predicate]
      * @return {boolean}
      */
     all(predicate: PredicateWithIndex<T>): boolean;
     /**
      * Returns the expected single element; otherwise throws an InvalidOperationException.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
      */
-    single(): T;
+    single(predicate?: PredicateWithIndex<T>): T;
+    /**
+     * Returns the expected single element; otherwise the provided default value.
+     * @param {T} defaultValue
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
+     */
+    singleOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
     /**
      * Returns the expected single element; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | undefined}
      */
-    singleOrDefault(): T | undefined;
-    singleOrDefault(defaultValue: T): T;
+    singleOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
     /**
-     * Returns the first element of a sequence.
+     * Returns the first element of the sequence.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
      */
-    first(): T;
+    first(predicate?: PredicateWithIndex<T>): T;
     /**
-     * Returns the first element of a sequence or the default value if no element is found.
+     * Returns the first element of the sequence or the default value if no element is found.
+     * @param {T} defaultValue
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
      */
-    firstOrDefault(): T | undefined;
-    firstOrDefault(defaultValue: T): T;
+    firstOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
     /**
-     * Returns the last element of a sequence.
+     * Returns the first element of the sequence; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | undefined}
      */
-    last(): T;
+    firstOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
     /**
-     * Returns the first element of a sequence or the default value if no element is found.
+     * Returns the last element of the sequence.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
      */
-    lastOrDefault(): T | undefined;
-    lastOrDefault(defaultValue: T): T;
+    last(predicate?: PredicateWithIndex<T>): T;
+    /**
+     * Returns the last element of the sequence or the default value if no element is found.
+     * @param {T} defaultValue
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T}
+     */
+    lastOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
+    /**
+     * Returns the last element of the sequence; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | undefined}
+     */
+    lastOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
 }
