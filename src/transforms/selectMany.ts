@@ -5,7 +5,7 @@
 
 import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
 import {IterableValueTransform} from '../IterableTransform';
-import identity from '../identity'
+import identity from '../identity';
 
 /**
  *  An iterable filter that merges the output of contained iterables.
