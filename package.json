@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/linq",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET's LINQ does with enumerables.",
   "author": "electricessence",
   "license": "MIT",
