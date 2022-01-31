@@ -22,8 +22,6 @@ import select from '../src/transforms/select';
 import testItems, {TestItem} from './testItems';
 import {testRepeatableDelegate, testRepeatableResolution} from './testRepeatableResolution';
 
-/* eslint-disable @typescript-eslint/camelcase */
-
 const repeatCount = 3;
 const source = Object.freeze(['x', 'y', 'z', null]);
 const sequence = repeatSequence(source, repeatCount);
