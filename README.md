@@ -59,7 +59,7 @@ const result = linq(source)
 const firstElement = linqExtended(source)
     .where(predicate)
     .select(mapping)
-    .first(r);
+    .first();
 ```
 
 
@@ -173,9 +173,15 @@ sequence.filterWith(a, b).transform(x).resolve(r);
 ```typescript
 sequence = linqExtended(source);
 
-sequence.any();
-sequence.first();
-sequence.singleOrDefault();
+// Examples: 
+sequence.any(predicate);
+sequence.any(); // resolution predicates are optional.
+
+sequence.count(predicate);
+sequence.first(predicate);
+sequence.last(predicate);
+sequence.singleOrDefault(defaultValue, predicate);
+sequence.firstOrUndefined(predicate);
 ```
 
 A resolution is a transform that takes an `Iterable<T>` and returns `TResult`.
