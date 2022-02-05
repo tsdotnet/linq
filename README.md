@@ -182,6 +182,7 @@ sequence.first(predicate);
 sequence.last(predicate);
 sequence.singleOrDefault(defaultValue, predicate);
 sequence.firstOrUndefined(predicate);
+sequence.lastOrNull(predicate);
 ```
 
 A resolution is a transform that takes an `Iterable<T>` and returns `TResult`.

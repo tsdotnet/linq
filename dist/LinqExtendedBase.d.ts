@@ -52,6 +52,12 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
      */
     singleOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
     /**
+     * Returns the expected single element; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    singleOrNull(predicate?: PredicateWithIndex<T>): T | null;
+    /**
      * Returns the first element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -71,6 +77,12 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
      */
     firstOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
     /**
+     * Returns the first element of the sequence; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    firstOrNull(predicate?: PredicateWithIndex<T>): T | null;
+    /**
      * Returns the last element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -89,4 +101,10 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
      * @return {T | undefined}
      */
     lastOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined;
+    /**
+     * Returns the last element of the sequence; otherwise null.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    lastOrNull(predicate?: PredicateWithIndex<T>): T | null;
 }

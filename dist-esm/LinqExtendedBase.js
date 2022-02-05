@@ -77,6 +77,14 @@ export default class LinqExtendedBase extends LinqBase {
         return singleOrDefault(undefined)(predicate ? this.where(predicate) : this.source);
     }
     /**
+     * Returns the expected single element; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    singleOrNull(predicate) {
+        return singleOrDefault(null)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
      * Returns the first element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -102,6 +110,14 @@ export default class LinqExtendedBase extends LinqBase {
         return firstOrDefault(undefined)(predicate ? this.where(predicate) : this.source);
     }
     /**
+     * Returns the first element of the sequence; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    firstOrNull(predicate) {
+        return firstOrDefault(null)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
      * Returns the last element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -125,6 +141,14 @@ export default class LinqExtendedBase extends LinqBase {
      */
     lastOrUndefined(predicate) {
         return lastOrDefault(undefined)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
+     * Returns the last element of the sequence; otherwise null.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    lastOrNull(predicate) {
+        return lastOrDefault(null)(predicate ? this.where(predicate) : this.source);
     }
 }
 //# sourceMappingURL=LinqExtendedBase.js.map

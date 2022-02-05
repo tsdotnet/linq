@@ -80,6 +80,14 @@ class LinqExtendedBase extends LinqBase_1.default {
         return (0, singleOrDefault_1.default)(undefined)(predicate ? this.where(predicate) : this.source);
     }
     /**
+     * Returns the expected single element; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    singleOrNull(predicate) {
+        return (0, singleOrDefault_1.default)(null)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
      * Returns the first element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -105,6 +113,14 @@ class LinqExtendedBase extends LinqBase_1.default {
         return (0, firstOrDefault_1.default)(undefined)(predicate ? this.where(predicate) : this.source);
     }
     /**
+     * Returns the first element of the sequence; otherwise undefined.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    firstOrNull(predicate) {
+        return (0, firstOrDefault_1.default)(null)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
      * Returns the last element of the sequence.
      * @param {PredicateWithIndex<T>} [predicate]
      * @return {T}
@@ -128,6 +144,14 @@ class LinqExtendedBase extends LinqBase_1.default {
      */
     lastOrUndefined(predicate) {
         return (0, lastOrDefault_1.default)(undefined)(predicate ? this.where(predicate) : this.source);
+    }
+    /**
+     * Returns the last element of the sequence; otherwise null.
+     * @param {PredicateWithIndex<T>} [predicate]
+     * @return {T | null}
+     */
+    lastOrNull(predicate) {
+        return (0, lastOrDefault_1.default)(null)(predicate ? this.where(predicate) : this.source);
     }
 }
 exports.default = LinqExtendedBase;
