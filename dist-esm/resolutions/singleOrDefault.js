@@ -5,7 +5,7 @@
 /**
  * Returns an entry from a singular sequence or a default value if empty.
  * Throws if more than one entry.
- * @param {T} defaultValue
+ * @param {TDefault} defaultValue
  * @return {IterableTransform<T, T | undefined>}
  */
 export default function singleOrDefault(defaultValue) {
@@ -13,8 +13,10 @@ export default function singleOrDefault(defaultValue) {
         if (!sequence)
             return defaultValue;
         if (sequence instanceof Array) {
-            if (sequence.length < 2)
-                return sequence.length == 0 ? defaultValue : sequence[0];
+            switch (sequence.length) {
+                case 0: return defaultValue;
+                case 1: return sequence[0];
+            }
         }
         else {
             const iterator = sequence[Symbol.iterator]();

@@ -61,9 +61,9 @@ export default class LinqExtendedBase extends LinqBase {
     }
     /**
      * Returns the expected single element; otherwise the provided default value.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
     singleOrDefault(defaultValue, predicate) {
         return singleOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
@@ -86,9 +86,9 @@ export default class LinqExtendedBase extends LinqBase {
     }
     /**
      * Returns the first element of the sequence or the default value if no element is found.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
     firstOrDefault(defaultValue, predicate) {
         return firstOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
@@ -111,9 +111,9 @@ export default class LinqExtendedBase extends LinqBase {
     }
     /**
      * Returns the last element of the sequence or the default value if no element is found.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
     lastOrDefault(defaultValue, predicate) {
         return lastOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);

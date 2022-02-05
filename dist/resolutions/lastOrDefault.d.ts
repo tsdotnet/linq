@@ -1,4 +1,3 @@
- 
 import { IterableTransform } from '../IterableTransform';
 /**
  * An iterable transform that returns the last element of a sequence, or `undefined` if no element is found.
@@ -7,7 +6,7 @@ import { IterableTransform } from '../IterableTransform';
 export default function lastOrDefault<T>(): IterableTransform<T, T | undefined>;
 /**
  * An iterable transform that returns the last element of a sequence, or the default value if no element is found.
- * @param {T} defaultValue
- * @return {IterableTransform<T, T>}
+ * @param {TDefault} defaultValue
+ * @return {IterableTransform<T, T | TDefault>}
  */
-export default function lastOrDefault<T>(defaultValue: T): IterableTransform<T, T>;
+export default function lastOrDefault<T, TDefault>(defaultValue: TDefault): IterableTransform<T, T | TDefault>;

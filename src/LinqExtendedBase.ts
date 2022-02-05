@@ -74,12 +74,12 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 
 	/**
 	 * Returns the expected single element; otherwise the provided default value.
-	 * @param {T} defaultValue
+	 * @param {TDefault} defaultValue
 	 * @param {PredicateWithIndex<T>} [predicate]
-	 * @return {T}
+	 * @return {T | TDefault}
 	 */
-	singleOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
-		return singleOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
+	singleOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault {
+		return singleOrDefault<T, TDefault>(defaultValue)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
@@ -88,7 +88,7 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	 * @return {T | undefined}
 	 */
 	singleOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
-		return singleOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
+		return singleOrDefault<T, undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
@@ -102,12 +102,12 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 
 	/**
 	 * Returns the first element of the sequence or the default value if no element is found.
-	 * @param {T} defaultValue
+	 * @param {TDefault} defaultValue
 	 * @param {PredicateWithIndex<T>} [predicate]
-	 * @return {T}
+	 * @return {T | TDefault}
 	 */
-	firstOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
-		return firstOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
+	firstOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault {
+		return firstOrDefault<T, TDefault>(defaultValue)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
@@ -116,7 +116,7 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	 * @return {T | undefined}
 	 */
 	firstOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
-		return firstOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
+		return firstOrDefault<T, undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
@@ -130,12 +130,12 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 
 	/**
 	 * Returns the last element of the sequence or the default value if no element is found.
-	 * @param {T} defaultValue
+	 * @param {TDefault} defaultValue
 	 * @param {PredicateWithIndex<T>} [predicate]
-	 * @return {T}
+	 * @return {T | TDefault}
 	 */
-	lastOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T {
-		return lastOrDefault(defaultValue)(predicate ? this.where(predicate) : this.source);
+	lastOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault {
+		return lastOrDefault<T, TDefault>(defaultValue)(predicate ? this.where(predicate) : this.source);
 	}
 
 	/**
@@ -144,6 +144,6 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
 	 * @return {T | undefined}
 	 */
 	lastOrUndefined(predicate?: PredicateWithIndex<T>): T | undefined {
-		return lastOrDefault<T | undefined>(undefined)(predicate ? this.where(predicate) : this.source);
+		return lastOrDefault<T, undefined>(undefined)(predicate ? this.where(predicate) : this.source);
 	}
 }

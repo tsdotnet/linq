@@ -6,8 +6,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * An iterable transform that returns the first element of a sequence, or a default value if no element is found.
- * @param {T} defaultValue
- * @return {IterableTransform<T, T | undefined>}
+ * @param {TDefault} defaultValue
+ * @return {IterableTransform<T, T | TDefault | undefined>}
  */
 function firstOrDefault(defaultValue) {
     return function (sequence) {

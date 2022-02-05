@@ -9,8 +9,8 @@ const integer_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/integer"));
 /**
  * Produces a function that returns the element at a specified index in a sequence or a default value if out of bounds.
  * @param {number} index
- * @param {T} defaultValue The optional default value to use if the element is not found.
- * @return {IterableTransform<T, T | undefined>} A function that when passed a sequence of elements selects the specific element.
+ * @param {TDefault} defaultValue The optional default value to use if the element is not found.
+ * @return {IterableTransform<T, T | TDefault | undefined>} A function that when passed a sequence of elements selects the specific element.
  */
 function elementAtOrDefault(index, defaultValue) {
     integer_1.default.assertZeroOrGreater(index);

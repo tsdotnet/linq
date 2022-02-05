@@ -40,11 +40,11 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
     single(predicate?: PredicateWithIndex<T>): T;
     /**
      * Returns the expected single element; otherwise the provided default value.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
-    singleOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
+    singleOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault;
     /**
      * Returns the expected single element; otherwise undefined.
      * @param {PredicateWithIndex<T>} [predicate]
@@ -59,11 +59,11 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
     first(predicate?: PredicateWithIndex<T>): T;
     /**
      * Returns the first element of the sequence or the default value if no element is found.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
-    firstOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
+    firstOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault;
     /**
      * Returns the first element of the sequence; otherwise undefined.
      * @param {PredicateWithIndex<T>} [predicate]
@@ -78,11 +78,11 @@ export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase
     last(predicate?: PredicateWithIndex<T>): T;
     /**
      * Returns the last element of the sequence or the default value if no element is found.
-     * @param {T} defaultValue
+     * @param {TDefault} defaultValue
      * @param {PredicateWithIndex<T>} [predicate]
-     * @return {T}
+     * @return {T | TDefault}
      */
-    lastOrDefault(defaultValue: T, predicate?: PredicateWithIndex<T>): T;
+    lastOrDefault<TDefault>(defaultValue: TDefault, predicate?: PredicateWithIndex<T>): T | TDefault;
     /**
      * Returns the last element of the sequence; otherwise undefined.
      * @param {PredicateWithIndex<T>} [predicate]
