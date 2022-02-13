@@ -29,5 +29,5 @@ import singleOrDefault from './resolutions/singleOrDefault';
 import sum from './resolutions/sum';
 import sumAndCount from './resolutions/sumAndCount';
 import toArray from './resolutions/toArray';
-import toMap from './resolutions/toMap';
-export { aggregate, all, any, average, contains, count, elementAt, elementAtOrDefault, first, firstOrDefault, hasAny, indexOf, isEmpty, joinStrings, last, lastIndexOf, lastOrDefault, min, max, product, sequenceEqual, single, singleOrDefault, sum, sumAndCount, asArray, toArray, toMap };
+import toMap, { MappingMode } from './resolutions/toMap';
+export { aggregate, all, any, average, contains, count, elementAt, elementAtOrDefault, first, firstOrDefault, hasAny, indexOf, isEmpty, joinStrings, last, lastIndexOf, lastOrDefault, min, max, product, sequenceEqual, single, singleOrDefault, sum, sumAndCount, asArray, toArray, toMap, MappingMode };

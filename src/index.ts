@@ -10,7 +10,12 @@ import linq from './linq';
 import linqExtended from './linqExtended';
 import * as resolutions from './resolutions';
 import * as transforms from './transforms';
-export * from './IterableTransform';
+
+export {
+	IterableTransform,
+	IterableValueTransform,
+	IterableFilter,
+} from './IterableTransform';
 
 export {
 	filters,
