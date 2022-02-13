@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-type NotNull<T> = T extends null ? never : T;
+export type NotNull<T> = T extends null ? never : T;
 
 /**
  * Filters out null values.

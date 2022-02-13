@@ -31,7 +31,7 @@ import singleOrDefault from './resolutions/singleOrDefault';
 import sum from './resolutions/sum';
 import sumAndCount from './resolutions/sumAndCount';
 import toArray from './resolutions/toArray';
-import toMap from './resolutions/toMap';
+import toMap, {MappingMode} from './resolutions/toMap';
 
 export {
 	aggregate,
@@ -61,5 +61,6 @@ export {
 	sumAndCount,
 	asArray,
 	toArray,
-	toMap
+	toMap,
+	MappingMode
 };

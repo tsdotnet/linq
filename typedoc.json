@@ -1,6 +1,8 @@
 {
   "entryPoints": [
-    "./src/index.ts"
+    "./src/index.ts",
+    "./src/Linq.ts",
+    "./src/LinqExtended.ts"
   ],
   "out": "docs",
   "includeVersion": true,

@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-type NotUndefined<T> = T extends undefined ? never : T;
+export type NotUndefined<T> = T extends undefined ? never : T;
 
 /**
  * Filters out undefined values.
