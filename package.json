@@ -42,7 +42,7 @@
     "precommit": "pnpm i && run-p lint test && run-p build:* && npm run-script validate && git status -s",
     "prepublishOnly": "npm run-script build && run-p validate test",
     "preversion": "run-p lint test",
-    "postversion": "git push && git push --tags && npm run-script docs && git commit -m \"Updated docs.\" docs && git push",
+    "postversion": "git push && git push --tags && npm run-script docs && git add -A && git commit -m \"Updated docs.\" docs && git push",
     "test": "mocha -r ts-node/register tests/**/*.ts",
     "validate": "node ./.build/validate-package.js"
   },
