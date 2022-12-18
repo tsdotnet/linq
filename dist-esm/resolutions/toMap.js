@@ -11,7 +11,7 @@ import identity from '../identity';
  * @param {MappingMode} mappingBehavior
  * @return {IterableTransform<T, Map<TKey, TValue>>}
  */
-export default function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* Throw */) {
+export default function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* MappingMode.Throw */) {
     if (!keySelector)
         throw new ArgumentNullException('keySelector');
     if (typeof valueSelector == 'number') {
@@ -27,9 +27,9 @@ export default function toMap(keySelector, valueSelector = identity, mappingBeha
             const key = keySelector(e, i++);
             if (result.has(key))
                 switch (mappingBehavior) {
-                    case 0 /* Keep */:
+                    case 0 /* MappingMode.Keep */:
                         continue;
-                    case -1 /* Throw */:
+                    case -1 /* MappingMode.Throw */:
                         throw new Error('MappingMode.Throw: more than one of the same key encountered.');
                 }
             result.set(key, valueSelector(e, i - 1));

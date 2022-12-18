@@ -10,13 +10,13 @@ import toArray from '../resolutions/toArray';
  * @param {Order} order Default is ascending.
  * @return {IterableFilter<T>}
  */
-export default function orderUsing(comparison, order = 1 /* Ascending */) {
+export default function orderUsing(comparison, order = 1 /* Order.Ascending */) {
     if (!comparison)
         throw new ArgumentNullException('comparison');
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
-                for (const e of toArray(sequence).sort(order == -1 /* Descending */
+                for (const e of toArray(sequence).sort(order == -1 /* Order.Descending */
                     ? ((a, b) => comparison(a, b) * -1)
                     : comparison)) {
                     yield e;

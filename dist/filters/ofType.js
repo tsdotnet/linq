@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const where_1 = (0, tslib_1.__importDefault)(require("./where"));
+const where_1 = tslib_1.__importDefault(require("./where"));
 /**
  * An iterable filter that only returns elements of the type (constructor) provided.
  * Example: Calling ofType(Number)(sequence) will filter all numbers.

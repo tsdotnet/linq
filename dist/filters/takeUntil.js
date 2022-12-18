@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const takeWhile_1 = (0, tslib_1.__importDefault)(require("./takeWhile"));
+const takeWhile_1 = tslib_1.__importDefault(require("./takeWhile"));
 /**
  * An iterable filter that will return results until the predicate condition is true.
  * @param {PredicateWithIndex<T>} predicate

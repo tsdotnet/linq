@@ -5,8 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentNullException_1 = (0, tslib_1.__importDefault)(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
-const identity_1 = (0, tslib_1.__importDefault)(require("../identity"));
+const ArgumentNullException_1 = tslib_1.__importDefault(require("@tsdotnet/exceptions/dist/ArgumentNullException"));
+const identity_1 = tslib_1.__importDefault(require("../identity"));
 /**
  * Returns a map of all elements .
  * @param {SelectorWithIndex<T, TKey>} keySelector
@@ -14,7 +14,7 @@ const identity_1 = (0, tslib_1.__importDefault)(require("../identity"));
  * @param {MappingMode} mappingBehavior
  * @return {IterableTransform<T, Map<TKey, TValue>>}
  */
-function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior = -1 /* Throw */) {
+function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior = -1 /* MappingMode.Throw */) {
     if (!keySelector)
         throw new ArgumentNullException_1.default('keySelector');
     if (typeof valueSelector == 'number') {
@@ -30,9 +30,9 @@ function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior 
             const key = keySelector(e, i++);
             if (result.has(key))
                 switch (mappingBehavior) {
-                    case 0 /* Keep */:
+                    case 0 /* MappingMode.Keep */:
                         continue;
-                    case -1 /* Throw */:
+                    case -1 /* MappingMode.Throw */:
                         throw new Error('MappingMode.Throw: more than one of the same key encountered.');
                 }
             result.set(key, valueSelector(e, i - 1));

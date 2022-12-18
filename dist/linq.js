@@ -6,9 +6,9 @@ const tslib_1 = require("tslib");
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-const LinqBase_1 = (0, tslib_1.__importDefault)(require("./LinqBase"));
-const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
-const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
+const LinqBase_1 = tslib_1.__importDefault(require("./LinqBase"));
+const select_1 = tslib_1.__importDefault(require("./transforms/select"));
+const selectMany_1 = tslib_1.__importDefault(require("./transforms/selectMany"));
 /**
  * Simplest abstraction for building an extensible iterable query.
  */

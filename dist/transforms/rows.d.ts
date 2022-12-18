@@ -1,5 +1,5 @@
-export declare type Cell<T> = IteratorYieldResult<T> | null;
-export declare type Row<T> = Cell<T>[];
+export type Cell<T> = IteratorYieldResult<T> | null;
+export type Row<T> = Cell<T>[];
 /**
  * Returns the rows from a given set of iterables representing columns.
  * @param {Iterable<Iterable<T>>} columns

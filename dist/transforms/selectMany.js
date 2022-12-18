@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const identity_1 = (0, tslib_1.__importDefault)(require("../identity"));
+const identity_1 = tslib_1.__importDefault(require("../identity"));
 function selectMany(selector = identity_1.default) {
     return function (sequence) {
         return {

@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const same_1 = (0, tslib_1.__importDefault)(require("./same"));
+const same_1 = tslib_1.__importDefault(require("./same"));
 /**
  * An iterable filter that returns all elements except for any in the exclusion sequence.
  * @param {Iterable<T>} exclusions

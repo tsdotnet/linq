@@ -66,7 +66,7 @@ export default function aggregate<T, U> (
 		}
 		else
 		{
-			let previous = initialValue;
+			let previous: any = initialValue;
 			for(const current of sequence) previous = reducer(previous, current, i++);
 			return previous;
 		}

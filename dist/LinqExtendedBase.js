@@ -5,17 +5,17 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const LinqBase_1 = (0, tslib_1.__importDefault)(require("./LinqBase"));
-const all_1 = (0, tslib_1.__importDefault)(require("./resolutions/all"));
-const any_1 = (0, tslib_1.__importDefault)(require("./resolutions/any"));
-const count_1 = (0, tslib_1.__importDefault)(require("./resolutions/count"));
-const toArray_1 = (0, tslib_1.__importDefault)(require("./resolutions/toArray"));
-const single_1 = (0, tslib_1.__importDefault)(require("./resolutions/single"));
-const singleOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/singleOrDefault"));
-const first_1 = (0, tslib_1.__importDefault)(require("./resolutions/first"));
-const firstOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/firstOrDefault"));
-const last_1 = (0, tslib_1.__importDefault)(require("./resolutions/last"));
-const lastOrDefault_1 = (0, tslib_1.__importDefault)(require("./resolutions/lastOrDefault"));
+const LinqBase_1 = tslib_1.__importDefault(require("./LinqBase"));
+const all_1 = tslib_1.__importDefault(require("./resolutions/all"));
+const any_1 = tslib_1.__importDefault(require("./resolutions/any"));
+const count_1 = tslib_1.__importDefault(require("./resolutions/count"));
+const toArray_1 = tslib_1.__importDefault(require("./resolutions/toArray"));
+const single_1 = tslib_1.__importDefault(require("./resolutions/single"));
+const singleOrDefault_1 = tslib_1.__importDefault(require("./resolutions/singleOrDefault"));
+const first_1 = tslib_1.__importDefault(require("./resolutions/first"));
+const firstOrDefault_1 = tslib_1.__importDefault(require("./resolutions/firstOrDefault"));
+const last_1 = tslib_1.__importDefault(require("./resolutions/last"));
+const lastOrDefault_1 = tslib_1.__importDefault(require("./resolutions/lastOrDefault"));
 class LinqExtendedBase extends LinqBase_1.default {
     constructor(source, create) {
         super(source, create);

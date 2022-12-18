@@ -10,7 +10,7 @@ import toArray from '../resolutions/toArray';
  * @param {Order} order
  * @return {IterableFilter<T>}
  */
-export default function orderBy(keySelector, order = 1 /* Ascending */) {
+export default function orderBy(keySelector, order = 1 /* Order.Ascending */) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

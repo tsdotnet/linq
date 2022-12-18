@@ -6,10 +6,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinqGrouping = exports.LinqExtended = void 0;
 const tslib_1 = require("tslib");
-const groupBy_1 = (0, tslib_1.__importDefault)(require("./transforms/groupBy"));
-const select_1 = (0, tslib_1.__importDefault)(require("./transforms/select"));
-const selectMany_1 = (0, tslib_1.__importDefault)(require("./transforms/selectMany"));
-const LinqExtendedBase_1 = (0, tslib_1.__importDefault)(require("./LinqExtendedBase"));
+const groupBy_1 = tslib_1.__importDefault(require("./transforms/groupBy"));
+const select_1 = tslib_1.__importDefault(require("./transforms/select"));
+const selectMany_1 = tslib_1.__importDefault(require("./transforms/selectMany"));
+const LinqExtendedBase_1 = tslib_1.__importDefault(require("./LinqExtendedBase"));
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.
  */

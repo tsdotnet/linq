@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const indexOf_1 = (0, tslib_1.__importDefault)(require("./indexOf"));
+const indexOf_1 = tslib_1.__importDefault(require("./indexOf"));
 /**
  * An iterable transform that resolves true if the provided sequence contains the entry. Otherwise false.
  * @param {T} entry
