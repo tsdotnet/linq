@@ -57,7 +57,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.16",
+    "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "chai": "^4.3.7",
@@ -72,17 +72,17 @@
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.23.22",
+    "typedoc": "^0.23.23",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.4",
-    "@tsdotnet/compare": "^1.3.21",
-    "@tsdotnet/exceptions": "^1.0.18",
-    "@tsdotnet/integer": "^1.0.14",
-    "@tsdotnet/linked-node-list": "^1.3.19",
+    "@tsdotnet/compare": "^1.3.22",
+    "@tsdotnet/exceptions": "^1.0.19",
+    "@tsdotnet/integer": "^1.0.15",
+    "@tsdotnet/linked-node-list": "^1.3.20",
     "@tsdotnet/memoize": "^1.0.10",
-    "@tsdotnet/queue": "^1.2.7",
-    "tslib": "^2.3.1"
+    "@tsdotnet/queue": "^1.2.8",
+    "tslib": "^2.4.1"
   }
 }
