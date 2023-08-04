@@ -2211,7 +2211,7 @@ packages:
       minimatch: 3.0.4
       pidtree: 0.3.1
       read-pkg: 3.0.0
-      shell-quote: 1.7.2
+      shell-quote: 1.8.1
       string.prototype.padend: 3.1.0
     dev: true
 
@@ -2631,8 +2631,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shell-quote@1.7.2:
-    resolution: {integrity: sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==}
+  /shell-quote@1.8.1:
+    resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
     dev: true
 
   /shiki@0.11.1:
