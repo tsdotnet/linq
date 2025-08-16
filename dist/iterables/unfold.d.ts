@@ -1,4 +1,4 @@
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 /**
  * A generator function for creating entries based upon the previous entry.
  * @param {T} seed The first value to be fed the valueFactory.

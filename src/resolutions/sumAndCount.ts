@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 
 /**
  * Returns the sum (.value) of a sequence and the number of entries (.count).

@@ -11,3 +11,4 @@ export interface IterableTransform<T, TResult>
 export type IterableValueTransform<TIn, TOut> = IterableTransform<TIn, Iterable<TOut>>;
 
 export type IterableFilter<T> = IterableValueTransform<T, T>;
+

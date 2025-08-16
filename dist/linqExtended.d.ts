@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import { Grouping, GroupingResult } from './transforms/groupBy';
 import LinqExtendedBase from './LinqExtendedBase';

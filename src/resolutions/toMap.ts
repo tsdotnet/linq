@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 import identity from '../identity';
 import { IterableTransform } from '../IterableTransform';
 

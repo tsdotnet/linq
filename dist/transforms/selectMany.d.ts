@@ -1,4 +1,4 @@
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableValueTransform } from '../IterableTransform';
 /**
  *  An iterable filter that merges the output of contained iterables.

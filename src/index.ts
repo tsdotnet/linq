@@ -11,7 +11,7 @@ import linqExtended from './linqExtended';
 import * as resolutions from './resolutions';
 import * as transforms from './transforms';
 
-export {
+export type {
 	IterableTransform,
 	IterableValueTransform,
 	IterableFilter,
@@ -26,3 +26,4 @@ export {
 };
 
 export default linq;
+

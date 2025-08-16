@@ -4,7 +4,7 @@
  */
 import LinqBase from './LinqBase';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 /**
  * Simplest abstraction for building an extensible iterable query.
  */

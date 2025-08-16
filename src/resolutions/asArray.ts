@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 
 /**
  * Returns an array (copy) of all the elements in a sequence if the sequence isn't already an array.

@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-import ArgumentOutOfRangeException from '@tsdotnet/exceptions/dist/ArgumentOutOfRangeException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
+import {ArgumentOutOfRangeException} from '@tsdotnet/exceptions';
 import integer from '@tsdotnet/integer';
 import {IterableTransform} from '../IterableTransform';
 

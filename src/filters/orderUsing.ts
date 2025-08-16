@@ -3,9 +3,9 @@
  * @license MIT
  */
 
-import {Comparison} from '@tsdotnet/compare/dist/Comparable';
-import Order from '@tsdotnet/compare/dist/Order';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import type {Comparison} from '@tsdotnet/compare';
+import {Order} from '@tsdotnet/compare';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 import {IterableFilter} from '../IterableTransform';
 import toArray from '../resolutions/toArray';
 

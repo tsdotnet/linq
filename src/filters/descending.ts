@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {Primitive} from '@tsdotnet/common-interfaces';
-import comparePrimitives from '@tsdotnet/compare/dist/comparePrimitives';
+import type {Primitive} from '@tsdotnet/common-interfaces';
+import {compare} from '@tsdotnet/compare';
 import toArray from '../resolutions/toArray';
 
 /**
@@ -16,7 +16,7 @@ export default function descending<T extends Primitive> (sequence: Iterable<T>):
 	return {
 		* [Symbol.iterator] (): Iterator<T>
 		{
-			for(const e of toArray(sequence).sort(comparePrimitives.inverted)) yield e;
+			for(const e of toArray(sequence).sort(compare.primitives.inverted)) yield e;
 		}
 	};
 }

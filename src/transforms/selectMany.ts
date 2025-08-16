@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
+import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
 import {IterableValueTransform} from '../IterableTransform';
 import identity from '../identity';
 

@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 
 /**
  * Generates a sequence that contains each value in the provided sequence and repeats.

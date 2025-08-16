@@ -1,4 +1,4 @@
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';
 export declare const enum MappingMode {
     Throw = -1,

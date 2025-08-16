@@ -1,4 +1,4 @@
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableValueTransform } from '../IterableTransform';
 /**
  * An iterable filter that transforms (maps / projects) the output from the contained elements.

@@ -3,9 +3,9 @@
  * @license MIT
  */
 
-import {Primitive, Selector} from '@tsdotnet/common-interfaces';
-import comparePrimitives from '@tsdotnet/compare/dist/comparePrimitives';
-import Order from '@tsdotnet/compare/dist/Order';
+import type {Primitive, Selector} from '@tsdotnet/common-interfaces';
+import {compare} from '@tsdotnet/compare';
+import Order from '@tsdotnet/compare/Order';
 import {IterableFilter} from '../IterableTransform';
 import toArray from '../resolutions/toArray';
 
@@ -23,7 +23,7 @@ export default function orderBy<T, TKey extends Primitive> (
 			{
 				for(const e of
 					toArray(sequence).sort(
-						(a, b) => comparePrimitives(keySelector(a), keySelector(b))*order))
+						(a, b) => compare.primitives(keySelector(a), keySelector(b))*order))
 				{
 					yield e;
 				}

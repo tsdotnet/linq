@@ -6,7 +6,7 @@ import LinqBase from './LinqBase';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import select from './transforms/select';
 import selectMany from './transforms/selectMany';
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 
 /**
  * Simplest abstraction for building an extensible iterable query.
@@ -85,3 +85,4 @@ export default function linq<T>(source: Iterable<T>): Linq<T> {
 	if (source instanceof Linq) return source;
 	return new Linq<T>(source);
 }
+

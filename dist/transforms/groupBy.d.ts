@@ -1,4 +1,4 @@
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableValueTransform } from '../IterableTransform';
 /**
  * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.

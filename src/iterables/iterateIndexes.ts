@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 
 /**
  * Returns an iterator that iterates the provided ArrayLike using length and index.

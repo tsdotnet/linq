@@ -1,4 +1,4 @@
-import { Primitive } from '@tsdotnet/common-interfaces';
+import type { Primitive } from '@tsdotnet/common-interfaces';
 /**
  * Returns the entry in the sequence that has the highest/greatest value.
  * @param {Iterable<T>} sequence

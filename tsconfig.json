@@ -3,16 +3,24 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
-    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "target": "es2022",
     "module": "commonjs",
     "strict": true,
     "sourceMap": true,
     "removeComments": false,
     "importHelpers": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "dist"
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "tests/**/*",
+    "dist/**/*",
+    "node_modules"
   ]
 }

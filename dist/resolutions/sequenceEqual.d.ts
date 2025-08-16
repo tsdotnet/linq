@@ -1,4 +1,4 @@
-import { EqualityComparison } from '@tsdotnet/compare';
+import { type EqualityComparison } from '@tsdotnet/compare';
 import { IterableTransform } from '../IterableTransform';
 /**
  * Resolves true if the sequences are equal.

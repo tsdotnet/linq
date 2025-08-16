@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import type {PredicateWithIndex} from '@tsdotnet/common-interfaces';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 import {IterableTransform} from '../IterableTransform';
 
 /**

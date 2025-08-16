@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { SelectorWithIndex } from '@tsdotnet/common-interfaces';
+import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableFilter, IterableValueTransform } from './IterableTransform';
 import groupBy, { Grouping, GroupingResult } from './transforms/groupBy';
 import select from './transforms/select';
@@ -107,3 +107,4 @@ export default function linqExtended<T>(source: Iterable<T>): LinqExtended<T> {
 	if (source instanceof LinqExtended) return source;
 	return new LinqExtended<T>(source);
 }
+

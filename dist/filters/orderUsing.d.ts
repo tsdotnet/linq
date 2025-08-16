@@ -1,5 +1,5 @@
-import { Comparison } from '@tsdotnet/compare/dist/Comparable';
-import Order from '@tsdotnet/compare/dist/Order';
+import type { Comparison } from '@tsdotnet/compare';
+import { Order } from '@tsdotnet/compare';
 import { IterableFilter } from '../IterableTransform';
 /**
  * An iterable filter that orders elements by use of a comparison function.

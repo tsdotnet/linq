@@ -3,8 +3,7 @@
  * @license MIT
  */
 
-import comparison from '@tsdotnet/compare/dist/comparison';
-import Order from '@tsdotnet/compare/dist/Order';
+import {Order} from '@tsdotnet/compare';
 import {expect} from 'chai';
 import linq from '../src';
 import {

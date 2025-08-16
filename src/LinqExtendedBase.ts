@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { PredicateWithIndex } from '@tsdotnet/common-interfaces';
+import type { PredicateWithIndex } from '@tsdotnet/common-interfaces';
 import LinqBase from "./LinqBase";
 import all from './resolutions/all';
 import any from './resolutions/any';

@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import { PredicateWithIndex, SelectorWithIndex } from "@tsdotnet/common-interfaces";
+import type { PredicateWithIndex, SelectorWithIndex } from "@tsdotnet/common-interfaces";
 import { IterableFilter, IterableTransform, IterableValueTransform } from "./IterableTransform";
 import where from './filters/where';
 import applyFilters from './applyFilters';
@@ -115,3 +115,4 @@ export default abstract class LinqBase<T, TLinq extends LinqBase<T, TLinq>> impl
 		return this.filter(take(count));
 	}
 }
+

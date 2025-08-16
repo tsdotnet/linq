@@ -3,10 +3,8 @@
  * @license MIT
  */
 
-import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
+import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
 import {IterableValueTransform} from '../IterableTransform';
-
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 /**
  * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.

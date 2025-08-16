@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
+import {InvalidOperationException} from '@tsdotnet/exceptions';
 
 /**
  * Returns the average of a sequence of numbers.

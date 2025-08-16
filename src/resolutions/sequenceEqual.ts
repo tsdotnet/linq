@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {areEqual, EqualityComparison} from '@tsdotnet/compare';
-import areSequencesEqual from '@tsdotnet/compare/dist/areSequencesEqual';
+import {areEqual, type EqualityComparison} from '@tsdotnet/compare';
+import {areSequencesEqual} from '@tsdotnet/compare';
 import {IterableTransform} from '../IterableTransform';
 
 /**

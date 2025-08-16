@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
+import {InvalidOperationException} from '@tsdotnet/exceptions';
 import {IterableTransform} from '../IterableTransform';
 
 /**

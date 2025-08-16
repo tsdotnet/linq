@@ -4,3 +4,4 @@
  */
 
 export default function identity (e: unknown): any { return e; }
+

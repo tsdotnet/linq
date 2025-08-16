@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import { PredicateWithIndex } from '@tsdotnet/common-interfaces';
+import type { PredicateWithIndex } from '@tsdotnet/common-interfaces';
 import LinqBase from "./LinqBase";
 export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase<T, TLinq>> extends LinqBase<T, TLinq> {
     constructor(source: Iterable<T>, create: (source: Iterable<T>) => TLinq);

@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import areEqual from '@tsdotnet/compare/dist/areEqual';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import {areEqual} from '@tsdotnet/compare';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 import {IterableTransform} from '../IterableTransform';
 
 /**

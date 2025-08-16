@@ -1,11 +1,10 @@
 {
-  "extends": "./tsconfig",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "outDir": "./dist/esm",
     "declaration": false,
-    "module": "es2015",
-    "outDir": "dist-esm"
-  },
-  "include": [
-    "src/**/*"
-  ]
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022"
+  }
 }

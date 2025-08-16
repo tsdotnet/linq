@@ -1,4 +1,4 @@
-import { PredicateWithIndex } from '@tsdotnet/common-interfaces';
+import type { PredicateWithIndex } from '@tsdotnet/common-interfaces';
 import { IterableTransform } from '../IterableTransform';
 /**
  * An iterable transform that resolves false if the predicate ever returns false. Otherwise true.

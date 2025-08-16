@@ -3,9 +3,9 @@
  * @license MIT
  */
 
-import {Primitive} from '@tsdotnet/common-interfaces';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
-import InvalidOperationException from '@tsdotnet/exceptions/dist/InvalidOperationException';
+import type {Primitive} from '@tsdotnet/common-interfaces';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
+import {InvalidOperationException} from '@tsdotnet/exceptions';
 
 /**
  * Returns the entry in the sequence that has the lowest/least value.

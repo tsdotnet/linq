@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {SelectorWithIndex} from '@tsdotnet/common-interfaces';
-import ArgumentNullException from '@tsdotnet/exceptions/dist/ArgumentNullException';
+import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
+import {ArgumentNullException} from '@tsdotnet/exceptions';
 
 /**
  * A generator function for creating entries based upon the previous entry.

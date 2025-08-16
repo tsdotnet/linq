@@ -1,1 +1,0 @@
-{"version":3,"file":"prepend.js","sourceRoot":"","sources":["../../src/filters/prepend.ts"],"names":[],"mappings":";AAAA;;;GAGG;;;AAEH,yEAAyC;AAEzC,0DAA0B;AAE1B;;;;GAIG;AACH,SAAwB,OAAO,CAAK,GAAG,QAAa;IACnD,IAAG,QAAQ,CAAC,MAAM,KAAK,CAAC;QAAE,OAAO,cAAI,CAAC;IACtC,OAAO,UAAS,QAAqB;QACpC,OAAO,IAAA,gBAAM,EAAC,QAAQ,EAAE,QAAQ,CAAC,CAAC;IACnC,CAAC,CAAC;AACH,CAAC;AALD,0BAKC"}

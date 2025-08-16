@@ -1,5 +1,5 @@
-import { Primitive, Selector } from '@tsdotnet/common-interfaces';
-import Order from '@tsdotnet/compare/dist/Order';
+import type { Primitive, Selector } from '@tsdotnet/common-interfaces';
+import { Order } from '@tsdotnet/compare';
 import { IterableFilter } from '../IterableTransform';
 /**
  * An iterable filter that orders elements by a primitive value provided by the key selector.
