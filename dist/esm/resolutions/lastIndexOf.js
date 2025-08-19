@@ -1,15 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { areEqual } from '@tsdotnet/compare';
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.
- * @param {T} item
- * @return {IterableTransform<T, number>}
- */
-export default function lastIndexOf(item) {
+
+function lastIndexOf(item) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException('sequence');
@@ -24,4 +16,6 @@ export default function lastIndexOf(item) {
         return last;
     };
 }
+
+export { lastIndexOf as default };
 //# sourceMappingURL=lastIndexOf.js.map

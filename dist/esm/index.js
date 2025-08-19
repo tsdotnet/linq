@@ -1,14 +1,15 @@
-/**!
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- * @ignore
- */
-import * as filters from './filters';
-import * as iterables from './iterables';
-import linq from './linq';
-import linqExtended from './linqExtended';
-import * as resolutions from './resolutions';
-import * as transforms from './transforms';
-export { filters, iterables, resolutions, transforms, linqExtended };
-export default linq;
+import * as filters from './filters.js';
+export { filters };
+import * as iterables from './iterables.js';
+export { iterables };
+import linq from './linq.js';
+export { default as linqExtended } from './linqExtended.js';
+import * as resolutions from './resolutions.js';
+export { resolutions };
+import * as transforms from './transforms.js';
+export { transforms };
+
+
+
+export { linq as default };
 //# sourceMappingURL=index.js.map

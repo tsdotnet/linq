@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * An iterable transform that resolves false if the predicate ever returns false. Otherwise true.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableTransform<T, boolean>}
- */
-export default function all(predicate) {
+
+function all(predicate) {
     if (!predicate)
         throw new ArgumentNullException('predicate');
     return function (sequence) {
@@ -24,4 +16,6 @@ export default function all(predicate) {
         return true;
     };
 }
+
+export { all as default };
 //# sourceMappingURL=all.js.map

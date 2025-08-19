@@ -1,20 +1,8 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = aggregate;
 const exceptions_1 = require("@tsdotnet/exceptions");
 const exceptions_2 = require("@tsdotnet/exceptions");
-/**
- * An iterable transform that applies an accumulator function over a sequence.
- * The specified `initialValue` is used as the initial accumulator value, and the specified function is used to select the result value.
- * If no `initialValue` is specified, the first entry in the sequence is used.
- * @param {(previous: (U | undefined), current: T, index: number) => U} reducer
- * @param {U} initialValue
- * @return {IterableTransform<T, U | undefined>}
- */
 function aggregate(reducer, initialValue) {
     return function (sequence) {
         if (!sequence)

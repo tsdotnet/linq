@@ -1,18 +1,7 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = zip;
 const exceptions_1 = require("@tsdotnet/exceptions");
-/**
- * Produces a sequence that is combination of the two sequences..
- * @param {Iterable<T1>} sequence1
- * @param {Iterable<T2>} sequence2
- * @param {(r1: IteratorResult<T1>, r2: IteratorResult<T2>, i: number) => TResult} selector
- * @return {Iterable<TResult>}
- */
 function zip(sequence1, sequence2, selector) {
     if (!sequence1)
         throw new exceptions_1.ArgumentNullException('sequence1');

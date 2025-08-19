@@ -1,17 +1,8 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = lastIndexOf;
 const compare_1 = require("@tsdotnet/compare");
 const exceptions_1 = require("@tsdotnet/exceptions");
-/**
- * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.
- * @param {T} item
- * @return {IterableTransform<T, number>}
- */
 function lastIndexOf(item) {
     return function (sequence) {
         if (!sequence)

@@ -1,16 +1,7 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = rows;
 const exceptions_1 = require("@tsdotnet/exceptions");
-/**
- * Returns the rows from a given set of iterables representing columns.
- * @param {Iterable<Iterable<T>>} columns
- * @return {Iterable<Row<T>>}
- */
 function rows(columns) {
     if (columns == null)
         throw new exceptions_1.ArgumentNullException('columns');
@@ -18,7 +9,6 @@ function rows(columns) {
         *[Symbol.iterator]() {
             var _a;
             const iterators = [];
-            // first pass.
             let row = [], count = 0;
             for (const c of columns) {
                 const i = c[Symbol.iterator]();
@@ -34,7 +24,7 @@ function rows(columns) {
                 }
             }
             if (count == 0)
-                return; // no rows.
+                return;
             yield row;
             const len = iterators.length;
             do {

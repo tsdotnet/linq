@@ -1,14 +1,8 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import merge from './merge';
-/**
- * Concatenates the provided sequences.
- * @param {Iterable<T>} sequences
- * @return {Iterable<T>}
- */
-export default function concat(...sequences) {
+import merge from './merge.js';
+
+function concat(...sequences) {
     return merge(sequences);
 }
+
+export { concat as default };
 //# sourceMappingURL=concat.js.map

@@ -1,14 +1,8 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import takeWhile from './takeWhile';
-/**
- * An iterable filter that will return results until the predicate condition is true.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableFilter<T>}
- */
-export default function takeUntil(predicate) {
+import takeWhile from './takeWhile.js';
+
+function takeUntil(predicate) {
     return takeWhile((e, i) => !predicate(e, i));
 }
+
+export { takeUntil as default };
 //# sourceMappingURL=takeUntil.js.map

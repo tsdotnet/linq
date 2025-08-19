@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import where from './where';
-/**
- * An iterable filter that only returns elements of the type (constructor) provided.
- * Example: Calling ofType(Number)(sequence) will filter all numbers.
- * @param type
- * @return {IterableValueTransform<any, TType>}
- */
-export default function ofType(type) {
+import where from './where.js';
+
+function ofType(type) {
     let typeName;
     switch (type) {
         case Number:
@@ -29,4 +20,6 @@ export default function ofType(type) {
     }
     return where(e => typeof e === typeName);
 }
+
+export { ofType as default };
 //# sourceMappingURL=ofType.js.map

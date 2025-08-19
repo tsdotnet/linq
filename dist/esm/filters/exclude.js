@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import same from './same';
-/**
- * An iterable filter that returns all elements except for any in the exclusion sequence.
- * @param {Iterable<T>} exclusions
- * @return {IterableFilter<T>}
- */
-export default function exclude(exclusions) {
+import same from './same.js';
+
+function exclude(exclusions) {
     if (!exclusions)
         return same;
     return function (sequence) {
@@ -18,7 +10,6 @@ export default function exclude(exclusions) {
                 const xi = exclusions[Symbol.iterator]();
                 let n = xi.next();
                 if (n.done) {
-                    // No exclusions, just return the sequence in entirety.
                     for (const s of sequence)
                         yield s;
                     return;
@@ -37,7 +28,7 @@ export default function exclude(exclusions) {
                         else {
                             x.add(n.value);
                             if (!x.has(s))
-                                break; // use set.has to reuse equality.
+                                break;
                         }
                     }
                     yield s;
@@ -47,4 +38,6 @@ export default function exclude(exclusions) {
         };
     };
 }
+
+export { exclude as default };
 //# sourceMappingURL=exclude.js.map

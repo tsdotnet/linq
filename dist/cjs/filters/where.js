@@ -1,15 +1,6 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = where;
-/**
- * An iterable filter that only returns elements that match the provided predicate.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableFilter<T>}
- */
 function where(predicate) {
     return function (sequence) {
         return {

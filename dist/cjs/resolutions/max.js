@@ -1,17 +1,8 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = max;
 const exceptions_1 = require("@tsdotnet/exceptions");
 const exceptions_2 = require("@tsdotnet/exceptions");
-/**
- * Returns the entry in the sequence that has the highest/greatest value.
- * @param {Iterable<T>} sequence
- * @return {T}
- */
 function max(sequence) {
     if (!sequence)
         throw new exceptions_1.ArgumentNullException('sequence');

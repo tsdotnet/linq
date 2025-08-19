@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import {expect} from 'chai';
+import { describe, it, expect } from 'vitest';
 import {IterableTransform} from '../src/IterableTransform';
 import linq from '../src/linq';
 import asArray from '../src/resolutions/asArray';

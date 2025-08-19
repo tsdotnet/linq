@@ -1,13 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * An iterable filter that only returns elements that match the provided predicate.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableFilter<T>}
- */
-export default function where(predicate) {
+function where(predicate) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
@@ -20,4 +11,6 @@ export default function where(predicate) {
         };
     };
 }
+
+export { where as default };
 //# sourceMappingURL=where.js.map

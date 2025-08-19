@@ -4,18 +4,15 @@
   "description": "A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET's LINQ does with enumerables.",
   "author": "electricessence",
   "license": "MIT",
-  "types": "dist/index.d.ts",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/cjs/index.js",
-      "umd": "./dist/umd/index.js"
+      "require": "./dist/cjs/index.js"
     }
   },
+  "types": "./dist/types/index.d.ts",
   "keywords": [
     "linq",
     "iterator",
@@ -43,20 +40,19 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
+    "build:types": "cpy \"src/**/*.d.ts\" dist/types --parents && tsc -p tsconfig.types.json",
+    "build:esm": "rollup -c rollup.config.js",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:umd": "tsc -p tsconfig.umd.json",
-    "build:types": "cpy \"src/**/*.d.ts\" dist --parents && tsc -p tsconfig.types.json",
-    "build": "pnpm i && pnpm run clean && concurrently \"pnpm:build:*\"",
-    "bump": "pnpm run precommit && pnpm version patch",
-    "docs": "rimraf docs && typedoc --options typedoc.json --readme none",
+    "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
-    "precommit": "pnpm i && pnpm run build && pnpm run lint && pnpm run validate && pnpm run test && git status -s",
-    "prepublishOnly": "pnpm run build && pnpm run validate && pnpm run test",
-    "preversion": "pnpm run lint && pnpm run test",
+    "docs": "rimraf docs && typedoc --options typedoc.json --readme none",
+    "bump": "pnpm run precommit && pnpm version patch",
+    "precommit": "pnpm build && pnpm test && pnpm lint && git status -s",
+    "preversion": "pnpm lint && pnpm test",
     "postversion": "git push && git push --tags && pnpm run docs && git add -A && git commit -m \"Updated docs.\" docs && git push",
-    "test": "tsx node_modules/mocha/bin/_mocha tests/**/*.ts",
-    "validate": "node ./.build/validate-package.js"
+    "prepublishOnly": "pnpm build && pnpm test && pnpm lint"
   },
   "repository": {
     "type": "git",
@@ -68,27 +64,24 @@
   "homepage": "https://github.com/tsdotnet/linq#readme",
   "devDependencies": {
     "@eslint/js": "^9.33.0",
-    "@types/chai": "^5.2.2",
-    "@types/mocha": "^10.0.10",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "^24.3.0",
-    "chai": "^5.2.1",
-    "concurrently": "^9.2.0",
     "cpy-cli": "^6.0.0",
     "eslint": "^9.33.0",
-    "mocha": "^11.7.1",
     "rimraf": "^6.0.1",
-    "tsx": "^4.20.4",
+    "rollup": "^4.46.3",
     "typedoc": "^0.28.10",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.1"
+    "typescript-eslint": "^8.40.0",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@tsdotnet/common-interfaces": "^1.0.4",
-    "@tsdotnet/compare": "^1.5.2",
-    "@tsdotnet/exceptions": "^1.2.2",
-    "@tsdotnet/integer": "^1.2.1",
-    "@tsdotnet/linked-node-list": "^1.4.1",
-    "@tsdotnet/memoize": "^1.2.1",
+    "@tsdotnet/common-interfaces": "^1.0.5",
+    "@tsdotnet/compare": "^1.7.0",
+    "@tsdotnet/exceptions": "^1.2.4",
+    "@tsdotnet/integer": "^1.2.3",
+    "@tsdotnet/linked-node-list": "^1.4.2",
+    "@tsdotnet/memoize": "^1.2.2",
     "@tsdotnet/queue": "^1.3.1",
     "tslib": "^2.8.1"
   },
@@ -108,9 +101,6 @@
       "get-func-name@<2.0.1": ">=2.0.1",
       "@babel/traverse@<7.23.2": ">=7.23.2",
       "braces@<3.0.3": ">=3.0.3"
-    },
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ]
+    }
   }
 }

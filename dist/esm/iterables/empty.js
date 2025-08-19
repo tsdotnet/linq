@@ -1,14 +1,12 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-export const doneResult = Object.freeze({
+const doneResult = Object.freeze({
     done: true,
     value: undefined
 });
-export const emptyIterator = Object.freeze({ next() { return doneResult; } });
-export const emptyIterable = Object.freeze({ [Symbol.iterator]() { return emptyIterator; } });
-export default function () {
+const emptyIterator = Object.freeze({ next() { return doneResult; } });
+const emptyIterable = Object.freeze({ [Symbol.iterator]() { return emptyIterator; } });
+function empty () {
     return emptyIterable;
 }
+
+export { empty as default, doneResult, emptyIterable, emptyIterator };
 //# sourceMappingURL=empty.js.map

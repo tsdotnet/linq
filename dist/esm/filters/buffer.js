@@ -1,15 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import Queue from '@tsdotnet/queue';
-import same from './same';
-/**
- * An iterable filter that (once started) pre-fetches entries from the source up to the size.
- * @param {number} size
- * @return {IterableFilter<T>}
- */
-export default function buffer(size) {
+import same from './same.js';
+
+function buffer(size) {
     if (size <= 0)
         return same;
     return function (sequence) {
@@ -27,4 +19,6 @@ export default function buffer(size) {
         };
     };
 }
+
+export { buffer as default };
 //# sourceMappingURL=buffer.js.map

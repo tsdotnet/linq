@@ -1,16 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { InvalidOperationException } from '@tsdotnet/exceptions';
-/**
- * Returns an entry from a singular sequence.
- * Will throw if no elements or more than one.
- * @param {Iterable<T>} sequence
- * @return {T}
- */
-export default function single(sequence) {
+import { ArgumentNullException, InvalidOperationException } from '@tsdotnet/exceptions';
+
+function single(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let hasElements;
@@ -31,4 +21,6 @@ export default function single(sequence) {
         ? 'Sequence contains more than one element.'
         : 'The sequence is empty.');
 }
+
+export { single as default };
 //# sourceMappingURL=single.js.map

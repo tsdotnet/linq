@@ -1,16 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Produces a sequence that is combination of the two sequences..
- * @param {Iterable<T1>} sequence1
- * @param {Iterable<T2>} sequence2
- * @param {(r1: IteratorResult<T1>, r2: IteratorResult<T2>, i: number) => TResult} selector
- * @return {Iterable<TResult>}
- */
-export default function zip(sequence1, sequence2, selector) {
+
+function zip(sequence1, sequence2, selector) {
     if (!sequence1)
         throw new ArgumentNullException('sequence1');
     if (!sequence2)
@@ -29,4 +19,6 @@ export default function zip(sequence1, sequence2, selector) {
         }
     };
 }
+
+export { zip as default };
 //# sourceMappingURL=zip.js.map

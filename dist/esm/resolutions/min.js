@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { InvalidOperationException } from '@tsdotnet/exceptions';
-/**
- * Returns the entry in the sequence that has the lowest/least value.
- * @param {Iterable<T>} sequence
- * @return {T}
- */
-export default function min(sequence) {
+import { ArgumentNullException, InvalidOperationException } from '@tsdotnet/exceptions';
+
+function min(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     const i = sequence[Symbol.iterator]();
@@ -23,4 +14,6 @@ export default function min(sequence) {
     }
     return min;
 }
+
+export { min as default };
 //# sourceMappingURL=min.js.map

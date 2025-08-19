@@ -1,13 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * Filters out null or undefined values.
- * @param {Iterable<T>} sequence
- * @return {Iterable<NonNullable<T>>}
- */
-export default function notNullOrUndefined(sequence) {
+function notNullOrUndefined(sequence) {
     return {
         *[Symbol.iterator]() {
             for (const e of sequence)
@@ -16,4 +7,6 @@ export default function notNullOrUndefined(sequence) {
         }
     };
 }
+
+export { notNullOrUndefined as default };
 //# sourceMappingURL=notNullOrUndefined.js.map

@@ -1,13 +1,4 @@
-/*
-* @author electricessence / https://github.com/electricessence/
-* @license MIT
-*/
-/**
- * An iterable transform that returns the last element of a sequence, or a default value if no element is found.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | TDefault | undefined>}
- */
-export default function lastOrDefault(defaultValue) {
+function lastOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)
             return defaultValue;
@@ -22,4 +13,6 @@ export default function lastOrDefault(defaultValue) {
         return last;
     };
 }
+
+export { lastOrDefault as default };
 //# sourceMappingURL=lastOrDefault.js.map

@@ -1,20 +1,11 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = orderBy;
 const tslib_1 = require("tslib");
 const compare_1 = require("@tsdotnet/compare");
+const compare_2 = require("@tsdotnet/compare");
 const toArray_1 = tslib_1.__importDefault(require("../resolutions/toArray"));
-/**
- * An iterable filter that orders elements by a primitive value provided by the key selector.
- * @param {Selector<T, TKey>} keySelector
- * @param {Order} order
- * @return {IterableFilter<T>}
- */
-function orderBy(keySelector, order = 1 /* Order.Ascending */) {
+function orderBy(keySelector, order = compare_2.Order.Ascending) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

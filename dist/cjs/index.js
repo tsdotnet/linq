@@ -1,9 +1,4 @@
 "use strict";
-/**!
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- * @ignore
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.linqExtended = exports.transforms = exports.resolutions = exports.iterables = exports.filters = void 0;
 const tslib_1 = require("tslib");

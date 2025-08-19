@@ -20,7 +20,7 @@ export default function iterateIndexes<T> (source: ArrayLike<T>): Iterable<T> {
 			{
 				for(let i = 0; i<len; i++)
 				{
-					yield source[i];
+					yield source[i]!;
 				}
 			}
 		}

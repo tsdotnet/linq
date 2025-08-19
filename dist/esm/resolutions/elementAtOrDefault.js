@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import integer from '@tsdotnet/integer';
-/**
- * Produces a function that returns the element at a specified index in a sequence or a default value if out of bounds.
- * @param {number} index
- * @param {TDefault} defaultValue The optional default value to use if the element is not found.
- * @return {IterableTransform<T, T | TDefault | undefined>} A function that when passed a sequence of elements selects the specific element.
- */
-export default function elementAtOrDefault(index, defaultValue) {
+
+function elementAtOrDefault(index, defaultValue) {
     integer.assertZeroOrGreater(index);
     return function (sequence) {
         if (!sequence)
@@ -24,4 +15,6 @@ export default function elementAtOrDefault(index, defaultValue) {
         return defaultValue;
     };
 }
+
+export { elementAtOrDefault as default };
 //# sourceMappingURL=elementAtOrDefault.js.map

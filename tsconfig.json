@@ -1,26 +1,19 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2022",
-    "module": "commonjs",
+    "target": "ES2022",
     "strict": true,
-    "sourceMap": true,
-    "removeComments": false,
-    "importHelpers": true,
-    "moduleResolution": "node",
+    "noEmit": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "moduleResolution": "node"
+    // No outDir, module, declaration, etc.
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "tests/**/*",
-    "dist/**/*",
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "tests", "**/*.test.*", "**/*.spec.*"]
 }

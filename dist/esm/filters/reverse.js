@@ -1,15 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-import toArray from '../resolutions/toArray';
-/**
- * Returns an array (copy) of all the elements of a sequence in reverse order.
- * @param {Iterable<T>} sequence
- * @return {Iterable<T>}
- */
-export default function reverse(sequence) {
+import toArray from '../resolutions/toArray.js';
+
+function reverse(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     return {
@@ -29,4 +21,6 @@ export default function reverse(sequence) {
         }
     };
 }
+
+export { reverse as default };
 //# sourceMappingURL=reverse.js.map

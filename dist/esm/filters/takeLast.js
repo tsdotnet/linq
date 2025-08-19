@@ -1,16 +1,8 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import Queue from '@tsdotnet/queue';
-import empty from '../iterables/empty';
-import same from './same';
-/**
- * An iterable filter that returns a specified number of contiguous elements from the start of a sequence.
- * @param {number} count
- * @return {IterableFilter<T>}
- */
-export default function takeLast(count) {
+import empty from '../iterables/empty.js';
+import same from './same.js';
+
+function takeLast(count) {
     if (count <= 0)
         return empty;
     if (!isFinite(count))
@@ -39,4 +31,6 @@ export default function takeLast(count) {
         };
     };
 }
+
+export { takeLast as default };
 //# sourceMappingURL=takeLast.js.map

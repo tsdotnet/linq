@@ -1,14 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * An iterable filter that bypasses elements in sequence while the predicate condition is true and if false will iterate the rest.
- * Inverse of skipUntil.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableFilter<T>}
- */
-export default function skipWhile(predicate) {
+function skipWhile(predicate) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
@@ -24,4 +14,6 @@ export default function skipWhile(predicate) {
         };
     };
 }
+
+export { skipWhile as default };
 //# sourceMappingURL=skipWhile.js.map

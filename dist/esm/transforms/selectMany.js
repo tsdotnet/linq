@@ -1,9 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import identity from '../identity';
-export default function selectMany(selector = identity) {
+import identity from '../identity.js';
+
+function selectMany(selector = identity) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
@@ -16,4 +13,6 @@ export default function selectMany(selector = identity) {
         };
     };
 }
+
+export { selectMany as default };
 //# sourceMappingURL=selectMany.js.map

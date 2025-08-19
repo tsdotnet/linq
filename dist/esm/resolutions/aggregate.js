@@ -1,18 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { InvalidOperationException } from '@tsdotnet/exceptions';
-/**
- * An iterable transform that applies an accumulator function over a sequence.
- * The specified `initialValue` is used as the initial accumulator value, and the specified function is used to select the result value.
- * If no `initialValue` is specified, the first entry in the sequence is used.
- * @param {(previous: (U | undefined), current: T, index: number) => U} reducer
- * @param {U} initialValue
- * @return {IterableTransform<T, U | undefined>}
- */
-export default function aggregate(reducer, initialValue) {
+import { ArgumentNullException, InvalidOperationException } from '@tsdotnet/exceptions';
+
+function aggregate(reducer, initialValue) {
     return function (sequence) {
         if (!sequence)
             throw new ArgumentNullException('sequence');
@@ -36,4 +24,6 @@ export default function aggregate(reducer, initialValue) {
         }
     };
 }
+
+export { aggregate as default };
 //# sourceMappingURL=aggregate.js.map

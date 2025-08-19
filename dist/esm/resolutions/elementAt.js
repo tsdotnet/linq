@@ -1,16 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { ArgumentOutOfRangeException } from '@tsdotnet/exceptions';
+import { ArgumentNullException, ArgumentOutOfRangeException } from '@tsdotnet/exceptions';
 import integer from '@tsdotnet/integer';
-/**
- * Produces a function that returns the element at a specified index in a sequence.
- * @param {number} index
- * @return {IterableTransform<T, T>} A function that when passed a sequence of elements selects the specific element.
- */
-export default function elementAt(index) {
+
+function elementAt(index) {
     integer.assertZeroOrGreater(index);
     return function (sequence) {
         if (!sequence)
@@ -30,4 +21,6 @@ export default function elementAt(index) {
         throw new ArgumentOutOfRangeException('index', index, 'Exceeds the total number of elements: ' + count);
     };
 }
+
+export { elementAt as default };
 //# sourceMappingURL=elementAt.js.map

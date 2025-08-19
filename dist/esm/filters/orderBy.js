@@ -1,16 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { compare } from '@tsdotnet/compare';
-import toArray from '../resolutions/toArray';
-/**
- * An iterable filter that orders elements by a primitive value provided by the key selector.
- * @param {Selector<T, TKey>} keySelector
- * @param {Order} order
- * @return {IterableFilter<T>}
- */
-export default function orderBy(keySelector, order = 1 /* Order.Ascending */) {
+import { Order, compare } from '@tsdotnet/compare';
+import toArray from '../resolutions/toArray.js';
+
+function orderBy(keySelector, order = Order.Ascending) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
@@ -21,4 +12,6 @@ export default function orderBy(keySelector, order = 1 /* Order.Ascending */) {
         };
     };
 }
+
+export { orderBy as default };
 //# sourceMappingURL=orderBy.js.map

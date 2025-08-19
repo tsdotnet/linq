@@ -1,15 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import empty from '../iterables/empty';
-import same from './same';
-/**
- * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.
- * @param {number} count
- * @return {IterableFilter<T>}
- */
-export default function skip(count) {
+import empty from '../iterables/empty.js';
+import same from './same.js';
+
+function skip(count) {
     if (isNaN(count) || count <= 0)
         return same;
     if (!isFinite(count))
@@ -36,4 +28,6 @@ export default function skip(count) {
         };
     };
 }
+
+export { skip as default };
 //# sourceMappingURL=skip.js.map

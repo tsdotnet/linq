@@ -1,17 +1,8 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = average;
 const exceptions_1 = require("@tsdotnet/exceptions");
 const exceptions_2 = require("@tsdotnet/exceptions");
-/**
- * Returns the average of a sequence of numbers.
- * @param {Iterable<number>} sequence
- * @return {number}
- */
 function average(sequence) {
     if (!sequence)
         throw new exceptions_1.ArgumentNullException('sequence');

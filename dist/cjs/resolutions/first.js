@@ -1,17 +1,8 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = first;
 const exceptions_1 = require("@tsdotnet/exceptions");
 const exceptions_2 = require("@tsdotnet/exceptions");
-/**
- * Returns the first element of a sequence.
- * @param {Iterable<T>} sequence
- * @return {T}
- */
 function first(sequence) {
     if (!sequence)
         throw new exceptions_1.ArgumentNullException('sequence');

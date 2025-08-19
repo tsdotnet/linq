@@ -1,16 +1,16 @@
+export { default as concat } from './iterables/concat.js';
+export { default as empty } from './iterables/empty.js';
+export { default as iterateIndexes } from './iterables/iterateIndexes.js';
+export { default as merge } from './iterables/merge.js';
+export { default as range } from './iterables/range.js';
+export { default as repeat } from './iterables/repeat.js';
+export { default as repeatSequence } from './iterables/repeatSequence.js';
+export { default as unfold } from './iterables/unfold.js';
+export { default as union } from './iterables/union.js';
+export { default as zip } from './iterables/zip.js';
+
 /*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import concat from './iterables/concat';
-import empty from './iterables/empty';
-import iterateIndexes from './iterables/iterateIndexes';
-import merge from './iterables/merge';
-import range from './iterables/range';
-import repeat from './iterables/repeat';
-import repeatSequence from './iterables/repeatSequence';
-import unfold from './iterables/unfold';
-import union from './iterables/union';
-import zip from './iterables/zip';
-export { empty, concat, iterateIndexes, merge, range, repeat, repeatSequence, unfold, union, zip };
 //# sourceMappingURL=iterables.js.map

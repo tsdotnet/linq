@@ -1,13 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * An iterable transform that returns the first element of a sequence, or a default value if no element is found.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | TDefault | undefined>}
- */
-export default function firstOrDefault(defaultValue) {
+function firstOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)
             return defaultValue;
@@ -18,4 +9,6 @@ export default function firstOrDefault(defaultValue) {
         return first.done ? defaultValue : first.value;
     };
 }
+
+export { firstOrDefault as default };
 //# sourceMappingURL=firstOrDefault.js.map

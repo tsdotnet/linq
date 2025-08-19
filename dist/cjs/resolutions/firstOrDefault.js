@@ -1,15 +1,6 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = firstOrDefault;
-/**
- * An iterable transform that returns the first element of a sequence, or a default value if no element is found.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | TDefault | undefined>}
- */
 function firstOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)

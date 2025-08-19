@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Returns an iterator that iterates the provided ArrayLike using length and index.
- * @param {ArrayLike<T>} source
- * @return {Iterable<T>}
- */
-export default function iterateIndexes(source) {
+
+function iterateIndexes(source) {
     if (!source)
         throw new ArgumentNullException('source');
     return {
@@ -22,4 +14,6 @@ export default function iterateIndexes(source) {
         }
     };
 }
+
+export { iterateIndexes as default };
 //# sourceMappingURL=iterateIndexes.js.map

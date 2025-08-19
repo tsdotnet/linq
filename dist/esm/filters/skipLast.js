@@ -1,16 +1,8 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import Queue from '@tsdotnet/queue';
-import empty from '../iterables/empty';
-import same from './same';
-/**
- * An iterable filter that returns everything from the sequence except the last count of items.
- * @param {number} count
- * @return {IterableFilter<T>}
- */
-export default function skipLast(count) {
+import empty from '../iterables/empty.js';
+import same from './same.js';
+
+function skipLast(count) {
     if (isNaN(count) || count <= 0)
         return same;
     if (!isFinite(count))
@@ -38,4 +30,6 @@ export default function skipLast(count) {
         };
     };
 }
+
+export { skipLast as default };
 //# sourceMappingURL=skipLast.js.map

@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Concatenates the sequences.
- * @param {Iterable<Iterable<T>>} sequences
- * @return {Iterable<T>}
- */
-export default function merge(sequences) {
+
+function merge(sequences) {
     if (!sequences)
         throw new ArgumentNullException('sequences');
     return {
@@ -21,4 +13,6 @@ export default function merge(sequences) {
         }
     };
 }
+
+export { merge as default };
 //# sourceMappingURL=merge.js.map

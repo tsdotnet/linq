@@ -1,14 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * Returns an entry from a singular sequence or a default value if empty.
- * Throws if more than one entry.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | undefined>}
- */
-export default function singleOrDefault(defaultValue) {
+function singleOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)
             return defaultValue;
@@ -29,4 +19,6 @@ export default function singleOrDefault(defaultValue) {
         throw new Error('Sequence contains more than one element.');
     };
 }
+
+export { singleOrDefault as default };
 //# sourceMappingURL=singleOrDefault.js.map

@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { InvalidOperationException } from '@tsdotnet/exceptions';
-/**
- * Returns the first element of a sequence.
- * @param {Iterable<T>} sequence
- * @return {T}
- */
-export default function last(sequence) {
+import { ArgumentNullException, InvalidOperationException } from '@tsdotnet/exceptions';
+
+function last(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     if (sequence instanceof Array) {
@@ -30,4 +21,6 @@ export default function last(sequence) {
     }
     throw new InvalidOperationException('The sequence is empty.');
 }
+
+export { last as default };
 //# sourceMappingURL=last.js.map

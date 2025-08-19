@@ -49,7 +49,7 @@ export default function groupBy<TKey, TElement> (
 							let n = 0;
 							while(n<elements.length || next)
 							{
-								if(n<elements.length) yield elements[n++];
+								if(n<elements.length) yield elements[n++]!;
 								else if(next) next = mapNext();
 							}
 						}

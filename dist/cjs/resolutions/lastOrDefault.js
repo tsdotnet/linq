@@ -1,15 +1,6 @@
 "use strict";
-/*
-* @author electricessence / https://github.com/electricessence/
-* @license MIT
-*/
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = lastOrDefault;
-/**
- * An iterable transform that returns the last element of a sequence, or a default value if no element is found.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | TDefault | undefined>}
- */
 function lastOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)

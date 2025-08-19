@@ -1,18 +1,9 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = take;
 const tslib_1 = require("tslib");
 const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
 const same_1 = tslib_1.__importDefault(require("./same"));
-/**
- * An iterable filter that returns a specified number of contiguous elements from the start of a sequence.
- * @param {number} count
- * @return {IterableFilter<T>}
- */
 function take(count) {
     if (count <= 0)
         return empty_1.default;

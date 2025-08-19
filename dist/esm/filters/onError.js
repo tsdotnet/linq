@@ -1,16 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * An iterable filter that invokes the provided handler if there was an error while iterating.
- * Any error while iterating assumes no more results and the iteration will be complete after the error.
- * The handler can decide if it wants to rethrow the error or not.
- * @param {(ex: any, index: number) => void} handler
- * @return {IterableFilter<T>}
- */
-export default function onError(handler) {
+
+function onError(handler) {
     if (!handler)
         throw new ArgumentNullException('action');
     return function (sequence) {
@@ -35,4 +25,6 @@ export default function onError(handler) {
         };
     };
 }
+
+export { onError as default };
 //# sourceMappingURL=onError.js.map

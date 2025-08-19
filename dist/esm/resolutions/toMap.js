@@ -1,17 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-import identity from '../identity';
-/**
- * Returns a map of all elements .
- * @param {SelectorWithIndex<T, TKey>} keySelector
- * @param valueSelector
- * @param {MappingMode} mappingBehavior
- * @return {IterableTransform<T, Map<TKey, TValue>>}
- */
-export default function toMap(keySelector, valueSelector = identity, mappingBehavior = -1 /* MappingMode.Throw */) {
+import identity from '../identity.js';
+
+function toMap(keySelector, valueSelector = identity, mappingBehavior = -1) {
     if (!keySelector)
         throw new ArgumentNullException('keySelector');
     if (typeof valueSelector == 'number') {
@@ -19,7 +9,7 @@ export default function toMap(keySelector, valueSelector = identity, mappingBeha
         valueSelector = undefined;
     }
     if (!valueSelector)
-        valueSelector = identity; // in case the user uses null as a default.
+        valueSelector = identity;
     return function (sequence) {
         const result = new Map();
         let i = 0;
@@ -27,9 +17,9 @@ export default function toMap(keySelector, valueSelector = identity, mappingBeha
             const key = keySelector(e, i++);
             if (result.has(key))
                 switch (mappingBehavior) {
-                    case 0 /* MappingMode.Keep */:
+                    case 0:
                         continue;
-                    case -1 /* MappingMode.Throw */:
+                    case -1:
                         throw new Error('MappingMode.Throw: more than one of the same key encountered.');
                 }
             result.set(key, valueSelector(e, i - 1));
@@ -37,4 +27,6 @@ export default function toMap(keySelector, valueSelector = identity, mappingBeha
         return result;
     };
 }
+
+export { toMap as default };
 //# sourceMappingURL=toMap.js.map

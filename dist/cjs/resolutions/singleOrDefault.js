@@ -1,16 +1,6 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = singleOrDefault;
-/**
- * Returns an entry from a singular sequence or a default value if empty.
- * Throws if more than one entry.
- * @param {TDefault} defaultValue
- * @return {IterableTransform<T, T | undefined>}
- */
 function singleOrDefault(defaultValue) {
     return function (sequence) {
         if (!sequence)

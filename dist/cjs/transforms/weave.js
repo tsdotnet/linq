@@ -1,24 +1,14 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = weave;
 const exceptions_1 = require("@tsdotnet/exceptions");
 const linked_node_list_1 = require("@tsdotnet/linked-node-list");
-/**
- * Returns an item from each iterable before calling next on each.
- * @param {Iterable<Iterable<T>>} sequences
- * @return {Iterable<T>}
- */
 function weave(sequences) {
     if (!sequences)
         throw new exceptions_1.ArgumentNullException('sequences');
     return {
         *[Symbol.iterator]() {
             const iterators = new linked_node_list_1.LinkedValueNodeList();
-            // first pass.
             for (const s of sequences) {
                 const i = s[Symbol.iterator]();
                 const n = i.next();

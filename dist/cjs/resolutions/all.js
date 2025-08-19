@@ -1,16 +1,7 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = all;
 const exceptions_1 = require("@tsdotnet/exceptions");
-/**
- * An iterable transform that resolves false if the predicate ever returns false. Otherwise true.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableTransform<T, boolean>}
- */
 function all(predicate) {
     if (!predicate)
         throw new exceptions_1.ArgumentNullException('predicate');

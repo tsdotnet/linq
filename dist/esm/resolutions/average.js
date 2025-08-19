@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import { ArgumentNullException } from '@tsdotnet/exceptions';
-import { InvalidOperationException } from '@tsdotnet/exceptions';
-/**
- * Returns the average of a sequence of numbers.
- * @param {Iterable<number>} sequence
- * @return {number}
- */
-export default function average(sequence) {
+import { ArgumentNullException, InvalidOperationException } from '@tsdotnet/exceptions';
+
+function average(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let sum = 0, count = 0;
@@ -23,4 +14,6 @@ export default function average(sequence) {
         throw new InvalidOperationException('Sequence is empty.');
     return sum / count;
 }
+
+export { average as default };
 //# sourceMappingURL=average.js.map

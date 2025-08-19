@@ -1,14 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * Generates a sequence that contains one repeated value.
- * @param {T} entry
- * @param {number} count The number of times to repeat.
- * @return {Iterable<T>}
- */
-export default function repeat(entry, count) {
+function repeat(entry, count) {
     return {
         *[Symbol.iterator]() {
             for (let i = 0; i < count; i++)
@@ -16,4 +6,6 @@ export default function repeat(entry, count) {
         }
     };
 }
+
+export { repeat as default };
 //# sourceMappingURL=repeat.js.map

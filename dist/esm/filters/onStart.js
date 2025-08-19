@@ -1,10 +1,6 @@
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * An iterable filter that invokes the provided action before iterating results.
- * @param {() => void} action
- * @return {IterableFilter<T>}
- */
-export default function onStart(action) {
+
+function onStart(action) {
     if (!action)
         throw new ArgumentNullException('action');
     return function (sequence) {
@@ -17,4 +13,6 @@ export default function onStart(action) {
         };
     };
 }
+
+export { onStart as default };
 //# sourceMappingURL=onStart.js.map

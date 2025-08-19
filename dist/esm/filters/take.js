@@ -1,15 +1,7 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import empty from '../iterables/empty';
-import same from './same';
-/**
- * An iterable filter that returns a specified number of contiguous elements from the start of a sequence.
- * @param {number} count
- * @return {IterableFilter<T>}
- */
-export default function take(count) {
+import empty from '../iterables/empty.js';
+import same from './same.js';
+
+function take(count) {
     if (count <= 0)
         return empty;
     if (!isFinite(count))
@@ -37,4 +29,6 @@ export default function take(count) {
         };
     };
 }
+
+export { take as default };
 //# sourceMappingURL=take.js.map

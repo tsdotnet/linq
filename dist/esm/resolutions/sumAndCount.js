@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Returns the sum (.value) of a sequence and the number of entries (.count).
- * @param {Iterable<number>} sequence The sequence of numbers to sum and count.
- * @return {{value: number; count: number}} The result.
- */
-export default function sumAndCount(sequence) {
+
+function sumAndCount(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let sum = 0, count = 0;
@@ -23,4 +15,6 @@ export default function sumAndCount(sequence) {
         count: count
     };
 }
+
+export { sumAndCount as default };
 //# sourceMappingURL=sumAndCount.js.map

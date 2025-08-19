@@ -1,14 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Joins a set of strings using the provided separator.
- * @param {string} separator
- * @return {IterableTransform<string, string>}
- */
-export function joinStrings(separator = '') {
+
+function joinStrings(separator = '') {
     if (separator == null)
         separator = '';
     return function (sequence) {
@@ -25,4 +17,6 @@ export function joinStrings(separator = '') {
         return result;
     };
 }
+
+export { joinStrings };
 //# sourceMappingURL=joinStrings.js.map

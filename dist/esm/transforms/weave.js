@@ -1,21 +1,12 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
 import { LinkedValueNodeList } from '@tsdotnet/linked-node-list';
-/**
- * Returns an item from each iterable before calling next on each.
- * @param {Iterable<Iterable<T>>} sequences
- * @return {Iterable<T>}
- */
-export default function weave(sequences) {
+
+function weave(sequences) {
     if (!sequences)
         throw new ArgumentNullException('sequences');
     return {
         *[Symbol.iterator]() {
             const iterators = new LinkedValueNodeList();
-            // first pass.
             for (const s of sequences) {
                 const i = s[Symbol.iterator]();
                 const n = i.next();
@@ -39,4 +30,6 @@ export default function weave(sequences) {
         }
     };
 }
+
+export { weave as default };
 //# sourceMappingURL=weave.js.map

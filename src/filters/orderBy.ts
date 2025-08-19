@@ -5,7 +5,7 @@
 
 import type {Primitive, Selector} from '@tsdotnet/common-interfaces';
 import {compare} from '@tsdotnet/compare';
-import Order from '@tsdotnet/compare/Order';
+import { OrderOrValue, Order } from '@tsdotnet/compare';
 import {IterableFilter} from '../IterableTransform';
 import toArray from '../resolutions/toArray';
 
@@ -16,7 +16,7 @@ import toArray from '../resolutions/toArray';
  * @return {IterableFilter<T>}
  */
 export default function orderBy<T, TKey extends Primitive> (
-	keySelector: Selector<T, TKey>, order: Order = Order.Ascending): IterableFilter<T> {
+	keySelector: Selector<T, TKey>, order: OrderOrValue = Order.Ascending): IterableFilter<T> {
 	return function(sequence: Iterable<T>): Iterable<T> {
 		return {
 			* [Symbol.iterator] (): Iterator<T>

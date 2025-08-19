@@ -1,8 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "noEmit": false,
     "outDir": "./dist/cjs",
     "declaration": false,
+    "sourceMap": true,
     "module": "commonjs",
     "target": "es2018"
   }

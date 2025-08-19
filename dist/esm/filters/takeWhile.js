@@ -1,13 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * An iterable filter that will return results while the predicate condition is true and stops when false.
- * @param {PredicateWithIndex<T>} predicate
- * @return {IterableFilter<T>}
- */
-export default function takeWhile(predicate) {
+function takeWhile(predicate) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
@@ -21,4 +12,6 @@ export default function takeWhile(predicate) {
         };
     };
 }
+
+export { takeWhile as default };
 //# sourceMappingURL=takeWhile.js.map

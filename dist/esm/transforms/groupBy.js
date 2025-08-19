@@ -1,19 +1,9 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.
- * @param {SelectorWithIndex<TElement, TKey>} keySelector
- * @return {IterableValueTransform<TElement, Grouping<TKey, TElement>>}
- */
-export default function groupBy(keySelector) {
+function groupBy(keySelector) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {
                 const map = new Map(), iterator = sequence[Symbol.iterator]();
                 let i = 0;
-                /* eslint-disable */
                 function mapNext() {
                     const next = iterator.next();
                     if (next.done)
@@ -41,18 +31,16 @@ export default function groupBy(keySelector) {
                             }
                         }
                     });
-                    // Keep mapping next until a new key is discovered.
                     do {
                         next = mapNext();
                     } while (next && !next.isFirstOf);
                 }
-                // If we made it all the way here, then all the results have been distributed.
                 map.clear();
             }
         };
     };
 }
-export class GroupingResult {
+class GroupingResult {
     key;
     elements;
     constructor(key, elements) {
@@ -64,4 +52,6 @@ export class GroupingResult {
         return this.elements[Symbol.iterator]();
     }
 }
+
+export { GroupingResult, groupBy as default };
 //# sourceMappingURL=groupBy.js.map

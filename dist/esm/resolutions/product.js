@@ -1,15 +1,6 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 import { ArgumentNullException } from '@tsdotnet/exceptions';
-/**
- * Returns the product (*) of a sequence of numbers.
- * Returns NaN if sequence is empty or if any entries are NaN.
- * @param {Iterable<number>} sequence The sequence of numbers to multiply together.
- * @return {number} The product of the sequence.
- */
-export default function product(sequence) {
+
+function product(sequence) {
     if (!sequence)
         throw new ArgumentNullException('sequence');
     let product = 1, hasEntries = false;
@@ -21,4 +12,6 @@ export default function product(sequence) {
     }
     return hasEntries ? product : NaN;
 }
+
+export { product as default };
 //# sourceMappingURL=product.js.map

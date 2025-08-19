@@ -1,13 +1,4 @@
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-/**
- * Filters out undefined values.
- * @param {Iterable<T>} sequence
- * @return {Iterable<NotUndefined<T>>}
- */
-export default function notUndefined(sequence) {
+function notUndefined(sequence) {
     return {
         *[Symbol.iterator]() {
             for (const e of sequence)
@@ -16,4 +7,6 @@ export default function notUndefined(sequence) {
         }
     };
 }
+
+export { notUndefined as default };
 //# sourceMappingURL=notUndefined.js.map

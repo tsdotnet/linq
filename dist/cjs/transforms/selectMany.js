@@ -1,8 +1,4 @@
 "use strict";
-/*
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = selectMany;
 const tslib_1 = require("tslib");
