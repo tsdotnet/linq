@@ -28,8 +28,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
       '@tsdotnet/compare':
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.7.1
+        version: 1.7.1
       '@tsdotnet/exceptions':
         specifier: ^1.2.4
         version: 1.2.4
@@ -37,8 +37,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       '@tsdotnet/linked-node-list':
-        specifier: ^1.4.3
-        version: 1.4.3
+        specifier: ^1.4.4
+        version: 1.4.4
       '@tsdotnet/memoize':
         specifier: ^1.2.2
         version: 1.2.2
@@ -516,14 +516,14 @@ packages:
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
 
-  '@tsdotnet/collection-base@2.1.3':
-    resolution: {integrity: sha512-sgPcmxZQNqaAKBL8R4Sm3m+Z3qlsx5Yc7jgh7ZdnUnADD/JkMIhQ7PN7rG080/8igfXmaz1MxBZALp10/D9YSA==}
+  '@tsdotnet/collection-base@2.1.4':
+    resolution: {integrity: sha512-HAa09y0ngoKr09UsrwpgZyBUgozqkBzVDrHiuPaRqsmuBGmJITI1Udnk84Y8RvTMYfLnjQ9LtVfCK95RGh0m0Q==}
 
   '@tsdotnet/common-interfaces@1.0.5':
     resolution: {integrity: sha512-O1sFLbaTpeAsudKSbe+IGf4vBpjG1zYYPTjhS1z2HT63M1R/izq5c9YndH+2ZQXIaXVBNWNJ7ml1OPhIadRZFg==}
 
-  '@tsdotnet/compare@1.7.0':
-    resolution: {integrity: sha512-OrS0CPvxShTVEYEErlYf3miODCvEti5/1yi4jPWE8QUwjpIDr5ps3sTCN1cGc4HQGZAoCHuyBDqKNljXjzBhpw==}
+  '@tsdotnet/compare@1.7.1':
+    resolution: {integrity: sha512-bwYgs0bZfXCgdbnoG/iiPYQ8vDH7nWzVBEF84jII1JCMK2iLT6pftgYX/Mc+kL4WiQqQZCELpsF/2vyMrU1KYw==}
 
   '@tsdotnet/exceptions@1.2.4':
     resolution: {integrity: sha512-Lipb6IcHzEWc58XSgGfBkYmBjqQlLLGVBcPMEVHGvZferqw1Abn85BHpcDMwiLyGSq8PZgQjLGeu4akjU2DAfw==}
@@ -531,8 +531,8 @@ packages:
   '@tsdotnet/integer@1.2.3':
     resolution: {integrity: sha512-XcKzoFtj5K71Njs6DBSyE7CzC7i/VQYREdVjg+pvF3bdenXKSQsJhyjaZTQwnlTiRVa/3rUnhRxSCc7GGgFJ/w==}
 
-  '@tsdotnet/linked-node-list@1.4.3':
-    resolution: {integrity: sha512-4+6TBu9NYJu1/99TnwFCx5CHmtSnW55OurMH8IeMs66VoLxkhU0qyo/+Tzk6S8+X+qvbgyxAFBxJiVRqRS72Bg==}
+  '@tsdotnet/linked-node-list@1.4.4':
+    resolution: {integrity: sha512-ZNL0fn4F1uNt+iun/ML+yPEwnOqQOOf7JI4ZIS3f/qM9J3C1UZeSmR39JhetjsLRtTVZjq1WK8+Cj4ylZdrQFQ==}
 
   '@tsdotnet/memoize@1.2.2':
     resolution: {integrity: sha512-nd3Vcz2QmfTTeMrCftaBqIBuaUiihH6CEEwbB+NmfVmnt2z1isyxi2UHoPQxJMmxrRv1NO5kNHx8xwfOOX+SnA==}
@@ -1804,16 +1804,16 @@ snapshots:
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
-  '@tsdotnet/collection-base@2.1.3':
+  '@tsdotnet/collection-base@2.1.4':
     dependencies:
       '@tsdotnet/common-interfaces': 1.0.5
-      '@tsdotnet/compare': 1.7.0
+      '@tsdotnet/compare': 1.7.1
       '@tsdotnet/exceptions': 1.2.4
       tslib: 2.8.1
 
   '@tsdotnet/common-interfaces@1.0.5': {}
 
-  '@tsdotnet/compare@1.7.0':
+  '@tsdotnet/compare@1.7.1':
     dependencies:
       '@tsdotnet/common-interfaces': 1.0.5
       '@tsdotnet/type': 1.2.5
@@ -1828,9 +1828,9 @@ snapshots:
       '@tsdotnet/exceptions': 1.2.4
       tslib: 2.8.1
 
-  '@tsdotnet/linked-node-list@1.4.3':
+  '@tsdotnet/linked-node-list@1.4.4':
     dependencies:
-      '@tsdotnet/collection-base': 2.1.3
+      '@tsdotnet/collection-base': 2.1.4
       '@tsdotnet/common-interfaces': 1.0.5
       '@tsdotnet/exceptions': 1.2.4
       tslib: 2.8.1
@@ -1841,7 +1841,7 @@ snapshots:
 
   '@tsdotnet/queue@1.3.1':
     dependencies:
-      '@tsdotnet/collection-base': 2.1.3
+      '@tsdotnet/collection-base': 2.1.4
       '@tsdotnet/exceptions': 1.2.4
       tslib: 2.8.1
 
