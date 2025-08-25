@@ -37,8 +37,8 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5
       '@tsdotnet/linked-node-list':
-        specifier: ^1.4.10
-        version: 1.4.10
+        specifier: ^1.4.11
+        version: 1.4.11
       '@tsdotnet/memoize':
         specifier: ^1.2.3
         version: 1.2.3
@@ -531,8 +531,8 @@ packages:
   '@tsdotnet/integer@1.2.5':
     resolution: {integrity: sha512-ZtsUoE+9JQwZGWPt3tALsrvr/jZbT/PLkNa0yo2i6pdK5pajDohCj5q6rXqX9wYtb9JhmGM63nbJ8suPU+xW2g==}
 
-  '@tsdotnet/linked-node-list@1.4.10':
-    resolution: {integrity: sha512-YDsS9TFHc0lHKB7wv/ZHIaS8J5rbPAtJxVgvJd12gIcAyVpAWG2xBhf2ZkEUmr3cAZu1+Do0FkJqrRI59QAD+g==}
+  '@tsdotnet/linked-node-list@1.4.11':
+    resolution: {integrity: sha512-UJYBfqqQXdnWdOtBaK8PYrUt7eM+eDXDf1Wbn6DbzRMUY6E0WIVfFyW1afNJFGSF/3UHDSkTTmvtaV/04Dt25A==}
 
   '@tsdotnet/memoize@1.2.3':
     resolution: {integrity: sha512-LkbpSRbN6G6BjeVd1yckiypFPG0xOrCNIuWj1K6gbs0UiXVB/L6irS76SvNt3A+XjaG1CFvIIywAzTDZC3mPbg==}
@@ -1828,7 +1828,7 @@ snapshots:
       '@tsdotnet/exceptions': 1.2.5
       tslib: 2.8.1
 
-  '@tsdotnet/linked-node-list@1.4.10':
+  '@tsdotnet/linked-node-list@1.4.11':
     dependencies:
       '@tsdotnet/collection-base': 2.1.9
       '@tsdotnet/common-interfaces': 1.0.6
