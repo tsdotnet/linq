@@ -64,18 +64,18 @@
   },
   "homepage": "https://github.com/tsdotnet/linq#readme",
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
-    "@rollup/plugin-typescript": "^12.1.4",
-    "@types/node": "^24.9.1",
-    "@vitest/coverage-v8": "^3.2.4",
+    "@eslint/js": "^9.39.1",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.10",
     "cpy-cli": "^6.0.0",
-    "eslint": "^9.38.0",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.52.5",
+    "eslint": "^9.39.1",
+    "rimraf": "^6.1.2",
+    "rollup": "^4.53.3",
     "typedoc": "^0.28.14",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2",
-    "vitest": "^3.2.4"
+    "typescript-eslint": "^8.47.0",
+    "vitest": "^4.0.10"
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.6",
