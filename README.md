@@ -2,7 +2,6 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/linq/blob/master/LICENSE)
 ![100% code coverage](https://img.shields.io/badge/coverage-100%25-green)
-![npm-publish](https://github.com/tsdotnet/linq/workflows/npm-publish/badge.svg)
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/linq.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/linq)
 
 A familiar set of functions that operate on JavaScript iterables (ES2015+) in a similar way to .NET's LINQ does with enumerables.
