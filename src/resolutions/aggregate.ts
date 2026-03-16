@@ -5,7 +5,7 @@
 
 import {ArgumentNullException} from '@tsdotnet/exceptions';
 import {InvalidOperationException} from '@tsdotnet/exceptions';
-import {IterableTransform} from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform.js';
 
 /**
  * An iterable transform that applies an accumulator function over a sequence.

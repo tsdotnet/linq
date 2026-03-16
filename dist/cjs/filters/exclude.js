@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = exclude;
 const tslib_1 = require("tslib");
-const same_1 = tslib_1.__importDefault(require("./same"));
+const same_js_1 = tslib_1.__importDefault(require("./same.js"));
 function exclude(exclusions) {
     if (!exclusions)
-        return same_1.default;
+        return same_js_1.default;
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

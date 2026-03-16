@@ -4,30 +4,30 @@
  */
 
 import memoize from '@tsdotnet/memoize';
-import append from './filters/append';
-import ascending from './filters/ascending';
-import buffer from './filters/buffer';
-import defaultIfEmpty from './filters/defaultIfEmpty';
-import descending from './filters/descending';
-import distinct from './filters/distinct';
-import exclude from './filters/exclude';
-import ofType from './filters/ofType';
-import onComplete from './filters/onComplete';
-import onError from './filters/onError';
-import onStart from './filters/onStart';
-import orderBy from './filters/orderBy';
-import orderUsing from './filters/orderUsing';
-import prepend from './filters/prepend';
-import reverse from './filters/reverse';
-import skip from './filters/skip';
-import skipLast from './filters/skipLast';
-import skipUntil from './filters/skipUntil';
-import skipWhile from './filters/skipWhile';
-import take from './filters/take';
-import takeLast from './filters/takeLast';
-import takeUntil from './filters/takeUntil';
-import takeWhile from './filters/takeWhile';
-import where from './filters/where';
+import append from './filters/append.js';
+import ascending from './filters/ascending.js';
+import buffer from './filters/buffer.js';
+import defaultIfEmpty from './filters/defaultIfEmpty.js';
+import descending from './filters/descending.js';
+import distinct from './filters/distinct.js';
+import exclude from './filters/exclude.js';
+import ofType from './filters/ofType.js';
+import onComplete from './filters/onComplete.js';
+import onError from './filters/onError.js';
+import onStart from './filters/onStart.js';
+import orderBy from './filters/orderBy.js';
+import orderUsing from './filters/orderUsing.js';
+import prepend from './filters/prepend.js';
+import reverse from './filters/reverse.js';
+import skip from './filters/skip.js';
+import skipLast from './filters/skipLast.js';
+import skipUntil from './filters/skipUntil.js';
+import skipWhile from './filters/skipWhile.js';
+import take from './filters/take.js';
+import takeLast from './filters/takeLast.js';
+import takeUntil from './filters/takeUntil.js';
+import takeWhile from './filters/takeWhile.js';
+import where from './filters/where.js';
 
 export {
 	append,

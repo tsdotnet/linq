@@ -4,18 +4,18 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import linq from '../src';
-import repeatSequence from '../src/iterables/repeatSequence';
-import linqExtended from '../src/linqExtended';
-import count from '../src/resolutions/count';
-import {joinStrings} from '../src/resolutions/joinStrings';
-import notNull from '../src/transforms/notNull';
-import notNullOrUndefined from '../src/transforms/notNullOrUndefined';
-import notUndefined from '../src/transforms/notUndefined';
-import rows from '../src/transforms/rows';
-import selectMany from '../src/transforms/selectMany';
-import weave from '../src/transforms/weave';
-import {testRepeatableResolution} from './testRepeatableResolution';
+import linq from '../src/index.js';
+import repeatSequence from '../src/iterables/repeatSequence.js';
+import linqExtended from '../src/linqExtended.js';
+import count from '../src/resolutions/count.js';
+import {joinStrings} from '../src/resolutions/joinStrings.js';
+import notNull from '../src/transforms/notNull.js';
+import notNullOrUndefined from '../src/transforms/notNullOrUndefined.js';
+import notUndefined from '../src/transforms/notUndefined.js';
+import rows from '../src/transforms/rows.js';
+import selectMany from '../src/transforms/selectMany.js';
+import weave from '../src/transforms/weave.js';
+import {testRepeatableResolution} from './testRepeatableResolution.js';
 
 /* eslint-disable @typescript-eslint/camelcase */
 

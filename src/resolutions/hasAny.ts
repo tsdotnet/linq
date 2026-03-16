@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import isEmpty from './isEmpty';
+import isEmpty from './isEmpty.js';
 
 /**
  * Returns true if the sequence is not empty.

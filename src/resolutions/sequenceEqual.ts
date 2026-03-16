@@ -5,7 +5,7 @@
 
 import {areEqual, type EqualityComparison} from '@tsdotnet/compare';
 import {areSequencesEqual} from '@tsdotnet/compare';
-import {IterableTransform} from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform.js';
 
 /**
  * Resolves true if the sequences are equal.

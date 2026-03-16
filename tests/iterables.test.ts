@@ -4,18 +4,18 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import take from '../src/filters/take';
-import concat from '../src/iterables/concat';
-import empty from '../src/iterables/empty';
-import iterateIndexes from '../src/iterables/iterateIndexes';
-import range from '../src/iterables/range';
-import repeat from '../src/iterables/repeat';
-import repeatSequence from '../src/iterables/repeatSequence';
-import unfold from '../src/iterables/unfold';
-import union from '../src/iterables/union';
-import zip from '../src/iterables/zip';
-import {joinStrings} from '../src/resolutions/joinStrings';
-import {testRepeatableResolution} from './testRepeatableResolution';
+import take from '../src/filters/take.js';
+import concat from '../src/iterables/concat.js';
+import empty from '../src/iterables/empty.js';
+import iterateIndexes from '../src/iterables/iterateIndexes.js';
+import range from '../src/iterables/range.js';
+import repeat from '../src/iterables/repeat.js';
+import repeatSequence from '../src/iterables/repeatSequence.js';
+import unfold from '../src/iterables/unfold.js';
+import union from '../src/iterables/union.js';
+import zip from '../src/iterables/zip.js';
+import {joinStrings} from '../src/resolutions/joinStrings.js';
+import {testRepeatableResolution} from './testRepeatableResolution.js';
 
 describe('iterables/', () => {
 

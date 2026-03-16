@@ -5,8 +5,8 @@
 
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import identity from '../identity';
-import { IterableTransform } from '../IterableTransform';
+import identity from '../identity.js';
+import { IterableTransform } from '../IterableTransform.js';
 
 export const enum MappingMode {
 	Throw = -1,

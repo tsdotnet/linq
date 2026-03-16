@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = selectMany;
 const tslib_1 = require("tslib");
-const identity_1 = tslib_1.__importDefault(require("../identity"));
-function selectMany(selector = identity_1.default) {
+const identity_js_1 = tslib_1.__importDefault(require("../identity.js"));
+function selectMany(selector = identity_js_1.default) {
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

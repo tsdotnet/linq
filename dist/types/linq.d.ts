@@ -1,5 +1,5 @@
-import LinqBase from './LinqBase';
-import { IterableFilter, IterableValueTransform } from './IterableTransform';
+import LinqBase from './LinqBase.js';
+import { IterableFilter, IterableValueTransform } from './IterableTransform.js';
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 export declare class Linq<T> extends LinqBase<T, Linq<T>> {
     protected readonly source: Iterable<T>;

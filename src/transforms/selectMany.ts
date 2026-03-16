@@ -4,8 +4,8 @@
  */
 
 import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableValueTransform} from '../IterableTransform';
-import identity from '../identity';
+import {IterableValueTransform} from '../IterableTransform.js';
+import identity from '../identity.js';
 
 /**
  *  An iterable filter that merges the output of contained iterables.

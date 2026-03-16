@@ -4,8 +4,8 @@
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableTransform} from '../IterableTransform';
-import isEmpty from './isEmpty';
+import {IterableTransform} from '../IterableTransform.js';
+import isEmpty from './isEmpty.js';
 
 /**
  * An iterable transform that resolves true if the predicate ever returns true. Otherwise false.

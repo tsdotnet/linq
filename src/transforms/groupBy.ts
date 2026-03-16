@@ -4,7 +4,7 @@
  */
 
 import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableValueTransform} from '../IterableTransform';
+import {IterableValueTransform} from '../IterableTransform.js';
 
 /**
  * An iterable filter that groups the elements of a sequence according to a specified key selector function and creates an iterable from each group and its key.

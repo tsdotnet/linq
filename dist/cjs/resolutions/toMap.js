@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = toMap;
 const tslib_1 = require("tslib");
 const exceptions_1 = require("@tsdotnet/exceptions");
-const identity_1 = tslib_1.__importDefault(require("../identity"));
-function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior = -1) {
+const identity_js_1 = tslib_1.__importDefault(require("../identity.js"));
+function toMap(keySelector, valueSelector = identity_js_1.default, mappingBehavior = -1) {
     if (!keySelector)
         throw new exceptions_1.ArgumentNullException('keySelector');
     if (typeof valueSelector == 'number') {
@@ -12,7 +12,7 @@ function toMap(keySelector, valueSelector = identity_1.default, mappingBehavior 
         valueSelector = undefined;
     }
     if (!valueSelector)
-        valueSelector = identity_1.default;
+        valueSelector = identity_js_1.default;
     return function (sequence) {
         const result = new Map();
         let i = 0;

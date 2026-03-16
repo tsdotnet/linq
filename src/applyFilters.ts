@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import {IterableFilter} from './IterableTransform';
+import {IterableFilter} from './IterableTransform.js';
 
 /**
  * Applies  a set of filters to a sequence.

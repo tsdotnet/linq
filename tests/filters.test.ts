@@ -5,7 +5,7 @@
 
 import { Order, comparison } from '@tsdotnet/compare';
 import { describe, it, expect } from 'vitest';
-import linq from '../src';
+import linq from '../src/index.js';
 import {
 	append,
 	ascending,
@@ -30,14 +30,14 @@ import {
 	takeLast,
 	takeUntil,
 	takeWhile
-} from '../src/filters';
-import { iterateIndexes, range, repeat, repeatSequence } from '../src/iterables';
-import { emptyIterable } from '../src/iterables/empty';
-import linqExtended from '../src/linqExtended';
-import { aggregate, count, first, joinStrings, last, single, toArray } from '../src/resolutions';
-import { select } from '../src/transforms';
-import testItems from './testItems';
-import { testRepeatableResolution } from './testRepeatableResolution';
+} from '../src/filters.js';
+import { iterateIndexes, range, repeat, repeatSequence } from '../src/iterables.js';
+import { emptyIterable } from '../src/iterables/empty.js';
+import linqExtended from '../src/linqExtended.js';
+import { aggregate, count, first, joinStrings, last, single, toArray } from '../src/resolutions.js';
+import { select } from '../src/transforms.js';
+import testItems from './testItems.js';
+import { testRepeatableResolution } from './testRepeatableResolution.js';
 
 /* eslint-disable no-empty, @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars */
 

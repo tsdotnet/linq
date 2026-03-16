@@ -1,5 +1,5 @@
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
-import { IterableValueTransform } from '../IterableTransform';
+import { IterableValueTransform } from '../IterableTransform.js';
 export default function groupBy<TKey, TElement>(keySelector: SelectorWithIndex<TElement, TKey>): IterableValueTransform<TElement, GroupingResult<TKey, TElement>>;
 export interface Grouping<TKey, TElement> extends Iterable<TElement> {
     readonly key: TKey;

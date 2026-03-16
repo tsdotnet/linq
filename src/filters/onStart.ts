@@ -1,6 +1,6 @@
 
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableFilter} from '../IterableTransform';
+import {IterableFilter} from '../IterableTransform.js';
 
 /**
  * An iterable filter that invokes the provided action before iterating results.

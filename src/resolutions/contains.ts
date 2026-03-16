@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {IterableTransform} from '../IterableTransform';
-import indexOf from './indexOf';
+import {IterableTransform} from '../IterableTransform.js';
+import indexOf from './indexOf.js';
 
 /**
  * An iterable transform that resolves true if the provided sequence contains the entry. Otherwise false.

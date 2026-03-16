@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import merge from './merge';
+import merge from './merge.js';
 
 /**
  * Concatenates the provided sequences.

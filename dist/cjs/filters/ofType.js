@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ofType;
 const tslib_1 = require("tslib");
-const where_1 = tslib_1.__importDefault(require("./where"));
+const where_js_1 = tslib_1.__importDefault(require("./where.js"));
 function ofType(type) {
     let typeName;
     switch (type) {
@@ -19,8 +19,8 @@ function ofType(type) {
             typeName = 'function';
             break;
         default:
-            return (0, where_1.default)(e => e instanceof type);
+            return (0, where_js_1.default)(e => e instanceof type);
     }
-    return (0, where_1.default)(e => typeof e === typeName);
+    return (0, where_js_1.default)(e => typeof e === typeName);
 }
 //# sourceMappingURL=ofType.js.map

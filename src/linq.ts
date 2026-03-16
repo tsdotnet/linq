@@ -2,10 +2,10 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import LinqBase from './LinqBase';
-import { IterableFilter, IterableValueTransform } from './IterableTransform';
-import select from './transforms/select';
-import selectMany from './transforms/selectMany';
+import LinqBase from './LinqBase.js';
+import { IterableFilter, IterableValueTransform } from './IterableTransform.js';
+import select from './transforms/select.js';
+import selectMany from './transforms/selectMany.js';
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
 
 /**

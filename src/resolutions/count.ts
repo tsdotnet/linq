@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import aggregate from './aggregate';
+import aggregate from './aggregate.js';
 
 const a = aggregate((p) => p + 1, 0);
 

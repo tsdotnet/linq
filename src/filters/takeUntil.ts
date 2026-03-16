@@ -4,8 +4,8 @@
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableFilter} from '../IterableTransform';
-import takeWhile from './takeWhile';
+import {IterableFilter} from '../IterableTransform.js';
+import takeWhile from './takeWhile.js';
 
 /**
  * An iterable filter that will return results until the predicate condition is true.

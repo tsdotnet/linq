@@ -1,7 +1,7 @@
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
-import { IterableFilter, IterableValueTransform } from './IterableTransform';
-import { Grouping, GroupingResult } from './transforms/groupBy';
-import LinqExtendedBase from './LinqExtendedBase';
+import { IterableFilter, IterableValueTransform } from './IterableTransform.js';
+import { Grouping, GroupingResult } from './transforms/groupBy.js';
+import LinqExtendedBase from './LinqExtendedBase.js';
 export declare class LinqExtended<T> extends LinqExtendedBase<T, LinqExtended<T>> {
     protected readonly source: Iterable<T>;
     constructor(source: Iterable<T>);

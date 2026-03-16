@@ -4,7 +4,7 @@
  */
 
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import toArray from '../resolutions/toArray';
+import toArray from '../resolutions/toArray.js';
 
 /**
  * Returns an array (copy) of all the elements of a sequence in reverse order.

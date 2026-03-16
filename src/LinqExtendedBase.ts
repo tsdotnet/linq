@@ -4,17 +4,17 @@
  */
 
 import type { PredicateWithIndex } from '@tsdotnet/common-interfaces';
-import LinqBase from "./LinqBase";
-import all from './resolutions/all';
-import any from './resolutions/any';
-import count from './resolutions/count';
-import toArray from './resolutions/toArray';
-import single from './resolutions/single';
-import singleOrDefault from './resolutions/singleOrDefault';
-import first from './resolutions/first';
-import firstOrDefault from './resolutions/firstOrDefault';
-import last from './resolutions/last';
-import lastOrDefault from './resolutions/lastOrDefault';
+import LinqBase from "./LinqBase.js";
+import all from './resolutions/all.js';
+import any from './resolutions/any.js';
+import count from './resolutions/count.js';
+import toArray from './resolutions/toArray.js';
+import single from './resolutions/single.js';
+import singleOrDefault from './resolutions/singleOrDefault.js';
+import first from './resolutions/first.js';
+import firstOrDefault from './resolutions/firstOrDefault.js';
+import last from './resolutions/last.js';
+import lastOrDefault from './resolutions/lastOrDefault.js';
 
 export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase<T, TLinq>>
 	extends LinqBase<T, TLinq>

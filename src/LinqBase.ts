@@ -3,13 +3,13 @@
  * @license MIT
  */
 import type { PredicateWithIndex, SelectorWithIndex } from "@tsdotnet/common-interfaces";
-import { IterableFilter, IterableTransform, IterableValueTransform } from "./IterableTransform";
-import where from './filters/where';
-import applyFilters from './applyFilters';
-import select from './transforms/select';
-import selectMany from './transforms/selectMany';
-import skip from './filters/skip';
-import take from './filters/take';
+import { IterableFilter, IterableTransform, IterableValueTransform } from "./IterableTransform.js";
+import where from './filters/where.js';
+import applyFilters from './applyFilters.js';
+import select from './transforms/select.js';
+import selectMany from './transforms/selectMany.js';
+import skip from './filters/skip.js';
+import take from './filters/take.js';
 
 export default abstract class LinqBase<T, TLinq extends LinqBase<T, TLinq>> implements Iterable<T> {
 

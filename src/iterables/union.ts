@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import distinct from '../filters/distinct';
-import merge from './merge';
+import distinct from '../filters/distinct.js';
+import merge from './merge.js';
 
 /**
  * Produces the set union of all sequences provided..

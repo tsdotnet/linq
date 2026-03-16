@@ -4,11 +4,11 @@
  */
 
 import type { SelectorWithIndex } from '@tsdotnet/common-interfaces';
-import { IterableFilter, IterableValueTransform } from './IterableTransform';
-import groupBy, { Grouping, GroupingResult } from './transforms/groupBy';
-import select from './transforms/select';
-import selectMany from './transforms/selectMany';
-import LinqExtendedBase from './LinqExtendedBase';
+import { IterableFilter, IterableValueTransform } from './IterableTransform.js';
+import groupBy, { Grouping, GroupingResult } from './transforms/groupBy.js';
+import select from './transforms/select.js';
+import selectMany from './transforms/selectMany.js';
+import LinqExtendedBase from './LinqExtendedBase.js';
 
 /**
  * Extended version of `Linq<T>` that includes common LINQ methods like `.where()` and `.select()` and `.groupBy()`.

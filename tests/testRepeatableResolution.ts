@@ -4,10 +4,10 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import {IterableTransform} from '../src/IterableTransform';
-import linq from '../src/linq';
-import asArray from '../src/resolutions/asArray';
-import toArray from '../src/resolutions/toArray';
+import {IterableTransform} from '../src/IterableTransform.js';
+import linq from '../src/linq.js';
+import asArray from '../src/resolutions/asArray.js';
+import toArray from '../src/resolutions/toArray.js';
 
 export function testRepeatableResolution<T> (
 	expected: Iterable<T>,

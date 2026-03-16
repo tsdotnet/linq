@@ -3,9 +3,9 @@
  * @license MIT
  */
 
-import empty from '../iterables/empty';
-import {IterableFilter} from '../IterableTransform';
-import same from './same';
+import empty from '../iterables/empty.js';
+import {IterableFilter} from '../IterableTransform.js';
+import same from './same.js';
 
 /**
  * An iterable filter that bypasses a specified number of elements in a sequence and then returns the remaining elements.

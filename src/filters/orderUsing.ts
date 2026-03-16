@@ -6,8 +6,8 @@
 import type {Comparison} from '@tsdotnet/compare';
 import {Order} from '@tsdotnet/compare';
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableFilter} from '../IterableTransform';
-import toArray from '../resolutions/toArray';
+import {IterableFilter} from '../IterableTransform.js';
+import toArray from '../resolutions/toArray.js';
 
 /**
  * An iterable filter that orders elements by use of a comparison function.

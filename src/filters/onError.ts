@@ -4,7 +4,7 @@
  */
 
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableFilter} from '../IterableTransform';
+import {IterableFilter} from '../IterableTransform.js';
 
 /**
  * An iterable filter that invokes the provided handler if there was an error while iterating.

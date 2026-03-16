@@ -4,8 +4,8 @@
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableFilter} from '../IterableTransform';
-import skipWhile from './skipWhile';
+import {IterableFilter} from '../IterableTransform.js';
+import skipWhile from './skipWhile.js';
 
 /**
  * An iterable filter that bypasses elements in sequence until the predicate condition returns is true.

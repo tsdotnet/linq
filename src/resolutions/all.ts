@@ -5,7 +5,7 @@
 
 import type {PredicateWithIndex} from '@tsdotnet/common-interfaces';
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableTransform} from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform.js';
 
 /**
  * An iterable transform that resolves false if the predicate ever returns false. Otherwise true.

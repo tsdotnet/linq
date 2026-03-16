@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = buffer;
 const tslib_1 = require("tslib");
 const queue_1 = tslib_1.__importDefault(require("@tsdotnet/queue"));
-const same_1 = tslib_1.__importDefault(require("./same"));
+const same_js_1 = tslib_1.__importDefault(require("./same.js"));
 function buffer(size) {
     if (size <= 0)
-        return same_1.default;
+        return same_js_1.default;
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

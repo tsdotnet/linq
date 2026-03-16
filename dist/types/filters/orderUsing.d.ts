@@ -1,4 +1,4 @@
 import type { Comparison } from '@tsdotnet/compare';
 import { Order } from '@tsdotnet/compare';
-import { IterableFilter } from '../IterableTransform';
+import { IterableFilter } from '../IterableTransform.js';
 export default function orderUsing<T>(comparison: Comparison<T>, order?: Order): IterableFilter<T>;

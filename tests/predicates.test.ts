@@ -3,13 +3,13 @@
  * @license MIT
  */
 
-import repeatSequence from '../src/iterables/repeatSequence';
-import linqExtended from '../src/linqExtended';
-import isNotNull from '../src/predicates/isNotNull';
-import isNotNullOrUndefined from '../src/predicates/isNotNullOrUndefined';
-import isNotUndefined from '../src/predicates/isNotUndefined';
-import count from '../src/resolutions/count';
-import {testRepeatableDelegate, testRepeatableResolution} from './testRepeatableResolution';
+import repeatSequence from '../src/iterables/repeatSequence.js';
+import linqExtended from '../src/linqExtended.js';
+import isNotNull from '../src/predicates/isNotNull.js';
+import isNotNullOrUndefined from '../src/predicates/isNotNullOrUndefined.js';
+import isNotUndefined from '../src/predicates/isNotUndefined.js';
+import count from '../src/resolutions/count.js';
+import {testRepeatableDelegate, testRepeatableResolution} from './testRepeatableResolution.js';
 import { describe, it } from 'vitest';
 
 /* eslint-disable @typescript-eslint/camelcase */

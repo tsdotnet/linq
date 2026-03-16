@@ -4,9 +4,9 @@
  */
 
 import Queue from '@tsdotnet/queue';
-import empty from '../iterables/empty';
-import {IterableFilter} from '../IterableTransform';
-import same from './same';
+import empty from '../iterables/empty.js';
+import {IterableFilter} from '../IterableTransform.js';
+import same from './same.js';
 
 /**
  * An iterable filter that returns everything from the sequence except the last count of items.

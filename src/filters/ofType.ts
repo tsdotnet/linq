@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {IterableValueTransform} from '../IterableTransform';
-import where from './where';
+import {IterableValueTransform} from '../IterableTransform.js';
+import where from './where.js';
 
 /**
  * An iterable filter that only returns numbers.

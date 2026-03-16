@@ -4,7 +4,7 @@
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableFilter} from '../IterableTransform';
+import {IterableFilter} from '../IterableTransform.js';
 
 /**
  * An iterable filter that only returns elements that match the provided predicate.

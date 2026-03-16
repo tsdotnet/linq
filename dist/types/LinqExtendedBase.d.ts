@@ -1,5 +1,5 @@
 import type { PredicateWithIndex } from '@tsdotnet/common-interfaces';
-import LinqBase from "./LinqBase";
+import LinqBase from "./LinqBase.js";
 export default abstract class LinqExtendedBase<T, TLinq extends LinqExtendedBase<T, TLinq>> extends LinqBase<T, TLinq> {
     constructor(source: Iterable<T>, create: (source: Iterable<T>) => TLinq);
     toArray(): T[];

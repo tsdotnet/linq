@@ -4,7 +4,7 @@
  */
 
 import {PredicateWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableFilter} from '../IterableTransform';
+import {IterableFilter} from '../IterableTransform.js';
 
 /**
  * An iterable filter that will return results while the predicate condition is true and stops when false.

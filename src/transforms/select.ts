@@ -4,7 +4,7 @@
  */
 
 import type {SelectorWithIndex} from '@tsdotnet/common-interfaces';
-import {IterableValueTransform} from '../IterableTransform';
+import {IterableValueTransform} from '../IterableTransform.js';
 
 /**
  * An iterable filter that transforms (maps / projects) the output from the contained elements.

@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { IterableTransform } from '../IterableTransform';
+import { IterableTransform } from '../IterableTransform.js';
 
 /**
  * An iterable transform that returns the first element of a sequence, or `undefined` if no element is found.

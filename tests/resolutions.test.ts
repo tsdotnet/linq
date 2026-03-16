@@ -4,9 +4,9 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import linq, {linqExtended} from '../src';
-import {empty, range} from '../src/iterables';
-import {emptyIterable} from '../src/iterables/empty';
+import linq, {linqExtended} from '../src/index.js';
+import {empty, range} from '../src/iterables.js';
+import {emptyIterable} from '../src/iterables/empty.js';
 import {
 	aggregate,
 	asArray,
@@ -31,9 +31,9 @@ import {
 	sum,
 	sumAndCount,
 	toMap
-} from '../src/resolutions';
-import {MappingMode} from '../src/resolutions/toMap';
-import testItems, {TestItem} from './testItems';
+} from '../src/resolutions.js';
+import {MappingMode} from '../src/resolutions/toMap.js';
+import testItems, {TestItem} from './testItems.js';
 
 
 describe('resolutions/', () => {

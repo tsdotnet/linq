@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
-import same from './same';
+import {IterableFilter} from '../IterableTransform.js';
+import same from './same.js';
 
 /**
  * An iterable filter that returns all elements except for any in the exclusion sequence.

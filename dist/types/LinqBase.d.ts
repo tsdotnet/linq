@@ -1,5 +1,5 @@
 import type { PredicateWithIndex, SelectorWithIndex } from "@tsdotnet/common-interfaces";
-import { IterableFilter, IterableTransform, IterableValueTransform } from "./IterableTransform";
+import { IterableFilter, IterableTransform, IterableValueTransform } from "./IterableTransform.js";
 export default abstract class LinqBase<T, TLinq extends LinqBase<T, TLinq>> implements Iterable<T> {
     protected readonly source: Iterable<T>;
     protected readonly create: (source: Iterable<T>) => TLinq;

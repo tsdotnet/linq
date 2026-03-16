@@ -4,8 +4,8 @@
  */
 
 import Queue from '@tsdotnet/queue';
-import {IterableFilter} from '../IterableTransform';
-import same from './same';
+import {IterableFilter} from '../IterableTransform.js';
+import same from './same.js';
 
 /**
  * An iterable filter that (once started) pre-fetches entries from the source up to the size.

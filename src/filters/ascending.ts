@@ -5,7 +5,7 @@
 
 import type {Primitive} from '@tsdotnet/common-interfaces';
 import {compare} from '@tsdotnet/compare';
-import toArray from '../resolutions/toArray';
+import toArray from '../resolutions/toArray.js';
 
 /**
  * Default ascending sort delegate for primitive only iterables.

@@ -5,7 +5,7 @@
 
 import {areEqual} from '@tsdotnet/compare';
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableTransform} from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform.js';
 
 /**
  * An iterable transform that resolves true if the provided sequence contains the value. Otherwise false.

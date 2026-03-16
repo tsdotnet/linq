@@ -6,8 +6,8 @@
 import type {Primitive, Selector} from '@tsdotnet/common-interfaces';
 import {compare} from '@tsdotnet/compare';
 import { OrderOrValue, Order } from '@tsdotnet/compare';
-import {IterableFilter} from '../IterableTransform';
-import toArray from '../resolutions/toArray';
+import {IterableFilter} from '../IterableTransform.js';
+import toArray from '../resolutions/toArray.js';
 
 /**
  * An iterable filter that orders elements by a primitive value provided by the key selector.

@@ -4,23 +4,23 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import linq from '../src';
-import distinct from '../src/filters/distinct';
-import where from '../src/filters/where';
-import {emptyIterable} from '../src/iterables/empty';
-import repeatSequence from '../src/iterables/repeatSequence';
-import linqExtended from '../src/linqExtended';
-import contains from '../src/resolutions/contains';
-import count from '../src/resolutions/count';
-import elementAt from '../src/resolutions/elementAt';
-import {joinStrings} from '../src/resolutions/joinStrings';
-import single from '../src/resolutions/single';
-import toArray from '../src/resolutions/toArray';
-import groupBy, {Grouping} from '../src/transforms/groupBy';
-import notNull from '../src/transforms/notNull';
-import select from '../src/transforms/select';
-import testItems, {TestItem} from './testItems';
-import {testRepeatableDelegate, testRepeatableResolution} from './testRepeatableResolution';
+import linq from '../src/index.js';
+import distinct from '../src/filters/distinct.js';
+import where from '../src/filters/where.js';
+import {emptyIterable} from '../src/iterables/empty.js';
+import repeatSequence from '../src/iterables/repeatSequence.js';
+import linqExtended from '../src/linqExtended.js';
+import contains from '../src/resolutions/contains.js';
+import count from '../src/resolutions/count.js';
+import elementAt from '../src/resolutions/elementAt.js';
+import {joinStrings} from '../src/resolutions/joinStrings.js';
+import single from '../src/resolutions/single.js';
+import toArray from '../src/resolutions/toArray.js';
+import groupBy, {Grouping} from '../src/transforms/groupBy.js';
+import notNull from '../src/transforms/notNull.js';
+import select from '../src/transforms/select.js';
+import testItems, {TestItem} from './testItems.js';
+import {testRepeatableDelegate, testRepeatableResolution} from './testRepeatableResolution.js';
 
 const repeatCount = 3;
 const source = Object.freeze(['x', 'y', 'z', null]);

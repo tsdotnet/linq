@@ -1,4 +1,4 @@
-import { IterableValueTransform } from '../IterableTransform';
+import { IterableValueTransform } from '../IterableTransform.js';
 export default function ofType(type: NumberConstructor): IterableValueTransform<any, number>;
 export default function ofType(type: StringConstructor): IterableValueTransform<any, string>;
 export default function ofType(type: BooleanConstructor): IterableValueTransform<any, boolean>;

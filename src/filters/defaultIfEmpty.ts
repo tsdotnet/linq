@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import {IterableFilter} from '../IterableTransform';
+import {IterableFilter} from '../IterableTransform.js';
 
 /**
  * A iterable filter that returns the elements of the specified sequence or the specified value in a collection if the sequence is empty.

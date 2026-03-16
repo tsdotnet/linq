@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { IterableTransform } from '../IterableTransform';
+import { IterableTransform } from '../IterableTransform.js';
 
 /**
  * Returns an entry from a singular sequence or `undefined` if empty.

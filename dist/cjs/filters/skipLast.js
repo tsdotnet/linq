@@ -3,13 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = skipLast;
 const tslib_1 = require("tslib");
 const queue_1 = tslib_1.__importDefault(require("@tsdotnet/queue"));
-const empty_1 = tslib_1.__importDefault(require("../iterables/empty"));
-const same_1 = tslib_1.__importDefault(require("./same"));
+const empty_js_1 = tslib_1.__importDefault(require("../iterables/empty.js"));
+const same_js_1 = tslib_1.__importDefault(require("./same.js"));
 function skipLast(count) {
     if (isNaN(count) || count <= 0)
-        return same_1.default;
+        return same_js_1.default;
     if (!isFinite(count))
-        return empty_1.default;
+        return empty_js_1.default;
     return function (sequence) {
         return {
             *[Symbol.iterator]() {

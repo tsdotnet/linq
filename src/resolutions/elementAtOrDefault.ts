@@ -4,7 +4,7 @@
  */
 
 import integer from '@tsdotnet/integer';
-import { IterableTransform } from '../IterableTransform';
+import { IterableTransform } from '../IterableTransform.js';
 
 /**
  * Produces a function that returns the element at a specified index in a sequence or `undefined` if out of bounds.

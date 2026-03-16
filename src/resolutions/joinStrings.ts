@@ -4,7 +4,7 @@
  */
 
 import {ArgumentNullException} from '@tsdotnet/exceptions';
-import {IterableTransform} from '../IterableTransform';
+import {IterableTransform} from '../IterableTransform.js';
 
 /**
  * Joins a set of strings using the provided separator.
