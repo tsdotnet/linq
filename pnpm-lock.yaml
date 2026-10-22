@@ -26,6 +26,7 @@ overrides:
   esbuild@>=0.27.3 <0.28.1: '>=0.28.1'
   vite@>=7.0.0 <=7.3.4: '>=7.3.5'
   brace-expansion@>=4.0.0 <5.0.9: '>=5.0.9'
+  vite@>=7.0.0 <=7.3.6: '>=7.3.7'
 
 importers:
 
@@ -808,7 +809,7 @@ packages:
     resolution: {integrity: sha512-xLL3lkDegJZw+MGoGaCCsFayDZthGgpAtr3Vziyfc4p7xH89K7KRPcRBBh/kEYm0Aqkt5DtTmkYpBtRV/FrHZg==}
     peerDependencies:
       msw: ^2.4.9 || ^3.0.0
-      vite: '>=7.3.5'
+      vite: '>=7.3.7'
     peerDependenciesMeta:
       msw:
         optional: true
@@ -1423,7 +1424,7 @@ packages:
       '@vitest/ui': 5.0.5
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=7.3.5'
+      vite: '>=7.3.7'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
