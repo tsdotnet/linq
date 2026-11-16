@@ -9,7 +9,7 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/esm/index.js"
     }
   },
   "types": "./dist/types/index.d.ts",
@@ -74,7 +74,7 @@
     "rimraf": "^6.1.4",
     "rollup": "^4.67.5",
     "typedoc": "^0.28.20",
-    "typescript": "^7.0.2",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.72.1",
     "vite": "^8.3.5",
     "vitest": "^5.1.0"
