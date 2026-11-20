@@ -5,14 +5,40 @@
   "author": "electricessence",
   "license": "MIT",
   "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/esm/index.js"
+      "module-sync": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "module": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "default": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json",
+    "./umd": {
+      "types": "./dist/cjs/index.d.ts",
+      "default": "./dist/umd/linq.js"
     }
   },
   "types": "./dist/types/index.d.ts",
+  "unpkg": "./dist/umd/linq.min.js",
+  "jsdelivr": "./dist/umd/linq.min.js",
   "keywords": [
     "linq",
     "iterator",
@@ -41,13 +67,15 @@
   "scripts": {
     "clean": "rimraf dist",
     "copy:dts": "cpy \"src/**/*.d.ts\" dist/types --parents || echo No .d.ts files to copy",
-    "build:types": "pnpm copy:dts && tsc -p tsconfig.types.json",
+    "copy:dts:cjs": "cpy \"src/**/*.d.ts\" dist/cjs --parents || echo No .d.ts files to copy",
+    "build:types": "pnpm copy:dts && node ./node_modules/typescript-native/bin/tsc -p tsconfig.types.json",
     "build:esm": "rollup -c rollup.config.js",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs && pnpm typecheck:tests",
+    "build:umd": "rollup -c rollup.umd.config.js",
+    "build:cjs": "node ./node_modules/typescript-native/bin/tsc -p tsconfig.cjs.json && pnpm copy:dts:cjs && node -e \"require('node:fs').writeFileSync('dist/cjs/package.json', JSON.stringify({ type: 'commonjs' }) + '\\n')\"",
+    "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:umd && pnpm build:cjs && pnpm typecheck:tests",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "typecheck:tests": "tsc -p tests/tsconfig.json --noEmit",
+    "typecheck": "node ./node_modules/typescript-native/bin/tsc --noEmit",
+    "typecheck:tests": "node ./node_modules/typescript-native/bin/tsc -p tests/tsconfig.json --noEmit",
     "lint": "eslint src/**/*.ts",
     "docs": "rimraf docs && typedoc --options typedoc.json --readme none",
     "bump": "pnpm run precommit && pnpm version patch",
@@ -66,18 +94,20 @@
   "homepage": "https://github.com/tsdotnet/linq#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@rollup/plugin-terser": "^1.0.2",
     "@rollup/plugin-typescript": "^12.3.1",
     "@types/node": "^26.6.6",
-    "@vitest/coverage-v8": "^5.1.0",
+    "@vitest/coverage-v8": "^5.1.1",
     "cpy-cli": "^7.0.0",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "rimraf": "^6.1.4",
-    "rollup": "^4.67.5",
+    "rollup": "^4.68.7",
     "typedoc": "^0.28.20",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.5",
-    "vitest": "^5.1.0"
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "typescript-native": "npm:typescript@^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
   },
   "dependencies": {
     "@tsdotnet/common-interfaces": "^1.0.6",
@@ -87,7 +117,7 @@
     "@tsdotnet/linked-node-list": "^1.4.13",
     "@tsdotnet/memoize": "^1.2.5",
     "@tsdotnet/queue": "^1.3.2",
-    "tslib": "^2.8.1"
+    "tslib": "^2.9.1"
   },
   "pnpm": {
     "overrides": {
@@ -113,7 +143,13 @@
       "vite@>=7.0.0 <=7.3.4": ">=7.3.5",
       "brace-expansion@>=4.0.0 <5.0.9": ">=5.0.9",
       "vite@>=7.0.0 <=7.3.6": ">=7.3.7",
-      "minimatch@>=7.0.0 <11.0.1": ">=11.0.1"
+      "minimatch@>=7.0.0 <11.0.1": ">=11.0.1",
+      "typedoc>minimatch": "^10.2.5"
+    },
+    "auditConfig": {
+      "ignoreGhsas": [
+        "GHSA-g3hv-75wg-m249"
+      ]
     }
   }
 }

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./dist/esm",
+    "rootDir": "./src",
     "declaration": false,
     "sourceMap": true,
     "module": "esnext",

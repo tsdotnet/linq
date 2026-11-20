@@ -3,7 +3,8 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./dist/cjs",
-    "declaration": false,
+    "rootDir": "./src",
+    "declaration": true,
     "sourceMap": true,
     "module": "commonjs",
     "target": "es2018"
