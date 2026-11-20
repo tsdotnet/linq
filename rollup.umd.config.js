@@ -16,6 +16,7 @@ const umdOutput = {
   name: globalFor(pkg.name),
   extend: true,
   exports: 'named',
+  interop: 'auto', // default imports of @tsdotnet deps read .default (all carry __esModule); 2026-11-20 fix
   // Only map @tsdotnet/* ids: rollup also passes the first segment of `name` ('tsdotnet') through `globals`,
   // and mapping it gave global["tsdotnet.tsdotnet"] (broken <script> use; found by consumer-matrix M13).
   globals: id => (isTsdotnet(id) ? globalFor(id) : undefined),

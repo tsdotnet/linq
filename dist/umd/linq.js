@@ -4,6 +4,12 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.tsdotnet = global.tsdotnet || {}, global.tsdotnet.linq = global.tsdotnet.linq || {}), global.tsdotnet.memoize, global.tsdotnet.exceptions, global.tsdotnet.compare, global.tsdotnet.queue, global.tsdotnet.integer, global.tsdotnet.linkedNodeList));
 })(this, (function (exports, memoize, exceptions, compare, Queue, integer, linkedNodeList) { 'use strict';
 
+    function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
+
+    var memoize__default = /*#__PURE__*/_interopDefault(memoize);
+    var Queue__default = /*#__PURE__*/_interopDefault(Queue);
+    var integer__default = /*#__PURE__*/_interopDefault(integer);
+
     function merge(sequences) {
         if (!sequences)
             throw new exceptions.ArgumentNullException('sequences');
@@ -60,7 +66,7 @@
         return function (sequence) {
             return {
                 *[Symbol.iterator]() {
-                    const q = new Queue();
+                    const q = new Queue__default.default();
                     for (const e of sequence) {
                         q.enqueue(e);
                         if (q.count > size)
@@ -353,7 +359,7 @@
                         }
                         return;
                     }
-                    const q = new Queue();
+                    const q = new Queue__default.default();
                     for (const e of sequence) {
                         q.enqueue(e);
                         if (q.count > count)
@@ -432,7 +438,7 @@
                         }
                         return;
                     }
-                    const q = new Queue();
+                    const q = new Queue__default.default();
                     for (const e of sequence) {
                         q.enqueue(e);
                         if (q.count > count)
@@ -478,7 +484,7 @@
         descending: descending,
         distinct: distinct,
         exclude: exclude,
-        memoize: memoize,
+        memoize: memoize__default.default,
         ofType: ofType,
         onComplete: onComplete,
         onError: onError,
@@ -1091,7 +1097,7 @@
     }
 
     function elementAt(index) {
-        integer.assertZeroOrGreater(index);
+        integer__default.default.assertZeroOrGreater(index);
         return function (sequence) {
             if (!sequence)
                 throw new exceptions.ArgumentNullException('sequence');
@@ -1112,7 +1118,7 @@
     }
 
     function elementAtOrDefault(index, defaultValue) {
-        integer.assertZeroOrGreater(index);
+        integer__default.default.assertZeroOrGreater(index);
         return function (sequence) {
             if (!sequence)
                 return defaultValue;
