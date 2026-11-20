@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 260" role="img" aria-labelledby="t d">
+  <title id="t">@tsdotnet/linq</title>
+  <desc id="d">Lazy, composable queries over any JavaScript iterable, the way .NET LINQ works over enumerables. Items flow through where and select stages and only the survivors come out.</desc>
+  <style>
+    :root {
+      --bg1: #eef2f7; --bg2: #e1e7f0; --edge: #cdd6e2; --ink: #263040; --ink2: #3c4759; --mute: #6a778a;
+      --glass: #f7f9fc; --glassT: #fbfcfe; --glassS: #dfe5ee; --gline: #b9c4d3; --sh: #3e4d66; --sho: .22;
+      --a: #3178c6; --a2: #a3c3ea; --a3: #23599a; --at: #2a63ad; --v: #6a4fd0; --v2: #c5b8f0;
+      --tf: #cad9ee; --tt: #dae4f3; --ts: #b1c8e8; --te: #91b1df;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg1: #1b2434; --bg2: #222c40; --edge: #34425a; --ink: #d6dee9; --ink2: #b4bfcf; --mute: #8592a6;
+        --glass: #2b3850; --glassT: #34435e; --glassS: #222d42; --gline: #4b5b77; --sh: #05080f; --sho: .5;
+        --a: #6fa3e6; --a2: #a9c8f2; --a3: #4a7fc4; --at: #8fbaf0; --v: #a993f0; --v2: #5a4a99;
+        --tf: #395072; --tt: #30415e; --ts: #476590; --te: #5982b8;
+      }
+    }
+    .s1 { stop-color: var(--bg1); } .s2 { stop-color: var(--bg2); } .ga { stop-color: var(--a); } .gv { stop-color: var(--v); }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; fill: var(--ink); }
+    .tag1 { font-size: 40px; font-weight: 600; letter-spacing: -.2px; }
+    .tag2 { font-size: 30px; font-weight: 400; fill: var(--ink2); letter-spacing: -.2px; }
+    .acc { fill: var(--at); }
+    .org { font-size: 17px; font-weight: 600; fill: var(--mute); letter-spacing: 1.5px; }
+    .pk { font-size: 25px; font-weight: 650; fill: var(--at); letter-spacing: .2px; }
+    .lbl { font-size: 19px; font-weight: 600; fill: var(--ink); }
+    .small { font-size: 16px; fill: var(--mute); }
+    .mono { font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, Menlo, monospace; font-size: 19px; fill: var(--ink2); }
+    .mono, .monos { font-variant-ligatures: none; }
+    .monos { font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, Menlo, monospace; font-size: 16px; fill: var(--ink2); }
+    .mark { fill: #000; stroke: var(--edge); stroke-width: 6; } .mk { fill: #fff; } .mkl { fill: none; stroke: #fff; stroke-width: 36; stroke-linecap: round; }
+    .rule { stroke: var(--edge); stroke-width: 2; } .frame { stroke: var(--edge); stroke-width: 2; }
+    .gf { fill: var(--glass); fill-opacity: .6; stroke: var(--gline); stroke-width: 2; }
+    .gs { fill: var(--glassS); stroke: var(--gline); stroke-width: 2; }
+    .tf { fill: var(--tf); stroke: var(--te); stroke-width: 2; } .tt { fill: var(--tt); stroke: var(--te); stroke-width: 2; } .ts { fill: var(--ts); stroke: var(--te); stroke-width: 2; }
+    .sh { fill: var(--sh); fill-opacity: var(--sho); }
+    .dot { fill: var(--a); } .dot2 { fill: var(--a2); } .dotv { fill: var(--v); }
+    .wire { fill: none; stroke: var(--gline); stroke-width: 2.6; stroke-linecap: round; }
+    .wire.on { stroke: var(--a); stroke-width: 3; }
+    .dash { fill: none; stroke: var(--gline); stroke-width: 2.4; stroke-dasharray: 7 6; }
+    .ghost { opacity: .45; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="s1"/><stop offset="1" class="s2"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" class="ga" stop-opacity=".14"/><stop offset="1" class="ga" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="dot" d="M0 0L10 5L0 10z"/></marker>
+  </defs>
+  <rect x="1" y="1" width="1278" height="258" rx="16" fill="url(#bg)" class="frame"/>
+  <ellipse cx="1065" cy="130" rx="250" ry="140" fill="url(#glow)"/>
+  <g>
+    <!-- tsdotnet org logo (github.com/tsdotnet avatar), traced on its 460x460 grid -->
+    <g transform="translate(88 52) scale(0.15652)">
+      <rect class="mark" x="3" y="3" width="454" height="454" rx="100"/>
+      <g transform="translate(230 230) scale(.82) translate(-230 -230)">
+        <path class="mkl" d="M230 72V410M49 230H388"/>
+        <circle class="mk" cx="230" cy="72" r="50"/><circle class="mk" cx="230" cy="230" r="50"/><circle class="mk" cx="388" cy="230" r="50"/>
+      </g>
+    </g>
+    <text class="org" x="124" y="158" text-anchor="middle">TSDOTNET</text>
+    <text class="pk" x="124" y="190" text-anchor="middle">linq</text>
+    <path class="rule" d="M248 52V208"/>
+  </g>
+  <text class="tag1" x="274" y="98">LINQ for <tspan class="acc">iterables.</tspan></text>
+  <text class="tag2" x="275" y="146">Filter, map and resolve, evaluated lazily.</text>
+  <rect x="268" y="178" width="619" height="42" rx="10" class="gf"/>
+  <text class="mono" x="286" y="205"><tspan class="acc">linq</tspan>(orders).<tspan class="acc">where</tspan>(o =&gt; o.paid).<tspan class="acc">select</tspan>(o =&gt; o.id)</text>
+  <g>
+    <circle class="dot" cx="932" cy="78" r="8"/><circle class="dot2" cx="950" cy="104" r="8"/><circle class="dot" cx="932" cy="130" r="8"/><circle class="dot2" cx="950" cy="156" r="8"/><circle class="dot" cx="932" cy="182" r="8"/>
+    <path class="wire" d="M962 130H966"/>
+    <rect class="gs" x="968" y="100" width="92" height="60" rx="12"/><text class="lbl" x="1014" y="137" text-anchor="middle">where</text>
+    <path class="wire on" d="M1062 130H1092" marker-end="url(#arr)"/>
+    <rect class="gs" x="1096" y="100" width="92" height="60" rx="12"/><text class="lbl" x="1142" y="137" text-anchor="middle">select</text>
+    <path class="wire on" d="M1190 130H1212" marker-end="url(#arr)"/>
+    <rect class="dotv" x="1218" y="98" width="18" height="18" rx="4"/><rect class="dotv" x="1218" y="122" width="18" height="18" rx="4"/><rect class="dotv" x="1218" y="146" width="18" height="18" rx="4"/>
+  </g>
+</svg>

@@ -17,3 +17,4 @@ eslint.config.*
 vitest.config.*
 rollup.config.*
 rollup.umd.config.js
+/assets
