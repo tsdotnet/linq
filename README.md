@@ -1,4 +1,4 @@
-![@tsdotnet/linq: LINQ for iterables. Filter, map and resolve, evaluated lazily.](https://cdn.jsdelivr.net/gh/tsdotnet/linq@master/assets/banner.svg)
+<a href="https://tsdotnet.github.io/linq/"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/linq@master/assets/banner.svg" alt="@tsdotnet/linq: LINQ for iterables. Filter, map and resolve, evaluated lazily."></a>
 
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/linq.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/linq)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/linq/blob/master/LICENSE)
